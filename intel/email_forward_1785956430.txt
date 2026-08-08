@@ -1,0 +1,40 @@
+Subject: Tech Scan 2026-08-05 19:00 UTC — 39 trial / 3 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-08-05T19:00:30.957457+00:00
+
+TECH SCAN — 2026-08-05 19:00 UTC
+airborne scanner pulse · 140 finds · sectors agentic, automation, claude-code, llm, mcp, voice
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 39 TRIAL · 98 WATCH · 3 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN :Tandem – one session across Claude Code and Codex, no double spend — https://github.com/Bhavya6187/tandem
+↳ real tool (github.com) — worth a bounded look
+Show HN: PinFix – Click any UI element and edit its source with Claude Code — https://github.com/ForeverSc/pinfix
+↳ real tool (github.com) — worth a bounded look
+Economist Style Plugins for Claude Code — https://github.com/TAJD/economist-style-guide-plugin
+↳ real tool (plugin, github.com) — worth a bounded look
+Show HN: Agentic – Run Claude Code on different models with routing and budgets — https://github.com/MaorBril/agentic
+↳ real tool (github.com) — worth a bounded look
+Show HN :Tandem – one session across Claude Code and Codex, no double spend — https://github.com/Bhavya6187/tandem
+↳ real tool (github.com) — worth a bounded look
+Show HN: PinFix – Click any UI element and edit its source with Claude Code — https://github.com/ForeverSc/pinfix
+↳ real tool (github.com) — worth a bounded look
+Show HN: Dissecting the automation of a newspaper (Claude routine, GitHub Pages) — https://github.com/Lywald/zfrontpage/
+↳ real tool (github.com) — worth a bounded look
+Economist Style Plugins for Claude Code — https://github.com/TAJD/economist-style-guide-plugin
+↳ real tool (plugin, github.com) — worth a bounded look
+Show HN: Agentic – Run Claude Code on different models with routing and budgets — https://github.com/MaorBril/agentic
+↳ real tool (github.com) — worth a bounded look
+I asked Claude to reimplement Apple's LZRAVEN codec in C, conformance-tested — https://github.com/anat0m1a/liblzraven
+↳ real tool (github.com) — worth a bounded look
+Show HN: Wienerdog – memory and self-improving skills for Claude Code/Codex — https://github.com/wienerdog-ai/wienerdog/
+↳ real tool (skill, github.com) — worth a bounded look
+Show HN: CC Meter, a Windows Tray Gauge for Claude Code and Codex Limits — https://github.com/silverdolphin863/claude-code-meter
+↳ real tool (github.com, mit) — worth a bounded look
+👁 WATCH:Inspect Claude Code sessions with lnav — https://blog.disintegrator.dev/posts/lnav-claude-code/
+Claude Code helps me recover after surgery — https://plecho.poke-method.work/en
+Show HN: Claude MIDI Twister – An agent visualizer for a DJ MIDI controller — https://www.dylanfisher.com/clau
+Show HN: Shellphone, an MCP Extension to Link Claude Chat and Claude Code — https://www.npmjs.com/package/shel
+Show HN: What should the GUI for AI agents look like? — https://marbleos.com/demo
+Show HN: Ski – Voice Coding for Claude Code, Codex and More – On-Device – Free — https://heyski.io/
+Claude Code + OpenRouter: The Setup Guide That Actually Explains Things — https://dev.to/shreshthgoyal/claude-
+I measured where Claude Code actually spen

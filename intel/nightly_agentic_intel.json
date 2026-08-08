@@ -1,139 +1,153 @@
 [
   {
-    "title": "earendil-works/pi (81102 stars)",
+    "title": "umacloud/umadev (247 stars)",
     "source": "github",
-    "url": "https://github.com/earendil-works/pi",
-    "summary": "AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI",
-    "keywords_matched": [
-      "coding agent"
-    ],
-    "score": 81102,
-    "tier": "CRITICAL",
-    "discovered": "2026-07-31T01:06:23.907347-06:00"
-  },
-  {
-    "title": "Agent-Manager: A Tmux TUI for Running Claude Code, Codex and OpenCode",
-    "source": "hn/topstories",
-    "url": "https://github.com/YoanWai/agent-manager",
-    "summary": "HN score: 95, comments: 76",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 95,
-    "tier": "HIGH",
-    "discovered": "2026-07-31T01:04:37.510803-06:00"
-  },
-  {
-    "title": "Show HN: Claude-account \u2013 switch Claude Code accounts without logging in again",
-    "source": "hn/topstories",
-    "url": "https://github.com/hamzarehmandeveloper/claude-account",
-    "summary": "HN score: 49, comments: 24",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 49,
-    "tier": "HIGH",
-    "discovered": "2026-07-31T01:04:33.414598-06:00"
-  },
-  {
-    "title": "holgerleichsenring/agent-smith (23 stars)",
-    "source": "github",
-    "url": "https://github.com/holgerleichsenring/agent-smith",
-    "summary": "Self-hosted AI coding agent \u00b7 ticket \u2192 code \u2192 PR",
-    "keywords_matched": [
-      "coding agent",
-      "self-hosted"
-    ],
-    "score": 23,
-    "tier": "HIGH",
-    "discovered": "2026-07-31T01:06:12.641838-06:00"
-  },
-  {
-    "title": "jfrog/agent-belt (17 stars)",
-    "source": "github",
-    "url": "https://github.com/jfrog/agent-belt",
-    "summary": "Reproducible evaluation for AI coding agents. Multi-turn scenarios against Claude Code, Codex, Copilot, Cursor, Gemini CLI, Goose, OpenCode, or any custom agent you plug in; verify behavior with rule checks, workspace diffs, multi-judge LLM consensus; pin reliability with pass^k variance across tria",
+    "url": "https://github.com/umacloud/umadev",
+    "summary": "UmaDev: A coding agent that works like a real dev team, commanding the Claude Code / Codex / OpenCode you already use.",
     "keywords_matched": [
       "claude code",
       "coding agent"
+    ],
+    "score": 247,
+    "tier": "HIGH",
+    "discovered": "2026-08-07T01:02:53.900764-06:00"
+  },
+  {
+    "title": "Dicklesworthstone/remote_compilation_helper (56 stars)",
+    "source": "github",
+    "url": "https://github.com/Dicklesworthstone/remote_compilation_helper",
+    "summary": "Intercepts cargo/gcc builds from AI coding agents via hooks and transparently routes them to remote worker machines, returning artifacts as if compiled locally",
+    "keywords_matched": [
+      "coding agent"
+    ],
+    "score": 56,
+    "tier": "HIGH",
+    "discovered": "2026-08-07T01:03:02.287639-06:00"
+  },
+  {
+    "title": "miyago9267/pilotfish-codex (41 stars)",
+    "source": "github",
+    "url": "https://github.com/miyago9267/pilotfish-codex",
+    "summary": "pilotfish for Codex CLI \u2014 multi-model orchestration with GPT-5.6 tiering (luna/terra/sol). Adapted from @Nanako0129/pilotfish.",
+    "keywords_matched": [
+      "multi-model",
+      "codex cli"
+    ],
+    "score": 41,
+    "tier": "HIGH",
+    "discovered": "2026-08-07T01:02:59.521902-06:00"
+  },
+  {
+    "title": "Kewton/CommandMate (38 stars)",
+    "source": "github",
+    "url": "https://github.com/Kewton/CommandMate",
+    "summary": "Issue-driven AI development IDE for Claude Code and Codex CLI. Run multiple issues in parallel and keep work moving from desktop or mobile.",
+    "keywords_matched": [
+      "claude code",
+      "codex cli"
+    ],
+    "score": 38,
+    "tier": "HIGH",
+    "discovered": "2026-08-07T01:03:27.068201-06:00"
+  },
+  {
+    "title": "luisgamas/uxnan (26 stars)",
+    "source": "github",
+    "url": "https://github.com/luisgamas/uxnan",
+    "summary": "Uxnan (pronounced /u\u0283.nan/) is a suite of tools I built to solve a very specific problem I face as a developer: managing AI-powered coding agents from anywhere, without my hardware becoming a bottleneck.",
+    "keywords_matched": [
+      "coding agent"
+    ],
+    "score": 26,
+    "tier": "HIGH",
+    "discovered": "2026-08-07T01:02:53.900953-06:00"
+  },
+  {
+    "title": "kimik3codeAI/Kimi-K3-Code-Free-Desktop-AI (24 stars)",
+    "source": "github",
+    "url": "https://github.com/kimik3codeAI/Kimi-K3-Code-Free-Desktop-AI",
+    "summary": "Kimi K3 Code is a free desktop AI coding assistant from Moonshot AI with 2.8 trillion parameters and 1 million token context window. Terminal-based coding agent handles cross large repositories. Extended reasoning mode, multi-file analysis, autonomous agent workflows, parallel subagent spawning. Dow",
+    "keywords_matched": [
+      "coding agent",
+      "ai coding assistant"
+    ],
+    "score": 24,
+    "tier": "HIGH",
+    "discovered": "2026-08-07T01:03:21.538774-06:00"
+  },
+  {
+    "title": "An Agentic IDE That Builds Itself",
+    "source": "hn/topstories",
+    "url": "https://www.sawyerhood.com/blog/an-agentic-ide-that-builds-itself",
+    "summary": "HN score: 17, comments: 2",
+    "keywords_matched": [
+      "agentic ide"
     ],
     "score": 17,
     "tier": "HIGH",
-    "discovered": "2026-07-31T01:06:07.253872-06:00"
+    "discovered": "2026-08-07T01:01:13.947070-06:00"
   },
   {
-    "title": "kobiton/automate (12 stars)",
+    "title": "boggspa/TaskWraith (6 stars)",
     "source": "github",
-    "url": "https://github.com/kobiton/automate",
-    "summary": "AI coding assistant plugin for the Kobiton mobile testing platform. Works with Claude Code, Copilot CLI, Gemini CLI Extension, Cursor CLI and Codex CLI to manage devices, upload apps, run mobile automation, and view test results directly from your workspace.",
+    "url": "https://github.com/boggspa/TaskWraith",
+    "summary": "Local-first desktop control room for coding agents. Run Codex, Claude Code, Cursor, Grok, Mistral, Pi, and local models together \u2014 each with its own role, permission posture, and receipts. Multi-agent ensembles in one thread, diff review, on-device history. macOS, Windows, Linux.",
     "keywords_matched": [
       "claude code",
-      "codex cli",
-      "ai coding assistant"
-    ],
-    "score": 12,
-    "tier": "HIGH",
-    "discovered": "2026-07-31T01:06:32.405811-06:00"
-  },
-  {
-    "title": "noogram/cosmon (6 stars)",
-    "source": "github",
-    "url": "https://github.com/noogram/cosmon",
-    "summary": "Stateless CLI giving AI coding agents persistent identity, a typed lifecycle, and crash-recovery. Self-hostable, AGPL-3.0.",
-    "keywords_matched": [
       "coding agent"
     ],
     "score": 6,
     "tier": "HIGH",
-    "discovered": "2026-07-31T01:06:23.907229-06:00"
+    "discovered": "2026-08-07T01:03:35.798962-06:00"
   },
   {
-    "title": "binary16labs/prime-silo (5 stars)",
+    "title": "PaulRBerg/dot-agents (5 stars)",
     "source": "github",
-    "url": "https://github.com/binary16labs/prime-silo",
-    "summary": "The canonical Sovereign AI Agent OS & runtime harness. Built for Model Context Protocol (MCP), Agent-to-Agent (A2A) swarms, and zero-token tax execution.",
+    "url": "https://github.com/PaulRBerg/dot-agents",
+    "summary": "Central repository for AI agent skills (Claude Code, Codex CLI, etc.)",
     "keywords_matched": [
-      "agent-to-agent",
-      "model context protocol"
+      "claude code",
+      "codex cli",
+      "kills"
     ],
     "score": 5,
     "tier": "HIGH",
-    "discovered": "2026-07-31T01:06:15.512541-06:00"
+    "discovered": "2026-08-07T01:02:53.900818-06:00"
   },
   {
-    "title": "Show HN: Bullshit Detector \u2013 agent skills that fact-check videos and articles",
-    "source": "hn/beststories",
-    "url": "https://github.com/SerhiiKorniienko/bullshit-detector",
-    "summary": "HN score: 62, comments: 68",
-    "keywords_matched": [
-      "kills"
-    ],
-    "score": 62,
-    "tier": "WATCH",
-    "discovered": "2026-07-31T01:06:02.993449-06:00"
-  },
-  {
-    "title": "Claude Opus 5 jailbreak with a 3-word prompt",
+    "title": "Mythos Attempted to Social Engineer Open Source Maintainer to Merge Malware",
     "source": "hn/topstories",
-    "url": "https://twitter.com/i/status/2082566186785480708",
-    "summary": "HN score: 13, comments: 2",
+    "url": "https://socket.dev/blog/ai-agent-open-source-malware",
+    "summary": "HN score: 25, comments: 10",
     "keywords_matched": [
-      "claude opus"
+      "open source"
     ],
-    "score": 13,
+    "score": 25,
     "tier": "WATCH",
-    "discovered": "2026-07-31T01:04:23.075580-06:00"
+    "discovered": "2026-08-07T01:00:58.585883-06:00"
   },
   {
-    "title": "Quoting Bruce Schneier",
-    "source": "rss/Simon Willison",
-    "url": "https://simonwillison.net/2026/Jul/30/bruce-schneier/#atom-everything",
-    "summary": "<blockquote cite=\"https://www.schneier.com/blog/archives/2026/07/should-you-use-ai-for-a-task-heres-a-simple-way-to-decide.html\"><p>The writing assignments I give my students are gym tasks, not work tasks. I ask them to write policy memos not because the world needs more policy memos. I assign them ",
+    "title": "gunbun33/mcp-servers (7 stars)",
+    "source": "github",
+    "url": "https://github.com/gunbun33/mcp-servers",
+    "summary": "Production-ready Model Context Protocol (MCP) servers in Python, Go, and Rust for VS Code integration. Enables AI systems to interact with tools via standardized interfaces.",
     "keywords_matched": [
-      "kills"
+      "model context protocol"
+    ],
+    "score": 7,
+    "tier": "WATCH",
+    "discovered": "2026-08-07T01:03:07.918493-06:00"
+  },
+  {
+    "title": "OpenAI is giving ChatGPT free users unlimited text chats",
+    "source": "rss/The Verge AI",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/976239/openai-chatgpt-free-go-text-chats",
+    "summary": "OpenAI is making a big change for ChatGPT users on its free and Go tiers: Starting next week, users on those tiers will be able to have unlimited text chats with the chatbot, according to OpenAI. Right now, you may run into rate limits if you do too many text chats on those tiers, but [&#8230;]",
+    "keywords_matched": [
+      "unlimited"
     ],
     "score": 5,
     "tier": "WATCH",
-    "discovered": "2026-07-31T01:07:00.878287-06:00"
+    "discovered": "2026-08-07T01:03:58.115243-06:00"
   }
 ]

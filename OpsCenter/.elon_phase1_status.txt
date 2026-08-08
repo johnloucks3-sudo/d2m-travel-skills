@@ -1,0 +1,23 @@
+[2026-08-05 22:11 MT] ELON Phase 1: TESS Keepalive Auto-Heal Fix
+
+ROOT CAUSE: Playwright Chromium executable missing at ~/.cache/ms-playwright/chromium_headless_shell-*/chrome-head
+Pattern: Every 90 min timer fires → script tries Playwright login → binary not found → exit 1 → systemd restart loop
+
+PHASE 1 ACTIONS (Autonomous — In Progress):
+✅ Diagnosis complete — logs confirm "Executable doesn't exist" (2026-08-05 16:00, 16:00, 22:10)
+✅ ELON Proposal written: /home/john/Thunderbird/OpsCenter/elon_proposals/PROPOSAL-20260805-thunderbird-generic-remediate@tess-token-keepalive.md
+✅ Code diff applied: Pre-flight Chromium check added to tess_token_keepalive.py (lines 98-106)
+🔄 Playwright install: Running (python3 -m playwright install chromium)
+⏳ Verification: After binary install, test script manually & monitor logs 24h for no "Executable doesn't exist"
+
+PHASE 2 (Queued for Commander):
+- Refactor credential login to use direct TESS API instead of Playwright
+- Eliminates browser automation dependency entirely
+- Estimated 2 hours integration + testing
+
+EXPECTED OUTCOME (Phase 1 complete):
+- No auto-heals for 7+ consecutive days
+- Service exits cleanly every 90 min
+- If manual token refresh needed, Commander paged once (dedup gate)
+
+Next: Verify Playwright install complete, run `python3 scripts/tess_token_keepalive.py` to confirm zero errors.

@@ -1,0 +1,5 @@
+Card filed to `OpsCenter/meetroom/RT-CI/cc_hale_input.md`.
+
+BLUF: AG's "missing paradigm" isn't missing — push-based `OnFailure=` alerting is already live wing-wide (verified: global drop-in since 2026-07-09, canary-tested, none of the 53 CI units excluded). Don't build new infra — wire CI to what exists. The real gap is CI probe scripts don't reliably fail their own systemd unit on genuine breakage, so push never fires for CI today.
+
+Judgment: concur AG's 3 shifts but as "already-found," not "to-build." Synthesis sequences exit-code contract fix → wire existing OnFailure → *then* OC's tiering/pruning/intervals (safe once push carries urgency instead of poll frequency). PC-3 (DULL fix) and PC-4 (owner map, OC's 5-bucket version) ship as written. Added architect risks neither card raised: the global OnFailure drop-in is an unstress-tested single point of failure at 53-unit scale, `self_observability.py` may now duplicate `generic_remediate.py`, and the real ROI metric is OC-hours de-bottlenecked, not timer count.

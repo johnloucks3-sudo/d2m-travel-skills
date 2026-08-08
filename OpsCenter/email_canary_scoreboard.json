@@ -5,7 +5,7 @@
     "n8n_python",
     "lindy_ai"
   ],
-  "emails_processed": 357,
+  "emails_processed": 364,
   "entries": [
     {
       "category": "spam",
@@ -3485,6 +3485,69 @@
       "from": "jenn@projectexpedition.com",
       "subject": "The best part of Japan isn't the flight",
       "ts": "2026-07-30T18:39:10.501688+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19fd62f6aa85cfae",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE184714112: Private Sunset Tour of Cape Sounion, Temple of Poseidon and Athens Riviera",
+      "ts": "2026-08-06T08:35:12.900282+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19fd62af72edf0a4",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE184712212: Transfer: Stockholm Arlanda Airport (ARN) to Hotel At Six",
+      "ts": "2026-08-06T08:35:13.168453+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19fd62af5bab0483",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE184711812: Transfer: Stockholm Arlanda Airport (ARN) to Hotel At Six",
+      "ts": "2026-08-06T08:35:13.471724+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19fd62af29e787e7",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE184710612: Transfer: Stockholm Arlanda Airport (ARN) to Hotel At Six",
+      "ts": "2026-08-06T08:35:13.733035+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19fd78125c34962a",
+      "from": "jenn@projectexpedition.com",
+      "subject": "Six ways to earn you might be missing",
+      "ts": "2026-08-06T14:50:53.074926+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19fdbfae17f76626",
+      "from": "aidisruption@substack.com",
+      "subject": "ChatGPT 5.6 Free Version Is Here!",
+      "ts": "2026-08-07T12:04:42.867608+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19fdd5347a958dca",
+      "from": "missy.furlow@gmail.com",
+      "subject": "Re: Upcoming payments due for Stockholm",
+      "ts": "2026-08-07T23:20:04.677300+00:00",
       "system": "n8n_python"
     }
   ]

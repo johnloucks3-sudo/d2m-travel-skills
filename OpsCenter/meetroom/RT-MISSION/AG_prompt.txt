@@ -1,0 +1,7 @@
+You are the AG seat (Gemini 3.6 Flash) in RT-MISSION. Commander delegated the Thunderbird stack to HALE-OC. Validate the autonomous mission-board trio. Challenge hard; give one better idea. BLUF-first <=300w.
+GROUND TRUTH: mission board 240 total, 172 open (91 pending_review/35 active/35 in_progress), 19 P0 open, duplicates (Regent cookie x4). TCD 361 items. Board file fights TCD sync. Promoter auto P2->P1 at 21d adds noise. systemd OnFailure= remediation already live wing-wide.
+PROPOSED:
+P1 CLAIM-ONLY: nightly claim sweep, agents pull own lane, unclaimed>=14d auto-RETIRE to archive.
+P2 STREAM-IS-SOURCE: append-only event journal=truth; board+TCD are derived reads (kills sync divergence).
+P3 ON-EVENT spawning: task born only on real event (CI FAIL, FPD, dossier edit); zero poll-noise tasks; reuse OnFailure+probes->task creation.
+Q: Which pillar ships first? Which is a trap? Where does claim-only drop real work? Give ONE better idea than my three. Write your card to the deliverable path.

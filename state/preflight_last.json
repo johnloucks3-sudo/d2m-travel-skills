@@ -1,21 +1,21 @@
 {
-  "timestamp": "2026-07-30T13:14:03.668204",
+  "timestamp": "2026-08-07T14:12:46.747790",
   "overall": "RED",
   "checks": [
     {
       "name": "MCP Server",
       "status": "GREEN",
-      "message": "Running (PID 2676)"
+      "message": "Running (PID 2902)"
     },
     {
       "name": "Scheduler",
       "status": "GREEN",
-      "message": "Running (PID 1979)"
+      "message": "Running (PID 1902)"
     },
     {
       "name": "Telegram C2",
       "status": "GREEN",
-      "message": "Running (PID 2024)"
+      "message": "Running (PID 92187)"
     },
     {
       "name": "Gmail Token",
@@ -30,7 +30,7 @@
     {
       "name": "Disk Space",
       "status": "GREEN",
-      "message": "728.0 GB free"
+      "message": "630.4 GB free"
     },
     {
       "name": "TELEGRAM_BOT_TOKEN",
@@ -55,7 +55,7 @@
     {
       "name": "Gemini API",
       "status": "RED",
-      "message": "Failed: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Your project has exceeded its monthly spending cap. Please go to AI Studio at https://ai.studio/spend to manage your project spend cap. Learn more at https://ai.google.dev/gemini-api/docs/billing#project-spend-caps. ', 'status': 'RESOURCE_EXHAUSTED'}}"
+      "message": "Failed: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Gemini API has not been used in project 739340749717 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=739340749717 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.', 'status': 'PERMISSION_DENIED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'consumer': 'projects/739340749717', 'containerInfo': '739340749717', 'service': 'generativelanguage.googleapis.com', 'serviceTitle': 'Gemini API', 'activationUrl': 'https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=739340749717'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'Gemini API has not been used in project 739340749717 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=739340749717 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=739340749717'}]}]}}"
     },
     {
       "name": "MCP Port 8765",

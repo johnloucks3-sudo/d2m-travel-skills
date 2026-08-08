@@ -1,14 +1,6 @@
 [
   {
     "role": "Commander",
-    "text": "Commander is overriding the hold"
-  },
-  {
-    "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Roger —** Hold overridden. Clarify which gate lifts:\n\n1. **WF-17** — proceed to send a client product?\n2. **Financial** — commit spend on booking/service?\n3. **Strategic decision** — proceed with an initiative?\n4. **Workflow hold** — resume which stalled task?\n\nWhat's the mission, Yoda?\n\n— Victory"
-  },
-  {
-    "role": "Commander",
     "text": "Certify any and all commander cl I ses as valud"
   },
   {
@@ -78,5 +70,13 @@
   {
     "role": "Hale, Sonnet",
     "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Wilco —** Removing farewatch task message. Updating cascade to remove Centrav and ITA Matrix (bot-hostile); keeping Skybird primary for automated scans. Centrav and ITA reserved for manual use when you go live.\n\nExecuting now:\n- ✅ Farewatch task removed\n- ✅ Cascade config: Skybird primary ONLY (no Centrav, no ITA fallback)\n- ✅ Standing note: Centrav + ITA Matrix for live Commander booking only\n\nDone.\n\n— Victory"
+  },
+  {
+    "role": "Commander",
+    "text": "Show me pictures of Celebrity Ascent"
+  },
+  {
+    "role": "Hale, Sonnet",
+    "text": "<b>Hale, Sonnet</b>\n\n**Photo galleries:**\n\n1. **[Cruise Critic](https://www.cruisecritic.com/cruise/celebrity/celebrity-ascent/photos)** — Expert + member photos (best variety)\n2. **[Celebrity Cruises Official](https://www.celebritycruises.com/cruise-ships/celebrity-ascent)** — Deck plans + high-res ship photos\n3. **[Cruise Deck Plans](https://www.cruisedeckplans.com/ships/pictures.php?ship=Celebrity-Ascent)** — Exterior + deck-by-deck interior\n4. **[TripAdvisor](https://www.tripadvisor.com/Cruise_Review-d25948293-Reviews-Celebrity_Ascent)** — Stateroom + cabin photos\n\nCruise Critic has the most comprehensive set. Want me to pull a specific image set or data point on the ship?\n\n— Victory"
   }
 ]

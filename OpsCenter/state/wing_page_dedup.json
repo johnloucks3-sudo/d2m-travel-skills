@@ -250,5 +250,45 @@
   "c6ca337da81fc8f2": {
     "problem": "STAFF SUMMARY SHEET \u2014 INFO (Market Intel)\nSUBJECT: Daily Market/Competitor Intel Synthesis\nOPR: Dembe (A2) | STAFFED BY: Dembe (A2) | ACTION: INFO\n\nPURPOSE\nDaily market and competitor intelligence syn",
     "sent_at": 1785942010.0654263
+  },
+  "4ceb3024cc15a4a4": {
+    "problem": "Integrity check DISCREPANCY \u2014 ad hoc claim: l, i, g, h, t, n, i, n, g, -, t, 3, -, d, r, i, v, e, -, r, e, o, r, g",
+    "sent_at": 1785947064.4216266
+  },
+  "acaf41fd97ae154b": {
+    "problem": "Integrity check DISCREPANCY \u2014 lightning-t3-drive-reorg: Root loose file count is exactly 82, evernote_backup.log now lives in logs/, itinerary_generation.log now lives in logs/",
+    "sent_at": 1785947189.8029497
+  },
+  "bdfeedf7b62bdcf9": {
+    "problem": "\ud83d\udce7 d2m inbound (financial): \"Hold without Payment Reminder - PE184712212: Transfer: Stockholm Arlanda Airport (ARN) to Hotel At Six\"",
+    "sent_at": 1786004808.4817104
+  },
+  "97d54941d3118a83": {
+    "problem": "\ud83d\udce7 d2m inbound (financial): \"Hold without Payment Reminder - PE184711812: Transfer: Stockholm Arlanda Airport (ARN) to Hotel At Six\"",
+    "sent_at": 1786004808.614818
+  },
+  "65717cf396354d33": {
+    "problem": "\ud83d\udce7 d2m inbound (financial): \"Hold without Payment Reminder - PE184710612: Transfer: Stockholm Arlanda Airport (ARN) to Hotel At Six\"",
+    "sent_at": 1786004808.7745724
+  },
+  "64c9b91ceec1f173": {
+    "problem": "\ud83d\udce7 d2m inbound (financial): \"Hold without Payment Reminder - PE184714112: Private Sunset Tour of Cape Sounion, Temple of Poseidon and Athens Riviera\"",
+    "sent_at": 1786005108.5539563
+  },
+  "4d0469428fc76754": {
+    "problem": "STAFF SUMMARY SHEET \u2014 INFO (Market Intel)\nSUBJECT: Daily Market/Competitor Intel Synthesis\nOPR: Dembe (A2) | STAFFED BY: Dembe (A2) | ACTION: INFO\n\nPURPOSE\nDaily market and competitor intelligence syn",
+    "sent_at": 1786028412.2855492
+  },
+  "b6d771eaf3fb2d24": {
+    "problem": "STAFF SUMMARY SHEET \u2014 INFO (Market Intel)\nSUBJECT: Daily Market/Competitor Intel Synthesis\nOPR: Dembe (A2) | STAFFED BY: Dembe (A2) | ACTION: INFO\n\nPURPOSE\nDaily market and competitor intelligence syn",
+    "sent_at": 1786114814.8478186
+  },
+  "8b725b290a0823f9": {
+    "problem": "\ud83d\udce7 d2m inbound (financial): \"Upcoming payments due for Stockholm\"",
+    "sent_at": 1786124826.5651515
+  },
+  "ecfe90a3c59f0890": {
+    "problem": "\ud83d\udce7 d2m inbound (financial): \"Re: Upcoming payments due for Stockholm\"",
+    "sent_at": 1786144626.0978386
   }
 }

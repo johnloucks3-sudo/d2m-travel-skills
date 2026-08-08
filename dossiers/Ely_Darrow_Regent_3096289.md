@@ -114,6 +114,9 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5", "1.1"]
 > "In regards to insurance I have looked at the Premier $15k annual from Allianz… however I must be mistaken as the quote was for approximately $450 for the both of us… does not sound right."
 - **ACTION:** Review Allianz Premier $15K annual — $450 quote for two seems too low. Verify pricing and provide correct quote. Al needs insurance decision before Apr 1.
 
+**Aug 07 — Al Ely** (Re: Re: Upcoming payments due for Stockholm)
+> 2026-08-07 17:54 | Al Ely (al.ely58@gmail.com) requested payment hold on Project Expedition transfer (PE184711812, due Aug 16, ~cost TBD) and At Six Stockholm own reservation (due soon). Reason: "Amy and I have decisions to make regarding the entire cruise." Al will contact early next week with final decision. **STATUS: PAYMENT HOLD IN EFFECT—no charges to card ending 4667 w/o explicit re-confirmation.** Suggested follow-up: Monday Aug 11 warm check-in to understand concerns (logistics/timing/health/financial) and clarify booking intent. Voyage departs Aug 29 (22 days); cancellation window narrowing.
+
 ---
 
 ---
@@ -255,3 +258,13 @@ All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursion
 2. deferred payment plan confirmed
 
 <!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->
+
+
+### OPEN ACTION ITEMS
+- [ ] PAYMENT HOLD: Do not charge card ending 4667 for Project Expedition transfer (PE184711812, due Aug 16) or At Six Stockholm hotel reservation without explicit re-confirmation (auto-intel Aug 07)
+
+- [ ] FOLLOW-UP CALL: Monday Aug 11, before 10 AM—confirm status and address any concerns (auto-intel Aug 07)
+
+- [ ] DOSSIER UPDATE: Log hold request and follow-up timeline; flag for daily standup through decision date (auto-intel Aug 07)
+
+- [ ] MISSION BOARD P1: Ely/Darrow cruise decision hold—suspense Monday Aug 11 0800 MT for warm check-in call; clarify booking intent (cancel/postpone/proceed) (auto-intel Aug 07)

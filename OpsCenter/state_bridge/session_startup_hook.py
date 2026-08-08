@@ -110,6 +110,13 @@ def main() -> int:
         sys.stdout.write(text)
         if not text.endswith("\n"):
             sys.stdout.write("\n")
+        # Print Unified Multi-Engine Limit Meter
+        try:
+            from OpsCenter.unified_limit_meter import evaluate_unified_meter
+            meter_output = evaluate_unified_meter()
+            sys.stdout.write("\n" + meter_output + "\n")
+        except Exception as _e:
+            sys.stderr.write(f"[unified_limit_meter] warn: {_e}\n")
         return 0
     except Exception as exc:  # noqa: BLE001 — must never block session start
         sys.stderr.write(f"[state_bridge] hook error (continuing): {exc}\n")

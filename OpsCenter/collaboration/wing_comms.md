@@ -33663,3 +33663,936 @@ Token health issue: Token expiring in 12 min (CRITICAL)
 ## METRONOME NUDGE — 2026-08-05 15:00 UTC
 [HALE-ROUTE] LIFECYCLE WINDOWS — 2026-08-05 09:00 MT
 • **McLeod McGlasson** (Discovery Princess) T+220d → `arc5/a` — Dining Preferences — task A2 research dining options + A8 recommend | Route: a2 → a8 → a3 → exec [client-facing] [cos-review]
+
+## TP ALERT — 2026-08-05 — AUTO-GENERATED 12:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 | Lead: Hale + A9
+- 🟠 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 | Lead: A2 Dembe
+- 🟠 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 | Lead: Hale + A9
+- 🟠 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 | Lead: Hale + A9
+- 🟠 **TP 4.3** [McLeod McGlasson] — Payment Goal
+  Deadline: 2026-07-21 | Lead: Hale + A9
+- 🟠 **TP 4.4** [McLeod McGlasson] — Final Payment Due
+  Deadline: 2026-07-22 | Lead: A9 + Hale
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 2.2** [John & Susan Loucks] — Monthly Validation (rolling)
+  Deadline: 2026-08-08 (T-3d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 3.1** [Grandeur Scandinavia Group] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-3d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 3.1** [Ely] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-3d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 3.1** [Furlow] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-3d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 4.5** [John & Susan Loucks] — Payment Confirmation
+  Deadline: 2026-08-08 (T-3d) | Lead: A9
+  Task: A9 — begin work
+- 🟡 **TP 3.1** [Nichols] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-3d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-08-15 (T-10d) | Lead: A2 Dembe + A6 Luna
+  Task: A2 Dembe + A6 Luna — begin work
+- 🟡 **TP 2.1** [Kuklinski Group — Viking Mars Panama Canal] — Excursion Research & Recs
+  Deadline: 2026-08-19 (T-14d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.1** [Kuklinski] — Excursion Research & Recs
+  Deadline: 2026-08-19 (T-14d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.1** [Morton] — Excursion Research & Recs
+  Deadline: 2026-08-19 (T-14d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 3.1** [John & Susan Loucks] — Pre-Voyage Brief
+  Deadline: 2026-08-17 (T-12d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.2** [Grandeur Scandinavia Group] — Final Confirmation
+  Deadline: 2026-08-22 (T-17d) | Lead: Hale
+- 🔵 **TP 3.2** [Ely] — Final Confirmation
+  Deadline: 2026-08-22 (T-17d) | Lead: Hale
+- 🔵 **TP 3.2** [Furlow] — Final Confirmation
+  Deadline: 2026-08-22 (T-17d) | Lead: Hale
+- 🔵 **TP 3.2** [Nichols] — Final Confirmation
+  Deadline: 2026-08-22 (T-17d) | Lead: Hale
+- 🔵 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-09-14 (T-40d) | Lead: A2 Dembe + A5 Viper
+- 🔵 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-09-14 (T-40d) | Lead: A2 Dembe
+- 🔵 **TP 2.3** [Kuklinski Group — Viking Mars Panama Canal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-09-18 (T-44d) | Lead: A2 Dembe
+- 🔵 **TP 2.3** [Kuklinski] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-09-18 (T-44d) | Lead: A2 Dembe
+- 🔵 **TP 2.3** [Morton] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-09-18 (T-44d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 4.2** [John & Susan Loucks] — Payment Reminder #2
+  Deadline: 2026-07-25 | Lead: Hale + A9
+- 🔴 **TP 4.5** [McLeod McGlasson] — Payment Confirmation
+  Deadline: 2026-07-29 | Lead: A9
+- 🔴 **TP 2.2** [Grandeur Scandinavia Group] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 | Lead: Hale
+- 🔴 **TP 2.2** [Ely] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 | Lead: Hale
+- 🔴 **TP 2.2** [Furlow] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 | Lead: Hale
+- 🔴 **TP 2.2** [Nichols] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 | Lead: Hale
+- 🔴 **TP 4.3** [John & Susan Loucks] — Payment Goal
+  Deadline: 2026-07-31 | Lead: Hale + A9
+- 🔴 **TP 4.4** [John & Susan Loucks] — Final Payment Due
+  Deadline: 2026-08-01 | Lead: A9 + Hale
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-05 14:30:27
+Token health issue: Token expiring in 3 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-05 14:45:27
+Token health issue: Token expired 11 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-05 15:00:28
+Token health issue: Token expired 26 min ago
+
+### AUTO-MONITOR 2026-08-05 22:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24387s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-05 22:11 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (24987s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-05 22:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25587s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-05 22:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26188s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-05 22:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26790s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-05 22:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27391s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-05 23:00:55
+Token health issue: Token expiring in 13 min (CRITICAL)
+
+### AUTO-MONITOR 2026-08-05 23:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27991s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-05 23:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28591s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-05 23:15:56
+Token health issue: Token expired 1 min ago
+
+### AUTO-MONITOR 2026-08-05 23:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (29194s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-05 23:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (241s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-05 23:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (842s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-05 23:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1444s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 00:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2045s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 00:11 MT
+SESSION=IDLE | TOKEN=FRESH (2645s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 00:21 MT
+SESSION=IDLE | TOKEN=FRESH (3247s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 00:31 MT
+SESSION=IDLE | TOKEN=STALE (3848s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 00:41 MT
+SESSION=IDLE | TOKEN=STALE (4448s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 00:51 MT
+SESSION=IDLE | TOKEN=STALE (5050s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 01:01 MT
+SESSION=IDLE | TOKEN=STALE (5651s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 01:11 MT
+SESSION=IDLE | TOKEN=STALE (6254s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 01:21 MT
+SESSION=IDLE | TOKEN=STALE (6854s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 01:31 MT
+SESSION=IDLE | TOKEN=STALE (7456s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 01:41 MT
+SESSION=IDLE | TOKEN=STALE (8056s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 01:51 MT
+SESSION=IDLE | TOKEN=STALE (8658s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 02:01 MT
+SESSION=IDLE | TOKEN=STALE (9258s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 02:11 MT
+SESSION=IDLE | TOKEN=STALE (9860s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 02:21 MT
+SESSION=IDLE | TOKEN=STALE (10460s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 02:31 MT
+SESSION=IDLE | TOKEN=STALE (11061s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 02:41 MT
+SESSION=IDLE | TOKEN=STALE (11661s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 02:51 MT
+SESSION=IDLE | TOKEN=STALE (12264s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 03:01 MT
+SESSION=IDLE | TOKEN=STALE (12865s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 03:11 MT
+SESSION=IDLE | TOKEN=STALE (13466s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 03:21 MT
+SESSION=IDLE | TOKEN=STALE (14067s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 03:31 MT
+SESSION=IDLE | TOKEN=STALE (14668s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 03:41 MT
+SESSION=IDLE | TOKEN=STALE (15268s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 03:51 MT
+SESSION=IDLE | TOKEN=STALE (15871s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 04:01 MT
+SESSION=IDLE | TOKEN=STALE (16471s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 04:11 MT
+SESSION=IDLE | TOKEN=STALE (17073s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 04:21 MT
+SESSION=IDLE | TOKEN=STALE (17673s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 04:31 MT
+SESSION=IDLE | TOKEN=STALE (18275s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 04:41 MT
+SESSION=IDLE | TOKEN=STALE (18875s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 04:51 MT
+SESSION=IDLE | TOKEN=STALE (19477s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 05:01 MT
+SESSION=IDLE | TOKEN=STALE (20077s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 05:11 MT
+SESSION=IDLE | TOKEN=STALE (20678s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 05:21 MT
+SESSION=IDLE | TOKEN=STALE (21278s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 05:31 MT
+SESSION=IDLE | TOKEN=STALE (21879s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 05:41 MT
+SESSION=IDLE | TOKEN=STALE (22479s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 05:52 MT
+SESSION=IDLE | TOKEN=STALE (23083s old) | INBOX_PENDING=1086 | ACTIVE_TASKS=58 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-06 07:16:29
+Token health issue: Token expiring in 10 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-06 15:20:11
+Token health issue: Token expiring in 7 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-06 15:32:12
+Token health issue: Token expired 4 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-06 15:47:12
+Token health issue: Token expired 19 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-06 16:05:03
+Token health issue: Token expired 37 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-06 16:23:33
+Token health issue: Token expired 52 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-06 16:33:17
+Token health issue: Token expired 66 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-06 16:48:17
+Token health issue: Token expired 81 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-06 16:56:54
+Token health issue: Token expired 89 min ago
+
+### AUTO-MONITOR 2026-08-06 22:04 MT
+SESSION=IDLE | TOKEN=STALE (18431s old) | INBOX_PENDING=1102 | ACTIVE_TASKS=67 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 22:14 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (19032s old) | INBOX_PENDING=1102 | ACTIVE_TASKS=67 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 22:24 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19631s old) | INBOX_PENDING=1104 | ACTIVE_TASKS=68 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 22:34 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20231s old) | INBOX_PENDING=1104 | ACTIVE_TASKS=68 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 22:44 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20832s old) | INBOX_PENDING=1105 | ACTIVE_TASKS=68 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 22:54 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (21431s old) | INBOX_PENDING=1105 | ACTIVE_TASKS=68 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 23:04 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22031s old) | INBOX_PENDING=1105 | ACTIVE_TASKS=68 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 23:14 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22631s old) | INBOX_PENDING=1106 | ACTIVE_TASKS=68 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 23:24 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23231s old) | INBOX_PENDING=1106 | ACTIVE_TASKS=68 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 23:34 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23831s old) | INBOX_PENDING=1106 | ACTIVE_TASKS=68 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 23:44 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24431s old) | INBOX_PENDING=1106 | ACTIVE_TASKS=68 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-06 23:54 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25031s old) | INBOX_PENDING=1106 | ACTIVE_TASKS=68 | QDRANT=UP
+
+## TP ALERT — 2026-08-07 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 | Lead: A2 Dembe
+- 🟠 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 | Lead: Hale + A9
+- 🟠 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 | Lead: Hale + A9
+- 🟠 **TP 4.3** [McLeod McGlasson] — Payment Goal
+  Deadline: 2026-07-21 | Lead: Hale + A9
+- 🟠 **TP 4.4** [McLeod McGlasson] — Final Payment Due
+  Deadline: 2026-07-22 | Lead: A9 + Hale
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 2.2** [John & Susan Loucks] — Monthly Validation (rolling)
+  Deadline: 2026-08-08 (T-1d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 3.1** [Grandeur Scandinavia Group] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-1d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 3.1** [Ely] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-1d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 3.1** [Furlow] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-1d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 4.5** [John & Susan Loucks] — Payment Confirmation
+  Deadline: 2026-08-08 (T-1d) | Lead: A9
+  Task: A9 — begin work
+- 🟡 **TP 3.1** [Nichols] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-1d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-08-15 (T-8d) | Lead: A2 Dembe + A6 Luna
+  Task: A2 Dembe + A6 Luna — begin work
+- 🟡 **TP 2.1** [Kuklinski Group — Viking Mars Panama Canal] — Excursion Research & Recs
+  Deadline: 2026-08-19 (T-12d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.1** [Kuklinski] — Excursion Research & Recs
+  Deadline: 2026-08-19 (T-12d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.1** [Morton] — Excursion Research & Recs
+  Deadline: 2026-08-19 (T-12d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.1** [McLeod McGlasson] — Excursion Research & Recs
+  Deadline: 2026-08-21 (T-14d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 4.6** [McLeod McGlasson] — Apply FCC / Credits
+  Deadline: 2026-08-21 (T-14d) | Lead: A9
+  Task: A9 — begin work
+- 🟡 **TP 2.1** [McLeod McGlasson] — Excursion Research & Recs
+  Deadline: 2026-08-21 (T-14d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 3.1** [John & Susan Loucks] — Pre-Voyage Brief
+  Deadline: 2026-08-17 (T-10d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.2** [Grandeur Scandinavia Group] — Final Confirmation
+  Deadline: 2026-08-22 (T-15d) | Lead: Hale
+- 🔵 **TP 3.2** [Ely] — Final Confirmation
+  Deadline: 2026-08-22 (T-15d) | Lead: Hale
+- 🔵 **TP 3.2** [Furlow] — Final Confirmation
+  Deadline: 2026-08-22 (T-15d) | Lead: Hale
+- 🔵 **TP 3.2** [Nichols] — Final Confirmation
+  Deadline: 2026-08-22 (T-15d) | Lead: Hale
+- 🔵 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-09-14 (T-38d) | Lead: A2 Dembe + A5 Viper
+- 🔵 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-09-14 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.3** [Kuklinski Group — Viking Mars Panama Canal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-09-18 (T-42d) | Lead: A2 Dembe
+- 🔵 **TP 2.3** [Kuklinski] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-09-18 (T-42d) | Lead: A2 Dembe
+- 🔵 **TP 2.3** [Morton] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-09-18 (T-42d) | Lead: A2 Dembe
+- 🔵 **TP 2.3** [McLeod McGlasson] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-09-20 (T-44d) | Lead: A2 Dembe
+- 🔵 **TP 2.3** [McLeod McGlasson] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-09-20 (T-44d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 4.2** [John & Susan Loucks] — Payment Reminder #2
+  Deadline: 2026-07-25 | Lead: Hale + A9
+- 🔴 **TP 4.5** [McLeod McGlasson] — Payment Confirmation
+  Deadline: 2026-07-29 | Lead: A9
+- 🔴 **TP 2.2** [Grandeur Scandinavia Group] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 | Lead: Hale
+- 🔴 **TP 2.2** [Ely] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 | Lead: Hale
+- 🔴 **TP 2.2** [Furlow] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 | Lead: Hale
+- 🔴 **TP 2.2** [Nichols] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 | Lead: Hale
+- 🔴 **TP 4.3** [John & Susan Loucks] — Payment Goal
+  Deadline: 2026-07-31 | Lead: Hale + A9
+- 🔴 **TP 4.4** [John & Susan Loucks] — Final Payment Due
+  Deadline: 2026-08-01 | Lead: A9 + Hale
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+### AUTO-MONITOR 2026-08-07 00:04 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25631s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=68 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-07 00:14 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26231s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-07 00:24 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (26831s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-07 00:34 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27431s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-07 00:44 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28031s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 00:48:09
+Token health issue: Token expiring in 8 min (CRITICAL)
+
+### AUTO-MONITOR 2026-08-07 00:54 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28631s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 01:03:09
+Token health issue: Token expired 6 min ago
+
+### AUTO-MONITOR 2026-08-07 01:04 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (29231s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-07 01:14 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (29832s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 01:18:09
+Token health issue: Token expired 21 min ago
+
+### AUTO-MONITOR 2026-08-07 01:24 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (30432s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 01:33:10
+Token health issue: Token expired 36 min ago
+
+### AUTO-MONITOR 2026-08-07 01:34 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (31031s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-07 01:44 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (31632s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 01:48:11
+Token health issue: Token expired 51 min ago
+
+### AUTO-MONITOR 2026-08-07 01:54 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (32232s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 02:03:10
+Token health issue: Token expired 66 min ago
+
+### AUTO-MONITOR 2026-08-07 02:04 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (32832s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-07 02:14 MT
+SESSION=IDLE | TOKEN=STALE (33431s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 02:18:11
+Token health issue: Token expired 81 min ago
+
+### AUTO-MONITOR 2026-08-07 02:24 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (34031s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 02:33:11
+Token health issue: Token expired 96 min ago
+
+### AUTO-MONITOR 2026-08-07 02:34 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (34631s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-07 02:44 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (35231s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 02:48:11
+Token health issue: Token expired 111 min ago
+
+### AUTO-MONITOR 2026-08-07 02:54 MT
+SESSION=IDLE | TOKEN=STALE (35831s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 03:08:40
+Token health issue: Token expired 131 min ago
+
+### AUTO-MONITOR 2026-08-07 03:10 MT
+SESSION=IDLE | TOKEN=FRESH (106s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=65 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-07 03:20 MT
+SESSION=IDLE | TOKEN=FRESH (706s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=68 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-07 03:30 MT
+SESSION=IDLE | TOKEN=FRESH (1306s old) | INBOX_PENDING=1107 | ACTIVE_TASKS=68 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 11:04:54
+Token health issue: Token expiring in 3 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 11:19:55
+Token health issue: Token expired 11 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 11:34:55
+Token health issue: Token expired 26 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 11:49:55
+Token health issue: Token expired 41 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 12:04:55
+Token health issue: Token expired 56 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 12:19:56
+Token health issue: Token expired 71 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 20:20:07
+Token health issue: Token expiring in 0 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 20:35:08
+Token health issue: Token expired 14 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 20:50:08
+Token health issue: Token expired 29 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 21:05:09
+Token health issue: Token expired 44 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-08-07 21:20:09
+Token health issue: Token expired 59 min ago
+
+### AUTO-MONITOR 2026-08-07 22:05 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1866s old) | INBOX_PENDING=1120 | ACTIVE_TASKS=73 | QDRANT=UP
+
+### AUTO-MONITOR 2026-08-07 22:15 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2466s old) | INBOX_PENDING=1120 | ACTIVE_TASKS=75 | QDRANT=UP

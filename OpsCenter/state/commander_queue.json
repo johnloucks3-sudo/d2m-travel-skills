@@ -1,6 +1,6 @@
 {
- "generated": "2026-08-05T16:16:23.029009+00:00",
- "open_count": 55,
+ "generated": "2026-08-08T04:08:07.389997+00:00",
+ "open_count": 78,
  "suppressed_by_closure": 31,
  "total_closures_on_record": 225,
  "items": [
@@ -25,6 +25,26 @@
    "amount": "",
    "fpd": "",
    "suspense_date": "2026-07-06"
+  },
+  {
+   "id": "MISSION-768",
+   "kind": "mission",
+   "title": "Confirm Grandeur corrected materials sent to all 3 affected client couples",
+   "priority": "P0",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-08-06T18:31:45.674247+00:00"
+  },
+  {
+   "id": "MISSION-781",
+   "kind": "mission",
+   "title": "Confirm Grandeur client notification — all 3 couples",
+   "priority": "P0",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-08-07T03:05:50.430312+00:00"
   },
   {
    "id": "MISSION-0615",
@@ -515,6 +535,216 @@
    "assigned_to": "Intel",
    "suspense_date": null,
    "created_at": "2026-07-29T18:48:05.331134+00:00"
+  },
+  {
+   "id": "MISSION-765",
+   "kind": "mission",
+   "title": "Assign owners to all 7 unassigned P1/P2 missions",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-30T19:03:16.406800+00:00"
+  },
+  {
+   "id": "MISSION-766",
+   "kind": "mission",
+   "title": "Stage Kuklinski validation and insurance emails to WF-17",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-07-30T19:03:16.408120+00:00"
+  },
+  {
+   "id": "MISSION-769",
+   "kind": "mission",
+   "title": "Clear Kuklinski WF-17 queue — validation, insurance, welcome",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-08-06T18:31:45.676391+00:00"
+  },
+  {
+   "id": "MISSION-770",
+   "kind": "mission",
+   "title": "Produce both overdue Regent dossiers — Loucks Dec2026, LesserAntilles Dec2026",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-08-06T18:31:45.682511+00:00"
+  },
+  {
+   "id": "MISSION-771",
+   "kind": "mission",
+   "title": "Resolve McLeod lifecycle contact dispute — direct outreach this cycle",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-06T18:31:45.684577+00:00"
+  },
+  {
+   "id": "MISSION-773",
+   "kind": "mission",
+   "title": "Complete Kuklinski Dec-17 return-leg open-jaw pricing",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-08-06T18:31:45.691220+00:00"
+  },
+  {
+   "id": "MISSION-774",
+   "kind": "mission",
+   "title": "Deliver Kuklinski WF-17 package to Commander for review/send",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-08-06T19:50:20.376204+00:00"
+  },
+  {
+   "id": "MISSION-775",
+   "kind": "mission",
+   "title": "Close both overdue Regent dossier deadlines",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-08-06T19:50:20.377781+00:00"
+  },
+  {
+   "id": "MISSION-776",
+   "kind": "mission",
+   "title": "Assign owners and schedules to CI infrastructure and Mission Board missions",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-06T19:50:20.379220+00:00"
+  },
+  {
+   "id": "MISSION-779",
+   "kind": "mission",
+   "title": "Push Kuklinski validation + insurance emails to WF-17 review gate",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-08-06T23:00:17.193856+00:00"
+  },
+  {
+   "id": "MISSION-782",
+   "kind": "mission",
+   "title": "Resolve Kuklinski Dec-17 return-leg open-jaw",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-08-07T03:05:50.446529+00:00"
+  },
+  {
+   "id": "MISSION-783",
+   "kind": "mission",
+   "title": "Update Regent dossiers — Loucks Dec2026 and LesserAntilles Dec2026",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-08-07T03:05:50.448690+00:00"
+  },
+  {
+   "id": "MISSION-787",
+   "kind": "mission",
+   "title": "Refresh Regent Lesser Antilles dossier — Lyons renewal window live",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-08-07T09:11:33.497572+00:00"
+  },
+  {
+   "id": "MISSION-788",
+   "kind": "mission",
+   "title": "Pull and deliver Kuklinski Dec-17 return-leg open-jaw pricing",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-08-07T09:11:33.499370+00:00"
+  },
+  {
+   "id": "MISSION-790",
+   "kind": "mission",
+   "title": "Produce Lyons Regent pricing refresh before renewal window closes",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-08-07T12:09:42.715108+00:00"
+  },
+  {
+   "id": "MISSION-792",
+   "kind": "mission",
+   "title": "Triage and close all missions over 200 hours stale",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-07T12:09:42.717833+00:00"
+  },
+  {
+   "id": "MISSION-797",
+   "kind": "mission",
+   "title": "RT-MISSION execution: wire autonomous_board ledger + DDK collapse into mission board",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Sterling (A7)",
+   "suspense_date": null,
+   "created_at": "2026-08-07T18:43:08.445941+00:00"
+  },
+  {
+   "id": "MISSION-798",
+   "kind": "mission",
+   "title": "RT-MISSION: TCD dump/reconcile review (361 vs 240 split-brain)",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale (COS) — TALON staff lane",
+   "suspense_date": null,
+   "created_at": "2026-08-07T18:43:16.070312+00:00"
+  },
+  {
+   "id": "MISSION-802",
+   "kind": "mission",
+   "title": "Run Regent pricing refresh for Lyons renewal window",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-08-08T00:02:49.166124+00:00"
+  },
+  {
+   "id": "MISSION-803",
+   "kind": "mission",
+   "title": "Update overdue Regent dossiers (Loucks + LesserAntilles)",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-08-08T00:02:49.167473+00:00"
+  },
+  {
+   "id": "MISSION-804",
+   "kind": "mission",
+   "title": "Mission board close-out sweep — archive 50+ stale missions",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-08T00:02:49.168902+00:00"
   },
   {
    "id": "SSS-005",

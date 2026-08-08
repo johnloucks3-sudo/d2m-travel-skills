@@ -40,6 +40,51 @@ import subprocess
 from typing import Optional
 
 REPO = "/home/john/Thunderbird"
+_CACHE_PATH = f"{REPO}/logs/integrity_check_cache.json"
+
+
+def _cache_key(claims: list[str], ground_truth_cmds: Optional[list[str]], engine: str) -> str:
+    import hashlib
+    blob = "|".join(sorted(claims)) + "||" + "|".join(sorted(ground_truth_cmds or [])) + "||" + engine.upper()
+    return hashlib.sha256(blob.encode()).hexdigest()[:24]
+
+
+def _cache_load() -> dict:
+    import json, os
+    if not os.path.exists(_CACHE_PATH):
+        return {}
+    try:
+        with open(_CACHE_PATH) as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def _cache_get(key: str, ttl_seconds: float) -> Optional[dict]:
+    """Returns the cached verdict entry if present and within ttl_seconds, else None."""
+    import time
+    entry = _cache_load().get(key)
+    if not entry:
+        return None
+    if time.time() - entry.get("cached_at", 0) > ttl_seconds:
+        return None
+    return entry
+
+
+def _cache_put(key: str, verdict: str, detail: str, engine: str) -> None:
+    import json, os, time
+    os.makedirs(os.path.dirname(_CACHE_PATH), exist_ok=True)
+    cache = _cache_load()
+    cache[key] = {"verdict": verdict, "detail": detail, "engine": engine, "cached_at": time.time()}
+    # bound growth — keep the 200 most recent entries
+    if len(cache) > 200:
+        for k in sorted(cache, key=lambda k: cache[k].get("cached_at", 0))[:len(cache) - 200]:
+            del cache[k]
+    try:
+        with open(_CACHE_PATH, "w") as f:
+            json.dump(cache, f, indent=2)
+    except Exception:
+        pass
 
 
 def build_verification_task(claims: list[str], ground_truth_cmds: Optional[list[str]] = None) -> str:
@@ -152,6 +197,8 @@ def verify_and_record(
     model: Optional[str] = None,
     timeout: int = 300,
     page_on_discrepancy: bool = True,
+    cache_ttl_seconds: float = 900,
+    force_recheck: bool = False,
 ) -> dict:
     """The recording wrapper CLAUDE.md's HARD RULE now names — use this,
     never cc_integrity_double_check() directly, so the verdict is never
@@ -164,8 +211,36 @@ def verify_and_record(
     scorecard, and pages the Commander in real time on DISCREPANCY/
     UNVERIFIED — the mechanical fix for a discrepancy passing through
     silently (2026-07-28 night 8-Sector Wing Exercise: AG marked a state
-    complete when it wasn't; nothing durable recorded the catch)."""
+    complete when it wasn't; nothing durable recorded the catch).
+
+    cache_ttl_seconds (WAR ROOM 2026-08-07, idea #8): identical (claims,
+    ground_truth_cmds, engine) within the TTL skips the real engine dispatch
+    — cuts redundant AG/OC calls when CC re-verifies the same claim set
+    inside one working session. Cache is keyed on the exact claim/cmd/engine
+    tuple, so any change to what's being checked is a fresh check. The
+    outcome ledger still gets a row (dispatch_mode='cache_hit') so the audit
+    trail stays complete; only the live engine round-trip is skipped. Set
+    force_recheck=True to bypass, or cache_ttl_seconds=0 to disable caching
+    for a call that must always hit ground truth fresh."""
     from core.staffing.delegation_outcomes import record_outcome, page_commander
+
+    key = _cache_key(claims, ground_truth_cmds, engine)
+    cached = None if (force_recheck or cache_ttl_seconds <= 0) else _cache_get(key, cache_ttl_seconds)
+
+    if cached:
+        verdict, detail = cached["verdict"], cached["detail"]
+        r = {"ok": True, "returncode": 0, "model": model, "stdout": "",
+             "stderr": "", "deliverable_path": deliverable_path,
+             "deliverable_written": False, "from_cache": True,
+             "cached_at": cached["cached_at"]}
+        record_outcome(
+            seat="CC", action="integrity_check", verdict=verdict,
+            ticket_id=ticket_id, task_type=task_type, dispatch_mode="cache_hit",
+            discrepancy_detail=detail, verified_by=engine,
+        )
+        r["verdict"] = verdict
+        r["discrepancy_detail"] = detail
+        return r
 
     r = cc_integrity_double_check(
         claims, ground_truth_cmds=ground_truth_cmds, engine=engine,
@@ -175,6 +250,9 @@ def verify_and_record(
         verdict, detail = "UNVERIFIED", f"engine {engine} unreachable/failed (rc={r['returncode']})"
     else:
         verdict, detail = _parse_verdict(r["stdout"])
+
+    if cache_ttl_seconds > 0:
+        _cache_put(key, verdict, detail, engine)
 
     record_outcome(
         seat="CC", action="integrity_check", verdict=verdict,

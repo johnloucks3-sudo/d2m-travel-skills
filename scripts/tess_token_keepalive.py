@@ -96,6 +96,15 @@ async def _credential_login_playwright(username: str, password: str) -> bool:
         logger.error("Playwright not available — cannot do credential fallback")
         return False
 
+    # Pre-flight: verify Playwright Chromium binary exists before attempting launch
+    # (Fixes recurring failure when binary is missing — see 2026-08-05 diagnostics)
+    import glob
+    chromium_found = any(glob.glob(f"{Path.home()}/.cache/ms-playwright/chromium*/chrome*"))
+    if not chromium_found:
+        logger.error("Playwright Chromium binary not found in ~/.cache/ms-playwright/ — "
+                     "credential login cannot proceed. Run: python3 -m playwright install chromium")
+        return False
+
     logger.info("Credential fallback: Playwright login to TESS...")
     token_file = THUNDERBIRD / "tess_token.json"
 

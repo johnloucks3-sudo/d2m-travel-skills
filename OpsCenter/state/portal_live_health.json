@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-08-05T16:22:05.134372+00:00",
+  "checked_at_utc": "2026-08-08T04:18:56.830730+00:00",
   "overall": "ALIVE",
   "portals_checked": 2,
   "failures": 0,
@@ -9,14 +9,14 @@
       "alive": true,
       "reason": "HTTP 200, URL ok",
       "http_status": 200,
-      "probed_at": "2026-08-05T16:22:05.134372+00:00",
+      "probed_at": "2026-08-08T04:18:56.830730+00:00",
       "client_affecting": true
     },
     "perx": {
       "status": "ALIVE",
       "alive": true,
-      "reason": "sessionid valid for 335.4h more",
-      "probed_at": "2026-08-05T16:22:05.134372+00:00",
+      "reason": "sessionid valid for 302.6h more",
+      "probed_at": "2026-08-08T04:18:56.830730+00:00",
       "client_affecting": true
     }
   }

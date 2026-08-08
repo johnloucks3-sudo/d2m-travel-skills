@@ -108,6 +108,9 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5", "1.1"]
 **Jul 17 — John C. Furlow, Jr.** (Re: Automatic reply: Stockholm Arrival Transfer — One Van Instead of Three Sedans?)
 > Jul 17, 2026 — John Furlow auto-reply received; unavailable until Jul 20. Pending decision on Stockholm ARN→At Six transfer: one van vs. three sedans. Transfer booking (Project Expedition PE184710612, private sedan) currently configured; payment due Aug 16, 2026. Secondary contacts for urgent matters: stephanie.johnson@tpf.org, alex.panzeri@tpf.org. Follow up: Jul 20 or later.
 
+**Aug 07 — Melissa Furlow** (Re: Re: Upcoming payments due for Stockholm)
+> Aug 7, 2026 — Melissa Furlow authorized payment processing for ARN→At Six transfer (PE184710612) via TESS vault card ending 4354. Client relaxed, nearly packed, ready for voyage. Processing target: Aug 9. Email casual and trusting tone.
+
 ---
 
 ### CORRESPONDENCE LOG — Outbound to Clients (Jan 2026–Present)
@@ -187,6 +190,9 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5", "1.1"]
 | 2026-07-17 | Re: Stockholm Arrival Transfer — One Van Instead of Three Sedans? | John Furlow, Missy |
 | 2026-07-17 | Stockholm Arrival Transfer — One Van Instead of Three Sedans? | John Furlow, Missy |
 | 2026-07-26 | Your Scandinavia Voyage — Regent Seven Seas Grandeur | John Furlow, Missy |
+| 2026-08-07 | Upcoming payments due for Stockholm | Missy |
+| 2026-08-07 | Re: Upcoming payments due for Stockholm | Missy |
+| 2026-08-07 | Re: Upcoming payments due for Stockholm | Missy |
 
 ---
 
@@ -303,6 +309,14 @@ Commander replied to Missy at 15:13 MT: "Thanks Missy, got it — John" ✅
 
 ### OPEN ACTION ITEMS
 - [ ] MISSION-1545: Furlow couple confirmed for 3-car transfer—cross off; await Ely-Darrow and Nichols confirmations (auto-intel Jul 10)
+
+- [ ] Confirm Regent included hotel (Aug 28–29) status and embarkation logistics (auto-intel Aug 07)
+
+- [ ] Extract final transfer logistics from Project Expedition (pickup time, vehicle type, driver contact) and forward to clients (auto-intel Aug 07)
+
+- [ ] Send payment receipt + invoice to both Furlow email addresses (missy.furlow@gmail.com, john.furlow@tpf.org) (auto-intel Aug 07)
+
+- [ ] Process PE184710612 payment via card 4354 by Aug 9; verify amount in Project Expedition portal (auto-intel Aug 07)
 
 - [ ] Update transfer booking once John confirms his preference; coordinate with other two couples if one-van consolidation is approved. (auto-intel Jul 17)
 

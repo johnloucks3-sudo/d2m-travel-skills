@@ -1,21 +1,21 @@
 {
-  "run_at": "2026-07-31T06:15:00.134721",
+  "run_at": "2026-08-07T22:13:27.629438",
   "tasks_attempted": 2,
-  "tasks_succeeded": 0,
+  "tasks_succeeded": 2,
   "results": [
     {
-      "id": "MISSION-765",
-      "title": "Assign owners to all 7 unassigned P1/P2 missions",
-      "success": false,
-      "elapsed": 1.226623773574829,
-      "output_path": null
+      "id": "MISSION-805",
+      "title": "Deliver Kuklinski WF-17 package to Commander for send",
+      "success": true,
+      "elapsed": 11.432540655136108,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-805_20260807.md"
     },
     {
-      "id": "MISSION-766",
-      "title": "Stage Kuklinski validation and insurance emails to WF-17",
-      "success": false,
-      "elapsed": 1.4098641872406006,
-      "output_path": null
+      "id": "MISSION-806",
+      "title": "Close Kuklinski return-leg open-jaw routing and pricing",
+      "success": true,
+      "elapsed": 13.04979157447815,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-806_20260807.md"
     }
   ]
 }

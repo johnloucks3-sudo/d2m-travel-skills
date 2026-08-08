@@ -5,10 +5,14 @@
 set -euo pipefail
 
 LOG="${HOME}/.claude/sync.log"
+# Resolve claude-sync to its real install path on first hit (systemd user units
+# do not inherit ~/.claude/bin on PATH — a bare `claude-sync` call exits 127
+# "command not found", which stymies both this wrapper and systemd start).
+CLAUDE_SYNC="${CLAUDE_SYNC:-$HOME/.local/bin/claude-sync}"
 TMPOUT=$(mktemp)
 trap 'rm -f "$TMPOUT"' EXIT
 
-claude-sync push > "$TMPOUT" 2>&1
+"$CLAUDE_SYNC" push > "$TMPOUT" 2>&1
 RC=$?
 
 cat "$TMPOUT" >> "$LOG"

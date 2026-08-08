@@ -143,6 +143,9 @@ completed_tps_basis: "PAID IN FULL $14,986 (FPD Apr 1 2026 passed, Harlan-verifi
 **Jul 17 — Heidi Nichols** (Re: Re: Stockholm Arrival Transfer — One Van Instead of Three Sedans?)
 > 2026-07-17 17:51 UTC — Heidi Nichols confirms Nichols declining shared van; sedan (3-seat, max 3 luggage) remains confirmed for ARN→At Six transfer Aug 27. All three couples (Nichols/Furlow/Ely) confirmed preference for individual sedans. Final payment due PE Aug 16. Luggage-capacity concern addressed; no escalation flagged.
 
+**Aug 07 — Larry Nichols** (Re: Re: Upcoming payments due for Stockholm)
+> Aug 7, 2:37 PM (larry.nichols4811@gmail.com): Approved payment for both outstanding invoices (transfer + hotel) using card on file ending in 84003. Requested itemized amount breakdown before final processing. Status: AWAITING AMOUNT BREAKDOWN & LUGGAGE SATISFACTION VERIFICATION (Jul 13 unresolved).
+
 ---
 
 ---
@@ -241,6 +244,16 @@ All included (Regent Choice — $0.00). Both Larry & Heidi confirmed on all excu
 
 ### OPEN ACTION ITEMS
 - [ ] Confirm with Project Expedition that 3× sedans remain locked (Nichols/Furlow/Ely); cancel any van-option holds (auto-intel Jul 17)
+
+- [ ] Process by Aug 15 (one day before transfer payment deadline) (auto-intel Aug 07)
+
+- [ ] Send itemized payment quote to Nichols with processing timeline (auto-intel Aug 07)
+
+- [ ] Brief Nichols on luggage solution status—confirm he's settled (quick phone call or email reply to Jul 13 thread) (auto-intel Aug 07)
+
+- [ ] Calculate current SEK→USD rate and confirm amount (~$350) (auto-intel Aug 07)
+
+- [ ] Look up Project Expedition transfer cost for booking PE184712212 (auto-intel Aug 07)
 
 - [ ] Send transfer vouchers and driver contact info to all three couples by Aug 25 (auto-intel Jul 17)
 

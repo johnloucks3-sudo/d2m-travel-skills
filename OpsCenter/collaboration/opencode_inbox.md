@@ -8993,3 +8993,274 @@ priority: normal
 status: UNREAD
 task: |
   [POST-COMMIT] 5a97807a6: fix(stop-gate): reapply STOP-GATE after silent revert by OC drive-reorg reset |  5 files changed, 189 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-10789791 from CC — 2026-08-05 16:22 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] b8d0bf74e: ops(lightning-t3): stage 14 root strays (4 logs, 8 scratch, 1 PDF, 1 backup); root loose 96->82 |  69 files changed, 5825 insertions(+), 1211 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## TASK: TP-ALERT-20260805
+status: UNREAD
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-08-05 at 12:00 MT.
+  79 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## RELAY-872dcffd from CC — 2026-08-05 21:20 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] b9a5a04a3: PARA reorg + Obsidian vault theater: campaign artifacts updated, dir consolidation, Poe model config |  27 files changed, 217 insertions(+), 52316 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-7a4915a5 from CC — 2026-08-06 13:09 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 219cc9841: feat(flights): ITA Matrix + Google Flights reverse-engineering session (2026-08-05) — tfs protobuf + base64-JSON URL contracts, handoff doc |  3 files changed, 201 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-95357ed0 from CC — 2026-08-06 13:45 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 7132c6799: fix(grok): restore grok_call.py + grok_imagine.py wiped in Lightning reorg — recovered from git history, verified live (GROK_LANE_ALIVE) |  2 files changed, 336 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-76b79d08 from CC — 2026-08-06 15:02 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 955be0dff: feat(keepalive): aggressive portal session keepalive via authenticated bsk tab — Centrav live-verified, portals.json generic for GF/TESS; ATO 2026-08-06 + multi-Hale playbook |  4 files changed, 307 insertions(+), 1158 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-af8fe73b from CC — 2026-08-06 15:11 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 09fee6159: feat(skills+keepalive): multi-hale-team + ATO skills written for AG/CC/OC; bsk-tab session keepalive wired to supertimer infra_bot (20m, rides live auth); original portal_keepalive restored (was overwritten) |  6 files changed, 1492 insertions(+), 94 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-eff3efbf from CC — 2026-08-06 15:12 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] de4af0291: chore: remove stray portal_keepalive_bak.py (git mv artifact; original already restored) |  1 file changed, 125 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-66565acd from CC — 2026-08-06 15:42 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 4758f0b46: feat(fare): Centrav + Skybird as the two daily airfare scan engines — skybird headless GDS Sabre wired in, dead/retired sources (amadeus/kayak/google) dropped from default; config updated |  2 files changed, 64 insertions(+), 25 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-217a0aa2 from CC — 2026-08-06 17:11 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] a48d6e80a: feat(centrav+skybird): read-only Centrav reader + session-hold; Skybird full-shape proven (one-way/RT/multi-city headless); team play-by-play log; skills published |  5 files changed, 612 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-f3f77bc2 from CC — 2026-08-06 17:15 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 6b1668744: feat(fare): Skybird = TOP CI, sole default for all fare scans (Commander directive 2026-08-06); Centrav read-only via --source |  2 files changed, 9 insertions(+), 9 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-d1183248 from CC — 2026-08-06 17:19 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] a445324fc: docs(team): fold AG+Grok SSS-CB7A044E additions into team-call doctrine — escalate-at-design, 60s status echo, raw payloads in queries |  2 files changed, 9 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-5c77b248 from CC — 2026-08-06 17:26 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] ee27fdc88: docs(doctrine): NO MODEL GOES IT ALONE — founding principle + team roster; tactical-fail ≠ exercise-fail framing |  2 files changed, 20 insertions(+), 1 deletion(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-32fc72af from CC — 2026-08-06 17:27 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 2152fe504: ops(team): doctrine adoption — AG check_team_assembly gate + Grok 30s cross-wing hail proposed |  1 file changed, 6 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-8b3c1761 from CC — 2026-08-06 17:34 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] e3a3a4a94: feat(team): implement check_team_assembly (AG) + check_cross_wing_hail (Grok) gates + composed preflight — NO MODEL GOES IT ALONE doctrine; kill centrav session-hold timer |  2 files changed, 130 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-6ce0a935 from CC — 2026-08-06 17:52 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 73e4cbb90: feat(skill): opencode-usage capture — per-day running-total aggregation from usage page, model/session split, honest DOM-slice reporting |  1 file changed, 70 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-d54fc9c9 from CC — 2026-08-06 23:33 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 0672c12e9: feat(meter): OpenCode GO real usage from opencode.db — month cost/running total/credits-remaining on boot (WAL-safe ro); surfaced 1.17/0 overspend |  2 files changed, 309 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-f4ce1123 from CC — 2026-08-06 23:33 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 3e186c431: ops(team): closeout log — full-August OpenCode capture + meter injection, overspend flagged |  1 file changed, 6 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-f9c3c55a from CC — 2026-08-07 03:07 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 968ffe30e: feat(poe+meter): 29 Poe models in effective/economical tiers (Gemini/Kimi/GPT-5/Grok working); AG empirical option fix; OpenCode GO spend wired to boot meter |  4 files changed, 198 insertions(+), 31 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-3896fd02 from CC — 2026-08-07 04:17 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 14574d86c: feat(war-room): ROUND TABLE virtual meetroom capability + live d2mluxury.quest/meetroom Commander view |  9 files changed, 659 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-bf620d15 from CC — 2026-08-07 04:18 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 13a0f9127: ops(war-room): pickup marker for tomorrow (Grok inputs pending, T2 gate, mission 786) |  1 file changed, 26 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-cde3633f from CC — 2026-08-07 04:40 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 6d0820693: ops(war-room): night-log competitive scan (5 candidates, ATO+ChatDev chosen), pickup updated |  3 files changed, 111 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-af868d00 from CC — 2026-08-07 05:10 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 7f9801d79: feat(war-room): prototype findings — ATO 2.19.2 (flight recorder, HYBRID) + ChatDev 2.0 (backplane, HYBRID); both live, verified |  2 files changed, 124 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## TASK: TP-ALERT-20260807
+status: UNREAD
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-08-07 at 00:00 MT.
+  82 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## RELAY-a5b15be3 from CC — 2026-08-07 12:46 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] e98e55f2b: ops(war-room): RT-RETRO retro — point-paper doctrine, canonical AG->CC->OC order, BLUF pre-brief, skip rule, token-minimization lanes |  5 files changed, 128 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-ae9364bd from CC — 2026-08-07 12:56 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 217191c4c: fix(war-room): RT-TELEGRAM fixes (exit0/SIGTERM-clean/lockfile/timeouts) + Poe Perplexity fallback + rt_dispatch token-reporting (AG=gemini-3.6-flash, CC=claude-sonnet-4-6) |  6 files changed, 437 insertions(+), 4 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-48f34e3b from CC — 2026-08-07 13:00 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 83d28a934: ops(war-room): RT-TEL 24h stability gate (MISSION-795) — scheduled 2026-08-08 06:48 MT |  1 file changed, 32 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-666f2d7e from CC — 2026-08-07 13:04 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] d00817b9c: doc(war-room): standing 24/7 doctrine, any-HALE invoke, doc-mandatory; commit Telegram fixes + Poe fallback + dispatcher + standing agenda |  4 files changed, 110069 insertions(+), 30 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-cdfa2f0b from CC — 2026-08-07 13:08 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 3ff0b5358: fix(war-room): oc_hygiene spares interactive TTY session (was auto-logoff root cause) + scan steals as War Room mods |  2 files changed, 21 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-817f64a5 from CC — 2026-08-07 14:14 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 697193c12: fix(war-room): RT-CLAUDEP headless claude -p repaired (haiku+stdin DEVNULL) verified; recorder rebuilt clean stdlib; doc all Weapons actions |  12 files changed, 8610 insertions(+), 1 deletion(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-8b1a6119 from CC — 2026-08-07 16:16 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] cc55a5364: fix(war-room): routing corrected — /ask=sonnet, /ask-opus=opus, /ask-haiku=haiku ALL local MAX (claude -p); AG=Gemini 3.6 Flash only; rt_dispatch wired to local MAX Claude lanes. Verified HAIKU/OPUS rc0. |  2 files changed, 114 insertions(+), 65 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-7662d6cc from CC — 2026-08-07 16:16 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] fe0ae2cc1: doc(war-room): position paper — schema, routing, procedures, tool calls, rules, steals |  1 file changed, 80 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-75b1f22a from CC — 2026-08-07 16:43 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 8bf718197: fix(war-room): RT-KEEPALIVES — kill centrav-warm + portal-keepalive zombie supertimer tasks (30-min spam end); AG+CC slim plan consolidated |  5 files changed, 125 insertions(+), 7 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-8a7534fa from CC — 2026-08-07 16:53 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 2446297ef: feat(war-room): deck shows FULL point-paper text + links (papers/transcripts/previews); portal-live-probe authorized-removal gate fixed (errs-only trigger), probe kept + re-armed |  4 files changed, 410 insertions(+), 152 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-9094bdef from CC — 2026-08-07 17:10 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 5a0cc109b: feat(war-room): RT-KEEPALIVES backlog — oauth_refresh_all consolidation runner + zero-browser portal_http_probe + deadman heartbeat (wired into keepalive-supervisor); all verified |  4 files changed, 184 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-18765975 from CC — 2026-08-07 17:28 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] fe2a89945: fix(war-room): KT-CENTRAV — stop recurring keep-alive/login+ping. Removed infra_bot zombie tasks; disabled supertimer+systemd units; keepalive-supervisor no longer flags/escalates centrav (on-demand only); added consolidation (oauth_refresh_all, portal_http_probe, deadman). |  1 file changed, 9 insertions(+), 1 deletion(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-c01675b9 from CC — 2026-08-07 17:51 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 25b032a2e: fix(war-room): kill airfare keep-alives except Skybird — suppress fare-watch-centrav auto-repair; disable perx+centrav keepalive timers |  1 file changed, 13 insertions(+) | author: Thunderbird Wing (seat unset)

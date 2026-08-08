@@ -1,70 +1,76 @@
-# Agentic Intel Sweep — 2026-07-31 01:03
+# Agentic Intel Sweep — 2026-08-07 01:00
 
-**11 findings** | Sources: Reddit, HN, GitHub, Serper, RSS
+**12 findings** | Sources: Reddit, HN, GitHub, Serper, RSS
 
-## [CRITICAL] earendil-works/pi (81102 stars)
-- Source: github | Score: 81102
-- URL: https://github.com/earendil-works/pi
-- Keywords: coding agent
-- AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI
-
-## [HIGH] Agent-Manager: A Tmux TUI for Running Claude Code, Codex and OpenCode
-- Source: hn/topstories | Score: 95
-- URL: https://github.com/YoanWai/agent-manager
-- Keywords: claude code
-- HN score: 95, comments: 76
-
-## [HIGH] Show HN: Claude-account – switch Claude Code accounts without logging in again
-- Source: hn/topstories | Score: 49
-- URL: https://github.com/hamzarehmandeveloper/claude-account
-- Keywords: claude code
-- HN score: 49, comments: 24
-
-## [HIGH] holgerleichsenring/agent-smith (23 stars)
-- Source: github | Score: 23
-- URL: https://github.com/holgerleichsenring/agent-smith
-- Keywords: coding agent, self-hosted
-- Self-hosted AI coding agent · ticket → code → PR
-
-## [HIGH] jfrog/agent-belt (17 stars)
-- Source: github | Score: 17
-- URL: https://github.com/jfrog/agent-belt
+## [HIGH] umacloud/umadev (247 stars)
+- Source: github | Score: 247
+- URL: https://github.com/umacloud/umadev
 - Keywords: claude code, coding agent
-- Reproducible evaluation for AI coding agents. Multi-turn scenarios against Claude Code, Codex, Copilot, Cursor, Gemini CLI, Goose, OpenCode, or any custom agent you plug in; verify behavior with rule checks, workspace diffs, multi-judge LLM consensus; pin reliability with pass^k variance across tria
+- UmaDev: A coding agent that works like a real dev team, commanding the Claude Code / Codex / OpenCode you already use.
 
-## [HIGH] kobiton/automate (12 stars)
-- Source: github | Score: 12
-- URL: https://github.com/kobiton/automate
-- Keywords: claude code, codex cli, ai coding assistant
-- AI coding assistant plugin for the Kobiton mobile testing platform. Works with Claude Code, Copilot CLI, Gemini CLI Extension, Cursor CLI and Codex CLI to manage devices, upload apps, run mobile automation, and view test results directly from your workspace.
-
-## [HIGH] noogram/cosmon (6 stars)
-- Source: github | Score: 6
-- URL: https://github.com/noogram/cosmon
+## [HIGH] Dicklesworthstone/remote_compilation_helper (56 stars)
+- Source: github | Score: 56
+- URL: https://github.com/Dicklesworthstone/remote_compilation_helper
 - Keywords: coding agent
-- Stateless CLI giving AI coding agents persistent identity, a typed lifecycle, and crash-recovery. Self-hostable, AGPL-3.0.
+- Intercepts cargo/gcc builds from AI coding agents via hooks and transparently routes them to remote worker machines, returning artifacts as if compiled locally
 
-## [HIGH] binary16labs/prime-silo (5 stars)
+## [HIGH] miyago9267/pilotfish-codex (41 stars)
+- Source: github | Score: 41
+- URL: https://github.com/miyago9267/pilotfish-codex
+- Keywords: multi-model, codex cli
+- pilotfish for Codex CLI — multi-model orchestration with GPT-5.6 tiering (luna/terra/sol). Adapted from @Nanako0129/pilotfish.
+
+## [HIGH] Kewton/CommandMate (38 stars)
+- Source: github | Score: 38
+- URL: https://github.com/Kewton/CommandMate
+- Keywords: claude code, codex cli
+- Issue-driven AI development IDE for Claude Code and Codex CLI. Run multiple issues in parallel and keep work moving from desktop or mobile.
+
+## [HIGH] luisgamas/uxnan (26 stars)
+- Source: github | Score: 26
+- URL: https://github.com/luisgamas/uxnan
+- Keywords: coding agent
+- Uxnan (pronounced /uʃ.nan/) is a suite of tools I built to solve a very specific problem I face as a developer: managing AI-powered coding agents from anywhere, without my hardware becoming a bottleneck.
+
+## [HIGH] kimik3codeAI/Kimi-K3-Code-Free-Desktop-AI (24 stars)
+- Source: github | Score: 24
+- URL: https://github.com/kimik3codeAI/Kimi-K3-Code-Free-Desktop-AI
+- Keywords: coding agent, ai coding assistant
+- Kimi K3 Code is a free desktop AI coding assistant from Moonshot AI with 2.8 trillion parameters and 1 million token context window. Terminal-based coding agent handles cross large repositories. Extended reasoning mode, multi-file analysis, autonomous agent workflows, parallel subagent spawning. Dow
+
+## [HIGH] An Agentic IDE That Builds Itself
+- Source: hn/topstories | Score: 17
+- URL: https://www.sawyerhood.com/blog/an-agentic-ide-that-builds-itself
+- Keywords: agentic ide
+- HN score: 17, comments: 2
+
+## [HIGH] boggspa/TaskWraith (6 stars)
+- Source: github | Score: 6
+- URL: https://github.com/boggspa/TaskWraith
+- Keywords: claude code, coding agent
+- Local-first desktop control room for coding agents. Run Codex, Claude Code, Cursor, Grok, Mistral, Pi, and local models together — each with its own role, permission posture, and receipts. Multi-agent ensembles in one thread, diff review, on-device history. macOS, Windows, Linux.
+
+## [HIGH] PaulRBerg/dot-agents (5 stars)
 - Source: github | Score: 5
-- URL: https://github.com/binary16labs/prime-silo
-- Keywords: agent-to-agent, model context protocol
-- The canonical Sovereign AI Agent OS & runtime harness. Built for Model Context Protocol (MCP), Agent-to-Agent (A2A) swarms, and zero-token tax execution.
+- URL: https://github.com/PaulRBerg/dot-agents
+- Keywords: claude code, codex cli, kills
+- Central repository for AI agent skills (Claude Code, Codex CLI, etc.)
 
-## [WATCH] Show HN: Bullshit Detector – agent skills that fact-check videos and articles
-- Source: hn/beststories | Score: 62
-- URL: https://github.com/SerhiiKorniienko/bullshit-detector
-- Keywords: kills
-- HN score: 62, comments: 68
+## [WATCH] Mythos Attempted to Social Engineer Open Source Maintainer to Merge Malware
+- Source: hn/topstories | Score: 25
+- URL: https://socket.dev/blog/ai-agent-open-source-malware
+- Keywords: open source
+- HN score: 25, comments: 10
 
-## [WATCH] Claude Opus 5 jailbreak with a 3-word prompt
-- Source: hn/topstories | Score: 13
-- URL: https://twitter.com/i/status/2082566186785480708
-- Keywords: claude opus
-- HN score: 13, comments: 2
+## [WATCH] gunbun33/mcp-servers (7 stars)
+- Source: github | Score: 7
+- URL: https://github.com/gunbun33/mcp-servers
+- Keywords: model context protocol
+- Production-ready Model Context Protocol (MCP) servers in Python, Go, and Rust for VS Code integration. Enables AI systems to interact with tools via standardized interfaces.
 
-## [WATCH] Quoting Bruce Schneier
-- Source: rss/Simon Willison | Score: 5
-- URL: https://simonwillison.net/2026/Jul/30/bruce-schneier/#atom-everything
-- Keywords: kills
-- <blockquote cite="https://www.schneier.com/blog/archives/2026/07/should-you-use-ai-for-a-task-heres-a-simple-way-to-decide.html"><p>The writing assignments I give my students are gym tasks, not work tasks. I ask them to write policy memos not because the world needs more policy memos. I assign them 
+## [WATCH] OpenAI is giving ChatGPT free users unlimited text chats
+- Source: rss/The Verge AI | Score: 5
+- URL: https://www.theverge.com/ai-artificial-intelligence/976239/openai-chatgpt-free-go-text-chats
+- Keywords: unlimited
+- OpenAI is making a big change for ChatGPT users on its free and Go tiers: Starting next week, users on those tiers will be able to have unlimited text chats with the chatbot, according to OpenAI. Right now, you may run into rate limits if you do too many text chats on those tiers, but [&#8230;]
 

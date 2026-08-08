@@ -1054,5 +1054,25 @@
     "integration_path": "Already integrated into Gmail for Google Workspace users. Can potentially be accessed via Google Cloud APIs for custom workflows, though this may incur separate costs.",
     "flag": "INTEGRATE_NOW",
     "discovered": "2026-07-29"
+  },
+  {
+    "name": "OpenAI API (GPT-4o / GPT-3.5 Turbo)",
+    "url": "https://openai.com/api",
+    "cost": "Pay-as-you-go, free tier with initial credits, highly cost-effective for moderate usage.",
+    "capability": "Provides powerful natural language processing capabilities for rewriting, tone adjustment, and summarization via API.",
+    "d2m_score": 8,
+    "integration_path": "Direct Python integration via the `openai` library. Can be used to process email content programmatically.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-08-05"
+  },
+  {
+    "name": "LibreTranslate",
+    "url": "https://github.com/LibreTranslate/LibreTranslate",
+    "cost": "Open Source (AGPLv3 license). Self-hostable for free.",
+    "capability": "A self-hostable, open-source machine translation API that can be leveraged for basic text rewriting and style adjustments with custom prompts.",
+    "d2m_score": 4,
+    "integration_path": "REST API available, can be integrated with Python using libraries like `requests`.",
+    "flag": "MONITOR",
+    "discovered": "2026-08-05"
   }
 ]

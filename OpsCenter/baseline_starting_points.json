@@ -1,0 +1,25 @@
+{
+  "captured_at": "2026-08-06T09:14:36-06:00",
+  "poe_points": {
+    "points_available": 1002366,
+    "value_usd": 30.37,
+    "carryover_cap": 1500000,
+    "target_drawdown_range": "800,000 - 900,000",
+    "next_replenish_date": "2026-08-19",
+    "replenish_amount": 600000,
+    "source": "https://poe.com/api_key (live Playwright audit)"
+  },
+  "opencode_go": {
+    "credits_starting_balance_usd": 10.00,
+    "tier": "OpenCode GO"
+  },
+  "deepseek_v4": {
+    "tier": "ZEN Free Tier",
+    "cost_per_token_usd": 0.00
+  },
+  "claude_code": {
+    "tier": "5X MAX",
+    "five_hour_utilization_pct": 3.0,
+    "seven_day_utilization_pct": 93.0
+  }
+}

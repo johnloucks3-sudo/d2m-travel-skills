@@ -1,0 +1,35 @@
+Subject: Tech Scan 2026-08-07 19:00 UTC — 6 trial / 1 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-08-07T19:02:10.149358+00:00
+
+TECH SCAN — 2026-08-07 19:00 UTC
+airborne scanner pulse · 21 finds · sectors agentic, claude-code
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 6 TRIAL · 14 WATCH · 1 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Talk to Claude Code. Force Yourself to Slow Down and Think — https://github.com/tmshapland/audiochatty-plugin
+↳ real tool (plugin, github.com) — worth a bounded look
+Claude Code skill allowing orchestration of edits beat-synced to songs — https://github.com/ZiadAbdelkarim/beat-synced-edit
+↳ real tool (skill, github.com) — worth a bounded look
+Show HN: Remembrane – agent memory in one SQLite file, zero dependencies — https://github.com/satyasairay/remembrane
+↳ real tool (github.com) — worth a bounded look
+OpenEdit – Claude Code can now edit videos (Open Source) — https://github.com/veedstudio/open-edit
+↳ real tool (github.com, open source) — worth a bounded look
+Show HN: Plan Review – independent review for Claude Code plans — https://github.com/dachev/plan-review
+↳ real tool (github.com) — worth a bounded look
+Show HN: Claude Code that renders Hebrew/Arabic/Persian in the terminal — https://github.com/noambrand/kivun-terminal-wsl
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:I spent $3000 to build my dream game on Claude Code. It's finally done. Thoughts?
+Claude Code just randomly spat out Kimi K2 Thinking output mid-response
+Neal: Codex and Claude in a loop shipped a 549-commit migration — https://navels.dev/blog/neal/
+Claude Code context management: when to /clear and when to /compact — https://tim-schipper.nl/en/blog/claude-c
+In-terminal browser inside a local sandbox for Claude Code — https://www.reddit.com/r/ClaudeAI/comments/1vi1hz
+Show HN: Mirafold – Your Agent with Generative UI (Codex, Claude Code, Gemini) — https://mirafold.com/
+How Does AI Interpret Consent: A Look Inside Claude Code's Safety Classifier — https://www.highflame.com/blog/
+Claude Code self-improved on business workflows using conversation, not memories — https://www.andrewjesson.co
+🗑 KILLED (1) — discussion/opinion, not tools (so they don't pile up):Ask HN: Claude Code Alternatives — https://news.ycombinator.com/item?id=49211265
+RAW — all finds this pulse (unfiltered)[claude-code] I spent $3000 to build my dream game on Claude Code. It's finally done. Thoughts? (Reddit r/ClaudeAI)
+[claude-code] Claude Code just randomly spat out Kimi K2 Thinking output mid-response (Reddit r/ClaudeAI)
+[claude-code] Talk to Claude Code. Force Yourself to Slow Down and Think — https://github.com/tmshapland/audiochatty-plugin (Hacker News — Claude Code)
+[agentic] Neal: Codex and Claude in a loop shipped a 549-commit migration — https://navels.dev/blog/neal/ (Hacker News — Claude Code)
+[claude-code] Claude Code context management: when to /clear and when to /compact — https://tim-schipper.nl/en/blog/claude-code-contex (Hacker News — Claude Code)
+[claude-code] Ask HN: Claude Code Alternatives — https://news.ycombinator.com/item?id=492112

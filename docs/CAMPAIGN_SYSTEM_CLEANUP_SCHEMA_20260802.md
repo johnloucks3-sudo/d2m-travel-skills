@@ -115,6 +115,30 @@
 
 ---
 
+## SCHEMA DECISIONS — COMMANDER CONFIRMED 2026-08-05
+
+**Theater 3 — Google Drive schema (Q1): MIRROR THE OBSIDIAN VAULT, not PARA.** Drive root = vault root, one-to-one folder names so rsync is trivial:
+
+```
+[D2M Google Drive]/
+├── 00_Inbox/          — unclassified, new uploads land here
+├── 01_Projects/       — active client trips (mirror vault Projects)
+├── 02_Areas/          — Wing standing responsibilities
+├── 03_Resources/      — dossiers, docs, intel, brand
+├── 04_Archive/        — closed trips, old deliverables
+└── 99_FOR_DELETION_STAGING/
+```
+`03_Resources/` carries the same `Thunderbird/` + `D2M/` sub-split as the vault → one-to-one with `/home/john/D2M_OBSIDIAN`.
+
+**Theater 4 — Gmail label schema (Q2): CONFIRMED, 6 labels:**
+```
+WING/CLIENTS   WING/INTEL   WING/FINANCE   WING/OPS   WING/PERSONAL   99_FOR_DELETION
+```
+
+**Theater 5 — Evernote (Q3):** Legacy token path — `EVERNOTE_EMAIL`/`EVERNOTE_PASSWORD` = yodainva@gmail.com (in `.env`, added 2026-08-02). Survey via `bsk` (browser session): enumerate **D2M Main** folder + **Inbox**, then propose Inbox→D2M merge where the destination notebook already exists. Zero deletions. **Survey DONE 2026-08-05:** 236 notebooks, 3,869 notes; Inbox = 1,748 notes; travel-notebook consolidation plan at `docs/PLAN_D2M_MERGE_EVERNOTE_20260805.md`. **Awaiting Commander go on merge waves.**
+
+---
+
 ## SEQUENCING
 
 Theaters 1 and 2 (code, systemd) run first — highest blast radius, lowest volume uncertainty, already counted. Theaters 3–5 (Drive/Gmail/Evernote) wait on their own Phase 0 dry-run counts before any time commitment is made. All heavy operations scheduled outside the 06:30–10:30 MT blackout.

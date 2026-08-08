@@ -1,12 +1,12 @@
 {
-  "ts": "2026-07-31T05:15:05.116470+00:00",
-  "finding_count": 0,
-  "content_hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+  "ts": "2026-08-07T19:00:07.579190+00:00",
+  "finding_count": 21,
+  "content_hash": "7aa46e0e0258f87933e0015fcaed861ca3e12260",
   "sectors": [
-    "travel-b2b",
-    "competitor",
-    "automation"
+    "voice",
+    "claude-code",
+    "agentic"
   ],
-  "zero_streak": 1,
+  "zero_streak": 0,
   "frozen": false
 }

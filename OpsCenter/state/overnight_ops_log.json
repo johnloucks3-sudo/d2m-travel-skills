@@ -1,6 +1,6 @@
 [
   {
-    "ts": "2026-07-30T04:49:55.911741-06:00",
+    "ts": "2026-08-06T05:52:22.588746-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -9,7 +9,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T05:14:58.520376-06:00",
+    "ts": "2026-08-06T06:07:20.349974-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -18,7 +18,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T05:44:52.239900-06:00",
+    "ts": "2026-08-06T06:37:15.257378-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -27,7 +27,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T06:00:06.889652-06:00",
+    "ts": "2026-08-06T07:02:22.219895-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -36,7 +36,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T06:30:05.993680-06:00",
+    "ts": "2026-08-06T07:27:27.239776-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -45,7 +45,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T06:55:04.772080-06:00",
+    "ts": "2026-08-06T07:52:32.421637-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -54,7 +54,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T07:25:11.526384-06:00",
+    "ts": "2026-08-06T08:22:32.267348-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -63,7 +63,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T07:50:03.929526-06:00",
+    "ts": "2026-08-06T08:42:33.879898-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -72,7 +72,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T08:20:20.320016-06:00",
+    "ts": "2026-08-06T09:12:33.798690-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -81,7 +81,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T08:40:12.346207-06:00",
+    "ts": "2026-08-06T09:32:46.692886-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -90,7 +90,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T09:10:09.162601-06:00",
+    "ts": "2026-08-06T10:02:49.343358-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -99,7 +99,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T09:30:05.132668-06:00",
+    "ts": "2026-08-06T10:22:48.878728-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -108,7 +108,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T10:00:22.675727-06:00",
+    "ts": "2026-08-06T10:52:51.430598-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -117,7 +117,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T10:20:20.594471-06:00",
+    "ts": "2026-08-06T11:12:52.423784-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -126,7 +126,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T10:50:11.028573-06:00",
+    "ts": "2026-08-06T11:42:58.145776-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -135,7 +135,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T11:10:17.932717-06:00",
+    "ts": "2026-08-06T11:57:52.231914-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -144,7 +144,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T11:40:21.088176-06:00",
+    "ts": "2026-08-06T12:27:52.009780-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -153,7 +153,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T12:05:18.890513-06:00",
+    "ts": "2026-08-06T12:53:05.009980-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -162,7 +162,7 @@
     ]
   },
   {
-    "ts": "2026-07-30T12:35:30.550910-06:00",
+    "ts": "2026-08-06T13:18:17.618194-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -171,7 +171,7 @@
     ]
   },
   {
-    "ts": "2026-07-31T06:00:15.233183-06:00",
+    "ts": "2026-08-06T13:46:11.641775-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -180,7 +180,7 @@
     ]
   },
   {
-    "ts": "2026-07-31T06:29:06.165355-06:00",
+    "ts": "2026-08-06T14:16:23.914927-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -189,7 +189,7 @@
     ]
   },
   {
-    "ts": "2026-07-31T06:44:11.361188-06:00",
+    "ts": "2026-08-07T02:18:30.525676-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -198,7 +198,7 @@
     ]
   },
   {
-    "ts": "2026-07-31T07:14:09.317153-06:00",
+    "ts": "2026-08-07T02:48:16.899505-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -207,7 +207,7 @@
     ]
   },
   {
-    "ts": "2026-07-31T07:34:18.229790-06:00",
+    "ts": "2026-08-07T03:09:23.903704-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -216,7 +216,7 @@
     ]
   },
   {
-    "ts": "2026-07-31T07:44:21.935523-06:00",
+    "ts": "2026-08-07T03:39:19.386849-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -225,7 +225,7 @@
     ]
   },
   {
-    "ts": "2026-08-05T08:55:11.766539-06:00",
+    "ts": "2026-08-07T08:40:33.849932-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -234,7 +234,7 @@
     ]
   },
   {
-    "ts": "2026-08-05T09:25:10.307360-06:00",
+    "ts": "2026-08-07T09:10:29.662440-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -243,7 +243,7 @@
     ]
   },
   {
-    "ts": "2026-08-05T09:45:08.914183-06:00",
+    "ts": "2026-08-07T10:15:39.873193-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -252,7 +252,7 @@
     ]
   },
   {
-    "ts": "2026-08-05T10:15:23.979253-06:00",
+    "ts": "2026-08-07T10:45:41.772905-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -261,7 +261,7 @@
     ]
   },
   {
-    "ts": "2026-08-05T10:20:20.767885-06:00",
+    "ts": "2026-08-07T22:18:47.573252-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,

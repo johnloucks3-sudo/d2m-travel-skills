@@ -78,6 +78,8 @@ ALIASES = {
     "fl":              "gemini-3.5-flash",
     "gemini-pro":      "gemini-3.1-pro",
     "gp":              "gemini-3.1-pro",
+    "gemini-flash":    "gemini-3.6-flash",
+    "g36":             "gemini-3.6-flash",
     # ── GPT ──────────────────────────────────────────────────────────────────
     "gpt4":            "gpt-4o",
     "4o":              "gpt-4o",
@@ -137,6 +139,7 @@ ALIAS_INFO = {
     "nano-webui":    ("Nano Banana WebUI",             "?",    "Gemini 2.5 Flash Image WebUI variant  alias: webui"),
     "gemini":        ("Gemini 3.5 Flash",              "1M",   "multimodal  aliases: flash"),
     "gemini-pro":    ("Gemini 3.1 Pro",                "1M",   "Gemini Pro tier"),
+    "gemini-flash":  ("Gemini 3.6 Flash",              "1M",   "latest flash  alias: g36"),
     "gpt4":          ("GPT-4o",                        "128K", "aliases: 4o, gpt4o"),
     "gpt4-mini":     ("GPT-4o Mini",                   "128K", "alias: mini"),
     "gpt41-nano":    ("GPT-4.1 Nano",                  "1M",   "fast/cheap, 1M ctx  alias: gpt4nano"),

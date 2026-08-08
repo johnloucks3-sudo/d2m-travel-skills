@@ -1,42 +1,15 @@
 {
-  "date": "2026-08-05",
+  "date": "2026-08-06",
   "summary": {
-    "auto_healed": 0,
+    "auto_healed": 9,
     "self_repaired": 0,
     "unresolved": 0,
     "elon_proposals_new": 0
   },
   "incidents": [
     {
-      "time": "09:00",
-      "service": "thunderbird-generic-remediate@d2m-skybird-watch",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:00",
-      "service": "thunderbird-generic-remediate@spencer-grandtour-daily-recheck",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:00",
-      "service": "thunderbird-generic-remediate@thunderbird-nomination-half1",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:00",
-      "service": "thunderbird-nomination-half1",
+      "time": "00:03",
+      "service": "thunderbird-generic-remediate@grok-usage-meter",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -45,7 +18,7 @@
     },
     {
       "time": "09:05",
-      "service": "thunderbird-generic-remediate@claude-process-watch",
+      "service": "jet-heartbeat",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -53,8 +26,8 @@
       "elon_invoked": false
     },
     {
-      "time": "09:05",
-      "service": "thunderbird-generic-remediate@zen-usage-guard",
+      "time": "11:35",
+      "service": "thunderbird-generic-remediate@d2m-centrav-session-hold",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -62,8 +35,260 @@
       "elon_invoked": false
     },
     {
-      "time": "09:15",
-      "service": "thunderbird-generic-remediate@drawdown-regression-guard",
+      "time": "12:29",
+      "service": "alsa-mic-restore",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "12:39",
+      "service": "d2m-mcp-grok",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: failed",
+      "elon_invoked": false
+    },
+    {
+      "time": "12:49",
+      "service": "d2m-mcp-grok",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: failed",
+      "elon_invoked": false
+    },
+    {
+      "time": "12:57",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-06T12:51:36-06:00 yoga systemd[1520]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-06T12:51:36-06:00 yoga systemd[1520]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T12:51:37-06:00 yoga systemd[1520]: Started Thunderbird MCP HTTP Server.\n2026-08-06T12:51:47-06:00 yoga systemd[1520]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-06T12:51:47-06:00 yoga systemd[1520]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-06T12:51:47-06:00 yoga systemd[1520]: thunderbird-mcp.service: Consumed 5.734s CPU time over 21.010s wall clock time, 214.1M memory peak.\n2026-08-06T12:51:47-06:00 yoga systemd[1520]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "12:57",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-06T12:53:42-06:00 yoga systemd[1520]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 6.\n2026-08-06T12:53:42-06:00 yoga systemd[1520]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T12:53:43-06:00 yoga systemd[1520]: Started Thunderbird MCP HTTP Server.\n2026-08-06T12:53:53-06:00 yoga systemd[1520]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-06T12:53:53-06:00 yoga systemd[1520]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-06T12:53:53-06:00 yoga systemd[1520]: thunderbird-mcp.service: Consumed 6.001s CPU time over 21.002s wall clock time, 284.3M memory peak.\n2026-08-06T12:53:53-06:00 yoga systemd[1520]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "13:00",
+      "service": "d2m-mcp-grok",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: failed",
+      "elon_invoked": false
+    },
+    {
+      "time": "13:09",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-06T13:01:36-06:00 yoga systemd[1520]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-06T13:01:36-06:00 yoga systemd[1520]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T13:01:37-06:00 yoga systemd[1520]: Started Thunderbird MCP HTTP Server.\n2026-08-06T13:01:47-06:00 yoga systemd[1520]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-06T13:01:47-06:00 yoga systemd[1520]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-06T13:01:47-06:00 yoga systemd[1520]: thunderbird-mcp.service: Consumed 5.745s CPU time over 21.010s wall clock time, 219.9M memory peak.\n2026-08-06T13:01:47-06:00 yoga systemd[1520]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "13:09",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-06T13:03:21-06:00 yoga systemd[1520]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-06T13:03:21-06:00 yoga systemd[1520]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T13:03:22-06:00 yoga systemd[1520]: Started Thunderbird MCP HTTP Server.\n2026-08-06T13:03:32-06:00 yoga systemd[1520]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-06T13:03:32-06:00 yoga systemd[1520]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-06T13:03:32-06:00 yoga systemd[1520]: thunderbird-mcp.service: Consumed 5.739s CPU time over 21.018s wall clock time, 230.3M memory peak.\n2026-08-06T13:03:32-06:00 yoga systemd[1520]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "13:09",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-06T13:03:42-06:00 yoga systemd[1520]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 1.\n2026-08-06T13:03:42-06:00 yoga systemd[1520]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T13:03:43-06:00 yoga systemd[1520]: Started Thunderbird MCP HTTP Server.\n2026-08-06T13:03:53-06:00 yoga systemd[1520]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-06T13:03:53-06:00 yoga systemd[1520]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-06T13:03:53-06:00 yoga systemd[1520]: thunderbird-mcp.service: Consumed 5.839s CPU time over 21.002s wall clock time, 315.3M memory peak.\n2026-08-06T13:03:53-06:00 yoga systemd[1520]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "13:16",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-06T13:11:41-06:00 yoga systemd[1520]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-06T13:11:41-06:00 yoga systemd[1520]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T13:11:43-06:00 yoga systemd[1520]: Started Thunderbird MCP HTTP Server.\n2026-08-06T13:11:52-06:00 yoga systemd[1520]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-06T13:11:52-06:00 yoga systemd[1520]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-06T13:11:52-06:00 yoga systemd[1520]: thunderbird-mcp.service: Consumed 5.743s CPU time over 21.001s wall clock time, 214.2M memory peak.\n2026-08-06T13:11:52-06:00 yoga systemd[1520]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "13:49",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "13:49",
+      "service": "d2m-mcp-grok",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: failed",
+      "elon_invoked": false
+    },
+    {
+      "time": "13:53",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-06T13:51:55-06:00 yoga systemd[1513]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-06T13:51:55-06:00 yoga systemd[1513]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T13:51:56-06:00 yoga systemd[1513]: Started Thunderbird MCP HTTP Server.\n2026-08-06T13:52:06-06:00 yoga systemd[1513]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-06T13:52:06-06:00 yoga systemd[1513]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-06T13:52:06-06:00 yoga systemd[1513]: thunderbird-mcp.service: Consumed 6.102s CPU time over 20.791s wall clock time, 222.2M memory peak.\n2026-08-06T13:52:06-06:00 yoga systemd[1513]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "14:02",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...\n2026-08-06T13:56:00-06:00 yoga systemd[1513]: thunderbird-mcp.service: Scheduled restart job immediately on client request, restart counter is at 12.\n2026-08-06T13:56:00-06:00 yoga systemd[1513]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T13:56:01-06:00 yoga systemd[1513]: Started Thunderbird MCP HTTP Server.\n2026-08-06T13:56:07-06:00 yoga systemd[1513]: thunderbird-mcp.service: Main process exited, code=exited, status=1/FAILURE\n2026-08-06T13:56:07-06:00 yoga systemd[1513]: thunderbird-mcp.service: Failed with result 'exit-code'.\n2026-08-06T13:56:07-06:00 yoga systemd[1513]: thunderbird-mcp.service: Consumed 6.856s CPU time over 12.306s wall clock time, 271.7M memory peak.\n2026-08-06T13:56:07-06:00 yoga systemd[1513]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "14:02",
+      "service": "d2m-mcp-grok",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: failed",
+      "elon_invoked": false
+    },
+    {
+      "time": "14:20",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...s.\n2026-08-06T14:04:00-06:00 yoga systemd[1513]: thunderbird-mcp.service: Scheduled restart job immediately on client request, restart counter is at 8.\n2026-08-06T14:04:00-06:00 yoga systemd[1513]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T14:04:01-06:00 yoga systemd[1513]: Started Thunderbird MCP HTTP Server.\n2026-08-06T14:04:05-06:00 yoga systemd[1513]: thunderbird-mcp.service: Main process exited, code=exited, status=1/FAILURE\n2026-08-06T14:04:05-06:00 yoga systemd[1513]: thunderbird-mcp.service: Failed with result 'exit-code'.\n2026-08-06T14:04:05-06:00 yoga systemd[1513]: thunderbird-mcp.service: Consumed 5.007s CPU time over 5.545s wall clock time, 132.5M memory peak.\n2026-08-06T14:04:05-06:00 yoga systemd[1513]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "14:20",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...s.\n2026-08-06T14:04:00-06:00 yoga systemd[1513]: thunderbird-mcp.service: Scheduled restart job immediately on client request, restart counter is at 8.\n2026-08-06T14:04:00-06:00 yoga systemd[1513]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T14:04:01-06:00 yoga systemd[1513]: Started Thunderbird MCP HTTP Server.\n2026-08-06T14:04:05-06:00 yoga systemd[1513]: thunderbird-mcp.service: Main process exited, code=exited, status=1/FAILURE\n2026-08-06T14:04:05-06:00 yoga systemd[1513]: thunderbird-mcp.service: Failed with result 'exit-code'.\n2026-08-06T14:04:05-06:00 yoga systemd[1513]: thunderbird-mcp.service: Consumed 5.007s CPU time over 5.545s wall clock time, 132.5M memory peak.\n2026-08-06T14:04:05-06:00 yoga systemd[1513]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "14:20",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...ies.\n2026-08-06T14:06:00-06:00 yoga systemd[1513]: thunderbird-mcp.service: Scheduled restart job immediately on client request, restart counter is at 8.\n2026-08-06T14:06:00-06:00 yoga systemd[1513]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T14:06:01-06:00 yoga systemd[1513]: Started Thunderbird MCP HTTP Server.\n2026-08-06T14:06:05-06:00 yoga systemd[1513]: thunderbird-mcp.service: Main process exited, code=exited, status=1/FAILURE\n2026-08-06T14:06:05-06:00 yoga systemd[1513]: thunderbird-mcp.service: Failed with result 'exit-code'.\n2026-08-06T14:06:05-06:00 yoga systemd[1513]: thunderbird-mcp.service: Consumed 5.073s CPU time over 9.008s wall clock time, 130M memory peak.\n2026-08-06T14:06:05-06:00 yoga systemd[1513]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "14:37",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n....\n2026-08-06T14:14:00-06:00 yoga systemd[1513]: thunderbird-mcp.service: Scheduled restart job immediately on client request, restart counter is at 7.\n2026-08-06T14:14:00-06:00 yoga systemd[1513]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T14:14:01-06:00 yoga systemd[1513]: Started Thunderbird MCP HTTP Server.\n2026-08-06T14:14:04-06:00 yoga systemd[1513]: thunderbird-mcp.service: Main process exited, code=exited, status=1/FAILURE\n2026-08-06T14:14:04-06:00 yoga systemd[1513]: thunderbird-mcp.service: Failed with result 'exit-code'.\n2026-08-06T14:14:04-06:00 yoga systemd[1513]: thunderbird-mcp.service: Consumed 4.885s CPU time over 12.697s wall clock time, 130.4M memory peak.\n2026-08-06T14:14:04-06:00 yoga systemd[1513]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "14:37",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n....\n2026-08-06T14:16:00-06:00 yoga systemd[1513]: thunderbird-mcp.service: Scheduled restart job immediately on client request, restart counter is at 8.\n2026-08-06T14:16:00-06:00 yoga systemd[1513]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T14:16:01-06:00 yoga systemd[1513]: Started Thunderbird MCP HTTP Server.\n2026-08-06T14:16:06-06:00 yoga systemd[1513]: thunderbird-mcp.service: Main process exited, code=exited, status=1/FAILURE\n2026-08-06T14:16:06-06:00 yoga systemd[1513]: thunderbird-mcp.service: Failed with result 'exit-code'.\n2026-08-06T14:16:06-06:00 yoga systemd[1513]: thunderbird-mcp.service: Consumed 5.863s CPU time over 16.141s wall clock time, 170.7M memory peak.\n2026-08-06T14:16:06-06:00 yoga systemd[1513]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "15:22",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-06T14:23:52-06:00 yoga systemd[1513]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-06T14:23:52-06:00 yoga systemd[1513]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T14:23:54-06:00 yoga systemd[1513]: Started Thunderbird MCP HTTP Server.\n2026-08-06T14:24:03-06:00 yoga systemd[1513]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-06T14:24:03-06:00 yoga systemd[1513]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-06T14:24:03-06:00 yoga systemd[1513]: thunderbird-mcp.service: Consumed 5.913s CPU time over 20.992s wall clock time, 226.1M memory peak.\n2026-08-06T14:24:03-06:00 yoga systemd[1513]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "15:22",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...= dependencies.\n2026-08-06T14:25:56-06:00 yoga systemd[1513]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 3.\n2026-08-06T14:25:56-06:00 yoga systemd[1513]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T14:25:58-06:00 yoga systemd[1513]: Started Thunderbird MCP HTTP Server.\n2026-08-06T14:26:07-06:00 yoga systemd[1513]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-06T14:26:07-06:00 yoga systemd[1513]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-06T14:26:07-06:00 yoga systemd[1513]: thunderbird-mcp.service: Consumed 6.047s CPU time over 20.827s wall clock time, 192.2M memory peak, 21M memory swap peak.\n2026-08-06T14:26:07-06:00 yoga systemd[1513]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "15:22",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: probe error: Command '['systemctl', '--user', 'is-active', 'thunderbird-mcp']' timed out after 10 seconds",
+      "elon_invoked": false
+    },
+    {
+      "time": "15:22",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...dependencies.\n2026-08-06T14:33:51-06:00 yoga systemd[1513]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 3.\n2026-08-06T14:33:51-06:00 yoga systemd[1513]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T14:33:52-06:00 yoga systemd[1513]: Started Thunderbird MCP HTTP Server.\n2026-08-06T14:34:02-06:00 yoga systemd[1513]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-06T14:34:02-06:00 yoga systemd[1513]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-06T14:34:02-06:00 yoga systemd[1513]: thunderbird-mcp.service: Consumed 6.816s CPU time over 21.125s wall clock time, 192.5M memory peak, 18.3M memory swap peak.\n2026-08-06T14:34:02-06:00 yoga systemd[1513]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "15:42",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "15:42",
+      "service": "d2m-mcp-grok",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: failed",
+      "elon_invoked": false
+    },
+    {
+      "time": "15:42",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "15:42",
+      "service": "d2m-mcp-grok",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: failed",
+      "elon_invoked": false
+    },
+    {
+      "time": "15:42",
+      "service": "thunderbird-generic-remediate@d2m-mcp-grok",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -71,8 +296,107 @@
       "elon_invoked": false
     },
     {
-      "time": "09:15",
-      "service": "thunderbird-generic-remediate@tess-token-keepalive",
+      "time": "15:42",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n(journal fetch failed: Command '['journalctl', '--user', '-u', 'thunderbird-mcp', '-n15', '--no-pager', '--output=short-iso']' timed out after 10 seconds)",
+      "elon_invoked": false
+    },
+    {
+      "time": "15:42",
+      "service": "d2m-mcp-grok",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: failed",
+      "elon_invoked": false
+    },
+    {
+      "time": "15:48",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "15:48",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "15:48",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "15:48",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...dependencies.\n2026-08-06T15:41:24-06:00 yoga systemd[1513]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-06T15:41:24-06:00 yoga systemd[1513]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T15:41:25-06:00 yoga systemd[1513]: Started Thunderbird MCP HTTP Server.\n2026-08-06T15:41:35-06:00 yoga systemd[1513]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-06T15:41:35-06:00 yoga systemd[1513]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-06T15:41:35-06:00 yoga systemd[1513]: thunderbird-mcp.service: Consumed 6.075s CPU time over 21.065s wall clock time, 192.5M memory peak, 19.8M memory swap peak.\n2026-08-06T15:41:35-06:00 yoga systemd[1513]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "16:10",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "16:10",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...dependencies.\n2026-08-06T15:47:26-06:00 yoga systemd[1513]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-06T15:47:26-06:00 yoga systemd[1513]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T15:47:27-06:00 yoga systemd[1513]: Started Thunderbird MCP HTTP Server.\n2026-08-06T15:47:37-06:00 yoga systemd[1513]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-06T15:47:37-06:00 yoga systemd[1513]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-06T15:47:37-06:00 yoga systemd[1513]: thunderbird-mcp.service: Consumed 6.557s CPU time over 21.125s wall clock time, 192.4M memory peak, 17.4M memory swap peak.\n2026-08-06T15:47:37-06:00 yoga systemd[1513]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "16:31",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "16:31",
+      "service": "thunderbird-overwatch",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "16:31",
+      "service": "d2m-mcp-grok",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "16:37",
+      "service": "thunderbird-watchdog",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -80,7 +404,16 @@
       "elon_invoked": false
     },
     {
-      "time": "09:50",
+      "time": "16:37",
+      "service": "d2m-mcp-grok",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: failed",
+      "elon_invoked": false
+    },
+    {
+      "time": "16:37",
       "service": "thunderbird-generic-remediate@thunderbird-c2-sweep",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
@@ -89,8 +422,8 @@
       "elon_invoked": false
     },
     {
-      "time": "10:15",
-      "service": "thunderbird-generic-remediate@claude-process-watch",
+      "time": "16:37",
+      "service": "thunderbird-generic-remediate@thunderbird-inbox-sweep",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -98,7 +431,34 @@
       "elon_invoked": false
     },
     {
-      "time": "10:15",
+      "time": "16:37",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "16:42",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...dependencies.\n2026-08-06T16:34:10-06:00 yoga systemd[1513]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-06T16:34:10-06:00 yoga systemd[1513]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T16:34:11-06:00 yoga systemd[1513]: Started Thunderbird MCP HTTP Server.\n2026-08-06T16:34:21-06:00 yoga systemd[1513]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-06T16:34:21-06:00 yoga systemd[1513]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-06T16:34:21-06:00 yoga systemd[1513]: thunderbird-mcp.service: Consumed 6.868s CPU time over 21.106s wall clock time, 192.5M memory peak, 16.8M memory swap peak.\n2026-08-06T16:34:21-06:00 yoga systemd[1513]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "16:42",
+      "service": "thunderbird-generic-remediate@d2m-mcp-grok",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
+      "elon_invoked": false
+    },
+    {
+      "time": "16:42",
       "service": "thunderbird-generic-remediate@zen-usage-guard",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
@@ -107,12 +467,120 @@
       "elon_invoked": false
     },
     {
-      "time": "10:20",
-      "service": "drawdown-regression-guard",
+      "time": "17:00",
+      "service": "thunderbird-generic-remediate@claude-process-watch",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "17:23",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "17:23",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "18:24",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "18:24",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n....\n2026-08-06T17:18:40-06:00 yoga systemd[1523]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 4.\n2026-08-06T17:18:40-06:00 yoga systemd[1523]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T17:18:41-06:00 yoga systemd[1523]: Started Thunderbird MCP HTTP Server.\n2026-08-06T17:19:13-06:00 yoga systemd[1523]: thunderbird-mcp.service: Main process exited, code=exited, status=3/NOTIMPLEMENTED\n2026-08-06T17:19:13-06:00 yoga systemd[1523]: thunderbird-mcp.service: Failed with result 'exit-code'.\n2026-08-06T17:19:13-06:00 yoga systemd[1523]: thunderbird-mcp.service: Consumed 10.328s CPU time over 43.589s wall clock time, 192.5M memory peak, 68M memory swap peak.\n2026-08-06T17:19:13-06:00 yoga systemd[1523]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "18:24",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...ndencies.\n2026-08-06T17:20:14-06:00 yoga systemd[1523]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 2.\n2026-08-06T17:20:14-06:00 yoga systemd[1523]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T17:20:15-06:00 yoga systemd[1523]: Started Thunderbird MCP HTTP Server.\n2026-08-06T17:21:07-06:00 yoga systemd[1523]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-06T17:21:07-06:00 yoga systemd[1523]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-06T17:21:07-06:00 yoga systemd[1523]: thunderbird-mcp.service: Consumed 7.192s CPU time over 1min 3.026s wall clock time, 192.5M memory peak, 23.1M memory swap peak.\n2026-08-06T17:21:07-06:00 yoga systemd[1523]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "18:24",
+      "service": "thunderbird-mcp",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...dependencies.\n2026-08-06T17:22:23-06:00 yoga systemd[1523]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 2.\n2026-08-06T17:22:23-06:00 yoga systemd[1523]: Starting Thunderbird MCP HTTP Server...\n2026-08-06T17:22:24-06:00 yoga systemd[1523]: Started Thunderbird MCP HTTP Server.\n2026-08-06T17:23:10-06:00 yoga systemd[1523]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-06T17:23:10-06:00 yoga systemd[1523]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-06T17:23:10-06:00 yoga systemd[1523]: thunderbird-mcp.service: Consumed 8.378s CPU time over 57.179s wall clock time, 193.5M memory peak, 25.1M memory swap peak.\n2026-08-06T17:23:10-06:00 yoga systemd[1523]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "elon_invoked": false
+    },
+    {
+      "time": "22:34",
+      "service": "thunderbird-generic-remediate@zen-usage-guard",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "22:34",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "22:34",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "22:34",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "22:34",
+      "service": "thunderbird-generic-remediate@claude-process-watch",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
       "note": "auto-heal unverified: systemctl is-active: inactive",
+      "elon_invoked": false
+    },
+    {
+      "time": "22:34",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
       "elon_invoked": false
     }
   ],

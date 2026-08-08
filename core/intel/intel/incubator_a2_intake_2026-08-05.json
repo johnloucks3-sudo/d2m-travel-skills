@@ -1,0 +1,57 @@
+[
+  {
+    "id": "A2-2026-08-05-001",
+    "title": "Understanding Large Language Models",
+    "source_signal": "[1] Large language model - Wikipedia: A large language model is an AI model (typically a neural network) trained on a vast amount of text for natural language \u2026 (ddg_web)",
+    "classification": "WATCH",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "General foundational knowledge about LLMs is interesting but not immediately actionable for Thunderbird's current build queue."
+  },
+  {
+    "id": "A2-2026-08-05-002",
+    "title": "LLM Definition and Functionality",
+    "source_signal": "[2] Large Language Model (LLM) - GeeksforGeeks: May 2, 2026 \u00b7 Large Language Models (LLMs) are advanced AI systems built on deep neural networks designed to \u2026 (ddg_web)",
+    "classification": "WATCH",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "This signal provides a definition of LLMs, which is useful background but doesn't identify a specific gap or buildable feature for Thunderbird."
+  },
+  {
+    "id": "A2-2026-08-05-003",
+    "title": "Beginner's Guide to LLMs",
+    "source_signal": "[3] What Is an LLM? Beginner's Guide to AI in 2026: Apr 18, 2026 \u00b7 What is an LLM? A clear, beginner-friendly guide to large language models, how they work, why they matter, \u2026 (ddg_web)",
+    "classification": "WATCH",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "A beginner-friendly explanation of LLMs is valuable for general awareness but does not directly address a current gap or suggest an immediate integration for Thunderbird."
+  },
+  {
+    "id": "A2-2026-08-05-004",
+    "title": "LLM Performance Benchmarks",
+    "source_signal": "[4] LLM Leaderboard & AI Model Benchmarks \u2014 August 2026 | 37\u2026: 1 day ago \u00b7 The LLM leaderboard \u2014 August 2026 rankings Benchmarks, pricing, runtime signals, and context window in one table. \u2026 (ddg_web)",
+    "classification": "WATCH",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "LLM benchmarks are relevant for future integration decisions, but the technology is still evolving, and a specific Thunderbird gap isn't yet defined."
+  },
+  {
+    "id": "A2-2026-08-05-005",
+    "title": "Open-Source LLM Models",
+    "source_signal": "[5] Best Open-Source LLM Models in 2026: Coding, Local, Agentic AI ...: Nov 13, 2025 \u00b7 Open-source AI in 2026 is no longer just the cheaper alternative to closed models. For coding, reasoning, \u2026 (ddg_web)",
+    "classification": "WATCH",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "The existence of advanced open-source LLMs is noted, but a specific application or gap within Thunderbird's current architecture is not identified, requiring further research."
+  }
+]

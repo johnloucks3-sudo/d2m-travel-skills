@@ -1,0 +1,110 @@
+{
+  "tasks": {
+    "claude-oauth": {
+      "last_run": 1786119537.0664282,
+      "last_success": 1786119537.0664282,
+      "last_attempt": 1786119537.0664282,
+      "last_status": "ok",
+      "last_error": ""
+    },
+    "d2mconcierge-oauth": {
+      "last_run": 1786119537.0664282,
+      "last_success": 1786119537.0664282,
+      "last_attempt": 1786119537.0664282,
+      "last_status": "ok",
+      "last_error": ""
+    },
+    "johnloucks3-oauth": {
+      "last_run": 1786119537.0664282,
+      "last_success": 1786119537.0664282,
+      "last_attempt": 1786119537.0664282,
+      "last_status": "ok",
+      "last_error": ""
+    },
+    "tess-token": {
+      "last_run": 1786115418.2621999,
+      "last_success": 1786115418.2621999,
+      "last_attempt": 1786115418.2621999,
+      "last_status": "ok",
+      "last_error": ""
+    },
+    "portal-keepalive": {
+      "last_run": 1786119537.0664282,
+      "last_success": 1786039247.6400883,
+      "last_attempt": 1786119537.0664282,
+      "last_status": "fail",
+      "last_error": "timeout after 120s"
+    },
+    "tool-key-refresh": {
+      "last_run": 1786120263.5053787,
+      "last_success": 1786120263.5053787,
+      "last_attempt": 1786120263.5053787,
+      "last_status": "ok",
+      "last_error": ""
+    },
+    "chrome-cdp-health": {
+      "last_run": 1782594632.1235504,
+      "last_attempt": 1782595538.9676564,
+      "last_status": "fail",
+      "last_error": "[chrome_cdp_health] Port 9222 not responding \u2014 restarting chrome-debug.service...\n[chrome_cdp_health] RESTARTED \u2014 Chrome 9222 now online after service restart\n"
+    },
+    "qdrant-watchdog": {
+      "last_run": 1786120263.5053787,
+      "last_success": 1786120263.5053787,
+      "last_attempt": 1786120263.5053787,
+      "last_status": "ok",
+      "last_error": ""
+    },
+    "autosave": {
+      "last_run": 1786120263.5053787,
+      "last_success": 1786120263.5053787,
+      "last_attempt": 1786120263.5053787,
+      "last_status": "ok",
+      "last_error": ""
+    },
+    "keepalive-supervisor": {
+      "last_run": 1786118933.9551349,
+      "last_success": 1786118933.9551349,
+      "last_attempt": 1786118933.9551349,
+      "last_status": "ok",
+      "last_error": ""
+    },
+    "silversea-session": {
+      "last_run": 1786075367.3348742,
+      "last_success": 1786075367.3348742,
+      "last_attempt": 1786075367.3348742,
+      "last_status": "ok",
+      "last_error": ""
+    },
+    "centrav-warm": {
+      "last_run": 1786120263.5053787,
+      "last_success": 1786104368.682649,
+      "last_attempt": 1786120263.5053787,
+      "last_status": "fail",
+      "last_error": "[10:31:36] warm GET https://www.centrav.com/ \u2192 https://www.centrav.com/\n[10:31:36]   bounced_to_login=False  logout_visible=False  body_authed=False  => authenticated=False\n[10:31:36] NOT AUTHENTICATED \u2014 Centrav session is dead.\n[10:31:36]   Attempting autonomous headless relogin via trusted Firefox profile...\n2026-08-07 10:31:45,811 [CENTRAV-RELOGIN] WARNING Cannot open persistent profile (locked?): BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<lau"
+    },
+    "fare-watch-deadman": {
+      "last_run": 1786115418.2621999,
+      "last_success": 1786115418.2621999,
+      "last_attempt": 1786115418.2621999,
+      "last_status": "ok",
+      "last_error": ""
+    },
+    "tess-fare-watch-autoregister": {
+      "last_run": 1786065812.9877455,
+      "last_success": 1786065812.9877455,
+      "last_attempt": 1786065812.9877455,
+      "last_status": "ok",
+      "last_error": ""
+    },
+    "bsk-session-keepalive": {
+      "last_run": 1786119537.0664282,
+      "last_success": 1786119537.0664282,
+      "last_attempt": 1786119537.0664282,
+      "last_status": "ok",
+      "last_error": ""
+    }
+  },
+  "consecutive_failures": 2,
+  "last_run": 1786120324.0190485
+}

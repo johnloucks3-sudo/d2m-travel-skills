@@ -1,0 +1,32 @@
+Subject: Tech Scan 2026-08-06 05:15 UTC — 3 trial / 2 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-08-06T05:15:32.619827+00:00
+
+TECH SCAN — 2026-08-06 05:15 UTC
+airborne scanner pulse · 17 finds · sectors agentic, claude-code, mcp
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 3 TRIAL · 12 WATCH · 2 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: Wallfacer – A terminal session manager for Claude Code, and more — https://github.com/pradipta/wallfacer
+↳ real tool (github.com) — worth a bounded look
+Curie – ship Claude Code agents to Kubernetes with Git push — https://github.com/curie-eng/curie
+↳ real tool (github.com) — worth a bounded look
+Let Claude/Codex run actual 1000s of LinkedIn outreach with ~30 MCP tools — https://gist.github.com/ayush488-glitch/b3fe8261983eb9
+↳ real tool (mcp, tool, github.com) — worth a bounded look
+👁 WATCH:Show HN: Mirafold – Generative UI for Claude Code, Codex, and Gemini CLI — https://mirafold.com/
+WaitPerk: sponsors in your Claude Code status line, you get paid — https://waitperk.com/
+ROI of $100 Claude Code Subscription — https://medium.com/@nenadmitt/roi-of-my-100-claude-code-subscription-02
+The silent failure taxonomy: an autonomous pipeline's 32 ways of faking success — https://claude.ai/code/artif
+Voice mode for Claude Code. Claude Code now answers you like a real person — https://heyski.io/
+Is Muse Code a Claude Code Killer? — https://trycodus.com/blog/muse-code-vs-claude-code-benchmarks
+Show HN: Ocean – All your team's agent sessions in one place — https://ocean.mosaic.inc/
+Launch HN: HyperProbe (YC S26) – Agents that do read-only debugging in prod — https://www.hyperprobe.co
+🗑 KILLED (2) — discussion/opinion, not tools (so they don't pile up):Ask HN: How to turn Claude Code into an effective software engineer — https://news.ycombin
+How to build an MCP server, step by step — https://dev.to/aiarch_wibo/how-to-build-an-mcp-
+RAW — all finds this pulse (unfiltered)[claude-code] Show HN: Wallfacer – A terminal session manager for Claude Code, and more — https://github.com/pradipta/wallfacer (Hacker News — Claude Code)
+[claude-code] Show HN: Mirafold – Generative UI for Claude Code, Codex, and Gemini CLI — https://mirafold.com/ (Hacker News — Claude Code)
+[claude-code] WaitPerk: sponsors in your Claude Code status line, you get paid — https://waitperk.com/ (Hacker News — Claude Code)
+[claude-code] Ask HN: How to turn Claude Code into an effective software engineer — https://news.ycombinator.com/item?id=49190381 (Hacker News — Claude Code)
+[claude-code] ROI of $100 Claude Code Subscription — https://medium.com/@nenadmitt/roi-of-my-100-claude-code-subscription-028937c9f77e (Hacker News — Claude Code)
+[agentic] The silent failure taxonomy: an autonomous pipeline's 32 ways of faking success — https://claude.ai/code/artifact/f66e63 (Hacker News — Claude Code)
+[claude-code] Voice mode for Claude Code. Claude Code now answers you like a real person — https://heyski.io/ (Hacker News — Claude Code)
+[claude-code] Is Muse Code a Claude Code Killer? — https://trycodus.com/blog/muse-code-vs-claude-code-benchma

@@ -277,3 +277,31 @@
 - **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
 - **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
 - **Action needed:** Template file or anchor may need updating
+
+---
+**[LIFECYCLE SCHEDULER — 2026-08-06 01:20]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: Kyle Kuklinski — TP ARC2-C Excursions Confirmed — 4 days overdue. Staff: Hale
+**Action Required:** Immediate attention.
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-08-06 01:20]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: John & Susan Loucks — TP TP-4.4 FINAL PAYMENT DUE — 5 days overdue. Staff: A9 Harlan + Hale
+**Action Required:** Immediate attention.
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-08-07 02:12]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: Kyle Kuklinski — TP ARC2-C Excursions Confirmed — 5 days overdue. Staff: Hale
+**Action Required:** Immediate attention.
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-08-07 02:12]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: John & Susan Loucks — TP TP-4.4 FINAL PAYMENT DUE — 6 days overdue. Staff: A9 Harlan + Hale
+**Action Required:** Immediate attention.
+

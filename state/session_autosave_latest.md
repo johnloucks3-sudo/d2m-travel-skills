@@ -1,41 +1,41 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-08-05 10:20:04 MDT
+## Generated: 2026-08-07 22:13:17 MDT
 
 ---
 
 ### Recent Commits
-- 5a97807a6 fix(stop-gate): reapply STOP-GATE after silent revert by OC drive-reorg reset
-- a398b9620 Remove OC PII fence (Commander-directed 2026-08-04) — OC now PII-cleared
-- 26432fb66 feat(cleanup): 5-theater campaign Phase 1 — codebase orphans, systemd fixes, Gemini bypass, Evernote SSO tooling
-- dcb0cd14f feat(delegation): task precision ladder, AG headroom reconciliation, reactive quota circuit-breaker
-- ba877d64b fix(audit): 100% completion of Sonnet 4.6 audit findings F-01 through F-06
+- 25b032a2e fix(war-room): kill airfare keep-alives except Skybird — suppress fare-watch-centrav auto-repair; disable perx+centrav keepalive timers
+- fe2a89945 fix(war-room): KT-CENTRAV — stop recurring keep-alive/login+ping. Removed infra_bot zombie tasks; disabled supertimer+systemd units; keepalive-supervisor no longer flags/escalates centrav (on-demand only); added consolidation (oauth_refresh_all, portal_http_probe, deadman).
+- 5a0cc109b feat(war-room): RT-KEEPALIVES backlog — oauth_refresh_all consolidation runner + zero-browser portal_http_probe + deadman heartbeat (wired into keepalive-supervisor); all verified
+- 2446297ef feat(war-room): deck shows FULL point-paper text + links (papers/transcripts/previews); portal-live-probe authorized-removal gate fixed (errs-only trigger), probe kept + re-armed
+- 8bf718197 fix(war-room): RT-KEEPALIVES — kill centrav-warm + portal-keepalive zombie supertimer tasks (30-min spam end); AG+CC slim plan consolidated
 
 ### Uncommitted Changes
+ M .ask_usage_log
+ M .opencode/skills/google-flights/SKILL.md
  m Blackboard
  M CLAUDE.md
  M OpsCenter/.ci_rapid_repair_notify_dedup.json
- M OpsCenter/.lifecycle_alerted.json
  M OpsCenter/.lifecycle_last_scan_date
  M OpsCenter/.metronome_seq
  M OpsCenter/.session_blast_fingerprint.json
  M OpsCenter/.silversea_api_alert_dedup.json
+ M OpsCenter/00_COMMAND_LOG.md
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/OPENCODE_INIT.md
+ M OpsCenter/a7_metrics_dashboard.json
+ M OpsCenter/claude_inbox.md
+ M OpsCenter/claude_usage_status.json
  M OpsCenter/collaboration/blackboard.md
  M OpsCenter/collaboration/blackboard_summary.txt
+ M OpsCenter/collaboration/claude_outbox.md
  M OpsCenter/collaboration/opencode_inbox.md
- M OpsCenter/collaboration/routing_log.md
- M OpsCenter/collaboration/sterling_inbox.md
- M OpsCenter/collaboration/wing_comms.md
- M OpsCenter/fare_watches/google_flights_last_check.json
- M OpsCenter/hale_incident_signatures.json
- M OpsCenter/hale_incidents_today.json
- M OpsCenter/itinerary_watchdog_status.json
+ M OpsCenter/collaboration/rate_limit_status.md
 
 ### Inbox Status
 - Claude inbox: 0
 0 pending task(s)
-- OpenCode inbox: 1083 pending task(s)
+- OpenCode inbox: 1120 pending task(s)
 
 ### System Health
 - Watcher: ❌ STOPPED

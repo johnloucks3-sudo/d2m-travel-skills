@@ -69,7 +69,8 @@ All are POST `https://www.google.com/_/FlightsFrontendUi/...` with `f.req=<urlen
 - **UI multi-city was as fragile as ITA's** — auto-copied destinations, "Where else?" stray fields, fill-selector focus errors. Commander's verdict from ITA applies here too: **prefer Centrav B2B + RapidAPI for Business-class May 2027.**
 
 ## NOTES / CONSTRAINTS
-- **RapidAPI path exists separately**: `core/travel/thunderbird_google_flights_search.py` (DataCrawler, 150 req/mo). Returned **HTTP 429** on 2026-08-05 — free quota may be exhausted. Check before relying on it.
+- **RapidAPI path exists separately**: `core/travel/thunderbird_google_flights_search.py` (DataCrawler, 150 req/mo). Returned **HTTP 429** on 2026-08-05 AND 2026-08-06 — free quota exhausted; dormant until monthly reset.
+- **Status 2026-08-06:** Google Flights RapidAPI dead (429), Centrav session expired, **Skybird GDS Sabre is the live B2B engine** (`scripts/skybird_scan.py`, multi-city via `--legs`). Full status: `docs/GOOGLE_FLIGHTS_STATUS_20260806.md`.
 - Google Flights shows consumer fares (not B2B net). For Business-class May 2027 (DEN→VCE 05/01 + ATH→DEN 05/30) cross-check Centrav B2B.
 - tfs URL opens the SPA — results may need a few seconds to render; the landing/Explore page shows if the token is malformed or session state is off.
 - **Recommendation for May 2027 fares:** use Centrav B2B (`search_centrav_flights`) + RapidAPI Google Flights (once 429 clears) — both are far more AI-friendly than the tfs-SPA path. ITA Matrix baseline: American $6,201 · Lufthansa $7,337 · United $8,230.
