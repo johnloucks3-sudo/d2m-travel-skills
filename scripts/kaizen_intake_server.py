@@ -15,19 +15,27 @@ with the shared password is authorized — the password IS the authorization
 check, no per-user allowlist. Stdlib http.server — matches this repo's
 existing scripts/client_portal_server.py pattern, no new dependency.
 
-GET  /            intake form (submitted_by, origin, seat, spec, verify_step, gates)
+GET  /            intake form (submitted_by, email, phone, origin, seat, spec, verify_step, gates)
 POST /submit      builds + writes the ticket via core.relay.task_templates,
                    redirects to a confirmation page showing the ticket_id
 
-`submitted_by` (free text, required) records WHO typed the ticket now that
-the login is shared — separate from `origin`, which tags which drafting
-tool (if any) produced the prompt text, never an elevated-authority source.
-Gates default to empty (no Weapons Free scope) unless explicitly typed in —
-gates are never inferred.
+`submitted_by`/email/phone (all required) record WHO typed the ticket now
+that the login is shared — separate from `origin`, which tags which
+drafting tool (if any) produced the prompt text, never an elevated-authority
+source. Gates default to empty (no Weapons Free scope) unless explicitly
+typed in — gates are never inferred.
+
+Commander-visibility alert (2026-08-08 directive): if the submitted email
+AND phone both fail to match the Commander's own on file, a NOW-urgency
+Telegram breaks through immediately (not the WINDOW batch) — "someone else
+is using this" per his own words. Matching either field is enough to count
+as the Commander himself; blank fields never match, so an unfilled
+submission always alerts.
 """
 import base64
 import html
 import os
+import re
 import sys
 import urllib.parse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -40,6 +48,19 @@ if str(ROOT) not in sys.path:
 PORT = int(os.environ.get("KAIZEN_INTAKE_PORT", "8930"))
 AUTH_USER = os.environ.get("KAIZEN_INTAKE_USER", "commander")
 AUTH_PASS = os.environ.get("KAIZEN_INTAKE_PASS", "")  # set via EnvironmentFile, never hardcoded
+
+COMMANDER_EMAIL = os.environ.get("KAIZEN_COMMANDER_EMAIL", "johnloucks3@gmail.com").strip().lower()
+COMMANDER_PHONE = re.sub(r"\D", "", os.environ.get("KAIZEN_COMMANDER_PHONE", "719-291-0742"))[-10:]
+
+
+def _looks_like_commander(email: str, phone: str) -> bool:
+    email_norm = (email or "").strip().lower()
+    phone_norm = re.sub(r"\D", "", phone or "")[-10:]
+    if email_norm and email_norm == COMMANDER_EMAIL:
+        return True
+    if phone_norm and phone_norm == COMMANDER_PHONE:
+        return True
+    return False
 
 FORM_HTML = """<!doctype html><html><head><meta charset="utf-8">
 <title>KAIZEN Ticket Intake</title>
@@ -57,6 +78,10 @@ FORM_HTML = """<!doctype html><html><head><meta charset="utf-8">
 <form method="POST" action="/submit">
 <label>Your name (for the record)</label>
 <input name="submitted_by" required placeholder="e.g. John, Dani, Sterling">
+<label>Your delivery email</label>
+<input name="email" type="email" required placeholder="you@example.com">
+<label>Your phone number</label>
+<input name="phone" type="tel" required placeholder="e.g. 719-291-0742">
 <label>Origin (which tool drafted the prompt, if any)</label>
 <select name="origin">
 <option value="my_gemini">My Gemini (web)</option>
@@ -124,6 +149,8 @@ class Handler(BaseHTTPRequestHandler):
         raw = self.rfile.read(length).decode()
         fields = urllib.parse.parse_qs(raw)
         submitted_by = fields.get("submitted_by", [""])[0].strip() or "unknown"
+        email = fields.get("email", [""])[0].strip()
+        phone = fields.get("phone", [""])[0].strip()
         origin = fields.get("origin", ["other"])[0]
         seat = fields.get("seat", ["CC"])[0]
         spec = fields.get("spec", [""])[0].strip()
@@ -145,8 +172,31 @@ class Handler(BaseHTTPRequestHandler):
             )
             ticket["origin"] = origin
             ticket["submitted_by"] = submitted_by
+            ticket["submitted_email"] = email
+            ticket["submitted_phone"] = phone
             path = write_ticket(ticket)
             msg = f"Ticket created: {ticket['ticket_id']} -> {path}"
+
+            if not _looks_like_commander(email, phone):
+                try:
+                    from core.comms.commander_channel import notify
+                    notify(
+                        "ops",
+                        f"KAIZEN ticket from {submitted_by} — not your own email/phone",
+                        (
+                            f"Someone submitted a KAIZEN ticket whose email/phone didn't "
+                            f"match your own on file.\n\n"
+                            f"- **Name:** {submitted_by}\n- **Email:** {email or '(blank)'}\n"
+                            f"- **Phone:** {phone or '(blank)'}\n- **Seat tasked:** {seat}\n"
+                            f"- **Ticket:** {ticket['ticket_id']}\n- **Task:** {spec[:200]}"
+                        ),
+                        urgency="NOW",
+                        reason="Commander visibility directive 2026-08-08 — shared-password "
+                               "intake form, alert immediately when the submitter isn't him.",
+                        dedup_key=f"kaizen-other-submitter-{ticket['ticket_id']}",
+                    )
+                except Exception:
+                    pass  # never let an alert failure block ticket creation
         except ValueError as e:
             msg = f"REJECTED: {e}"
 
