@@ -127,8 +127,9 @@ def process_cards(cards_root: Path, now_iso: str) -> tuple[list[str], int]:
             L.append("")
         if (card or {}).get("vote") and isinstance(card["vote"], dict):
             ball = card["vote"].get("sealed", False)
-            L.append(f"- VOTE({cid}): sealed={ball} q={card['vote'].get('q','')}")
-            ballots.setdefault(cid, []).append((seat, subj))
+            q = str(card["vote"].get("q", "")) or cid
+            L.append(f"- VOTE({cid}): sealed={ball} q={q}")
+            ballots.setdefault(q, []).append((seat, subj))
             L.append("")
         if card.get("claims"):
             L.append(f"- CLAIMS: {', '.join(card['claims'])}")

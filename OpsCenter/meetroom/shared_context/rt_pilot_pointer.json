@@ -1,0 +1,12 @@
+{
+  "session": "rt_pilot",
+  "topic": "rt_pilot",
+  "workitem_file": "shared_context/rt_pilot_workitem.md",
+  "target_state": "voted",
+  "owner": "OC",
+  "rdd": "2026-08-08T17:30:00MT",
+  "state_hash": "3c88380a4ac8929b09f41326b5d2793e1f4c770825a10fd63edbdf63cd82fd71",
+  "claims": [
+    "shared_context/rt_pilot_workitem.md"
+  ]
+}
