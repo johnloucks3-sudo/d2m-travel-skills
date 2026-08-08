@@ -21,6 +21,7 @@ import base64
 import collections
 import json
 import re
+import time
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timezone, date
 from pathlib import Path
@@ -254,6 +255,71 @@ def run_gate(
     if not v.ok:
         _page_hold(v)
     return v
+
+
+_GATE_CACHE: dict[tuple, tuple[float, Verdict]] = {}
+DEFAULT_CACHE_TTL_S = 600  # 10 min — covers non-path work products with no mtime to key on
+
+
+def _cache_key(work_product: str, acceptance_criteria: str,
+                others: list[str] | None, dossier: str | None) -> tuple:
+    """Deterministic key. For a real path, includes its current mtime — a
+    file change produces a different key automatically, no manual
+    invalidation needed for the common case. Non-path work products (bare
+    references) key on content alone and rely on the TTL instead."""
+    wp = (work_product or "").strip()
+    mtime = None
+    if wp:
+        p = Path(wp) if wp.startswith("/") else ROOT / wp
+        local = p if p.exists() else Path(str(p).split("@")[0])
+        if local.exists():
+            try:
+                mtime = local.stat().st_mtime
+            except OSError:
+                mtime = None
+    return (wp, acceptance_criteria, tuple(others or ()), dossier, mtime)
+
+
+def run_gate_cached(
+    work_product: str,
+    acceptance_criteria: str,
+    *,
+    mission_id: str = "ADHOC",
+    others: list[str] | None = None,
+    dossier: str | None = None,
+    ttl_seconds: int = DEFAULT_CACHE_TTL_S,
+) -> Verdict:
+    """`run_gate()`, cached — narrow scope by design (Pilot #2, 2026-08-08).
+
+    Only caches what's provably re-run on identical input within a process:
+    same work_product + acceptance_criteria + others + dossier, AND (for a
+    real path) the same file mtime. A real edit changes the mtime, which
+    changes the cache key, which forces a fresh check — no separate
+    invalidation logic needed for the case that actually matters. TTL only
+    covers the remaining edge case (non-path work products with nothing to
+    key an mtime on).
+
+    Deliberately does NOT wrap `integrity_check.verify_and_record()` —
+    those are cross-engine ground-truth checks where a second, INDEPENDENT
+    look is the entire point; caching one would defeat it. This wraps only
+    `run_gate()`'s own deterministic local battery (file-exists, non-empty,
+    placeholder-scan, criteria-numbers, portal counts) — checks that give
+    the identical answer every time on unchanged input, by construction.
+
+    A cache hit does not re-append to the Silver ledger/hale_decisions.md —
+    the original PASS/HOLD is already logged; logging the same verdict again
+    on every hit would be ledger noise, not new information.
+    """
+    key = _cache_key(work_product, acceptance_criteria, others, dossier)
+    cached = _GATE_CACHE.get(key)
+    if cached is not None:
+        cached_at, verdict = cached
+        if time.time() - cached_at < ttl_seconds:
+            return verdict
+    verdict = run_gate(work_product, acceptance_criteria,
+                        mission_id=mission_id, others=others, dossier=dossier)
+    _GATE_CACHE[key] = (time.time(), verdict)
+    return verdict
 
 
 def human_override(mission_id: str, work_product: str, overridden_by: str,
