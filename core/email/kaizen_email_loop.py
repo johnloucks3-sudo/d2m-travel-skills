@@ -266,6 +266,58 @@ def _notify_auto_send(ticket: dict, email: str, snippet: str) -> None:
         say(f"  (auto-send Telegram alert failed — non-fatal)")
 
 
+FACT_CHECK_PROMPT = """Fact-check the factual claims below (nothing else — ignore tone,
+grammar, formatting). This content is about to be auto-sent to a real person with no
+human review, so be strict: flag anything you are not confident is currently, exactly
+correct, including tax law, benefits eligibility, prices, addresses, or any claim that
+could have changed or could vary by circumstance.
+
+If every factual claim checks out with real confidence, respond with EXACTLY:
+VERIFIED: no issues found
+
+If ANY claim is wrong, outdated, oversimplified, or you're not confident, respond with:
+FLAGGED: <one sentence, name the specific claim and what's wrong or uncertain about it>
+
+Respond with nothing else — one line, one of those two forms exactly.
+
+CONTENT TO CHECK:
+{content}
+"""
+
+
+def _fact_check(raw_result: str) -> tuple[bool, str]:
+    """Independent cross-engine check (AG/Gemini, not the same engine that
+    wrote the content) before ANY auto-send — Commander directive 2026-08-08
+    after a real wrong tax-law claim reached a real inbox on the auto-send
+    path. Fails CLOSED: any error, timeout, or ambiguous response is treated
+    as FLAGGED (falls back to draft), never treated as a pass. Only gates
+    the auto-send path — drafts already get Commander review and don't need
+    this (and paying the latency for every draft would be wasteful)."""
+    import subprocess
+    import tempfile
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".md", delete=False, dir=str(THUNDERBIRD_DIR / "OpsCenter" / "state")
+        ) as f:
+            deliverable = f.name
+        r = subprocess.run(
+            [sys.executable, str(THUNDERBIRD_DIR / "core" / "relay" / "contact_ag.py"),
+             FACT_CHECK_PROMPT.format(content=raw_result[:3000]),
+             "--deliverable", deliverable, "--from", "CC", "--tag", "KAIZEN-FACTCHECK",
+             "--timeout", "180"],
+            capture_output=True, text=True, timeout=200,
+        )
+        verdict = Path(deliverable).read_text().strip() if Path(deliverable).exists() else ""
+        Path(deliverable).unlink(missing_ok=True)
+        if r.returncode != 0 or not verdict:
+            return False, "fact-check dispatch failed or returned nothing — failing closed"
+        if verdict.upper().startswith("VERIFIED"):
+            return True, ""
+        return False, verdict[:300]
+    except Exception as exc:
+        return False, f"fact-check error: {exc} — failing closed"
+
+
 def _notify_unexpected_sender(ticket_id: str, actual: str, expected: str) -> None:
     """NOW-urgency alert when a tagged reply comes from a non-matching sender."""
     try:
@@ -340,7 +392,22 @@ def pass1_outbound(live: bool) -> int:
             acted += 1
             continue
 
+        # Independent fact-check gate — only on the auto-send path (a draft
+        # already gets Commander review, no need to pay the latency there).
+        # Fails closed: any doubt downgrades to draft, never blocks entirely.
+        send_now = verified
         if verified:
+            fc_pass, fc_note = _fact_check(t.get("result", ""))
+            if not fc_pass:
+                say(f"[{tid}] FACT-CHECK FLAGGED — downgrading to draft: {fc_note}")
+                send_now = False
+                body = body.replace(
+                    "---\nGot a follow-up?",
+                    f"[Note: an independent check flagged something in this answer for "
+                    f"review before it goes out — {fc_note}]\n\n---\nGot a follow-up?",
+                )
+
+        if send_now:
             from core.email.thunderbird_gmail import gmail_send_as_persona
             res = gmail_send_as_persona(
                 to=email, subject=subject, body=body,
