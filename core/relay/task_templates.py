@@ -234,3 +234,92 @@ def build_haiku_task(
     lines.append(f"\nDONE means exactly: {acceptance_criteria}")
     return "\n".join(lines)
 
+
+# ── KAIZEN async ticket schema (2026-08-08, War Room RT-WARROOM-KAIZEN-COST) ─
+#
+# Closes the gap all three seats (OC/AG/ELON) independently flagged: CC has
+# been hand-writing prose specs live in-session instead of using the same
+# checkable-schema discipline the other 4 builders already enforce. A ticket
+# is a FILE (OpsCenter/tickets/<ticket_id>.json), not just a prompt string —
+# this is what lets headless CC execute it later without a live session
+# watching, and what lets OC/AG write ONE the same way CC writes a spec for
+# them (the reverse direction Instructor Mode never had).
+#
+# Ticket fields, matching the War Room synthesis exactly:
+#   ticket_id       — unique id
+#   seat             — who's expected to EXECUTE this ticket (CC/OC/AG)
+#   spec             — the task text (same discipline as the other builders:
+#                       include/exclude, front-loaded first action)
+#   gates            — Weapons Free scope, if any, carried WITH the ticket —
+#                       NEVER inherited from "we're in async mode right now".
+#                       Empty list = no elevated authority, routine work only.
+#   verify_step      — the acceptance criteria, must pass is_checkable()
+#   follow_up_due     — ISO timestamp; overdue tickets surface at the next
+#                       report window, never silently
+#   status           — "open" | "claimed" | "done" | "blocked"
+#   created_at       — ISO timestamp
+
+import json as _json
+from datetime import datetime, timezone, timedelta as _timedelta
+from pathlib import Path
+
+TICKETS_DIR = Path("/home/john/Thunderbird/OpsCenter/tickets")
+
+
+def build_cc_task(
+    task: str,
+    *,
+    seat: str,
+    verify_step: str,
+    gates: Optional[list[str]] = None,
+    ticket_id: Optional[str] = None,
+    follow_up_hours: float = 4.0,
+) -> dict:
+    """Build a KAIZEN async ticket dict (does not write it — see write_ticket()).
+    Raises on non-checkable verify_step, same hard gate as build_haiku_task —
+    a ticket that can't be mechanically checked shouldn't exist, sync or async."""
+    if not is_checkable(verify_step):
+        raise ValueError(
+            f"build_cc_task requires checkable verify_step (a count, path, "
+            f"ref, or artifact) — got {verify_step!r}. An uncheckable ticket "
+            f"is worse async than it was live — nobody's watching to catch it."
+        )
+    tid = ticket_id or f"kzn-{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}"
+    now = datetime.now(timezone.utc)
+    return {
+        "ticket_id": tid,
+        "seat": seat,
+        "spec": task,
+        "gates": gates or [],
+        "verify_step": verify_step,
+        "follow_up_due": (now + _timedelta(hours=follow_up_hours)).isoformat(),
+        "status": "open",
+        "created_at": now.isoformat(),
+    }
+
+
+def write_ticket(ticket: dict, tickets_dir: Path = TICKETS_DIR) -> Path:
+    """Persist a ticket built by build_cc_task() to OpsCenter/tickets/<id>.json.
+    File IS the async handoff — a headless runner (KAIZEN item #4) reads this
+    directory, no live session required to hand off work."""
+    tickets_dir.mkdir(parents=True, exist_ok=True)
+    path = tickets_dir / f"{ticket['ticket_id']}.json"
+    path.write_text(_json.dumps(ticket, indent=2))
+    return path
+
+
+def read_open_tickets(tickets_dir: Path = TICKETS_DIR) -> list[dict]:
+    """All tickets with status=='open' — what a headless runner or a report
+    renderer would scan."""
+    if not tickets_dir.exists():
+        return []
+    out = []
+    for p in sorted(tickets_dir.glob("*.json")):
+        try:
+            t = _json.loads(p.read_text())
+        except (_json.JSONDecodeError, OSError):
+            continue
+        if t.get("status") == "open":
+            out.append(t)
+    return out
+
