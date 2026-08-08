@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-08-06T15:14:36.348708+00:00",
+  "timestamp": "2026-08-08T12:00:08.438682+00:00",
   "url": "https://poe.com/api/keys",
-  "points_available": 1002366,
-  "value_usd": 30.37,
+  "points_available": 897522,
+  "value_usd": 27.2,
   "status": "ok",
-  "raw_sample": "Go to chat\nAPI Keys\nApplications can use API keys to query bots on Poe via your account. Only share API keys with applications you trust. Learn more.\nCreate key\nKEY\tSTATUS\tCREATED\tEXPIRES\t\n\nThunderbird & Opencode\nsk-poe-...WBDkVs\n\tEnabled\t06/29/2026\t\t\nConnected bots\nKEY\tSTATUS\tCREATED\tEXPIRES\t\n\nOpenCode\nsk-poe-...yaaI2c\n\tEnabled\t06/30/2026\t\t\n\n\nOpenCode\nsk-poe-...cMc1vA\n\tEnabled\t08/05/2026\t\t\nPoints\n1,002,366\navailable\n\u2248 $30.37 value\nAuto-recharge\nAuto-recharge is disabled. Enable auto recharge to"
+  "raw_sample": "Go to chat\nAPI Keys\nApplications can use API keys to query bots on Poe via your account. Only share API keys with applications you trust. Learn more.\nCreate key\nKEY\tSTATUS\tCREATED\tEXPIRES\t\n\nThunderbird & Opencode\nsk-poe-...WBDkVs\n\tEnabled\t06/29/2026\t\t\nConnected bots\nKEY\tSTATUS\tCREATED\tEXPIRES\t\n\nOpenCode\nsk-poe-...yaaI2c\n\tEnabled\t06/30/2026\t\t\n\n\nOpenCode\nsk-poe-...cMc1vA\n\tEnabled\t08/05/2026\t\t\nPoints\n897,522\navailable\n\u2248 $27.20 value\nAuto-recharge\nAuto-recharge is disabled. Enable auto recharge to a"
 }

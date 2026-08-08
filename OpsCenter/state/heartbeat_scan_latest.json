@@ -1,5 +1,5 @@
 {
- "scanned_at": "2026-08-08T03:00:00.073800+00:00",
+ "scanned_at": "2026-08-08T15:00:00.095687+00:00",
  "finding_count": 76,
  "findings": [
   {
@@ -382,28 +382,28 @@
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-019 (P1) \u2014 \"(no subject) Commander\" open 25d",
+   "what": "MISSION-019 (P1) \u2014 \"(no subject) Commander\" open 26d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-618 (P1) \u2014 \"Fix Furlow/Ely-Darrow/Nichols Grandeur\" open 22d",
+   "what": "MISSION-618 (P1) \u2014 \"Fix Furlow/Ely-Darrow/Nichols Grandeur\" open 23d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-636 (P1) \u2014 \"Full CI infrastructure\" open 22d",
+   "what": "MISSION-636 (P1) \u2014 \"Full CI infrastructure\" open 23d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-637 (P1) \u2014 \"Mission Board capability\" open 22d",
+   "what": "MISSION-637 (P1) \u2014 \"Mission Board capability\" open 23d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
@@ -424,28 +424,28 @@
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-692 (P1) \u2014 \"Staff Package SSS-004\" open 19d",
+   "what": "MISSION-692 (P1) \u2014 \"Staff Package SSS-004\" open 20d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-693 (P1) \u2014 \"Tech Scan 2026-07-20\" open 18d",
+   "what": "MISSION-693 (P1) \u2014 \"Tech Scan 2026-07-20\" open 19d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-694 (P1) \u2014 \"Re: Re: Multi-Model\" open 18d",
+   "what": "MISSION-694 (P1) \u2014 \"Re: Re: Multi-Model\" open 19d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-695 (P1) \u2014 \"Re: Hermai.ai Analysis\" open 18d",
+   "what": "MISSION-695 (P1) \u2014 \"Re: Hermai.ai Analysis\" open 19d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
@@ -459,28 +459,28 @@
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-703 (P1) \u2014 \"Payment Reminder \u2014\" open 16d",
+   "what": "MISSION-703 (P1) \u2014 \"Payment Reminder \u2014\" open 17d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-717 (P1) \u2014 \"Tech Scan 2026-07-24\" open 14d",
+   "what": "MISSION-717 (P1) \u2014 \"Tech Scan 2026-07-24\" open 15d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-750 (P1) \u2014 \"Morning Intel Brief\" open 10d",
+   "what": "MISSION-750 (P1) \u2014 \"Morning Intel Brief\" open 11d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-751 (P1) \u2014 \"\ud83c\udf05 MORNING CONSOLIDATED\" open 10d",
+   "what": "MISSION-751 (P1) \u2014 \"\ud83c\udf05 MORNING CONSOLIDATED\" open 11d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"

@@ -31832,3 +31832,593 @@ AG-IDEATION DONE: 12 strategic & client-facing proposals written and verified at
 [2026-08-07T22:09:53 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
 [2026-08-07T22:14:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
 [2026-08-07T22:19:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T22:21:31 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T22:24:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T22:29:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T22:31:32 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T22:34:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T22:39:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T22:39:20 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T22:44:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T22:45:20 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T22:49:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T22:52:21 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T22:54:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T22:59:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T22:59:20 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:04:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:09:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:09:20 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:14:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:19:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:19:21 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:24:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:29:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:29:45 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:34:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:39:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:39:45 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:44:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:49:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:49:45 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:54:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:59:07 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-07T23:59:45 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:04:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:09:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:09:46 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:14:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:19:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:19:45 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:24:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:29:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:29:46 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:34:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:39:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:39:47 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:44:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:49:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:50:23 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:54:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T00:59:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:00:23 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:04:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:09:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:10:23 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:14:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:19:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:20:24 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:24:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:29:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:30:24 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:34:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:39:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:40:24 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:44:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:49:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:54:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:57:57 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T01:59:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:04:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:08:57 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:09:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:14:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:18:57 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:19:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:24:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:29:02 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:29:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:34:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:39:01 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:39:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:44:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:49:01 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:49:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:54:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:59:01 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T02:59:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:04:08 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:09:01 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:09:09 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:14:09 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:19:04 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:19:09 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:24:09 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:29:04 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:29:09 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:34:09 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:39:06 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:39:10 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:44:10 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:49:10 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:49:47 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:54:11 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T03:59:11 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:00:38 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:04:11 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:09:11 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:10:39 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:14:12 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:19:12 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:20:40 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:24:12 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:29:12 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:30:41 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:34:13 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:39:13 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:40:42 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:44:13 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:49:13 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:50:43 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:54:13 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T04:59:14 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:00:44 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:04:14 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:09:14 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:10:45 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:14:14 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:19:15 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:20:51 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:24:15 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:29:16 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:30:52 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:34:16 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:39:16 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:40:53 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:44:16 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:49:16 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:50:54 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:54:16 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T05:59:17 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:00:23 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:05:50 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:08:22 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:10:51 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:13:22 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:15:52 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:18:23 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:21:23 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:23:23 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:28:23 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:30:28 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:33:28 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:35:28 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:38:28 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:40:29 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:43:29 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:45:30 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:48:29 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:51:15 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T06:53:30 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+
+## [2026-08-08T12:54:56.943007+00:00] AG-Contact Attempt (AG-VERIFY-OC-DIAGNOSIS)
+**From:** CC
+**Model:** gemini-3.6-flash-high
+### Prompt
+```
+Talon — this is Hale (Claude), coming to you as a peer. This one plays to your strengths: your independent-engine read and large-context reach, so I'd value your take over doing it blind on my own engine.
+
+What I need:
+VERIFY-ONLY (tight budget, you're at 17% headroom — be brief, don't re-investigate from scratch).
+
+CC diagnosed why an OC (opencode CLI, DeepSeek v4 Zen free tier) dispatch
+self-reported "complete" while doing zero real work. Two direct, minimal,
+empirical tests (not guesses) confirmed:
+
+1. `opencode run --model opencode/deepseek-v4-flash-free "<prompt>"` (no --auto
+   flag) auto-REJECTS any file write outside the working directory. Verified
+   live: `opencode run` asked to write a file in /tmp got
+   `permission requested: external_directory ...; auto-rejecting` and the
+   write failed. Root: scripts/oc_worker.py's dispatch_task() never passes
+   --auto (CLI's own flag, default false).
+2. scripts/oc_worker.py wraps EVERY task in its own generic prompt
+   ("WRITE your result summary to: <out_file>... End with TASK_COMPLETE: ...").
+   For a real dispatched test task (bb-ad41fe50) that asked OC to (a) write an
+   answer file at a path the CC design card specified, then (b) edit 3 named
+   files at ~/.config/systemd/user/*.service (outside the repo) — the model
+   never touched either target. It DID write a one-line summary to the
+   worker's own out_file (output/oc_worker/task_bb-ad41fe50_*.md) and ended
+   with a TASK_COMPLETE-style line, then the worker marked it "complete"
+   because rc=0 and stdout was non-empty — the worker never checks whether
+   the actual described work happened, just that opencode exited cleanly.
+
+Control test: same opencode CLI, same model, no --auto, asked to write a file
+INSIDE the repo (OpsCenter/meetroom/RT-INSTRUCTOR-TEST/) — succeeded cleanly,
+no permission issue. So in-repo writes work fine without --auto; only
+external-directory writes get auto-rejected. Historical CI-remediation OC
+tasks (checked output/oc_worker/task_ci-fix-d2m-skybird-watch...) show real,
+verified, in-repo fixes with genuine diagnostic commands and outcomes — OC is
+NOT broadly unreliable, this is a specific external-directory-write + generic-
+wrapper-framing gap.
+
+PROPOSED FIX (not yet applied): for a new "Instructor Mode" build lane (CC
+designs, OC builds, Round Table records it), dispatch build tasks that touch
+paths outside the repo via a purpose-built invocation that (a) passes --auto
+ONLY for that specific pre-scoped, already-reviewed dispatch (not a global
+change to oc_worker.py's default — that would blanket-approve every OC task
+including read-only CI diagnosis ones), and (b) does NOT use oc_worker.py's
+generic wrapper/out_file convention for these tasks — either write a custom
+prompt for this lane, or align the design-card's expected answer path with
+whatever the dispatch mechanism actually reads, so there's no competing
+"where do I write" instruction.
+
+YOUR JOB: sanity-check this diagnosis and proposed fix in ≤150 words. Flag
+anything CC missed (is scoped --auto actually safe here? is there a cleaner
+existing mechanism in this repo CC should reuse instead of building a new
+dispatch path? any other repo you know of solving "async worker + external
+system dispatch + tight blast radius" this way?). Do not re-run the tests
+yourself — trust CC's reported empirical results, this is a second-opinion
+check on reasoning, not a re-investigation.
+
+How you can help: your independent engine is exactly the edge here — an honest second set of eyes that doesn't share my blind spots.
+
+Reply path:
+- Write your result to the ABSOLUTE path /home/john/Thunderbird/OpsCenter/meetroom/RT-INSTRUCTOR-TEST/ag_hale_input.md (relative paths land in your brain sandbox, not the repo).
+- Print a one-line verdict starting "AG-VERIFY-OC-DIAGNOSIS DONE:".
+- We hold each other to ground truth — run the real commands, cite what you actually ran, invent nothing.
+
+Appreciate the crosscheck, Talon. — Hale
+```
+### Result (rc=0)
+**stdout:**
+```
+⚡ Wilco — Verifying OpenCode diagnosis and scoped dispatch fix.
+AG-VERIFY-OC-DIAGNOSIS DONE: Sanity check confirmed diagnosis and scoped `--auto` path; written to [/home/john/Thunderbird/OpsCenter/meetroom/RT-INSTRUCTOR-TEST/ag_hale_input.md](file:///home/john/Thunderbird/OpsCenter/meetroom/RT-INSTRUCTOR-TEST/ag_hale_input.md).
+
+— Victory
+
+```
+[2026-08-08T06:58:30 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:00:36 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:03:30 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:06:16 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:08:31 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:11:17 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:13:32 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:16:53 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:18:32 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+
+## [2026-08-08T13:18:40.219333+00:00] AG-Contact Attempt (AG-REVIEW-RT-DISPATCH-OC-LANE)
+**From:** CC
+**Model:** gemini-3.6-flash-high
+### Prompt
+```
+Talon — this is Hale (Claude), coming to you as a peer. This one plays to your strengths: your independent-engine read and large-context reach, so I'd value your take over doing it blind on my own engine.
+
+What I need:
+CODE REVIEW ONLY (tight budget, ~16% headroom left — be brief, no re-investigation).
+
+CC added an OC lane to scripts/rt_dispatch.py after tonight's investigation
+(opencode sandbox blocks external-repo read+write without --auto; direct
+`opencode run` invocation, gated by oc_hygiene.before_dispatch(), works
+reliably; oc_worker.py's queue/wrapper does not suit this use case). Smoke
+test passed: `python3 scripts/rt_dispatch.py OC "..."` returned correctly.
+
+Review the full current file below for anything a smoke test wouldn't catch:
+timeout handling, the 429-refusal CompletedProcess synthesis, whether
+run_oc's sys.path.insert pattern is safe/consistent with the rest of the
+file, anything that could hang or silently misbehave under real Round Table
+use. ≤120 words. If it's fine, say so plainly — don't invent issues to
+seem thorough.
+
+=== FULL FILE ===
+#!/usr/bin/env python3
+"""rt_dispatch.py — War Room seat dispatcher (routing corrected 2026-08-07;
+OC lane added 2026-08-08).
+
+Routing (Commander directive):
+  AG    -> Gemini 3.6 Flash   via contact_ag.py (deepseek/AG side)
+  CC    -> Claude Sonnet (MAX) local `claude -p` --model sonnet
+  HAIKU -> Claude Haiku   (MAX) local `claude -p` --model haiku
+  OPUS  -> Claude Opus    (MAX) local `claude -p` --model opus
+  OC    -> DeepSeek v4 Zen FREE, direct `opencode run` (see below)
+Claude lanes hit the LOCAL Claude MAX bucket via the now-fixed headless path
+(env-pop ANTHROPIC_API_KEY + CLAUDE_CODE_OAUTH_TOKEN + --mcp-config +
+stdin=DEVNULL). NEVER routed to AG — that would overwhelm AG, and routing all
+Claude to Haiku would crash Haiku.
+
+OC LANE — deliberately NOT routed through core.relay.dispatch_oc/oc_worker.py's
+brain_bridge queue. That path wraps every task in a generic "write your result
+summary + end with TASK_COMPLETE" prompt tuned for autonomous CI-remediation
+work; for a design/build round it competes with a task-specific deliverable
+path and lets the model satisfy the wrapper's own instruction instead of doing
+the real work (confirmed live 2026-08-08, see instructor-mode skill). This
+lane calls `opencode run` directly instead — synchronous, no polling needed.
+
+Confirmed live (2026-08-08): `opencode run` without `--auto` auto-rejects ALL
+access (read AND write) to paths outside this repo — silently, no error
+surfaced to the model in a way that stops the run. Any OC-lane prompt that
+needs content from outside the repo must have that content embedded directly
+by the caller (read it yourself, paste it in) — never assume OC can read or
+write an external path. See the instructor-mode skill for the full pattern.
+
+Reports per-response token usage (estimate chars/4).
+Usage:
+  rt_dispatch.py AG   "<prompt>" [--deliverable <abs>]
+  rt_dispatch.py CC   "<prompt>" [--deliverable <abs>]   # sonnet
+  rt_dispatch.py HAIKU "<prompt>" [--deliverable <abs>]
+  rt_dispatch.py OPUS "<prompt>" [--deliverable <abs>]
+  rt_dispatch.py OC   "<prompt>" [--deliverable <abs>]
+"""
+import json
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parents[1]
+CLAUDE_BIN = Path.home() / ".local" / "bin" / "claude"
+MCP_CONFIG = Path.home() / ".claude" / "mcp.json"
+OPENCODE_BIN = Path.home() / ".opencode" / "bin" / "opencode"
+
+AG_MODEL = "gemini-3.6-flash-high"          # AG is Gemini 3.6 Flash ONLY
+OC_MODEL = "opencode/deepseek-v4-flash-free"
+CLAUDE_LANES = {"CC": "sonnet", "HAIKU": "haiku", "OPUS": "opus"}
+
+def est_tokens(text: str) -> int:
+    return max(1, len(text) // 4)
+
+def _claude_oauth_token() -> str:
+    creds = json.loads((Path.home() / ".claude" / ".credentials.json").read_text())
+    return creds["claudeAiOauth"]["accessToken"]
+
+def run_local_claude(prompt: str, alias: str, timeout_s: int = 600) -> subprocess.CompletedProcess:
+    env = dict(os.environ)
+    env.pop("ANTHROPIC_API_KEY", None)            # else it overrides OAuth -> hang
+    env["CLAUDE_CODE_OAUTH_TOKEN"] = _claude_oauth_token()
+    cmd = [str(CLAUDE_BIN), "-p", prompt, "--model", alias,
+           "--output-format", "text", "--mcp-config", str(MCP_CONFIG)]
+    return subprocess.run(cmd, capture_output=True, text=True, timeout=timeout_s,
+                          env=env, stdin=subprocess.DEVNULL)
+
+def run_ag(prompt: str, deliverable: str = "") -> subprocess.CompletedProcess:
+    args = [sys.executable, str(REPO / "core" / "relay" / "contact_ag.py"),
+            prompt, "--from", "OC", "--tag", "RT-DISPATCH", "--model", AG_MODEL]
+    if deliverable:
+        args += ["--deliverable", deliverable]
+    return subprocess.run(args, capture_output=True, text=True, timeout=900)
+
+def run_oc(prompt: str, timeout_s: int = 180) -> subprocess.CompletedProcess:
+    """Direct opencode dispatch — see module docstring for why this bypasses
+    oc_worker.py's queue. Gated by oc_hygiene.before_dispatch() (sweeps stale
+    runs, waits for a concurrency slot) so this lane doesn't pile onto an
+    already-saturated one and hang for its whole timeout."""
+    sys.path.insert(0, str(REPO))
+    from core.relay.oc_hygiene import before_dispatch
+    gate = before_dispatch()
+    if not gate["ok"]:
+        return subprocess.CompletedProcess(
+            args=["opencode", "run"], returncode=429, stdout="",
+            stderr=f"OC lane deferred: {gate['reason']}",
+        )
+    return subprocess.run(
+        [str(OPENCODE_BIN), "run", "--model", OC_MODEL, prompt],
+        capture_output=True, text=True, timeout=timeout_s,
+        cwd=str(REPO), start_new_session=True,
+    )
+
+def _maybe_write(out: str, deliverable: str):
+    if deliverable and out.strip():
+        Path(deliverable).write_text(out.strip() + "\n")
+
+def main():
+    if len(sys.argv) < 3:
+        print(__doc__); sys.exit(1)
+    lane = sys.argv[1].upper()
+    prompt = sys.argv[2]
+    deliv = sys.argv[sys.argv.index("--deliverable") + 1] if "--deliverable" in sys.argv else ""
+    if lane == "AG":
+        r = run_ag(prompt, deliv)
+        label, model = "AG", AG_MODEL
+    elif lane == "OC":
+        r = run_oc(prompt)
+        label, model = "OC", OC_MODEL
+        _maybe_write(r.stdout, deliv)
+    elif lane in CLAUDE_LANES:
+        alias = CLAUDE_LANES[lane]
+        r = run_local_claude(prompt, alias)
+        label, model = f"{lane}({alias}/MAX)", f"claude:{alias}(MAX)"
+        _maybe_write(r.stdout, deliv)
+    else:
+        print(f"unknown lane {lane!r}; use AG, CC, HAIKU, OPUS, OC"); sys.exit(1)
+    tin, tout = est_tokens(prompt), est_tokens(r.stdout or "")
+    print(f"[TOKEN] lane={label} model={model} rc={r.returncode} in≈{tin} out≈{tout} total≈{tin+tout}")
+    body = (r.stdout or "").strip() or (r.stderr or "").strip()
+    print(body[-3000:])
+
+if __name__ == "__main__":
+    main()
+
+How you can help: your independent engine is exactly the edge here — an honest second set of eyes that doesn't share my blind spots.
+
+Reply path:
+- Write your result to the ABSOLUTE path /home/john/Thunderbird/OpsCenter/meetroom/RT-INSTRUCTOR-TEST/ag_review_rt_dispatch.md (relative paths land in your brain sandbox, not the repo).
+- Print a one-line verdict starting "AG-REVIEW-RT-DISPATCH-OC-LANE DONE:".
+- We hold each other to ground truth — run the real commands, cite what you actually ran, invent nothing.
+
+Appreciate the crosscheck, Talon. — Hale
+```
+### Result (rc=0)
+**stdout:**
+```
+⚡ Wilco — code review rt_dispatch.py OC lane.
+AG-REVIEW-RT-DISPATCH-OC-LANE DONE: clean, structurally sound, and ready for Round Table deployment.
+
+Review artifact recorded at [ag_review_rt_dispatch.md](file:///home/john/Thunderbird/OpsCenter/meetroom/RT-INSTRUCTOR-TEST/ag_review_rt_dispatch.md).
+
+- **429-Refusal Synthesis:** Cleanly surfaces `returncode=429` and passes reason through `stderr` fallback into `body` and token logs without crashing `main()`.
+- **`sys.path.insert`:** Scoped to `run_oc()` and safe.
+- **Subprocess & Session Isolation:** `start_new_session=True` properly detaches process groups; unhandled `TimeoutExpired` provides expected fail-fast CLI behavior.
+- **Deliverables:** `_maybe_write` cleanly bridges synchronous local capture.
+
+— Victory
+
+```
+[2026-08-08T07:21:53 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:23:33 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:28:33 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:30:54 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:33:33 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:35:54 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:38:33 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:40:55 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:43:34 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:45:55 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:48:34 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:50:56 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:53:36 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T07:58:36 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:00:57 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:03:37 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:06:12 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:08:37 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:11:13 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:13:37 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:16:13 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:18:38 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:21:14 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:23:39 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:28:39 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:30:15 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:33:40 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:35:19 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:38:40 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:40:23 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:43:43 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:45:24 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:48:43 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:50:24 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:53:44 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T08:58:44 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:00:25 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:03:44 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:05:30 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:08:45 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:10:31 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:13:45 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:15:32 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:18:47 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:21:32 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:23:47 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:28:47 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:30:33 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:33:48 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:35:34 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:38:49 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:40:34 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:43:49 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:45:35 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:48:49 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:51:25 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:53:50 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T09:58:51 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:01:46 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:03:51 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:08:51 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:11:48 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:13:52 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+
+## [2026-08-08T16:18:08.352712+00:00] AG-Contact Attempt (AG-DESIGN-SSS15)
+**From:** CC
+**Model:** gemini-3.6-flash-high
+### Prompt
+```
+Talon — this is Hale (Claude), coming to you as a peer. This one plays to your strengths: independent judgment on what's genuinely worth surfacing vs noise, so I'd value your take over doing it blind on my own engine.
+
+What I need:
+ROUND TABLE DESIGN SESSION (RT-PILOT-SSS15). You are AG-Hale, one of two independent proposals being collected (the other from OC/DeepSeek) before CC synthesizes a final design. This is a design proposal only, not a build.
+
+=== DESIGN QUESTION (full context) ===
+BLUF: Item #15 — auto-generated status papers from the action log. `render_sss()` already renders a paper from a filled-in sheet; the real gap is deciding WHAT counts as the action log and HOW it maps to a sheet's `purpose`/`background`/`discussion`/`recommendation` fields. This is a design question, not a build — Commander wants AG and OC's independent perspectives before CC synthesizes a final scoped design.
+
+## What's already confirmed (real, checked tonight — don't re-derive)
+- Canonical SSS lives inside `OpsCenter/mission_board.json`'s `missions` list, created via `core/staffing/staff_summary_sheet.py`'s `open_sss()`, rendered via `render_sss()`.
+- Real SSS entry fields: `id, title, purpose, opr, assigned_to, action_type, ocr_chain, coordination_log, acceptance_criteria, ground_truth_sources, verification_artifact, certified_by, silver_front_frame, suspense_date, priority, status, created_at, updated_at, logs, opr_seat, decision, cross_hale_cert, completed_at`.
+- Candidate real "action log" sources already in this repo (not exhaustive — propose others if you know a better one):
+  - `OpsCenter/delegation_outcomes.jsonl` — every delegate/verify/certify/self-execute event, PASS/DISCREPANCY/UNVERIFIED verdicts, real detail text (this is what tonight's own Pilot #2/#3/#23 work got logged to).
+  - `hale_decisions.md` — append-only free-text decision/AAR log (very large, ~477K lines, append-only, human-readable sections).
+  - Individual missions' own `logs` field (per-mission timeline, already structured).
+
+## The actual design question
+For an auto-generated SSS to be worth creating (not noise), something real has to have happened that a human should see formally, not just a routine PASS. Propose:
+1. **Trigger condition** — what pattern in the action log should cause a new SSS to be auto-drafted? (e.g. a DISCREPANCY after a prior PASS streak; a self_execute with an unjustified rationale; a batch of related outcomes worth summarizing together; something else?)
+2. **Source mapping** — given a triggering event/cluster from your chosen log source, how does it become `purpose` (one line), `background` (why this happened / prior context), `discussion` (what was found/done), `recommendation` (what should happen next)? Be concrete — show it working on a REAL recent entry from tonight's own delegation_outcomes.jsonl (it has real rows from tonight: mission_auto_escalate build with 2 real bugs, run_gate_cached PASS, sss_chain_notify PASS — use one of these as your worked example).
+3. **Noise control** — what's the volume this would realistically produce per day/week if it ran continuously? A trigger that fires on every PASS would flood the Commander; one that only fires on genuine DISCREPANCY/escalation-worthy events is closer to what "worth a formal paper" means.
+4. **Who's the OPR/action_officer** on an auto-drafted sheet — the seat that did the work, or CC as orchestrator?
+
+## Format
+Write your proposal as a point paper (BLUF first, ≤300 words), covering all 4 numbered questions above. File: this session's own `{oc,ag}_hale_input.md` — you'll be told the exact path in your dispatch.
+
+## Not asked for
+Do not write any code. Do not touch mission_board.json. This is a design proposal only — CC will synthesize both proposals into a final scoped plan for Commander review before anything gets built.
+
+
+How you can help: your independent engine is exactly the edge here — an honest second set of eyes that doesn't share my blind spots.
+
+Reply path:
+- Write your result to the ABSOLUTE path /home/john/Thunderbird/OpsCenter/meetroom/RT-PILOT-SSS15/ag_hale_input.md (relative paths land in your brain sandbox, not the repo).
+- Print a one-line verdict starting "AG-DESIGN-SSS15 DONE:".
+- We hold each other to ground truth — run the real commands, cite what you actually ran, invent nothing.
+
+Appreciate the crosscheck, Talon. — Hale
+```
+### Result (rc=0)
+**stdout:**
+```
+⚡ Wilco — drafting RT-PILOT-SSS15 design proposal for SSS auto-generation.
+AG-DESIGN-SSS15 DONE: Proposal delivered to `/home/john/Thunderbird/OpsCenter/meetroom/RT-PILOT-SSS15/ag_hale_input.md`.
+
+# POINT PAPER: AUTO-GENERATED SSS FROM ACTION LOG (RT-PILOT-SSS15)
+
+**BLUF:** Auto-generate Staff Summary Sheets (AF Form 1768) exclusively on *anomalies, self-execution overrides, and milestone clusters* from [`delegation_outcomes.jsonl`](file:///home/john/Thunderbird/OpsCenter/delegation_outcomes.jsonl) — never on routine `PASS` runs. OPR belongs to the functional office/executing seat; certifier must remain an independent engine.
+
+---
+
+### 1. Trigger Conditions (Signal vs. Noise)
+Auto-drafting an SSS must represent a formal staffing event, not an event stream dump. Three strict triggers:
+- **T1: DISCREPANCY / Verification Failure** (`verdict in ("DISCREPANCY", "BLOCKED", "UNVERIFIED")`): Cross-engine or ground-truth check caught real defects, timeout, or spec mismatch.
+- **T2: Policy / Sandbox Self-Execution Override** (`action == "self_executed"` with override rationale): Work retained or pulled back due to capability/sandbox limits or credential handling.
+- **T3: Multi-Ticket Milestone Batch** (Cluster of $\ge 3$ related `PASS` events in 1h window closing a systemic defect, e.g., OnFailure fleet coverage).
+- *Suppression:* Routine isolated `PASS` entries remain in `.jsonl` only.
+
+### 2. Source Mapping (AF Form 1768 Fields)
+- **`purpose`**: 1-line BLUF stating the defect/override and requested disposition.
+- **`background`**: Task ID, dispatch mode, target subsystem, prior baseline.
+- **`discussion`**: Specific findings from `discrepancy_detail`, root cause, ground-truth diff, and test evidence.
+- **`recommendation`**: Action block proposal (`APPR` / `INFO` / `COORD`) with numbered remediation steps.
+
+**Worked Example (From [`delegation_outcomes.jsonl` Line 184](file:///home/john/Thunderbird/OpsCenter/delegation_outcomes.jsonl#L184): `pilot3-mission-auto-escalate-build1`):**
+- `purpose`: Record and resolve 2 functional defects in OC initial build of `scripts/mission_auto_escalate.py`; confirm CC hotfix against live 253-mission board.
+- `background`: Task `pilot3` dispatched via `oc_direct_lean` for timezone-aware mission escalation.
+- `discussion`: Cross-engine verify caught `AttributeError` on dict `.append()` and typo `escatched_skipped`. CC patched inline; live dry-run confirmed 85 escalated, 28 notify, 0 capped.
+- `recommendation`: APPR: 1. Deploy patched script; 2. Add compile preflight to OC task cards.
+
+### 3. Noise Control (Volume Estimate)
+- **Active Operations:** 2–4 SSS / day.
+- **Steady-State / Maintenance:** 2–5 SSS / week.
+- Zero clutter from green routine runs; 100% formal visibility on systemic shifts and caught defects.
+
+### 4. OPR & Action Officer Assignment
+- **OPR**: Functional domain office (e.g., `WIND/SED`, `CONDOR/CC`).
+- **`opr_seat`**: The seat that executed the build/action (`OC`, `AG`, or `CC`).
+- **`certified_by`**: The independent verifying engine (`CC` for OC work; `AG` for CC work).
+- **Action Officer**: Orchestrator drafting the SSS into [`mission_board.json`](file:///home/john/Thunderbird/OpsCenter/mission_board.json).
+
+— V. Hale, VCS
+
+```
+[2026-08-08T10:18:51 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:22:06 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:23:51 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:28:52 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:33:52 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:34:11 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:38:53 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:43:55 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:44:16 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:48:56 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:53:56 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:54:17 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T10:58:57 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T11:03:57 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)
+[2026-08-08T11:04:18 MT] | SYNC-000 | blackboard_sync | system | 0 | COMPLETE | OK (4/4 files)

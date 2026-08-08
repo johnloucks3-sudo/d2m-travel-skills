@@ -1,6 +1,6 @@
 {
- "generated": "2026-08-08T04:08:07.389997+00:00",
- "open_count": 78,
+ "generated": "2026-08-08T17:08:14.642461+00:00",
+ "open_count": 84,
  "suppressed_by_closure": 31,
  "total_closures_on_record": 225,
  "items": [
@@ -32,7 +32,7 @@
    "title": "Confirm Grandeur corrected materials sent to all 3 affected client couples",
    "priority": "P0",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-06T18:31:45.674247+00:00"
   },
@@ -42,9 +42,19 @@
    "title": "Confirm Grandeur client notification — all 3 couples",
    "priority": "P0",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-07T03:05:50.430312+00:00"
+  },
+  {
+   "id": "MISSION-801",
+   "kind": "mission",
+   "title": "Send Kuklinski WF-17 validation and insurance emails",
+   "priority": "P0",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-08T00:02:49.162037+00:00"
   },
   {
    "id": "MISSION-0615",
@@ -62,7 +72,7 @@
    "title": "Kuklinski Dec-17 air routing — real pricing pulled, return-leg open-jaw still needed",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-15T21:17:47.981636+00:00"
   },
@@ -72,9 +82,39 @@
    "title": "Restore TESS pipeline and run commission cross-check",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Sterling",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-16T12:26:40.450239+00:00"
+  },
+  {
+   "id": "MISSION-636",
+   "kind": "mission",
+   "title": "Full CI infrastructure",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-16T13:00:07.469372+00:00"
+  },
+  {
+   "id": "MISSION-637",
+   "kind": "mission",
+   "title": "Mission Board capability",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-16T13:01:23.747977+00:00"
+  },
+  {
+   "id": "MISSION-653",
+   "kind": "mission",
+   "title": "🛡️ CHIEF SILVER",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-16T21:43:45.478135+00:00"
   },
   {
    "id": "MISSION-655",
@@ -112,7 +152,7 @@
    "title": "Release Kuklinski WF-17 drafts to Commander review queue",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-18T00:03:15.718784+00:00"
   },
@@ -132,7 +172,7 @@
    "title": "Fix CI degradation paging — no real Whetstone routing, no auto-escalation to Hale",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Sterling",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-18T02:32:26.383708+00:00"
   },
@@ -142,7 +182,7 @@
    "title": "Resolve McLeod compound exposure as single coordinated action",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-18T20:16:23.497485+00:00"
   },
@@ -152,7 +192,7 @@
    "title": "Route Kuklinski validation email through WF-17 independently of air routing",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-18T20:16:23.497722+00:00"
   },
@@ -162,7 +202,7 @@
    "title": "Close Kuklinski return-leg air routing open-jaw",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-18T20:16:23.498662+00:00"
   },
@@ -192,7 +232,7 @@
    "title": "Resolve McLeod FCC discrepancy and execute overdue lifecycle TP",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-19T04:20:29.717238+00:00"
   },
@@ -202,7 +242,7 @@
    "title": "Submit Kuklinski insurance and validation emails to WF-17",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-19T04:20:29.719424+00:00"
   },
@@ -212,7 +252,7 @@
    "title": "Complete Kuklinski December 17 return-leg open-jaw pricing",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-19T04:20:29.720261+00:00"
   },
@@ -222,7 +262,7 @@
    "title": "Deliver Regent pricing refresh for Lyons renewal window",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-19T04:20:29.720858+00:00"
   },
@@ -232,7 +272,7 @@
    "title": "Close Kuklinski Dec-17 return open-jaw routing",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-21T02:22:36.393720+00:00"
   },
@@ -252,7 +292,7 @@
    "title": "Close Kuklinski and Westbrook welcome emails this week",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-22T20:54:22.003139+00:00"
   },
@@ -262,7 +302,7 @@
    "title": "Run TESS commission cross-check and certify pipeline figure",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Sterling",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-22T20:54:22.003696+00:00"
   },
@@ -282,7 +322,7 @@
    "title": "Complete Kuklinski Dec-17 return-leg open-jaw routing",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-22T20:54:22.005438+00:00"
   },
@@ -292,7 +332,7 @@
    "title": "Determine Lyons renewal window close date and trigger Regent refresh",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-22T20:54:22.006294+00:00"
   },
@@ -302,7 +342,7 @@
    "title": "Resolve Furlow and Kuklinski FPD audit with Harlan sign-off",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Harlan",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-22T20:54:22.006802+00:00"
   },
@@ -322,7 +362,7 @@
    "title": "Kuklinski and Westbrook welcome emails — WF-17 by Friday",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-24T04:04:06.112411+00:00"
   },
@@ -332,7 +372,7 @@
    "title": "Loucks Grandeur FPD — confirm payment track by July 25",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Harlan",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-24T04:04:06.113377+00:00"
   },
@@ -362,7 +402,7 @@
    "title": "Close Kuklinski validation and insurance emails through WF-17",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-25T00:02:58.260417+00:00"
   },
@@ -382,7 +422,7 @@
    "title": "Draft Lyons renewal window Regent pricing refresh",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-25T00:02:58.261536+00:00"
   },
@@ -392,7 +432,7 @@
    "title": "Draft and route Kuklinski validation and insurance emails to WF-17",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-25T04:04:31.835235+00:00"
   },
@@ -432,7 +472,7 @@
    "title": "Reconcile commission-vs-pipeline discrepancy ($3,018 gap)",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Harlan",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-26T19:46:10.112143+00:00"
   },
@@ -442,7 +482,7 @@
    "title": "Pull pricing for Kuklinski Dec-17 open-jaw return leg",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-26T19:46:10.113417+00:00"
   },
@@ -462,7 +502,7 @@
    "title": "Move MISSION-030 Kuklinski WF-17 emails to Commander's hands",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-26T20:18:53.766688+00:00"
   },
@@ -472,7 +512,7 @@
    "title": "Verify Kuklinski and Westbrook welcome email dispatch records",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-26T20:18:53.767995+00:00"
   },
@@ -482,7 +522,7 @@
    "title": "Complete FPD audit for Furlow and Kuklinski",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Harlan",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-26T20:18:53.768963+00:00"
   },
@@ -492,7 +532,7 @@
    "title": "Resolve Kuklinski return-leg open-jaw air routing",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-29T18:34:32.920624+00:00"
   },
@@ -512,7 +552,7 @@
    "title": "Restore TESS pipeline and run commission cross-check",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Sterling",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-29T18:34:32.928932+00:00"
   },
@@ -522,7 +562,7 @@
    "title": "Build and deliver Kuklinski validation and insurance emails to WF-17",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-29T18:48:05.329477+00:00"
   },
@@ -532,7 +572,7 @@
    "title": "Price Kuklinski Dec-17 return open-jaw and deliver complete air routing",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-29T18:48:05.331134+00:00"
   },
@@ -552,7 +592,7 @@
    "title": "Stage Kuklinski validation and insurance emails to WF-17",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-30T19:03:16.408120+00:00"
   },
@@ -562,7 +602,7 @@
    "title": "Clear Kuklinski WF-17 queue — validation, insurance, welcome",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-06T18:31:45.676391+00:00"
   },
@@ -572,7 +612,7 @@
    "title": "Produce both overdue Regent dossiers — Loucks Dec2026, LesserAntilles Dec2026",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-06T18:31:45.682511+00:00"
   },
@@ -592,7 +632,7 @@
    "title": "Complete Kuklinski Dec-17 return-leg open-jaw pricing",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-06T18:31:45.691220+00:00"
   },
@@ -602,7 +642,7 @@
    "title": "Deliver Kuklinski WF-17 package to Commander for review/send",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-06T19:50:20.376204+00:00"
   },
@@ -612,7 +652,7 @@
    "title": "Close both overdue Regent dossier deadlines",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-06T19:50:20.377781+00:00"
   },
@@ -632,7 +672,7 @@
    "title": "Push Kuklinski validation + insurance emails to WF-17 review gate",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Dani",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-06T23:00:17.193856+00:00"
   },
@@ -642,7 +682,7 @@
    "title": "Resolve Kuklinski Dec-17 return-leg open-jaw",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-07T03:05:50.446529+00:00"
   },
@@ -652,7 +692,7 @@
    "title": "Update Regent dossiers — Loucks Dec2026 and LesserAntilles Dec2026",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-07T03:05:50.448690+00:00"
   },
@@ -662,7 +702,7 @@
    "title": "Refresh Regent Lesser Antilles dossier — Lyons renewal window live",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-07T09:11:33.497572+00:00"
   },
@@ -672,7 +712,7 @@
    "title": "Pull and deliver Kuklinski Dec-17 return-leg open-jaw pricing",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-07T09:11:33.499370+00:00"
   },
@@ -682,7 +722,7 @@
    "title": "Produce Lyons Regent pricing refresh before renewal window closes",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-07T12:09:42.715108+00:00"
   },
@@ -702,7 +742,7 @@
    "title": "RT-MISSION execution: wire autonomous_board ledger + DDK collapse into mission board",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Sterling (A7)",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-07T18:43:08.445941+00:00"
   },
@@ -712,7 +752,7 @@
    "title": "RT-MISSION: TCD dump/reconcile review (361 vs 240 split-brain)",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Hale (COS) — TALON staff lane",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-07T18:43:16.070312+00:00"
   },
@@ -722,7 +762,7 @@
    "title": "Run Regent pricing refresh for Lyons renewal window",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-08T00:02:49.166124+00:00"
   },
@@ -732,7 +772,7 @@
    "title": "Update overdue Regent dossiers (Loucks + LesserAntilles)",
    "priority": "P1",
    "status": "pending_review",
-   "assigned_to": "Intel",
+   "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-08T00:02:49.167473+00:00"
   },
@@ -745,6 +785,26 @@
    "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-08T00:02:49.168902+00:00"
+  },
+  {
+   "id": "MISSION-805",
+   "kind": "mission",
+   "title": "Deliver Kuklinski WF-17 package to Commander for send",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-08T04:08:02.083484+00:00"
+  },
+  {
+   "id": "MISSION-806",
+   "kind": "mission",
+   "title": "Close Kuklinski return-leg open-jaw routing and pricing",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-08T04:08:02.086302+00:00"
   },
   {
    "id": "SSS-005",

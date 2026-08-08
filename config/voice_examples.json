@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 3152,
+    "total_examples": 3236,
     "by_tier": {
-      "personal": 650,
+      "personal": 658,
       "client": 320,
       "vendor": 59,
-      "internal": 2116,
+      "internal": 2192,
       "family": 7
     },
-    "last_sync": "2026-08-07T12:07:27.598601"
+    "last_sync": "2026-08-08T02:31:56.023564"
   },
   "examples": [
     {
@@ -2168,6 +2168,24 @@
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 29 Jul 2026 23:18:34 -0700",
       "body": "ISSUE:\nFinal payment $24,798 due in 2 days (Aug 1); suite release penalty if missed\n\nDISCUSSION:\nGoogle Calendar alert: Final payment of $24,798 due August 1, 2026 for Regent Seven Seas Grandeur, Booking 3122006 (John Loucks). Suite 658, Deck 6 will be released if payment is missed.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify payment submitted to Regent by 2026-08-01 EOD\n2. Confirm suite hold status after payment clears\n3. Alert Commander if payment hasn't been processed\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-07-30 00:18 MT\nThunderbird Email Intelligence Officer",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Upcoming payments due for Stockholm",
+      "to": "Larry Nichols <larry.nichols4811@gmail.com>",
+      "date": "Fri, 7 Aug 2026 15:47:55 -0600",
+      "body": "The quote is $132.13 for a private sedan.\nJohn\n\nOn Fri, Aug 7, 2026 at 1:37 PM Larry Nichols <larry.nichols4811@gmail.com>\nwrote:",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Upcoming payments due for Stockholm",
+      "to": "Larry Nichols <larry.nichols4811@gmail.com>",
+      "date": "Fri, 7 Aug 2026 15:47:55 -0600",
+      "body": "The quote is $132.13 for a private sedan.\nJohn\n\nOn Fri, Aug 7, 2026 at 1:37 PM Larry Nichols <larry.nichols4811@gmail.com>\nwrote:",
       "score": 5
     },
     {
@@ -5903,6 +5921,24 @@
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 6 Aug 2026 22:02:49 -0500",
       "body": "DREAMS2MEMORIES TRAVEL, LLC 🛡️ DAILY CLAUDE MAX 24H AUDIT — 2026-08-06 21:02 MT Status: 🟢 100% CLEAN — Zero automated Claude MAX / Opus runs scheduled in the next 24 hours. Upcoming Window: Next 24 Hours Active Model Hierarchy: Gemini 3.6 Flash (Primary) / Gemini 3.1 Pro / DeepSeek v4 Estimated Overnight Claude Spend: $0.00 Danielle “Dani” Moreau Luxury Travel Concierge DREAMS2MEMORIES TRAVEL, LLC d2mconcierge@gmail.com DREAMS2MEMORIES TRAVEL, LLC John A Loucks III Owner, Dreams2Memories, LLC 719-291-0742 johnloucks3@gmail.com www.d2mluxury.quest",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "🛡️ DAILY 21:00 MT CLAUDE MAX AUDIT & PROTECTION REPORT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 03:00:01 +0000",
+      "body": "DREAMS2MEMORIES TRAVEL, LLC 🛡️ DAILY CLAUDE MAX 24H AUDIT — 2026-08-07 21:00 MT Status: 🟢 100% CLEAN — Zero automated Claude MAX / Opus runs scheduled in the next 24 hours. Upcoming Window: Next 24 Hours Active Model Hierarchy: Gemini 3.6 Flash (Primary) / Gemini 3.1 Pro / DeepSeek v4 Estimated Overnight Claude Spend: $0.00 Danielle “Dani” Moreau Luxury Travel Concierge DREAMS2MEMORIES TRAVEL, LLC d2mconcierge@gmail.com DREAMS2MEMORIES TRAVEL, LLC John A Loucks III Owner, Dreams2Memories, LLC 719-291-0742 johnloucks3@gmail.com www.d2mluxury.quest",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "🛡️ DAILY 21:00 MT CLAUDE MAX AUDIT & PROTECTION REPORT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 03:00:01 +0000",
+      "body": "DREAMS2MEMORIES TRAVEL, LLC 🛡️ DAILY CLAUDE MAX 24H AUDIT — 2026-08-07 21:00 MT Status: 🟢 100% CLEAN — Zero automated Claude MAX / Opus runs scheduled in the next 24 hours. Upcoming Window: Next 24 Hours Active Model Hierarchy: Gemini 3.6 Flash (Primary) / Gemini 3.1 Pro / DeepSeek v4 Estimated Overnight Claude Spend: $0.00 Danielle “Dani” Moreau Luxury Travel Concierge DREAMS2MEMORIES TRAVEL, LLC d2mconcierge@gmail.com DREAMS2MEMORIES TRAVEL, LLC John A Loucks III Owner, Dreams2Memories, LLC 719-291-0742 johnloucks3@gmail.com www.d2mluxury.quest",
       "score": 4
     },
     {
@@ -20236,6 +20272,600 @@
     {
       "account": "johnloucks3@gmail.com",
       "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 03:10:13 -0500",
+      "body": "Health check at 2026-08-08 02:10 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 00:40:13 -0700",
+      "body": "Health check at 2026-08-08 01:40 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 02:10:12 -0500",
+      "body": "Health check at 2026-08-08 01:10 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 01:40:12 -0500",
+      "body": "Health check at 2026-08-08 00:40 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 23:10:12 -0700",
+      "body": "Health check at 2026-08-08 00:10 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 22:40:12 -0700",
+      "body": "Health check at 2026-08-07 23:40 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 00:10:12 -0500",
+      "body": "Health check at 2026-08-07 23:10 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 23:40:12 -0500",
+      "body": "Health check at 2026-08-07 22:40 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 23:10:12 -0500",
+      "body": "Health check at 2026-08-07 22:10 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 20:36:06 -0700",
+      "body": "Health check at 2026-08-07 21:36 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 03:06:07 +0000",
+      "body": "Health check at 2026-08-07 21:06 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 19:36:06 -0700",
+      "body": "Health check at 2026-08-07 20:36 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 21:06:06 -0500",
+      "body": "Health check at 2026-08-07 20:06 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 18:36:05 -0700",
+      "body": "Health check at 2026-08-07 19:36 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 21:06:07 -0400",
+      "body": "Health check at 2026-08-07 19:06 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Upcoming payments due for Stockholm",
+      "to": "Al Ely <al.ely58@gmail.com>",
+      "date": "Fri, 7 Aug 2026 19:00:58 -0600",
+      "body": "Understand Al. If you'd like me to engage with the Regent folks I'll be\nglad to.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Upcoming payments due for Stockholm",
+      "to": "Melissa Furlow <missy.furlow@gmail.com>",
+      "date": "Fri, 7 Aug 2026 18:59:14 -0600",
+      "body": "Sorry. Was out to dinner when I wrote this. If you'd like me to reengage\nwith the reservations folks and you have something special in mind for\neach, I'll be glad to pass it along.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 20:36:05 -0400",
+      "body": "Health check at 2026-08-07 18:36 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 19:06:04 -0500",
+      "body": "Health check at 2026-08-07 18:06 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 18:36:03 -0500",
+      "body": "Health check at 2026-08-07 17:35 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Upcoming payments due for Stockholm",
+      "to": "Melissa Furlow <missy.furlow@gmail.com>",
+      "date": "Fri, 7 Aug 2026 17:29:14 -0600",
+      "body": "Missy. Yes a long time ago. My recommendation is to let their Cabin\nStewards know immediately upon embarking. And let the host or hostess of\nyour specialty restaurants know soonest. Be specific about what you want.\nSadly, Regent has dropped the ball several times even though I've engaged\nahead. As the experienced Regent passenger you may have to take the lead.\nGlad you asked.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 16:06:02 -0700",
+      "body": "Health check at 2026-08-07 17:05 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 17:36:02 -0500",
+      "body": "Health check at 2026-08-07 16:35 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 17:06:02 -0500",
+      "body": "Health check at 2026-08-07 16:05 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 16:36:02 -0500",
+      "body": "Health check at 2026-08-07 15:35 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: [REPLY] Re: Fwd: Travel Advisor Reduced Rates - At",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 16:26:49 -0500",
+      "body": "ISSUE:\nNone\n\nDISCUSSION:\nInternal routing of Atlas Ocean Voyages reduced travel advisor rates. Directive captured to ledger for execution via directive_executor with verification.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify Atlas Ocean Voyages rate change vs. current pricing database\n2. Cross-check against active client voyages/bookings for potential savings\n3. Route to Finance (Harlan) for commission impact analysis if applicable\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-08-07 15:26 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 16:06:01 -0500",
+      "body": "Health check at 2026-08-07 15:05 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 15:36:01 -0500",
+      "body": "Health check at 2026-08-07 14:35 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[A3] Client: confirm with AA/BB4X94) — Re: Upcoming payments due for Stockholm",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 15:27:47 -0500",
+      "body": "ISSUE:\nNichols approved card authorization; requesting itemized amount breakdown before processing.\n\nDISCUSSION:\nNichols confirms readiness to proceed with payment for both outstanding invoices using card on file (****84003, expires 3/2031). He's asking for the specific dollar amount. Two payments are due: (1) Project Expedition ARN→At Six transfer (PE184712212), due Aug 16—only 9 days out; (2) At Six hotel SEK 3,715 (~$350 USD), charged at check-in Aug 27-28. Note: Nichols flagged luggage concern on Jul 13 (sedan capacity vs. party bags); satisfaction status unconfirmed—follow up before processing transfer payment to ensure full confidence.\n\nOPTIONS:\n1. Retrieve exact cost of Project Expedition transfer PE184712212 from booking\n2. Convert At Six hotel amount (SEK 3,715) to USD\n3. Send itemized breakdown to Nichols: transfer amount + hotel amount + total\n4. Verify Nichols' satisfaction with luggage/sedan solution from Jul 13 communication before final charge\n5. Process payment upon confirmation (recommend by Aug 15 to meet Aug 16 transfer deadline)\n6. Send invoices once paid\n\nACTIONS I RECOMMEND TAKING:\n1. Retrieve exact cost of Project Expedition transfer PE184712212 from booking\n2. Convert At Six hotel amount (SEK 3,715) to USD\n3. Send itemized breakdown to Nichols: transfer amount + hotel amount + total\n4. Verify Nichols' satisfaction with luggage/sedan solution from Jul 13 communication before final charge\n5. Process payment upon confirmation (recommend by Aug 15 to meet Aug 16 transfer deadline)\n6. Send invoices once paid\n\n---\nStaff Paper from Dani Moreau, D2M Travel\nGenerated: 2026-08-07 14:27 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 13:06:00 -0700",
+      "body": "Health check at 2026-08-07 14:05 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 12:35:58 -0700",
+      "body": "Health check at 2026-08-07 13:35 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 12:05:57 -0700",
+      "body": "Health check at 2026-08-07 13:05 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 11:35:58 -0700",
+      "body": "Health check at 2026-08-07 12:35 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 03:10:13 -0500",
+      "body": "Health check at 2026-08-08 02:10 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 00:40:13 -0700",
+      "body": "Health check at 2026-08-08 01:40 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 02:10:12 -0500",
+      "body": "Health check at 2026-08-08 01:10 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 01:40:12 -0500",
+      "body": "Health check at 2026-08-08 00:40 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 23:10:12 -0700",
+      "body": "Health check at 2026-08-08 00:10 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 22:40:12 -0700",
+      "body": "Health check at 2026-08-07 23:40 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 00:10:12 -0500",
+      "body": "Health check at 2026-08-07 23:10 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 23:40:12 -0500",
+      "body": "Health check at 2026-08-07 22:40 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 23:10:12 -0500",
+      "body": "Health check at 2026-08-07 22:10 detected failures:\n\n  - thunderbird-tunnel.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 20:36:06 -0700",
+      "body": "Health check at 2026-08-07 21:36 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 03:06:07 +0000",
+      "body": "Health check at 2026-08-07 21:06 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 19:36:06 -0700",
+      "body": "Health check at 2026-08-07 20:36 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 21:06:06 -0500",
+      "body": "Health check at 2026-08-07 20:06 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 18:36:05 -0700",
+      "body": "Health check at 2026-08-07 19:36 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 21:06:07 -0400",
+      "body": "Health check at 2026-08-07 19:06 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Upcoming payments due for Stockholm",
+      "to": "Al Ely <al.ely58@gmail.com>",
+      "date": "Fri, 7 Aug 2026 19:00:58 -0600",
+      "body": "Understand Al. If you'd like me to engage with the Regent folks I'll be\nglad to.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Upcoming payments due for Stockholm",
+      "to": "Melissa Furlow <missy.furlow@gmail.com>",
+      "date": "Fri, 7 Aug 2026 18:59:14 -0600",
+      "body": "Sorry. Was out to dinner when I wrote this. If you'd like me to reengage\nwith the reservations folks and you have something special in mind for\neach, I'll be glad to pass it along.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 20:36:05 -0400",
+      "body": "Health check at 2026-08-07 18:36 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 19:06:04 -0500",
+      "body": "Health check at 2026-08-07 18:06 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 18:36:03 -0500",
+      "body": "Health check at 2026-08-07 17:35 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Upcoming payments due for Stockholm",
+      "to": "Melissa Furlow <missy.furlow@gmail.com>",
+      "date": "Fri, 7 Aug 2026 17:29:14 -0600",
+      "body": "Missy. Yes a long time ago. My recommendation is to let their Cabin\nStewards know immediately upon embarking. And let the host or hostess of\nyour specialty restaurants know soonest. Be specific about what you want.\nSadly, Regent has dropped the ball several times even though I've engaged\nahead. As the experienced Regent passenger you may have to take the lead.\nGlad you asked.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 16:06:02 -0700",
+      "body": "Health check at 2026-08-07 17:05 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 17:36:02 -0500",
+      "body": "Health check at 2026-08-07 16:35 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 17:06:02 -0500",
+      "body": "Health check at 2026-08-07 16:05 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 16:36:02 -0500",
+      "body": "Health check at 2026-08-07 15:35 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: [REPLY] Re: Fwd: Travel Advisor Reduced Rates - At",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 16:26:49 -0500",
+      "body": "ISSUE:\nNone\n\nDISCUSSION:\nInternal routing of Atlas Ocean Voyages reduced travel advisor rates. Directive captured to ledger for execution via directive_executor with verification.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify Atlas Ocean Voyages rate change vs. current pricing database\n2. Cross-check against active client voyages/bookings for potential savings\n3. Route to Finance (Harlan) for commission impact analysis if applicable\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-08-07 15:26 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 16:06:01 -0500",
+      "body": "Health check at 2026-08-07 15:05 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 15:36:01 -0500",
+      "body": "Health check at 2026-08-07 14:35 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[A3] Client: confirm with AA/BB4X94) — Re: Upcoming payments due for Stockholm",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 15:27:47 -0500",
+      "body": "ISSUE:\nNichols approved card authorization; requesting itemized amount breakdown before processing.\n\nDISCUSSION:\nNichols confirms readiness to proceed with payment for both outstanding invoices using card on file (****84003, expires 3/2031). He's asking for the specific dollar amount. Two payments are due: (1) Project Expedition ARN→At Six transfer (PE184712212), due Aug 16—only 9 days out; (2) At Six hotel SEK 3,715 (~$350 USD), charged at check-in Aug 27-28. Note: Nichols flagged luggage concern on Jul 13 (sedan capacity vs. party bags); satisfaction status unconfirmed—follow up before processing transfer payment to ensure full confidence.\n\nOPTIONS:\n1. Retrieve exact cost of Project Expedition transfer PE184712212 from booking\n2. Convert At Six hotel amount (SEK 3,715) to USD\n3. Send itemized breakdown to Nichols: transfer amount + hotel amount + total\n4. Verify Nichols' satisfaction with luggage/sedan solution from Jul 13 communication before final charge\n5. Process payment upon confirmation (recommend by Aug 15 to meet Aug 16 transfer deadline)\n6. Send invoices once paid\n\nACTIONS I RECOMMEND TAKING:\n1. Retrieve exact cost of Project Expedition transfer PE184712212 from booking\n2. Convert At Six hotel amount (SEK 3,715) to USD\n3. Send itemized breakdown to Nichols: transfer amount + hotel amount + total\n4. Verify Nichols' satisfaction with luggage/sedan solution from Jul 13 communication before final charge\n5. Process payment upon confirmation (recommend by Aug 15 to meet Aug 16 transfer deadline)\n6. Send invoices once paid\n\n---\nStaff Paper from Dani Moreau, D2M Travel\nGenerated: 2026-08-07 14:27 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 13:06:00 -0700",
+      "body": "Health check at 2026-08-07 14:05 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 12:35:58 -0700",
+      "body": "Health check at 2026-08-07 13:35 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 2 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 12:05:57 -0700",
+      "body": "Health check at 2026-08-07 13:05 detected failures:\n\n  - d2m-mcp.service\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 11:35:58 -0700",
+      "body": "Health check at 2026-08-07 12:35 detected failures:\n\n  - thunderbird-scheduler.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
       "to": "johnloucks3@gmail.com",
       "date": "Sun, 22 Mar 2026 17:30:40 +0000",
@@ -28385,6 +29015,132 @@
       "to": "johnloucks3@gmail.com",
       "date": "Fri, 7 Aug 2026 07:10:21 -0700",
       "body": "ISSUE:\nEU border controls (Italy/Spain suspension) may restrict cruise port access or routing options; US autonomous zones/extremism flagged for client domestic travel safety.\n\nDISCUSSION:\nItaly/Spain Schengen suspension and EU border tightening due to migrant crisis; US far-left extremism updates affecting domestic travel security. Potential operational and safety implications for cruise itineraries.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag for risk review on Mediterranean/EU cruise itineraries (port access, routing options, client safety)\n2. Monitor Schengen/border policy escalation for operational impact\n3. Cross-reference against active client bookings with European ports\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-08-07 08:10 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Tech Scan 2026-08-08 05:15 UTC — 1 trial / 0 killed (Hale adjudicated)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 00:15:08 -0500",
+      "body": "TECH SCAN — 2026-08-08 05:15 UTC airborne scanner pulse · 2 finds · sectors mcp HALE'S ADJUDICATION (kill-pass before anything's believed) 📊 1 TRIAL · 1 WATCH · 0 KILLED as noise · 0 adopt 🧪 TRIAL — real tools, worth a bounded look: Show HN: Salestrics – An open MCP server and CRM for AI-native revenue teams — https://www.salestrics.com/ ↳ real tool (server, mcp) — worth a bounded look 👁 WATCH: I built a captioning app for short-form video, then gave Claude an MCP so it can work with captions alone RAW — all finds this pulse (unfiltered) [mcp] I built a captioning app for short-form video, then gave Claude an MCP so it can work with captions alone (Reddit r/ClaudeAI) [mcp] Show HN: Salestrics – An open MCP server and CRM for AI-native revenue teams — https://www.salestrics.com/ (Hacker News — Claude Code) — Hale · cheap collects, I adjudicate · this lands every pulse, no direction needed.",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: \"New visual update in AG 2.0\"",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 22:34:01 -0500",
+      "body": "ISSUE:\nMultiple technology platform updates (CC, OC, Claude, DeepSeek, AG) and pricing changes that could affect D2M's operational efficiency and metered resource allocation\n\nDISCUSSION:\nReddit digest with posts on AG 2.0 visual updates, CC vs OC pricing comparison, AI industry departures from OpenAI/Anthropic, DeepSeek 75% discount, and Opus 5 performance criticism.\n\nACTIONS I RECOMMEND TAKING:\n1. Route to A14-Whetstone for tech-currency assessment of Opus 5 viability and CC/OC pricing implications\n2. Evaluate DeepSeek 75% discount impact on current ZEN tier allocation strategy\n3. Flag Anthropic/OpenAI exodus for competitive intelligence on emerging AI infrastructure vendors\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-08-07 21:34 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] Client: confirm with AA/BB4X94) — Re: Upcoming payments due for Stockholm",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 16:32:06 -0700",
+      "body": "ISSUE:\nClient placed payment hold on Stockholm hotel transfer and At Six Hotel reservation pending unspecified decisions about cruise booking viability; decision deadline: early next week.\n\nDISCUSSION:\nAl has requested an immediate hold on two outstanding payments: the Project Expedition transfer ARN→At Six Stockholm (due Aug 16) and the At Six Stockholm hotel reservation (due soon). He states he and Amy need to make \"decisions regarding the entire cruise\"—language broader than payment timing, suggesting possible reconsideration of the booking itself. Dossier shows both items confirmed but unpaid, Amy has accessibility needs to accommodate, and voyage departs Aug 29 (22 days). Cancellation or rebooking windows are tightening. No indication whether concerns are logistical, financial, health-related, or timing-related.\n\nOPTIONS:\n1. Honor payment hold immediately—do NOT process any charges without explicit re-confirmation from Al\n2. Log as P1 mission board entry with Monday Aug 11 suspense for follow-up call\n3. Send brief, warm check-in Monday morning asking if there are any concerns (logistics, travel details, timeline) we can help address\n4. Clarify client intent diplomatically: are they reconsidering the cruise, postponing to different dates, or simply delaying payment decision?\n5. Alert Dani and Harlan that booking status is conditional pending client decision—prepare cancellation/rebooking contingency if needed\n\nACTIONS I RECOMMEND TAKING:\n1. Honor payment hold immediately—do NOT process any charges without explicit re-confirmation from Al\n2. Log as P1 mission board entry with Monday Aug 11 suspense for follow-up call\n3. Send brief, warm check-in Monday morning asking if there are any concerns (logistics, travel details, timeline) we can help address\n4. Clarify client intent diplomatically: are they reconsidering the cruise, postponing to different dates, or simply delaying payment decision?\n5. Alert Dani and Harlan that booking status is conditional pending client decision—prepare cancellation/rebooking contingency if needed\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-08-07 17:32 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[A3] Client: FULL MASTER RECORD — Re: Upcoming payments due for Stockholm",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 16:30:03 -0700",
+      "body": "ISSUE:\nFurlow authorization received to process pre-cruise transfer payment; ready to execute via TESS vault card.\n\nDISCUSSION:\nThe Furlows (Booking 3071222, SS Grandeur, Aug 29 departure) have authorized D2M to process their ARN→Stockholm transfer (Project Expedition PE184710612, payment due Aug 16). Client is confident and trusting. Commander has card ending 4354 in TESS vault and can proceed immediately; payment window is Aug 9–16.\n\nOPTIONS:\n1. Process ARN→At Six transfer payment via TESS vault card ending 4354 by Aug 9\n2. Send payment confirmation invoice to missy.furlow@gmail.com and john.furlow@tpf.org\n3. Verify payment cleared with Project Expedition\n4. Forward final transport details (pickup time, location, driver contact) once payment posts\n\nACTIONS I RECOMMEND TAKING:\n1. Process ARN→At Six transfer payment via TESS vault card ending 4354 by Aug 9\n2. Send payment confirmation invoice to missy.furlow@gmail.com and john.furlow@tpf.org\n3. Verify payment cleared with Project Expedition\n4. Forward final transport details (pickup time, location, driver contact) once payment posts\n\n---\nStaff Paper from Dani Moreau, D2M Travel\nGenerated: 2026-08-07 17:30 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Iran Is Still Losing, Badly",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 15:27:38 -0700",
+      "body": "ISSUE:\nIran geopolitical instability and US dollar strength/weakness affect client travel risk assessment for Middle East/Gulf destinations and international pricing strategy.\n\nDISCUSSION:\nHoover Institution daily report covering Iran military situation (ongoing regional tension), US dollar reserve currency economics (affects travel pricing/currency risk), Fourth Amendment legal developments, and policy/regulatory analysis. Multi-domain intel relevant to travel business environment.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag Iran military/political situation for Middle East/Gulf destination risk briefing (affects client safety for future bookings to region)\n2. Note US dollar reserve currency analysis for implications on international commission rates and client pricing\n3. Route to Commander's strategic inbox for awareness of macro factors affecting travel business environment\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-08-07 16:27 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Autonomy Build Triage -- 30 items sequenced, Tranche 1 started",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 17:08:23 -0500",
+      "body": "Yoda, Full triage on the 30 autonomy items you selected: AUTONOMY_BUILD_TRIAGE_20260807.html Backing ideation doc: WAR_ROOM_AUTONOMY_IDEATION_20260807.html BLUF: Not a 7-day sprint. Inventory found roughly half already have live infrastructure (timers/functions) -- WIRE/EXTEND, not BUILD from scratch. Sequenced into 6 tranches, cheapest/highest-confidence first. Tranche 1 (started this session): #17 dossier staleness refresh -- already fully live (3 timers running), closing as satisfied #24 pre-answered digest -- already live, needs a content audit #21 FPD/dunning -- sweep exists, draft-dunning piece is a real gap #16 self-repair loop -- only 11 of 326 systemd services have OnFailure= wired (3.4%), real gap #13 sentiment triage -- verify pending Tranche 2-3 (16 items total, days 2-3): EXTEND work on existing fare-watch, dossier, SSS, credential, and commission infrastructure. Tranche 4 (5 items): genuinely new small/medium builds -- priority auto-escalation, load balancing, task batching, verification caching. Tranche 5: #10 (batch-approve client drafts) is BLOCKED on your call -- Sterling wants per-item spot-check kept mandatory for client-facing drafts, Dani wants full batching. My rec: cap #10 to documents/status only, exclude free-text replies, until you rule. Tranche 6 (4 items): largest scope, external-dependency risk (AIS/weather feeds, host-agency tier data, itinerary-app sync API) -- recommend a reachability check before spending budget here. Budget: CC 7-day meter at 8% at session start, holding to your 5%/day ceiling, stop-line for today set at 13%. Working solo -- OC is offline (GO credits at $0, 115.5% used), no AG this pass, so no cross-engine verification available. Everything marked \"done\" above is self-verified only, flagged UNVERIFIED until OC resets and can ground-truth it. Proceeding Tranche 1 to 2 to 3 in order, roughly a tranche/day. Telegram carries short status pings, this channel carries the detail, per your mobile routing. Thanks CC",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Travel Advisor Reduced Rates - Atlas Ocean Voyages",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 15:25:34 -0500",
+      "body": "ISSUE:\nEmail template processing failed; attachment missing; recipient address contradicts D2M brand standards\n\nDISCUSSION:\nAtlas Ocean Voyages marketing travel advisor discounts, but email contains template errors (*[FIRSTNAME]* placeholder unprocessed) and missing attachment. Recipient address uses prohibited 'lovegrouptravel' branding.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify sender authenticity via official Atlas Ocean Voyages website/contact\n2. Request complete email with attachment from Nicole Aguirre\n3. Review if Atlas Ocean Voyages rates are competitive vs. existing suppliers (Silversea, Regent, Viking)\n4. Audit recipient email configuration — 'lovegrouptravel' address violates brand directive\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-08-07 14:25 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Tech Scan 2026-08-08 05:15 UTC — 1 trial / 0 killed (Hale adjudicated)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 8 Aug 2026 00:15:08 -0500",
+      "body": "TECH SCAN — 2026-08-08 05:15 UTC airborne scanner pulse · 2 finds · sectors mcp HALE'S ADJUDICATION (kill-pass before anything's believed) 📊 1 TRIAL · 1 WATCH · 0 KILLED as noise · 0 adopt 🧪 TRIAL — real tools, worth a bounded look: Show HN: Salestrics – An open MCP server and CRM for AI-native revenue teams — https://www.salestrics.com/ ↳ real tool (server, mcp) — worth a bounded look 👁 WATCH: I built a captioning app for short-form video, then gave Claude an MCP so it can work with captions alone RAW — all finds this pulse (unfiltered) [mcp] I built a captioning app for short-form video, then gave Claude an MCP so it can work with captions alone (Reddit r/ClaudeAI) [mcp] Show HN: Salestrics – An open MCP server and CRM for AI-native revenue teams — https://www.salestrics.com/ (Hacker News — Claude Code) — Hale · cheap collects, I adjudicate · this lands every pulse, no direction needed.",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: \"New visual update in AG 2.0\"",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 22:34:01 -0500",
+      "body": "ISSUE:\nMultiple technology platform updates (CC, OC, Claude, DeepSeek, AG) and pricing changes that could affect D2M's operational efficiency and metered resource allocation\n\nDISCUSSION:\nReddit digest with posts on AG 2.0 visual updates, CC vs OC pricing comparison, AI industry departures from OpenAI/Anthropic, DeepSeek 75% discount, and Opus 5 performance criticism.\n\nACTIONS I RECOMMEND TAKING:\n1. Route to A14-Whetstone for tech-currency assessment of Opus 5 viability and CC/OC pricing implications\n2. Evaluate DeepSeek 75% discount impact on current ZEN tier allocation strategy\n3. Flag Anthropic/OpenAI exodus for competitive intelligence on emerging AI infrastructure vendors\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-08-07 21:34 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] Client: confirm with AA/BB4X94) — Re: Upcoming payments due for Stockholm",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 16:32:06 -0700",
+      "body": "ISSUE:\nClient placed payment hold on Stockholm hotel transfer and At Six Hotel reservation pending unspecified decisions about cruise booking viability; decision deadline: early next week.\n\nDISCUSSION:\nAl has requested an immediate hold on two outstanding payments: the Project Expedition transfer ARN→At Six Stockholm (due Aug 16) and the At Six Stockholm hotel reservation (due soon). He states he and Amy need to make \"decisions regarding the entire cruise\"—language broader than payment timing, suggesting possible reconsideration of the booking itself. Dossier shows both items confirmed but unpaid, Amy has accessibility needs to accommodate, and voyage departs Aug 29 (22 days). Cancellation or rebooking windows are tightening. No indication whether concerns are logistical, financial, health-related, or timing-related.\n\nOPTIONS:\n1. Honor payment hold immediately—do NOT process any charges without explicit re-confirmation from Al\n2. Log as P1 mission board entry with Monday Aug 11 suspense for follow-up call\n3. Send brief, warm check-in Monday morning asking if there are any concerns (logistics, travel details, timeline) we can help address\n4. Clarify client intent diplomatically: are they reconsidering the cruise, postponing to different dates, or simply delaying payment decision?\n5. Alert Dani and Harlan that booking status is conditional pending client decision—prepare cancellation/rebooking contingency if needed\n\nACTIONS I RECOMMEND TAKING:\n1. Honor payment hold immediately—do NOT process any charges without explicit re-confirmation from Al\n2. Log as P1 mission board entry with Monday Aug 11 suspense for follow-up call\n3. Send brief, warm check-in Monday morning asking if there are any concerns (logistics, travel details, timeline) we can help address\n4. Clarify client intent diplomatically: are they reconsidering the cruise, postponing to different dates, or simply delaying payment decision?\n5. Alert Dani and Harlan that booking status is conditional pending client decision—prepare cancellation/rebooking contingency if needed\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-08-07 17:32 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[A3] Client: FULL MASTER RECORD — Re: Upcoming payments due for Stockholm",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 16:30:03 -0700",
+      "body": "ISSUE:\nFurlow authorization received to process pre-cruise transfer payment; ready to execute via TESS vault card.\n\nDISCUSSION:\nThe Furlows (Booking 3071222, SS Grandeur, Aug 29 departure) have authorized D2M to process their ARN→Stockholm transfer (Project Expedition PE184710612, payment due Aug 16). Client is confident and trusting. Commander has card ending 4354 in TESS vault and can proceed immediately; payment window is Aug 9–16.\n\nOPTIONS:\n1. Process ARN→At Six transfer payment via TESS vault card ending 4354 by Aug 9\n2. Send payment confirmation invoice to missy.furlow@gmail.com and john.furlow@tpf.org\n3. Verify payment cleared with Project Expedition\n4. Forward final transport details (pickup time, location, driver contact) once payment posts\n\nACTIONS I RECOMMEND TAKING:\n1. Process ARN→At Six transfer payment via TESS vault card ending 4354 by Aug 9\n2. Send payment confirmation invoice to missy.furlow@gmail.com and john.furlow@tpf.org\n3. Verify payment cleared with Project Expedition\n4. Forward final transport details (pickup time, location, driver contact) once payment posts\n\n---\nStaff Paper from Dani Moreau, D2M Travel\nGenerated: 2026-08-07 17:30 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Iran Is Still Losing, Badly",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 15:27:38 -0700",
+      "body": "ISSUE:\nIran geopolitical instability and US dollar strength/weakness affect client travel risk assessment for Middle East/Gulf destinations and international pricing strategy.\n\nDISCUSSION:\nHoover Institution daily report covering Iran military situation (ongoing regional tension), US dollar reserve currency economics (affects travel pricing/currency risk), Fourth Amendment legal developments, and policy/regulatory analysis. Multi-domain intel relevant to travel business environment.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag Iran military/political situation for Middle East/Gulf destination risk briefing (affects client safety for future bookings to region)\n2. Note US dollar reserve currency analysis for implications on international commission rates and client pricing\n3. Route to Commander's strategic inbox for awareness of macro factors affecting travel business environment\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-08-07 16:27 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Autonomy Build Triage -- 30 items sequenced, Tranche 1 started",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 17:08:23 -0500",
+      "body": "Yoda, Full triage on the 30 autonomy items you selected: AUTONOMY_BUILD_TRIAGE_20260807.html Backing ideation doc: WAR_ROOM_AUTONOMY_IDEATION_20260807.html BLUF: Not a 7-day sprint. Inventory found roughly half already have live infrastructure (timers/functions) -- WIRE/EXTEND, not BUILD from scratch. Sequenced into 6 tranches, cheapest/highest-confidence first. Tranche 1 (started this session): #17 dossier staleness refresh -- already fully live (3 timers running), closing as satisfied #24 pre-answered digest -- already live, needs a content audit #21 FPD/dunning -- sweep exists, draft-dunning piece is a real gap #16 self-repair loop -- only 11 of 326 systemd services have OnFailure= wired (3.4%), real gap #13 sentiment triage -- verify pending Tranche 2-3 (16 items total, days 2-3): EXTEND work on existing fare-watch, dossier, SSS, credential, and commission infrastructure. Tranche 4 (5 items): genuinely new small/medium builds -- priority auto-escalation, load balancing, task batching, verification caching. Tranche 5: #10 (batch-approve client drafts) is BLOCKED on your call -- Sterling wants per-item spot-check kept mandatory for client-facing drafts, Dani wants full batching. My rec: cap #10 to documents/status only, exclude free-text replies, until you rule. Tranche 6 (4 items): largest scope, external-dependency risk (AIS/weather feeds, host-agency tier data, itinerary-app sync API) -- recommend a reachability check before spending budget here. Budget: CC 7-day meter at 8% at session start, holding to your 5%/day ceiling, stop-line for today set at 13%. Working solo -- OC is offline (GO credits at $0, 115.5% used), no AG this pass, so no cross-engine verification available. Everything marked \"done\" above is self-verified only, flagged UNVERIFIED until OC resets and can ground-truth it. Proceeding Tranche 1 to 2 to 3 in order, roughly a tranche/day. Telegram carries short status pings, this channel carries the detail, per your mobile routing. Thanks CC",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Travel Advisor Reduced Rates - Atlas Ocean Voyages",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 7 Aug 2026 15:25:34 -0500",
+      "body": "ISSUE:\nEmail template processing failed; attachment missing; recipient address contradicts D2M brand standards\n\nDISCUSSION:\nAtlas Ocean Voyages marketing travel advisor discounts, but email contains template errors (*[FIRSTNAME]* placeholder unprocessed) and missing attachment. Recipient address uses prohibited 'lovegrouptravel' branding.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify sender authenticity via official Atlas Ocean Voyages website/contact\n2. Request complete email with attachment from Nicole Aguirre\n3. Review if Atlas Ocean Voyages rates are competitive vs. existing suppliers (Silversea, Regent, Viking)\n4. Audit recipient email configuration — 'lovegrouptravel' address violates brand directive\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-08-07 14:25 MT\nThunderbird Email Intelligence Officer",
       "score": 2
     }
   ]

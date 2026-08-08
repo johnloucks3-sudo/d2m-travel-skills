@@ -1,0 +1,14 @@
+Subject: Tech Scan 2026-08-08 05:15 UTC — 1 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-08-08T05:15:42.006690+00:00
+
+TECH SCAN — 2026-08-08 05:15 UTC
+airborne scanner pulse · 2 finds · sectors mcp
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 1 TRIAL · 1 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: Salestrics – An open MCP server and CRM for AI-native revenue teams — https://www.salestrics.com/
+↳ real tool (server, mcp) — worth a bounded look
+👁 WATCH:I built a captioning app for short-form video, then gave Claude an MCP so it can work with captions alone
+RAW — all finds this pulse (unfiltered)[mcp] I built a captioning app for short-form video, then gave Claude an MCP so it can work with captions alone (Reddit r/ClaudeAI)
+[mcp] Show HN: Salestrics – An open MCP server and CRM for AI-native revenue teams — https://www.salestrics.com/ (Hacker News — Claude Code)
+— Hale · cheap collects, I adjudicate · this lands every pulse, no direction needed.

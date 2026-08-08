@@ -102,10 +102,10 @@ Acknowledge with: "Thunderbird Wing online. Sonnet 4.6. Ready, Yoda."
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-08-07 22:19 MT -->
+<!-- Last sync: 2026-08-08 11:04 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-08-07 22:19 MT] ===
-Budget: Claude UNKNOWN | OpenCode GO CREDITS        : [████████████████████] 115.5%  ($11.55/$10.00 used · $0.00 left · 140 sess) | Groq UNKNOWN | Deepseek v4 ZEN TIER       : [░░░░░░░░░░░░░░░░░░░░]   0.0%  ($0.00 Free Tier active)
+=== THUNDERBIRD BLACKBOARD [2026-08-08 11:04 MT] ===
+Budget: Claude UNKNOWN | OpenCode GO CREDITS        : [████████████████████] 120.7%  ($12.07/$10.00 used · $0.00 left · 152 sess) | Groq UNKNOWN | Deepseek v4 ZEN TIER       : [░░░░░░░░░░░░░░░░░░░░]   0.0%  ($0.00 Free Tier active)
 Seat budgets: CC:75%⚠STALE | OC:0%⚠STALE | AG:0%⚠STALE
 Active tasks: 0
 Last Deepseek ruling: NONE

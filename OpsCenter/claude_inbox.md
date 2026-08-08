@@ -305,3 +305,42 @@
 ⚠️ OVERDUE: John & Susan Loucks — TP TP-4.4 FINAL PAYMENT DUE — 6 days overdue. Staff: A9 Harlan + Hale
 **Action Required:** Immediate attention.
 
+
+---
+**[LIFECYCLE SCHEDULER — 2026-08-08 00:39]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: Kyle Kuklinski — TP ARC2-C Excursions Confirmed — 6 days overdue. Staff: Hale
+**Action Required:** Immediate attention.
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-08-08 00:39]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: John & Susan Loucks — TP TP-4.4 FINAL PAYMENT DUE — 7 days overdue. Staff: A9 Harlan + Hale
+**Action Required:** Immediate attention.
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-08-08 00:39]**
+## LIFECYCLE — TP EMAIL DUE
+**Client:** John & Susan Loucks
+**TP:** TP-4.5 — Payment Confirmation (FPD+7)
+**Subject:** Payment Confirmed — Regent Grandeur Balance $0
+**Channel:** SEND to johnloucks3@gmail.com
+**Email Drafts Doc:** /home/john/Thunderbird/output/Loucks_Regent_Lifecycle_Engagement.md
+**Staff Lead:** A9 Harlan
+**Notes:** Verify $24,798 processed. New balance $0. Shipboard credits intact ($300). Update dossier + THUNDERBIRD_MASTER_PLAN.
+**Action:** Extract email from drafts doc, format with D2M stationery, SEND to Commander.
+
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-08
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-08
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating

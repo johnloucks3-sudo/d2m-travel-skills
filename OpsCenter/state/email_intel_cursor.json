@@ -100,9 +100,11 @@
     "19fdd67db852697c": 1,
     "19fdd574d26463b5": 1,
     "19fddf1d85a92fc6": 1,
-    "19fdf5382f59729b": 1
+    "19fdf5382f59729b": 1,
+    "19fe0023b3869f7a": 1,
+    "19fe03d0ae3d4b83": 1
   },
-  "last_checkpoint": "2026-08-07T21:34:03.618826",
+  "last_checkpoint": "2026-08-08T10:13:38.892220",
   "last_checkpoint_reason": "sweep_complete",
-  "elapsed_sec": 300.6
+  "elapsed_sec": 108.2
 }

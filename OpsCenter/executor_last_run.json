@@ -1,21 +1,35 @@
 {
-  "run_at": "2026-08-07T22:13:27.629438",
-  "tasks_attempted": 2,
-  "tasks_succeeded": 2,
+  "run_at": "2026-08-08T10:19:43.000519",
+  "tasks_attempted": 4,
+  "tasks_succeeded": 4,
   "results": [
     {
-      "id": "MISSION-805",
-      "title": "Deliver Kuklinski WF-17 package to Commander for send",
+      "id": "MISSION-801",
+      "title": "Send Kuklinski WF-17 validation and insurance emails",
       "success": true,
-      "elapsed": 11.432540655136108,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-805_20260807.md"
+      "elapsed": 12.348964214324951,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-801_20260808.md"
     },
     {
-      "id": "MISSION-806",
-      "title": "Close Kuklinski return-leg open-jaw routing and pricing",
+      "id": "MISSION-636",
+      "title": "Full CI infrastructure",
       "success": true,
-      "elapsed": 13.04979157447815,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-806_20260807.md"
+      "elapsed": 23.532496213912964,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-636_20260808.md"
+    },
+    {
+      "id": "MISSION-637",
+      "title": "Mission Board capability",
+      "success": true,
+      "elapsed": 25.95064640045166,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-637_20260808.md"
+    },
+    {
+      "id": "MISSION-653",
+      "title": "\ud83d\udee1\ufe0f CHIEF SILVER",
+      "success": true,
+      "elapsed": 8.5886390209198,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-653_20260808.md"
     }
   ]
 }

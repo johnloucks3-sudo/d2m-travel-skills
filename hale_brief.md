@@ -1,77 +1,4 @@
-## SCAN SUMMARY
-*Timestamp: 2026-08-07T01:00:00.167201*
-
-### 📅 Deadline Radar
-- **OVERDUE** | DOSSIER_Regent_Loucks_Dec2026_UPDATED (deadline) | -6d out [**HIGH**]
-- **OVERDUE** | DOSSIER_Regent_LesserAntilles_Dec2026 (deadline) | -16d out [**HIGH**]
-
-### ⏱️ Stale Tasks (>48h)
-- MISSION-018: Redirect Telegram-output automations to TCD and mark emergency-only (522.1h old) [**HIGH**]
-- MISSION-617: browser-skill AG integration (517.3h old) [**HIGH**]
-- MISSION-636: Full CI infrastructure (204.2h old) [**HIGH**]
-- MISSION-637: Mission Board capability (522.0h old) [**HIGH**]
-- MISSION-646: Five orphaned systemd units point at deleted scripts (all disabled) (521.5h old) [**HIGH**]
-- MISSION-648: MISSION-802-FORMAT-REVIEW continuity re-run loop (752 spawns, now quiescent) (521.5h old) [**HIGH**]
-- MISSION-650: TESS Trip-notes subsystem broken (PostTripNote 500, GetTripNotes 405) (515.1h old) [**HIGH**]
-- MISSION-651: Loucks Panama Canal booking (3122006) missing from TESS entirely (204.2h old) [**HIGH**]
-- MISSION-653: 🛡️ CHIEF SILVER (513.2h old) [**HIGH**]
-- MISSION-659: MCP daemon staleness (487.9h old) [**HIGH**]
-- MISSION-664: Post-mortem on MISSION-648 format-review 752-spawn runaway (486.9h old) [**HIGH**]
-- MISSION-665: Retire five orphaned systemd units pointing at deleted scripts (486.9h old) [**HIGH**]
-- MISSION-672: hale-credential-check exits 1 (484.0h old) [**HIGH**]
-- MISSION-673: d2m-lifecycle: brain2 model (484.0h old) [**HIGH**]
-- MISSION-674: claude-sync: Cloudflare R2 (484.0h old) [**HIGH**]
-- MISSION-675: d2m-drive-sync: Google Drive (484.0h old) [**HIGH**]
-- MISSION-676: Crash reporter produces (483.5h old) [**HIGH**]
-- MISSION-682: Formally close MISSION-802-FORMAT-REVIEW continuity loop (466.7h old) [**HIGH**]
-- MISSION-690: Drive Commander's first live TCD decision cycle (458.7h old) [**HIGH**]
-- MISSION-691: Retire 5 orphaned systemd units pointing at deleted scripts (458.7h old) [**HIGH**]
-- MISSION-692: Staff Package SSS-004 (449.3h old) [**HIGH**]
-- MISSION-693: Tech Scan 2026-07-20 (433.7h old) [**HIGH**]
-- MISSION-694: Re: Re: Multi-Model (426.5h old) [**HIGH**]
-- MISSION-695: Re: Hermai.ai Analysis (426.3h old) [**HIGH**]
-- MISSION-696: Commander review and send Kuklinski WF-17 emails (412.6h old) [**HIGH**]
-- MISSION-699: Remediate cc-fleet dead provider keys (412.6h old) [**HIGH**]
-- MISSION-700: Assign all unassigned P1 missions on the board (274.7h old) [**HIGH**]
-- MISSION-701: Close McLeod lifecycle contact and transfer dispute (204.2h old) [**HIGH**]
-- MISSION-703: Payment Reminder — (378.2h old) [**HIGH**]
-- MISSION-711: Fund DeepSeek v4 backend — Commander approval gate (370.1h old) [**HIGH**]
-- MISSION-715: Brief system audit — flag stale in-progress dates as P1 anomalies (338.9h old) [**HIGH**]
-- MISSION-716: MISSION-802-FORMAT-REVIEW post-mortem — root cause the 752-spawn loop (338.9h old) [**HIGH**]
-- MISSION-717: Tech Scan 2026-07-24 (337.7h old) [**HIGH**]
-- MISSION-724: Root-cause and fix room reservation cookie keepalive cycling (319.0h old) [**HIGH**]
-- MISSION-725: Write standing order for timer lifecycle governance (319.0h old) [**HIGH**]
-- MISSION-731: Close McLeod lifecycle dispute with resolution or escalation (314.9h old) [**HIGH**]
-- MISSION-732: Authorize and fund DeepSeek v4 relay API key (314.9h old) [**HIGH**]
-- MISSION-733: Confirm MISSION-802 loop cannot self-resume and close the mission record (314.9h old) [**HIGH**]
-- MISSION-739: Assign owners to unassigned P1 in-progress missions (275.2h old) [**HIGH**]
-- MISSION-745: Mandate cost envelope and budget threshold for all new timers pre-merge (274.7h old) [**HIGH**]
-- MISSION-748: Implement weekly mission board closure cadence with P3 hard-kill criteria (274.3h old) [**HIGH**]
-- MISSION-749: Schedule Hermai.ai hosted fetch integration sprint (274.3h old) [**HIGH**]
-- MISSION-750: Morning Intel Brief (233.8h old) [**HIGH**]
-- MISSION-752: Re: Re: 🚢 (231.8h old) [**HIGH**]
-- MISSION-753: Re: 🚢 Silver (231.5h old) [**HIGH**]
-- MISSION-754: Repo git bloat (208.2h old) [**HIGH**]
-- MISSION-755: Perplexity API key (207.3h old) [**HIGH**]
-- MISSION-759: Assign owners to all five unowned P1 missions (204.4h old) [**HIGH**]
-- MISSION-760: Confirm Westbrook welcome emails are in WF-17 with committed send date (204.4h old) [**HIGH**]
-- MISSION-763: Execute mission board culling pass — target under 80 active missions (204.2h old) [**HIGH**]
-- MISSION-764: C2 gate — (199.7h old) [**HIGH**]
-- MISSION-767: Draft Commander-side Spencer intake response and stage to WF-17 (179.9h old) [**HIGH**]
-
-### ⚠️ Priority Conflicts
-- 65 active missions may indicate priority overload [**MEDIUM**]
-
-### 💰 Commission Reconciliation Cycle
-- No commission reconciliation filed for August 2026 (1d past the 5-day grace window) [**MEDIUM**]
-
-### 🕵️ Competitor Intel Freshness
-- Most recent competitor intel (sector_I_competitor_20260702.md) is 36d old [**HIGH**]
-
-**Summary:** 57 total findings | **55 HIGH** | 0 MEDIUM
-
-
-# Daily Hale Transformation Audit — 2026-08-07
+# Daily Hale Transformation Audit — 2026-08-08
 Phase 1: ✅ 9.5/10
 Phase 2: ✅ COMPLETE (approved + deployed)
 Phase 3: ✅ ACTIVE (personality refinement, trust compounding, preference modeling)
@@ -80,6 +7,79 @@ Operations: Lyons PAID (FPD archived). Welcome emails (Kuklinski + Westbrook) in
 Decisions: 223 logged
 Open Tasks: 5
 System Health: UNKNOWN
+## END AUDIT
+
+## SCAN SUMMARY
+*Timestamp: 2026-08-08T01:00:00.108743*
+
+### 📅 Deadline Radar
+- **OVERDUE** | DOSSIER_Regent_Loucks_Dec2026_UPDATED (deadline) | -7d out [**HIGH**]
+- **OVERDUE** | DOSSIER_Regent_LesserAntilles_Dec2026 (deadline) | -17d out [**HIGH**]
+
+### ⏱️ Stale Tasks (>48h)
+- MISSION-018: Redirect Telegram-output automations to TCD and mark emergency-only (546.1h old) [**HIGH**]
+- MISSION-617: browser-skill AG integration (541.3h old) [**HIGH**]
+- MISSION-636: Full CI infrastructure (228.2h old) [**HIGH**]
+- MISSION-637: Mission Board capability (546.0h old) [**HIGH**]
+- MISSION-646: Five orphaned systemd units point at deleted scripts (all disabled) (545.5h old) [**HIGH**]
+- MISSION-648: MISSION-802-FORMAT-REVIEW continuity re-run loop (752 spawns, now quiescent) (545.5h old) [**HIGH**]
+- MISSION-650: TESS Trip-notes subsystem broken (PostTripNote 500, GetTripNotes 405) (539.1h old) [**HIGH**]
+- MISSION-651: Loucks Panama Canal booking (3122006) missing from TESS entirely (228.2h old) [**HIGH**]
+- MISSION-653: 🛡️ CHIEF SILVER (537.2h old) [**HIGH**]
+- MISSION-659: MCP daemon staleness (511.9h old) [**HIGH**]
+- MISSION-664: Post-mortem on MISSION-648 format-review 752-spawn runaway (510.9h old) [**HIGH**]
+- MISSION-665: Retire five orphaned systemd units pointing at deleted scripts (510.9h old) [**HIGH**]
+- MISSION-672: hale-credential-check exits 1 (508.0h old) [**HIGH**]
+- MISSION-673: d2m-lifecycle: brain2 model (508.0h old) [**HIGH**]
+- MISSION-674: claude-sync: Cloudflare R2 (508.0h old) [**HIGH**]
+- MISSION-675: d2m-drive-sync: Google Drive (508.0h old) [**HIGH**]
+- MISSION-676: Crash reporter produces (507.5h old) [**HIGH**]
+- MISSION-682: Formally close MISSION-802-FORMAT-REVIEW continuity loop (490.7h old) [**HIGH**]
+- MISSION-690: Drive Commander's first live TCD decision cycle (482.7h old) [**HIGH**]
+- MISSION-691: Retire 5 orphaned systemd units pointing at deleted scripts (482.7h old) [**HIGH**]
+- MISSION-692: Staff Package SSS-004 (473.3h old) [**HIGH**]
+- MISSION-693: Tech Scan 2026-07-20 (457.7h old) [**HIGH**]
+- MISSION-694: Re: Re: Multi-Model (450.5h old) [**HIGH**]
+- MISSION-695: Re: Hermai.ai Analysis (450.3h old) [**HIGH**]
+- MISSION-699: Remediate cc-fleet dead provider keys (436.6h old) [**HIGH**]
+- MISSION-701: Close McLeod lifecycle contact and transfer dispute (228.2h old) [**HIGH**]
+- MISSION-703: Payment Reminder — (402.2h old) [**HIGH**]
+- MISSION-711: Fund DeepSeek v4 backend — Commander approval gate (394.1h old) [**HIGH**]
+- MISSION-715: Brief system audit — flag stale in-progress dates as P1 anomalies (362.9h old) [**HIGH**]
+- MISSION-716: MISSION-802-FORMAT-REVIEW post-mortem — root cause the 752-spawn loop (362.9h old) [**HIGH**]
+- MISSION-717: Tech Scan 2026-07-24 (361.7h old) [**HIGH**]
+- MISSION-724: Root-cause and fix room reservation cookie keepalive cycling (343.0h old) [**HIGH**]
+- MISSION-725: Write standing order for timer lifecycle governance (343.0h old) [**HIGH**]
+- MISSION-731: Close McLeod lifecycle dispute with resolution or escalation (338.9h old) [**HIGH**]
+- MISSION-732: Authorize and fund DeepSeek v4 relay API key (338.9h old) [**HIGH**]
+- MISSION-733: Confirm MISSION-802 loop cannot self-resume and close the mission record (338.9h old) [**HIGH**]
+- MISSION-739: Assign owners to unassigned P1 in-progress missions (299.2h old) [**HIGH**]
+- MISSION-745: Mandate cost envelope and budget threshold for all new timers pre-merge (298.7h old) [**HIGH**]
+- MISSION-748: Implement weekly mission board closure cadence with P3 hard-kill criteria (298.3h old) [**HIGH**]
+- MISSION-749: Schedule Hermai.ai hosted fetch integration sprint (298.3h old) [**HIGH**]
+- MISSION-750: Morning Intel Brief (257.8h old) [**HIGH**]
+- MISSION-752: Re: Re: 🚢 (255.8h old) [**HIGH**]
+- MISSION-753: Re: 🚢 Silver (255.5h old) [**HIGH**]
+- MISSION-754: Repo git bloat (232.2h old) [**HIGH**]
+- MISSION-755: Perplexity API key (231.3h old) [**HIGH**]
+- MISSION-759: Assign owners to all five unowned P1 missions (228.4h old) [**HIGH**]
+- MISSION-760: Confirm Westbrook welcome emails are in WF-17 with committed send date (228.4h old) [**HIGH**]
+- MISSION-763: Execute mission board culling pass — target under 80 active missions (228.2h old) [**HIGH**]
+- MISSION-764: C2 gate — (223.7h old) [**HIGH**]
+- MISSION-767: Draft Commander-side Spencer intake response and stage to WF-17 (203.9h old) [**HIGH**]
+
+### ⚠️ Priority Conflicts
+- 76 active missions may indicate priority overload [**MEDIUM**]
+
+### 💰 Commission Reconciliation Cycle
+- No commission reconciliation filed for August 2026 (2d past the 5-day grace window) [**MEDIUM**]
+
+### 🕵️ Competitor Intel Freshness
+- Most recent competitor intel (sector_I_competitor_20260702.md) is 37d old [**HIGH**]
+
+**Summary:** 55 total findings | **53 HIGH** | 0 MEDIUM
+
+
 ## END AUDIT
 
 ## END AUDIT

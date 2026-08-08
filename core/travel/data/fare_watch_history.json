@@ -81599,6 +81599,21 @@
       "url": null,
       "notes": "",
       "scanned_at": "2026-08-07T15:00:44.659346+00:00"
+    },
+    {
+      "watch_id": "loucks-grandeur-panama-lax-cos-jan2027-skybird",
+      "route": "LAX\u2192COS",
+      "source": "skybird",
+      "cabin": "business",
+      "best_price_pp": 460.42,
+      "shortest_duration": null,
+      "airline": "UA",
+      "stops": null,
+      "travel_date": "2027-01-14",
+      "passengers": 2,
+      "url": null,
+      "notes": "",
+      "scanned_at": "2026-08-08T15:00:42.791082+00:00"
     }
   ],
   "_trends": {
@@ -83716,12 +83731,13 @@
     "loucks-grandeur-panama-lax-cos-jan2027-skybird": {
       "prices": [
         460.42,
+        460.42,
         460.42
       ],
       "min": 460.42,
       "max": 460.42,
-      "sum": 920.84,
-      "count": 2
+      "sum": 1381.26,
+      "count": 3
     }
   }
 }

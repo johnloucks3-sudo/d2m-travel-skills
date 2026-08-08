@@ -25,16 +25,22 @@
       "source": "anansi",
       "query": "cheapest economy flights RIC \u2192 PTY on 2026-12-17 for 4 passengers round trip price per person USD",
       "snippet": "",
-      "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
-      "checked_at": "2026-08-07T18:15:12.632165"
+      "note": "FALLBACK \u2014 Centrav dead; Kiwi real LCC/connecting price available alongside web-estimate (not B2B net fare)",
+      "checked_at": "2026-08-07T18:15:12.632165",
+      "kiwi_price_usd": 5523,
+      "kiwi_carrier": null,
+      "kiwi_checked_at": "2026-08-08T14:07:21.670540+00:00"
     },
     "morton-dodge-flights-rsw-pty": {
       "status": "fallback",
       "source": "anansi",
       "query": "cheapest economy flights RSW \u2192 PTY on 2026-12-17 for 2 passengers round trip price per person USD",
       "snippet": "",
-      "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
-      "checked_at": "2026-08-07T18:15:12.632165"
+      "note": "FALLBACK \u2014 Centrav dead; Kiwi real LCC/connecting price available alongside web-estimate (not B2B net fare)",
+      "checked_at": "2026-08-07T18:15:12.632165",
+      "kiwi_price_usd": 2783,
+      "kiwi_carrier": null,
+      "kiwi_checked_at": "2026-08-08T14:07:23.739704+00:00"
     },
     "loucks-den-vce-apr2027": {
       "status": "fallback",

@@ -64656,3 +64656,2918 @@ _Auto-routed by hale_notify.py_
 **[04:20 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
 d2m-mcp failed again within cooldown window — needs manual attention
 _Auto-routed by hale_notify.py_
+
+---
+**[04:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:20 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:20 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:21 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:21 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:21 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:21 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:21 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:21 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:22 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:22 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:22 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:22 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:22 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:23 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:23 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:23 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:23 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:23 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:23 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:24 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:24 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:24 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:24 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:24 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:25 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:25 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:25 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:25 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:25 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:25 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:25 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:26 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:26 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:26 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:26 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:26 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:26 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:27 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:27 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:27 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:27 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:27 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:28 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:28 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:28 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:28 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:28 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:28 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:29 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:29 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:29 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:29 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:29 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:29 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:30 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:30 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:30 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:30 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:30 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:30 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:31 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:31 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:31 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:31 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:31 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:32 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:32 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:32 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:32 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:32 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:32 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:33 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:33 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:33 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:33 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:33 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:34 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:34 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:34 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:34 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:34 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:34 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:35 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:35 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:35 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:35 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:35 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:35 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:36 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:36 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:36 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:36 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:36 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:36 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:37 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:37 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:37 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:37 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:37 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:38 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:38 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:38 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:38 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:38 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:38 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:39 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:39 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:39 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:39 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:39 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:39 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:40 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:40 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:40 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:40 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:40 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:40 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:41 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:41 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:41 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:41 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:41 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:41 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:42 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:42 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:42 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:42 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:42 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:43 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:43 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:43 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:43 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:43 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:43 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:44 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:44 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:44 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:44 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:44 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:45 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:45 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:45 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:45 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:45 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:45 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:45 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:45 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:46 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:46 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:46 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:46 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:46 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:47 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:47 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:47 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:47 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:47 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:47 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:48 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:48 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:48 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:48 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:48 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:49 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:49 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:49 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:49 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:49 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:51 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:51 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:51 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:51 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:51 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:52 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:52 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:52 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:52 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:52 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:52 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:53 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:53 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:53 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:53 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:53 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:53 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:54 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:54 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:54 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:54 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:54 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:55 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:55 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:55 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:55 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:55 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:55 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:55 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:56 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:56 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:56 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:56 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:56 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:57 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:57 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:57 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:57 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:57 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:57 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:58 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:58 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:58 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:58 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:58 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:59 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:59 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:59 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:59 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:59 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:59 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:59 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:01 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:01 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:01 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:01 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:01 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:01 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:02 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:02 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:02 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:02 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:02 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:03 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:03 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:03 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:03 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:03 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:03 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:04 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:04 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:04 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:04 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:04 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:05 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:05 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:05 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:05 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:05 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:05 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:05 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:06 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:06 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:06 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:06 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:06 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:07 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:07 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:07 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:07 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:07 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:07 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:08 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:08 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:08 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:08 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:08 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:09 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:09 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:09 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:09 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:09 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:10 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:10 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:10 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:10 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:10 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:11 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:11 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:11 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:11 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:11 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:11 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:12 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:12 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:12 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:12 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:12 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:12 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:13 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:13 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:13 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:13 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:13 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:13 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:14 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:14 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:14 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:14 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:15 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:15 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:15 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:15 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:15 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:15 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:15 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:16 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:16 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:16 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:16 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:16 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:17 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:17 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:17 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:17 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:17 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:17 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:18 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:18 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:18 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:18 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:18 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:19 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:19 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:19 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:19 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:19 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:19 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:20 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:20 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:20 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:21 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:21 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:21 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:21 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:21 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:21 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:22 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:22 UTC] HALE → STERLING: generic-remediate:d2m-mcp**
+d2m-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:22 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:25 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:30 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:35 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:40 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:45 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:50 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:55 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:00 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:05 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:10 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:16 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:20 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:25 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:30 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:35 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:40 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:45 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:50 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:55 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:00 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:05 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:10 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:15 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:21 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:25 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:30 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:35 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:40 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:45 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:50 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:55 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:00 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:05 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:10 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:13 UTC] HALE → STERLING: generic-remediate:d2m-x-osint**
+d2m-x-osint failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:15 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:19 UTC] HALE → STERLING: generic-remediate:d2m-x-osint**
+d2m-x-osint failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:20 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:26 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:29 UTC] HALE → STERLING: generic-remediate:d2m-x-osint**
+d2m-x-osint failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:30 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:35 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:40 UTC] HALE → STERLING: generic-remediate:d2m-x-osint**
+d2m-x-osint failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:40 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:45 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:50 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:55 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:00 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:05 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:10 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:15 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:20 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:25 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:31 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:35 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:40 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:45 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:50 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:55 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:00 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:05 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:10 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:15 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:18 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:20 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:25 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:30 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:36 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:39 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:40 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:45 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:46 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:50 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:55 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:56 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:00 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:05 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:06 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:08 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:10 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:15 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:16 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:18 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:19 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:20 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:25 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:26 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:35 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:41 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:45 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:50 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:55 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:59 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:04 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:04 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[12:04 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:04 UTC] HALE → STERLING: competitive-intel-apis**
+CI competitive-intel-apis BLOCKED_CIRCUIT: durable circuit OPEN until 2026-08-08T12:04:53.141535+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:04 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-08-08T12:04:59.185517+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:04 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:05 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:10 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:11 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:15 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:19 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:19 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:23 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:25 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:31 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:31 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:31 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:35 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:40 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:41 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:47 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:50 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:51 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:55 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:00 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:04 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:05 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:10 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:15 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:20 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:21 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:25 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:30 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:35 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:41 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:41 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:45 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:45 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:51 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:52 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:55 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:00 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:01 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:05 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:10 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:14 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:15 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:20 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:22 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:25 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:30 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:35 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:40 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:45 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:51 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:52 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:55 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:55 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:01 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:05 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:13 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:15 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:16 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:23 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:25 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:30 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:35 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:40 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:45 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:50 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:53 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:56 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:57 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:00 UTC] HALE → STERLING: generic-remediate:d2m-sss-chain-notify**
+d2m-sss-chain-notify entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:00 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:03 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:03 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:05 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:08 UTC] HALE → STERLING: generic-remediate:d2m-sss-chain-notify**
+d2m-sss-chain-notify failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:08 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:08 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:09 UTC] HALE → STERLING: generic-remediate:d2m-sss-chain-notify**
+d2m-sss-chain-notify failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:d2m-sss-chain-notify**
+d2m-sss-chain-notify failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:15 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:23 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:25 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:25 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:30 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:30 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:30 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:30 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:30 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:30 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:33 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:35 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:38 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:38 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:38 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:38 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:38 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:40 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:45 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:50 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:55 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:02 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:03 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:05 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:06 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:08 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:08 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:08 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:08 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:08 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp-gc**
+thunderbird-mcp-gc failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_

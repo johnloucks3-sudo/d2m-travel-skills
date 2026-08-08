@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-07T19:00:07.579190+00:00",
-  "finding_count": 21,
-  "content_hash": "7aa46e0e0258f87933e0015fcaed861ca3e12260",
+  "ts": "2026-08-08T05:15:05.276669+00:00",
+  "finding_count": 2,
+  "content_hash": "da8e06e6f47a2a678585b1672714d70cd7b19347",
   "sectors": [
-    "voice",
-    "claude-code",
-    "agentic"
+    "mcp",
+    "ai-writing",
+    "travel-b2b"
   ],
   "zero_streak": 0,
   "frozen": false

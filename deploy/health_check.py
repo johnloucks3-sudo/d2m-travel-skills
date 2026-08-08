@@ -24,17 +24,26 @@ LOG_DIR = Path(__file__).parent.parent / "logs"
 LOG_DIR.mkdir(exist_ok=True)
 
 SERVICES = [
-    "d2m-mcp.service",
+    "thunderbird-mcp.service",
     "thunderbird-api.service",
     "thunderbird-tunnel.service",
     "thunderbird-scheduler.service",
 ]
-# NOTE (2026-07-30): d2m-api.service / d2m-scheduler.service are dead duplicate
-# unit files left over from the 2026-04-06 d2m-* -> thunderbird-* rename — same
-# ExecStart, disabled, never the ones actually running. thunderbird-api.service
-# / thunderbird-scheduler.service are the live units (matches d2m-mcp.service,
-# which is already a symlink alias to thunderbird-mcp.service). Watching the
-# old names produced two permanent false "FAILED" entries.
+# CORRECTION (2026-08-07, PROPOSAL-20260807-thunderbird-mcp F-3): the prior
+# 2026-07-30 note below claimed d2m-mcp.service "is already a symlink alias to
+# thunderbird-mcp.service." That was never verified and is FALSE — inode check
+# proved they are two independent, byte-identical unit files that both bound
+# port 8765 and mutually SIGKILLed each other (~34h crash loop). d2m-mcp.service
+# is now stopped/disabled/masked; thunderbird-mcp.service is canonical. This
+# monitor now watches the real unit.
+# Original note (2026-07-30, partially wrong, kept for record): d2m-api.service
+# / d2m-scheduler.service are dead duplicate unit files left over from the
+# 2026-04-06 d2m-* -> thunderbird-* rename — same ExecStart, disabled, never
+# the ones actually running. thunderbird-api.service / thunderbird-scheduler.service
+# are the live units. Watching the old names produced two permanent false
+# "FAILED" entries. d2m-api/d2m-scheduler status was NOT independently
+# reverified during this fix — same false-alias claim may apply, flagged for
+# follow-up, not confirmed either way.
 
 OWNER_EMAIL = "johnloucks3@gmail.com"
 ALERT_INTERVAL_MINUTES = 30  # re-alert every 30 min if still down

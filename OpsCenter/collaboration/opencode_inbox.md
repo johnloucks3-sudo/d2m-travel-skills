@@ -9264,3 +9264,80 @@ priority: normal
 status: UNREAD
 task: |
   [POST-COMMIT] 25b032a2e: fix(war-room): kill airfare keep-alives except Skybird — suppress fare-watch-centrav auto-repair; disable perx+centrav keepalive timers |  1 file changed, 13 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-46cbf34f from CC — 2026-08-08 04:20 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 44b908c99: fix(mcp): arrest crash-loop via 12h graceful restart + lazy-load wrapper (staged) |  218 files changed, 164571 insertions(+), 4212 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-480abddf from CC — 2026-08-08 13:51 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] aa6cb07b5: feat(instructor-mode): rebuild sentinel, add OC lane to RT dispatch, fix RT recorder session bug |  25 files changed, 834 insertions(+), 12 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-f15391de from CC — 2026-08-08 13:59 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 186c23b07: feat(instructor-mode): OC health-gate helper — built by Haiku as a live fallback-tier test |  1 file changed, 45 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-8fc589d3 from CC — 2026-08-08 14:09 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 0024dd607: feat(instructor-mode): universal any-HALE/any-lane procedure — interview, plan+todo, Weapons Free, mandatory reporting |  3 files changed, 27 insertions(+), 3 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-c797e6f0 from CC — 2026-08-08 14:26 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 210d37a13: feat(instructor-mode): Pilot #3 — mission auto-escalation, built via Instructor Mode, live |  3 files changed, 369 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-27aa3428 from CC — 2026-08-08 14:27 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] e28bd1218: feat(instructor-mode): Pilot #2 — narrow verification caching on run_gate() |  1 file changed, 66 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-67dc9750 from CC — 2026-08-08 15:55 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 6a5ace0ea: feat(instructor-mode): Item #23 — SSS chop-chain notify scanner, live |  2 files changed, 172 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-cb3bbe50 from CC — 2026-08-08 16:14 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 3c69b1ab6: fix(instructor-mode): sss_chain_notify.py — sync auto-remediated fix, real gap in my own verification |  1 file changed, 5 insertions(+), 3 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-1fdc0b92 from CC — 2026-08-08 16:19 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 09534985f: docs(instructor-mode): Item #15 design synthesis — OC + AG independent proposals, real disagreement surfaced |  4 files changed, 122 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-e0202bef from CC — 2026-08-08 17:08 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 96efa5a6d: docs(instructor-mode): session record + 5 mission-board entries with real OPRs |  1 file changed, 39 insertions(+) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-7266f4de from CC — 2026-08-08 17:08 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 40321947a: chore: mission board state — Pilot #3 escalations + 5 new OPR-assigned missions |  1 file changed, 594 insertions(+), 270 deletions(-) | author: Thunderbird Wing (seat unset)

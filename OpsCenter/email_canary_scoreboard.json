@@ -5,7 +5,7 @@
     "n8n_python",
     "lindy_ai"
   ],
-  "emails_processed": 364,
+  "emails_processed": 365,
   "entries": [
     {
       "category": "spam",
@@ -3548,6 +3548,15 @@
       "from": "missy.furlow@gmail.com",
       "subject": "Re: Upcoming payments due for Stockholm",
       "ts": "2026-08-07T23:20:04.677300+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19fdd5347a958dca",
+      "from": "missy.furlow@gmail.com",
+      "subject": "Re: Upcoming payments due for Stockholm",
+      "ts": "2026-08-08T13:04:17.983444+00:00",
       "system": "n8n_python"
     }
   ]

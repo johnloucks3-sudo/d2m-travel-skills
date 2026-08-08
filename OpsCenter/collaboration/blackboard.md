@@ -38,7 +38,7 @@ Thanks,
 Hale
 
 <!-- COMMANDER-READY:START -->
-## COMMANDER-READY (2026-08-07 15:30 UTC)
+## COMMANDER-READY (2026-08-08 15:30 UTC)
 ### Last 24h decisions (0)
 - (none)
 
@@ -61,27 +61,32 @@ Hale
 ### Startup hook
 STOP-GATE: NO approved plan is currently active. STOP after this initial run; do not auto-continue. Await Commander feedback, a question, or an approved plan before further work.
 
-## STATE BRIDGE BRIEFING — 2026-08-07 09:30
+## STATE BRIDGE BRIEFING — 2026-08-08 09:30
 
-### Since last session (2026-08-07 15:00:00 → still open)
+### Since last session (2026-08-08 15:00:00 → still open)
 
 **Recent commits (no in-DB delta — showing git log):**
-- `697193c12` fix(war-room): RT-CLAUDEP headless claude -p repaired (haiku+stdin DEVNULL) verified; recorder rebuilt clean stdlib; doc all Weapons actions  _76 minutes ago_
-- `3ff0b5358` fix(war-room): oc_hygiene spares interactive TTY session (was auto-logoff root cause) + scan steals as War Room mods  _2 hours ago_
-- `d00817b9c` doc(war-room): standing 24/7 doctrine, any-HALE invoke, doc-mandatory; commit Telegram fixes + Poe fallback + dispatcher + standing agenda  _2 hours ago_
-- `83d28a934` ops(war-room): RT-TEL 24h stability gate (MISSION-795) — scheduled 2026-08-08 06:48 MT  _3 hours ago_
-- `217191c4c` fix(war-room): RT-TELEGRAM fixes (exit0/SIGTERM-clean/lockfile/timeouts) + Poe Perplexity fallback + rt_dispatch token-reporting (AG=gemini-3.6-flash, CC=claude-sonnet-4-6)  _3 hours ago_
+- `e28bd1218` feat(instructor-mode): Pilot #2 — narrow verification caching on run_gate()  _62 minutes ago_
+- `210d37a13` feat(instructor-mode): Pilot #3 — mission auto-escalation, built via Instructor Mode, live  _64 minutes ago_
+- `0024dd607` feat(instructor-mode): universal any-HALE/any-lane procedure — interview, plan+todo, Weapons Free, mandatory reporting  _80 minutes ago_
+- `186c23b07` feat(instructor-mode): OC health-gate helper — built by Haiku as a live fallback-tier test  _2 hours ago_
+- `aa6cb07b5` feat(instructor-mode): rebuild sentinel, add OC lane to RT dispatch, fix RT recorder session bug  _2 hours ago_
 
 _No changes since last session — continuing clean._
 
 ### Current state snapshot
 **Most recently touched watched files:**
-- `hale_state.json` (0s ago)
+- `hale_state.json` (29s ago)
 - `OpsCenter/collaboration/blackboard.md` (29m ago)
-- `hale_brief.md` (50m ago)
-- `AGENTS.md` (2.0d ago)
-- `dossiers/Westbrook_SilverNova_Personal.md` (2.0d ago)
-- `dossiers/Kuklinski_Viking_Panama.md` (2.
+- `hale_brief.md` (36m ago)
+- `AGENTS.md` (1.4h ago)
+- `dossiers/Furlow_Regent_3071222.md` (2.7h ago)
+- `dossiers/Ely_Darrow_Regent_3096289.md` (16.0h ago)
+- `dossiers/Nichols_Regent_3078056.md` (19.0h ago)
+- `dossiers/Westbrook_SilverNova_Personal.md` (3.0d ago)
+
+**Mission board:** 219 open (18 P0, 134 P1)
+  - 🔴 MISSION-001: R
 <!-- COMMANDER-READY:END -->
 
 ## Block 5 — Nichols Draft + McLeod TESS Verify (2026-07-16)
