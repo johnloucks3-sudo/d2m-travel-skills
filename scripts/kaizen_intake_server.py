@@ -1,25 +1,29 @@
 #!/usr/bin/env python3
 """
-kaizen_intake_server.py — Commander-facing ticket intake form.
+kaizen_intake_server.py — shared ticket intake form, password-gated.
 
-KAIZEN item #1 extension (2026-08-08, Commander directive): a web form so
-the Commander can draft a prompt with HIS OWN Gemini (web/Chrome, separate
-from AG) or Grok (Super Grok — MCP access when logged in, but it does not
-persist, so never assume either tool can write the ticket file directly),
-paste the finished text here, and have it land as a real KAIZEN ticket
-(OpsCenter/tickets/<id>.json) without a live CC chat session.
+KAIZEN item #1 extension (2026-08-08, Commander directive; opened to staff
+2026-08-08): a web form to draft a prompt with an outside tool (the
+Commander's own Gemini web/Chrome, separate from AG; Grok/Super Grok — MCP
+access when logged in doesn't persist, so never assume either tool can write
+the ticket file directly) or type one directly, paste it here, and have it
+land as a real KAIZEN ticket (OpsCenter/tickets/<id>.json) without a live CC
+chat session.
 
-Single-user (Commander only), Basic Auth, stdlib http.server — matches this
-repo's existing scripts/client_portal_server.py pattern, no new dependency.
+Shared Basic-Auth (Commander directive 2026-08-08): anyone who authenticates
+with the shared password is authorized — the password IS the authorization
+check, no per-user allowlist. Stdlib http.server — matches this repo's
+existing scripts/client_portal_server.py pattern, no new dependency.
 
-GET  /            intake form (origin, seat, spec, verify_step, gates)
+GET  /            intake form (submitted_by, origin, seat, spec, verify_step, gates)
 POST /submit      builds + writes the ticket via core.relay.task_templates,
                    redirects to a confirmation page showing the ticket_id
 
-Origin tag (commander_gemini / commander_grok / commander_other) is
-recorded on the ticket for audit — these are drafting aids only, never an
-elevated-authority source. Gates default to empty (no Weapons Free scope)
-unless the Commander explicitly types one in — gates are never inferred.
+`submitted_by` (free text, required) records WHO typed the ticket now that
+the login is shared — separate from `origin`, which tags which drafting
+tool (if any) produced the prompt text, never an elevated-authority source.
+Gates default to empty (no Weapons Free scope) unless explicitly typed in —
+gates are never inferred.
 """
 import base64
 import html
@@ -49,13 +53,15 @@ FORM_HTML = """<!doctype html><html><head><meta charset="utf-8">
  .hint{font-size:12px;color:#555;margin-top:2px}
 </style></head><body>
 <h1>KAIZEN Ticket Intake</h1>
-<p class="hint">Draft with your own Gemini (web/Chrome) or Grok/Super Grok, paste the finished prompt below. This never runs anything automatically — it just writes a ticket file CC/OC will pick up.</p>
+<p class="hint">Draft with an outside tool (Gemini web, Grok/Super Grok) or type it directly, paste the finished prompt below. This never runs anything automatically — it just writes a ticket file CC/OC will pick up.</p>
 <form method="POST" action="/submit">
-<label>Origin</label>
+<label>Your name (for the record)</label>
+<input name="submitted_by" required placeholder="e.g. John, Dani, Sterling">
+<label>Origin (which tool drafted the prompt, if any)</label>
 <select name="origin">
-<option value="commander_gemini">My Gemini (web)</option>
-<option value="commander_grok">My Grok / Super Grok</option>
-<option value="commander_other">Other</option>
+<option value="my_gemini">My Gemini (web)</option>
+<option value="my_grok">My Grok / Super Grok</option>
+<option value="other">Other / typed directly</option>
 </select>
 <label>Who should execute this? (seat)</label>
 <select name="seat">
@@ -117,7 +123,8 @@ class Handler(BaseHTTPRequestHandler):
         length = int(self.headers.get("Content-Length", 0))
         raw = self.rfile.read(length).decode()
         fields = urllib.parse.parse_qs(raw)
-        origin = fields.get("origin", ["commander_other"])[0]
+        submitted_by = fields.get("submitted_by", [""])[0].strip() or "unknown"
+        origin = fields.get("origin", ["other"])[0]
         seat = fields.get("seat", ["CC"])[0]
         spec = fields.get("spec", [""])[0].strip()
         verify_step = fields.get("verify_step", [""])[0].strip()
@@ -129,13 +136,15 @@ class Handler(BaseHTTPRequestHandler):
         try:
             ticket = build_cc_task(
                 spec, seat=seat, verify_step=verify_step, gates=gates,
-                require_checkable=False,  # this form is Basic-Auth gated to the
-                # Commander himself — his direct tasking never needed machine
-                # checkability anywhere else in this system; the checkable gate
-                # exists to stop OC/AG writing themselves vague tickets, not to
-                # block the Commander's own.
+                require_checkable=False,  # this form is Basic-Auth gated to
+                # holders of the shared password (Commander directive
+                # 2026-08-08: anyone who logs in is authorized) — direct human
+                # tasking never needed machine checkability anywhere else in
+                # this system; the checkable gate exists to stop OC/AG writing
+                # themselves vague tickets, not to block a human submitter's.
             )
             ticket["origin"] = origin
+            ticket["submitted_by"] = submitted_by
             path = write_ticket(ticket)
             msg = f"Ticket created: {ticket['ticket_id']} -> {path}"
         except ValueError as e:
