@@ -507,10 +507,35 @@
         "2026-08-08T02:36:10.674484+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
         "2026-08-08T03:06:11.722947+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
         "2026-08-08T03:37:05.068662+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
-        "2026-08-08T04:12:10.929020+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here"
+        "2026-08-08T04:12:10.929020+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T04:40:14.861213+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T05:10:14.621751+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T05:41:41.468629+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T06:11:41.327305+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T06:40:50.533259+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T07:11:41.333780+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T07:41:28.562840+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T08:11:42.483594+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T08:42:01.648454+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T09:11:42.339902+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T09:41:43.600108+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T10:11:47.293205+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T10:41:45.241441+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T11:11:48.567281+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T11:41:50.462279+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T12:11:54.807441+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T12:41:01.045742+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T13:11:05.273645+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T13:41:33.623419+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T14:11:06.160847+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T14:41:56.841465+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T15:11:19.571500+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T15:42:37.801123+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T16:12:38.431773+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T16:42:48.777825+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here"
       ],
       "created_at": "2026-07-13T03:21:06.722989+00:00",
-      "updated_at": "2026-08-08T04:12:10.929032+00:00"
+      "updated_at": "2026-08-08T16:42:48.777835+00:00"
     },
     {
       "id": "MISSION-001A",
@@ -725,7 +750,7 @@
       "title": "Deliver Kuklinski validation and insurance emails to WF-17 queue",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "With hold lifted July 15, draft and stage Kuklinski validation email and insurance email for Commander WF-17 review by end of day July 17.",
       "deliverables": [],
       "dependencies": [],
@@ -736,11 +761,13 @@
         "[2026-07-15T18:00:57] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-030: Deliver Kuklinski validation and insurance emails to WF-17 queue\n\n**Analysis and Action Report**\n\n**Summary:**\nThe task to draft and stage Kuklinski validation and insurance emails for Co",
         "[2026-07-15T18:00:57] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-26T19:46:10] Weekly Report Generator duplicate blocked \u2014 \"Deliver Kuklinski validation and insurance emails to WF-17 queue\" already tracked here",
-        "[2026-08-07T03:05:50] Weekly Report Generator duplicate blocked \u2014 \"Deliver Kuklinski validation and insurance emails to WF-17\" already tracked here"
+        "[2026-08-07T03:05:50] Weekly Report Generator duplicate blocked \u2014 \"Deliver Kuklinski validation and insurance emails to WF-17\" already tracked here",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-07-15T13:59:42.300375+00:00",
       "updated_at": "2026-08-07T03:05:50.447147+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-031",
@@ -1099,7 +1126,7 @@
       "title": "Kuklinski Dec-17 air routing \u2014 real pricing pulled, return-leg open-jaw still needed",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Real Google Flights pricing pulled manually for Kuklinski Dec 17 Panama Canal air (outbound legs). Return-leg open-jaw (FLL->home) still needs pricing before a full booking recommendation goes to Commander. Hotel 3+3 search not yet done -- separate deliverable.",
       "deliverables": [],
       "dependencies": [],
@@ -1109,11 +1136,13 @@
         "[2026-07-15T21:17:47] Created by Weekly Report Generator",
         "[2026-07-16T10:25:38] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-048: Deliver Kuklinski air fare watch \u2014 28 days past flag date\n\n**Analysis:**\n\nThe flag date for the Kuklinski couples' airfare to Panama City from Fort Lauderdale was June 17, 2026. As of Jul",
         "[2026-07-16T10:25:38] \u23f8 pending_review: STATUS: COMPLETE not found",
-        "2026-07-16T12:43:13.356874+00:00: REAL DATA (hot-window triage, Google Flights, live snapshot): RIC->PTY r/t (Kuklinski x4 pax, Kyle+Rosalie / Roger+Nicholas): cheapest $3,044 total (~$761/pp) AA6463 RIC-ORD-MIA-PTY, 19h38m, dep Dec17 8:16pm, arr Dec18 3:54pm -- roughly matches dossier estimate of $600-900/pp. RSW->PTY one-way (Morton/Dodge x2 pax, outbound only -- open-jaw, they drive home from FLL disembark): cheapest $1,423 total (~$712pp) AA1176 RSW-CLT-MIA-PTY, 18h12m, dep Dec17 7:41pm, arr Dec18 1:53pm -- above dossier estimate of $300-600/pp, flag as higher-than-expected. CAVEAT NOT YET DONE: my RIC search used a round-trip RIC<->PTY query, but the ship actually disembarks at FLL (Dec 27), not PTY -- the Kuklinski RIC party almost certainly needs the same open-jaw pattern as Morton/Dodge (fly out to PTY, fly home from FLL), which was NOT separately priced. Return-leg FLL->RIC search still needed before this is a complete recommendation. Automation status: Centrav down (human CAPTCHA/OTP re-auth required, MISSION-001/011/033/037/046); anansi fallback non-functional (MISSION-629, CLI mismatch, separate fix needed). This pull was manual."
+        "2026-07-16T12:43:13.356874+00:00: REAL DATA (hot-window triage, Google Flights, live snapshot): RIC->PTY r/t (Kuklinski x4 pax, Kyle+Rosalie / Roger+Nicholas): cheapest $3,044 total (~$761/pp) AA6463 RIC-ORD-MIA-PTY, 19h38m, dep Dec17 8:16pm, arr Dec18 3:54pm -- roughly matches dossier estimate of $600-900/pp. RSW->PTY one-way (Morton/Dodge x2 pax, outbound only -- open-jaw, they drive home from FLL disembark): cheapest $1,423 total (~$712pp) AA1176 RSW-CLT-MIA-PTY, 18h12m, dep Dec17 7:41pm, arr Dec18 1:53pm -- above dossier estimate of $300-600/pp, flag as higher-than-expected. CAVEAT NOT YET DONE: my RIC search used a round-trip RIC<->PTY query, but the ship actually disembarks at FLL (Dec 27), not PTY -- the Kuklinski RIC party almost certainly needs the same open-jaw pattern as Morton/Dodge (fly out to PTY, fly home from FLL), which was NOT separately priced. Return-leg FLL->RIC search still needed before this is a complete recommendation. Automation status: Centrav down (human CAPTCHA/OTP re-auth required, MISSION-001/011/033/037/046); anansi fallback non-functional (MISSION-629, CLI mismatch, separate fix needed). This pull was manual.",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-07-15T21:17:47.981636+00:00",
       "updated_at": "2026-07-16T12:43:13.356887+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-049",
@@ -1184,7 +1213,7 @@
       "title": "Surface Loucks Grandeur FPD \u2014 $24,798 due August 1",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Harlan",
+      "assigned_to": "Hale",
       "description": "Alert Commander directly on Grandeur FPD payment ($24,798 due August 1, 17 days), provide payment instructions, and confirm receipt.",
       "deliverables": [],
       "dependencies": [],
@@ -1206,12 +1235,14 @@
         "[2026-08-07T09:11:33] weekly report re-detected this ('Confirm or remediate Loucks Grandeur $24,798 FPD') \u2014 not re-created, still open here",
         "[2026-08-07T12:09:42] weekly report re-detected this ('Confirm Loucks Grandeur $24,798 FPD payment status') \u2014 not re-created, still open here",
         "[2026-08-08T00:02:49] weekly report re-detected this ('Confirm Loucks Grandeur FPD receipt or escalate') \u2014 not re-created, still open here",
-        "[2026-08-08T04:08:02] weekly report re-detected this ('Confirm or resolve Loucks Grandeur FPD status immediately') \u2014 not re-created, still open here"
+        "[2026-08-08T04:08:02] weekly report re-detected this ('Confirm or resolve Loucks Grandeur FPD status immediately') \u2014 not re-created, still open here",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Harlan -> Hale"
       ],
       "created_at": "2026-07-15T21:17:47.983336+00:00",
       "updated_at": "2026-08-08T04:08:02.080281+00:00",
       "source": "weekly_report",
-      "batch_parent": "SSS-005"
+      "batch_parent": "SSS-005",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-616",
@@ -1253,7 +1284,7 @@
       "title": "Fix Furlow/Ely-Darrow/Nichols Grandeur",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "itinerary images Gemini 3.5 Flash build shipped 9/14 wrong-subject or dead images (WordCamp Kolkata photo mislabeled 'Oslo', tropical beach mislabeled 'Berlin', dead Pexels 3579178 for Stockholm, etc.) across all 3 client itineraries in cruises_web/. No route map, off-canon brand hex, no ship interior imagery. Rebuild via Pexels search->view->verify pipeline before any client send.",
       "deliverables": [],
       "dependencies": [],
@@ -1263,10 +1294,12 @@
         "[2026-07-16T13:42:23] REBUILD via Zero-Latitude 8-stage pipeline (Hale/CC, 2026-07-16). All 3 rebuilt: cruises_web/itinerary_grandeur_{furlow,elydarrow,nichols}.html (~1.88MB, base64-embedded). Builder: scripts/build_grandeur_baltic_itineraries.py. S0 Route PASS+flag (5 ports all DOCK; Kristiansand=Sun Sep6 via Furlow RSSC portal excursion anchor over stale port_data Sep5; clock times rssc-walled=TBC). S1 Data PASS (all 3 PAID IN FULL; flights/hotels/transfers/excursions/dining confirmed; PE transfers on hold, balance due Aug16). S2 Narrative PARTIAL (on-file port_data + Regent Stockholm copy + factbook intel; FLAG no Regent scraped port pages for Warnemunde/Copenhagen/Kristiansand/Oslo). S3 Images PASS-STRONG (6 Wikimedia imgs HTTP200, each VIEWED+subject-confirmed, base64, 0 dup/doc; real Seven Seas Grandeur name-on-hull, Skeppsbron, Brandenburg Gate, Nyhavn, Posebyen, Oslo Opera; rejected+resourced a container-port Kristiansand shot). S4 Brand PASS (gold #c8a400, 0 rgba text, 0 #c9a84c, SVG route map added, ship+5 port-info sections). S5 Voice PASS (Heidi bday Aug29 + Amy bday Aug31 woven; CONFIDENTIAL Parkinson's/insurance/medical EXCLUDED - 0 leaks in visible text). S6/S7 Playwright render-verified. OPEN FOR COMMANDER: Kristiansand clock times+slot rssc live-confirm; Regent scraped port pages absent x4; Ely Sep4 Two-Kingdoms+Prime7 tight-connection internal flag; Furlow Copenhagen Day2=leisure. STATUS: BUILT+VERIFIED, held for WF-17 sign-off. NOT sent. NOT auto-completed.",
         "[2026-07-16T17:41:44] [BLOCK-4 PREP 2026-07-16T17:41:44Z] Regenerated 3 PDFs (cruises_web/itinerary_grandeur_{furlow,elydarrow,nichols}.pdf) from current Jul-16 HTML via weasyprint; render-verified (pdftoppm): route-map SVG, gold #c8a400 brand, and ship photo all confirmed rendering correctly, 0 cross-couple contamination. CRITICAL FINDING: PDF is NOT the real client-send channel -- config/client_portals.json + Furlow dossier SCANDI-PORTAL-SEND reference confirm the actual deliverable is the per-couple portal (furlow/elydarrow/nichols.d2mluxury.quest, served from output/Grandeur_Scandinavia_Portal/*/html/index.html by scripts/client_portal_server.py). That portal HTML is dated 2026-07-03 and does NOT contain this mission's own Jul-16 rebuild fixes -- confirmed by diff: portal has 0 occurrences of route-map SVG or #c8a400 gold brand color that the Jul-16 cruises_web rebuild added. THIS MISSION'S STATED GOAL (rebuild before any client send) is NOT actually satisfied at the real send surface -- the fix landed in cruises_web/ only. Recommend a distinct PORTAL-RESYNC ticket (JET->TALON->Hale pipeline per output/Grandeur_Scandinavia_Portal/PLAN.md) before the 2026-07-20 SCANDI-PORTAL-SEND gate -- NOT done in this pass (out of Block-4 commit scope, and a naive HTML copy would bypass the SCANDI-PORTAL-REVIEW QC guarding Amy Ely-Darrow's Parkinson's/medical segregation). Also: RSSC official port-catalog copy for Warnemunde/Copenhagen/Kristiansand/Oslo already exists (validations/rssc_scrape/extracted_port_details.json, captured 2026-07-14/15) contra this mission's own S2-narrative-partial flag -- current cruises_web HTML narrative (port_data + factbook intel sourced) already reads as strong; RSSC's own Kristiansand (KRS) copy contains a genuine content typo (says 'Kristiansund') so was NOT injected verbatim. Kristiansand port day-slot LIVE-CONFIRMED as Sep 6 (not Sep 5) via Furlow RSSC excursion capture, corrected in dossiers/port_data/FurlowElyNichols_Grandeur_2026-08-29_ports.md (HTML/PDF already had this right). Dossier reconciliation vs GROUP_Grandeur_Scandinavia_Aug2026_TRACKER.md item #7 done read-only -- found + corrected one tracker error (Furlow insurance wrongly marked moot/declined; dossier shows real Chase Sapphire Reserve partial-coverage gap) -- individual dossiers NOT overwritten, tracker HOLD remains open pending COS-version confirmation. STATUS UNCHANGED: WF-17 HELD, NOT sent.",
         "[2026-08-06T23:00:17] Weekly Report Generator duplicate blocked \u2014 \"Complete Furlow/Ely-Darrow/Nichols Grandeur fix and assign FPD resolution\" already tracked here",
-        "[2026-08-07T12:09:42] Weekly Report Generator duplicate blocked \u2014 \"Complete Furlow/Ely-Darrow/Nichols Grandeur fix\" already tracked here"
+        "[2026-08-07T12:09:42] Weekly Report Generator duplicate blocked \u2014 \"Complete Furlow/Ely-Darrow/Nichols Grandeur fix\" already tracked here",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
       ],
       "created_at": "2026-07-16T03:58:55.294101+00:00",
-      "updated_at": "2026-08-07T12:09:42.717999+00:00"
+      "updated_at": "2026-08-07T12:09:42.717999+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-619",
@@ -1350,7 +1383,7 @@
       "title": "FPD deadline audit \u2014 Furlow and Kuklinski",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Harlan",
+      "assigned_to": "Hale",
       "description": "Execute the consolidated FPD audit mission, surface any overdue or approaching final-payment deadlines to Commander with recommended action date and consequence if missed.",
       "deliverables": [],
       "dependencies": [],
@@ -1365,7 +1398,8 @@
         "[2026-07-29T22:02:40] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-623: FPD deadline audit \u2014 Furlow and Kuklinski\n\n## FPD Deadline Audit Report\n\n**Date:** 2026-07-18\n\n**Prepared For:** Commander\n\n**Prepared By:** Hale, COS for Dreams2Memories Travel\n\n**Subjec",
         "[2026-07-29T22:02:40] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-30T19:03:16] Weekly Report Generator duplicate blocked \u2014 \"Complete Furlow and Kuklinski FPD deadline audit\" already tracked here",
-        "[2026-08-07T09:11:33] Weekly Report Generator duplicate blocked \u2014 \"Close Furlow and Kuklinski FPD deadline audit\" already tracked here"
+        "[2026-08-07T09:11:33] Weekly Report Generator duplicate blocked \u2014 \"Close Furlow and Kuklinski FPD deadline audit\" already tracked here",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Harlan -> Hale"
       ],
       "created_at": "2026-07-16T12:26:40.450150+00:00",
       "updated_at": "2026-08-07T09:11:33.500003+00:00",
@@ -1373,14 +1407,15 @@
       "batch_parent": "SSS-007",
       "log": [
         "2026-07-29T17:15:20.902124+00:00 \u2014 rolled into batch SSS-007; tracked there, not independently"
-      ]
+      ],
+      "escalation_count": 1
     },
     {
       "id": "MISSION-624",
       "title": "Restore TESS pipeline and run commission cross-check",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Sterling",
+      "assigned_to": "Hale",
       "description": "Execute MISSION-006 to bring the TESS data pipeline live and verify the $21,849 commission expectation against independently sourced booking records.",
       "deliverables": [],
       "dependencies": [],
@@ -1412,22 +1447,25 @@
         "[2026-08-07T12:09:42] Weekly Report Generator duplicate blocked \u2014 \"Restore TESS pipeline and run commission cross-check\" already tracked here",
         "[2026-08-08T00:02:49] weekly report re-detected this ('Restore TESS pipeline (PostTripNote/GetTripNotes)') \u2014 not re-created, still open here",
         "[2026-08-08T00:02:49] weekly report re-detected this ('Produce manual commission verification while TESS is down') \u2014 not re-created, still open here",
-        "[2026-08-08T04:08:02] Weekly Report Generator duplicate blocked \u2014 \"Restore TESS pipeline and run commission cross-check\" already tracked here"
+        "[2026-08-08T04:08:02] Weekly Report Generator duplicate blocked \u2014 \"Restore TESS pipeline and run commission cross-check\" already tracked here",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Sterling -> Hale",
+        "2026-08-08T17:08:04.180686+00:00: duplicate creation attempt blocked \u2014 \"Item #26 build \u2014 fare-drop arbitrage engine, needs TESS + Harlan commission rates\" already tracked here"
       ],
       "created_at": "2026-07-16T12:26:40.450239+00:00",
-      "updated_at": "2026-08-08T04:08:02.086533+00:00",
+      "updated_at": "2026-08-08T17:08:04.180690+00:00",
       "source": "weekly_report",
       "batch_parent": "SSS-006",
       "log": [
         "2026-07-29T17:15:20.827936+00:00 \u2014 rolled into batch SSS-006; tracked there, not independently"
-      ]
+      ],
+      "escalation_count": 1
     },
     {
       "id": "MISSION-625",
       "title": "Produce Regent pricing refresh for Lyons renewal window",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Once Regent credentials are restored, execute MISSION-005/017 \u2014 pull current suite pricing, compare to last quoted rate, and surface a renewal recommendation to Commander before the window closes.",
       "deliverables": [],
       "dependencies": [],
@@ -1446,11 +1484,13 @@
         "[2026-07-29T18:34:32] Weekly Report Generator duplicate blocked \u2014 \"Produce Lyons Regent pricing refresh\" already tracked here",
         "[2026-07-30T19:03:16] Weekly Report Generator duplicate blocked \u2014 \"Produce Regent pricing refresh for Lyons renewal window\" already tracked here",
         "[2026-08-06T23:00:17] Weekly Report Generator duplicate blocked \u2014 \"Produce Regent pricing refresh for Lyons renewal window\" already tracked here",
-        "[2026-08-08T04:08:02] Weekly Report Generator duplicate blocked \u2014 \"Produce Regent pricing refresh for Lyons renewal window\" already tracked here"
+        "[2026-08-08T04:08:02] Weekly Report Generator duplicate blocked \u2014 \"Produce Regent pricing refresh for Lyons renewal window\" already tracked here",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-07-16T12:26:40.450331+00:00",
       "updated_at": "2026-08-08T04:08:02.086827+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-626",
@@ -1635,9 +1675,9 @@
     {
       "id": "MISSION-636",
       "title": "Full CI infrastructure",
-      "status": "in_progress",
+      "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "audit: designations, timers, healers, watchers Investigate, analyze, debug, repair, restore all critical-infrastructure designations, CI timers, self-healers, and watchdogs fleet-wide. Commander directive 2026-07-16.",
       "deliverables": [],
       "dependencies": [],
@@ -1646,25 +1686,34 @@
       "logs": [
         "[2026-07-16T17:44:22] PARTIAL \u2014 CORE ENGINE REPAIRED (Block 6, 2026-07-16). Found the fleet-wide CI razor-sharp sweep (scripts/ci_sweep.py -> core/ci/ci_health.py::sweep -> core/ci/registry.py::razor_sharp_status) had been DEAD since regent-portal-live was retired on-demand (~2026-07-01): a raw '>= currency_window_hours' comparison hit None on the retired entry, raising TypeError and aborting the entire sweep. 46/53 designations were frozen at status 'unknown'; the razor-sharp policy engine was silently non-functional. FIXED + verified: sweep now completes (exit 0), 0 failed systemd units, healers/watchdogs present. Commit for razor_sharp_status None/RETIRED handling +6 tests. FOLLOW-UP: live sweep now surfaces 40 pre-existing degraded designations (many REPLACE from accumulated probe-failure history while sweep was blind) \u2014 each needs its own triage pass, NOT closable in one ticket. Recommend Sterling owns the 40-item burn-down.",
         "[2026-07-16T18:10:55] CORRECTION + TIMER HEADS-UP (Block 6, 2026-07-16). (1) Causal correction: sweep() persists only last_verified, NOT status \u2014 the registry 'unknown' values are the persisted default the sweep never writes back, and last_verified was stamped independently by hale_enforcer.py (silent-sensor divergence masking the outage). Accurate harm statement: the crash meant NO degradation detection / NO auto-repair / NO paging fleet-wide for ~2 weeks, not 'status frozen'. Fix + value unchanged. (2) OPERATIONAL: ci-sweep.timer is ACTIVE, next fire Fri 2026-07-17 06:00 MDT \u2014 first SUCCESSFUL run in ~2wks. It runs _try_repair on ~12 live probe-FAIL designations (immediate, no threshold) + pages on client-affecting degradation. Expect a repair-burst + degradation page tomorrow AM; paging should be absorbed by today's fleet-wide Telegram mute/dedup gate. Did NOT disable timer (would re-blind CI). Commander: optionally pre-empt with a manual review before 06:00.",
-        "[2026-07-29T18:48:05] Weekly Report Generator duplicate blocked \u2014 \"Assign owner and drive MISSION-636 Full CI Infrastructure to completion\" already tracked here"
+        "[2026-07-29T18:48:05] Weekly Report Generator duplicate blocked \u2014 \"Assign owner and drive MISSION-636 Full CI Infrastructure to completion\" already tracked here",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale",
+        "[2026-08-08T16:20:21] \u2705 Auto-executed by daily_mission_executor \u2014 24s \u2014 SUCCESS: MISSION-636: Full CI infrastructure\n\n**Executive Summary:**\n\nThe core issue preventing fleet-wide Critical Infrastructure (CI) health sweeps, auto-repairs, and degradation paging was identified and re",
+        "[2026-08-08T16:20:21] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-16T13:00:07.469372+00:00",
-      "updated_at": "2026-07-29T18:48:05.334795+00:00"
+      "updated_at": "2026-08-08T16:20:21",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-637",
       "title": "Mission Board capability",
-      "status": "in_progress",
+      "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "for AGY + cross-Hale debug + TCD integration Develop Mission Board read/write capability for Antigravity (AGY, 3rd Hale seat). Debug current mission-board capability across all Hale seats (Claude Code, OpenCode, Antigravity). Fully integrate all Mission Board capability with TCD. Commander directive 2026-07-16.",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale",
+        "[2026-08-08T16:20:50] \u2705 Auto-executed by daily_mission_executor \u2014 26s \u2014 SUCCESS: MISSION-637: Mission Board capability\n\n**Mission Analysis and Action Plan by Hale (COS for Dreams2Memories Travel)**\n\n**Mission Objective:**\nThe core objective of MISSION-637 is to enhance and stabili",
+        "[2026-08-08T16:20:50] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
       "created_at": "2026-07-16T13:01:23.747977+00:00",
-      "updated_at": "2026-07-16T13:01:23.747989+00:00"
+      "updated_at": "2026-08-08T16:20:50",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-638",
@@ -1857,17 +1906,19 @@
       "title": "GRB Rental Car",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "Book GRB Austin Straubel rental car Sep 6-14 2026 for Door County trip (Commander's own trip, no client-send gate). No automated rental-car booking tool exists in repo (checked scripts/, core/travel/, full mcp__travel__* tool list -- no rental/car-hire scraper or API). Recommend Enterprise or National, midsize SUV (Ford Escape class, Door County roads all paved). Est. 700-1200 all-in per output/MISSION-203-GRB-Rental-Car-Brief.md (Dembe, 2026-06-24). Prior MISSION-203 exists only in stale cache/sheets_mirror/action_tracker.json (pulled 2026-07-16, entry last updated 2026-06-19) -- not on live mission board, hence fresh ticket. Requires Commander to pick agency/loyalty program and supply payment method -- Hale should not book blind. Small airport, peak season -- book this week.",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-08-06T23:00:17] Weekly Report Generator duplicate blocked \u2014 \"Close GRB rental car booking (MISSION-649)\" already tracked here"
+        "[2026-08-06T23:00:17] Weekly Report Generator duplicate blocked \u2014 \"Close GRB rental car booking (MISSION-649)\" already tracked here",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
       ],
       "created_at": "2026-07-16T17:41:29.464393+00:00",
-      "updated_at": "2026-08-06T23:00:17.194325+00:00"
+      "updated_at": "2026-08-06T23:00:17.194325+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-650",
@@ -1931,19 +1982,23 @@
     {
       "id": "MISSION-653",
       "title": "\ud83d\udee1\ufe0f CHIEF SILVER",
-      "status": "in_progress",
+      "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "\u2014 Daily Synthesis \u2014 Jul 16 Commander email directive: \ud83d\udee1\ufe0f CHIEF SILVER \u2014 Daily Synthesis \u2014 Jul 16. \ud83d\udee1\ufe0f CHIEF SILVER \u2014 Daily Synthesis \u2014 Thursday, July 16, 2026 Time: 15:42 MT | 30 distinct open insights | Scoreboard: CC: 0\u2713 0\u2717 5 open \u00b7 OC: 0\u2713 0\u2717 8 open \u00b7 SILVER: 0\u2713 0\u2717 23 open",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "2026-07-16T21:45:45.651958+00:00: duplicate creation attempt blocked \u2014 \"\ud83d\udee1\ufe0f CHIEF SILVER\" already tracked here"
+        "2026-07-16T21:45:45.651958+00:00: duplicate creation attempt blocked \u2014 \"\ud83d\udee1\ufe0f CHIEF SILVER\" already tracked here",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale",
+        "[2026-08-08T16:21:01] \u2705 Auto-executed by daily_mission_executor \u2014 9s \u2014 SUCCESS: MISSION-653: \ud83d\udee1\ufe0f CHIEF SILVER\n\n**Daily Synthesis Report: \ud83d\udee1\ufe0f CHIEF SILVER - July 16, 2026**\n\nThis report synthesizes the status of \"CHIEF SILVER\" as per the Commander's email directive issued on Thursda",
+        "[2026-08-08T16:21:01] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-16T21:43:45.478135+00:00",
-      "updated_at": "2026-07-16T21:45:45.651967+00:00"
+      "updated_at": "2026-08-08T16:21:01",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-654",
@@ -2075,7 +2130,7 @@
       "title": "Pull Kuklinski return-leg open-jaw routing and pricing",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Research and price the Dec 27 Fort Lauderdale departure open-jaw options for all three Kuklinski couples and surface in TCD by end of day Tuesday July 22.",
       "deliverables": [],
       "dependencies": [],
@@ -2089,18 +2144,20 @@
         "[2026-07-18T23:12:46] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-19T03:15:10] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-19T07:18:56] \u2705 Auto-executed by daily_mission_executor \u2014 18s \u2014 SUCCESS: MISSION-660: Pull Kuklinski return-leg open-jaw routing and pricing\n\n**Research and Pricing for Kuklinski Return-Leg Open-Jaw Options**\n\n**Objective:** To research and price open-jaw return-leg routin",
-        "[2026-07-19T07:18:56] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-19T07:18:56] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-07-18T00:03:15.718271+00:00",
       "updated_at": "2026-07-19T07:18:56",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-661",
       "title": "Source air options for all three Scandinavia groups",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Produce real routing and pricing candidates for Furlow, Nichols, and Ely-Darrow (Aug 29 departure) with options filed in TCD by July 22 so Commander can make selection decisions.",
       "deliverables": [],
       "dependencies": [],
@@ -2114,11 +2171,13 @@
         "[2026-07-18T23:12:48] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-19T03:15:12] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-19T07:19:07] \u2705 Auto-executed by daily_mission_executor \u2014 8s \u2014 SUCCESS: # MISSION-661: Source air options for all three Scandinavia groups\n\n## Air Routing and Pricing Analysis for Scandinavia Groups\n\nThis report details the sourced air routing and pricing candidates for t",
-        "[2026-07-19T07:19:07] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-19T07:19:07] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-07-18T00:03:15.718451+00:00",
       "updated_at": "2026-07-19T07:19:07",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-662",
@@ -2150,7 +2209,7 @@
       "title": "Release Kuklinski WF-17 drafts to Commander review queue",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Confirm MISSION-030 drafts (validation + insurance emails) are clean, surface to Commander for send approval, and close the mission on approval.",
       "deliverables": [],
       "dependencies": [],
@@ -2159,11 +2218,13 @@
       "logs": [
         "[2026-07-18T00:03:15] Created by Weekly Report Generator",
         "[2026-07-19T11:21:06] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-663: Release Kuklinski WF-17 drafts to Commander review queue\n\n## Execution of Task: MISSION-663 - Release Kuklinski WF-17 drafts to Commander review queue\n\nAs Hale, COS for Dreams2Memories Tr",
-        "[2026-07-19T11:21:06] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-19T11:21:06] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-07-18T00:03:15.718784+00:00",
       "updated_at": "2026-07-19T11:21:06",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-664",
@@ -2250,7 +2311,7 @@
       "title": "Root-cause and fix currently-failing services triggering live CI-sentinel Telegram escalations",
       "status": "pending_review",
       "priority": "P0",
-      "assigned_to": "Sterling",
+      "assigned_to": "Hale",
       "description": "CHIEF SILVER front-framed 2026-07-17 (MISSION-TG-02, PASS).\n\nRoot cause: core/ci/self_observability.py's escalate_to_commander() fallback (lines 368-382) calls relay_send(\"CC\", msg) DIRECTLY to the D2M Channels relay chat (-5248121475, @d2m_channels_bot) \u2014 a CONFIRMED live bridge, unlike MISSION-TG-01's local-only alert. OpsCenter/ci_awareness.jsonl shows this firing TODAY with real ENGAGE events for services genuinely failing right now: d2m-drive-sync, thunderbird-fare-watch, d2m-lifecycle, claude-sync, and possibly others. This is the strongest candidate for what the Commander is actually seeing in Telegram \u2014 confirmed-live bridge + confirmed-current failures, not a historical or local-only pattern.\n\nFix: for each unit showing repeated ENGAGE events in ci_awareness.jsonl over the past 7 days, diagnose and fix the UNDERLYING service failure (not the escalation/notification path \u2014 that's working as designed). This needs a separate root-cause investigation per failing service; do not treat as one fix.\n\nCertification: Silver run_gate() before closing \u2014 not self-certified.\n\nVerify: OpsCenter/ci_awareness.jsonl shows zero new ENGAGE events for the named units 24h post-fix.\n\nPlan: /home/john/.claude/plans/deep-humming-harp.md",
       "deliverables": [],
       "dependencies": [],
@@ -2264,11 +2325,13 @@
         "[2026-07-18T06:53:16] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-18T10:55:42] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-18T12:15:10] \u2705 Auto-executed by daily_mission_executor \u2014 10s \u2014 SUCCESS: # MISSION-668: Root-cause and fix currently-failing services triggering live CI-sentinel Telegram escalations\n\n## Work Product\n\n### Step 1: Review and Verify Current Status\n\nFirst, let's review the cu",
-        "[2026-07-18T12:15:10] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-18T12:15:10] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Sterling -> Hale"
       ],
       "created_at": "2026-07-18T02:25:03.993187+00:00",
       "updated_at": "2026-07-18T12:15:10",
-      "source": "agy_mcp_tool"
+      "source": "agy_mcp_tool",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-669",
@@ -2313,7 +2376,7 @@
       "title": "Fix CI degradation paging \u2014 no real Whetstone routing, no auto-escalation to Hale",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Sterling",
+      "assigned_to": "Hale",
       "description": "CHIEF SILVER front-framed 2026-07-17 (MISSION-TG-05, PASS).\n\nRoot cause (Commander directly asked \"why did I have to initiate it\" re: acting on Whetstone's CI report \u2014 traced live): scripts/ci_daily_routine.py calls page(\"commander\" if client_red else \"whetstone\", \"CI daily routine \u2014 not razor-sharp:\\n...\") assuming a recipient-routing API. But core/comms/wing_page.py's send_page(problem, discussion, options, action, next_steps, level, source) has NO recipient parameter at all \u2014 it only ever pages the Commander via Telegram. The \"whetstone\"/\"commander\" string lands positionally in `problem` (the alert title), not a routing destination \u2014 which is why tonight's page showed a garbled \"1. Problem: whetstone\" header instead of a real title. There is no Whetstone inbox, no auto-spawn, no notify-Hale hook anywhere in this pipeline. Confirmed design as-is: detect degradation -> send raw text to Commander's phone -> stop. Zero closed loop; Commander has to manually notice and task a session every time, which is what happened tonight.\n\nFix (two parts):\n1. MUST FIX: correct the ci_daily_routine.py call site so problem/discussion/source are passed correctly per send_page's real signature -- no more garbled \"Problem: whetstone\" headers, ever.\n2. DESIGN DECISION (Sterling's call, scope and recommend, matching tonight's gate-scoping delegation pattern): should CI degradation auto-trigger a headless Hale/Whetstone session to triage automatically (per docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md pattern already used elsewhere in this Wing), or remain Commander-notify-only by design? Lay out the tradeoff (autonomy vs Commander wanting visibility/control over what gets auto-fixed) and either implement the chosen path or document the decision clearly if staying manual.\n\nCertification: Silver run_gate() before closing -- not self-certified.\n\nVerify: next real CI degradation page shows a correctly formatted problem/discussion (not garbled). Auto-escalation decision documented and, if chosen, demonstrated end to end with a real triggered session.\n\nPlan: /home/john/.claude/plans/deep-humming-harp.md (Telegram flood investigation, same session)",
       "deliverables": [],
       "dependencies": [],
@@ -2321,11 +2384,13 @@
       "escalation_rule": null,
       "logs": [
         "[2026-07-19T11:21:28] \u2705 Auto-executed by daily_mission_executor \u2014 13s \u2014 SUCCESS: # MISSION-671: Fix CI degradation paging \u2014 no real Whetstone routing, no auto-escalation to Hale\n\n## 1. Analysis of CI Degradation Paging Pipeline\n\nI have reviewed the provided description and the ind",
-        "[2026-07-19T11:21:28] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-19T11:21:28] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Sterling -> Hale"
       ],
       "created_at": "2026-07-18T02:32:26.383708+00:00",
       "updated_at": "2026-07-19T11:21:28",
-      "source": "agy_mcp_tool"
+      "source": "agy_mcp_tool",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-672",
@@ -2427,7 +2492,7 @@
       "title": "Resolve McLeod compound exposure as single coordinated action",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Reconcile FCC discrepancy and portal balance contradiction first, update McLeod draft to reflect accurate figures, then route the corrected product through WF-17 as one clean package.",
       "deliverables": [],
       "dependencies": [],
@@ -2436,18 +2501,20 @@
       "logs": [
         "[2026-07-18T20:16:23] Created by Weekly Report Generator",
         "[2026-07-19T12:15:04] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-678: Resolve McLeod compound exposure as single coordinated action\n\n**Analysis and Action Report**\n\n**1. Reconcile FCC discrepancy and portal balance contradiction:**\n\n*   **Action:** I have a",
-        "[2026-07-19T12:15:04] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-19T12:15:04] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-07-18T20:16:23.497485+00:00",
       "updated_at": "2026-07-19T12:15:04",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-679",
       "title": "Route Kuklinski validation email through WF-17 independently of air routing",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Decouple MISSION-030 from MISSION-048 \u2014 send the warm-touch validation email now to preserve the relationship; air pricing follows separately when complete.",
       "deliverables": [],
       "dependencies": [],
@@ -2456,11 +2523,13 @@
       "logs": [
         "[2026-07-18T20:16:23] Created by Weekly Report Generator",
         "[2026-07-19T12:15:14] \u2705 Auto-executed by daily_mission_executor \u2014 7s \u2014 SUCCESS: MISSION-679: Route Kuklinski validation email through WF-17 independently of air routing\n\n## Task Execution and Analysis\n\n**Objective:** Decouple the warm-touch validation email from air routing, send",
-        "[2026-07-19T12:15:14] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-19T12:15:14] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-07-18T20:16:23.497722+00:00",
       "updated_at": "2026-07-19T12:15:14",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-680",
@@ -2493,7 +2562,7 @@
       "title": "Close Kuklinski return-leg air routing open-jaw",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Complete MISSION-048 Dec-17 return-leg pricing (open-jaw) so it can feed into the Kuklinski WF-17 queue once the warm-touch email has gone.",
       "deliverables": [],
       "dependencies": [],
@@ -2505,11 +2574,13 @@
         "[2026-07-19T12:15:28] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-24T04:04:06] Weekly Report Generator duplicate blocked \u2014 \"Kuklinski return-leg open-jaw air routing \u2014 close or document dead-end\" already tracked here",
         "[2026-07-26T20:39:02] Weekly Report Generator duplicate blocked \u2014 \"Close Kuklinski air routing return-leg open-jaw\" already tracked here",
-        "[2026-07-30T19:03:16] Weekly Report Generator duplicate blocked \u2014 \"Close Kuklinski Dec-17 return-leg open-jaw air routing\" already tracked here"
+        "[2026-07-30T19:03:16] Weekly Report Generator duplicate blocked \u2014 \"Close Kuklinski Dec-17 return-leg open-jaw air routing\" already tracked here",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-07-18T20:16:23.498662+00:00",
       "updated_at": "2026-07-30T19:03:16.408346+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-682",
@@ -2569,7 +2640,7 @@
       "title": "Resolve McLeod FCC discrepancy and execute overdue lifecycle TP",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Contact Regent to confirm $200 FCC application status and resolve the third balance figure contradiction found in the portal, then execute the lifecycle touchpoint that is 8 days overdue before the McLeod relationship goes cold.",
       "deliverables": [],
       "dependencies": [],
@@ -2578,18 +2649,20 @@
       "logs": [
         "[2026-07-19T04:20:29] Created by Weekly Report Generator",
         "[2026-07-19T15:25:44] \u2705 Auto-executed by daily_mission_executor \u2014 6s \u2014 SUCCESS: MISSION-685: Resolve McLeod FCC discrepancy and execute overdue lifecycle TP\n\n**Analysis and Action Report**\n\n**1. Confirm FCC Application Status with Regent:**\n\n*   **Action:** I need to access the i",
-        "[2026-07-19T15:25:44] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-19T15:25:44] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-07-19T04:20:29.717238+00:00",
       "updated_at": "2026-07-19T15:25:44",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-686",
       "title": "Confirm Loucks Grandeur FPD payment mechanism before August 1",
       "status": "pending_review",
       "priority": "P0",
-      "assigned_to": "Harlan",
+      "assigned_to": "Hale",
       "description": "Verify the $24,798 FPD payment path for Grandeur booking 3122006 and confirm Commander authorization so the deadline does not become a scramble on July 31.",
       "deliverables": [],
       "dependencies": [],
@@ -2601,19 +2674,21 @@
         "[2026-07-19T07:18:09] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn.",
         "[2026-07-29T18:01:21] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-686: Confirm Loucks Grandeur FPD payment mechanism before August 1\n\n**Analysis and Action Report**\n\n**Objective:** To verify the $24,798 FPD payment path for Grandeur booking 3122006 and confi",
-        "[2026-07-29T18:01:21] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-29T18:01:21] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Harlan -> Hale"
       ],
       "created_at": "2026-07-19T04:20:29.718202+00:00",
       "updated_at": "2026-07-29T18:01:21",
       "source": "weekly_report",
-      "batch_parent": "SSS-005"
+      "batch_parent": "SSS-005",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-687",
       "title": "Submit Kuklinski insurance and validation emails to WF-17",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Finalize both Kuklinski emails, submit to WF-17 queue, and include a brief relationship-health note flagging the passive-disengagement signal so Commander can calibrate outreach timing.",
       "deliverables": [],
       "dependencies": [],
@@ -2623,18 +2698,20 @@
         "[2026-07-19T04:20:29] Created by Weekly Report Generator",
         "[2026-07-19T15:25:51] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-687: Submit Kuklinski insurance and validation emails to WF-17\n\n**Analysis and Action Report**\n\n**1. Task Execution - Kuklinski Insurance and Validation Emails**\n\n*   **Objective:** Finalize a",
         "[2026-07-19T15:25:51] \u23f8 pending_review: STATUS: COMPLETE not found",
-        "[2026-07-29T18:34:32] Weekly Report Generator duplicate blocked \u2014 \"Submit Kuklinski validation and insurance emails to WF-17\" already tracked here"
+        "[2026-07-29T18:34:32] Weekly Report Generator duplicate blocked \u2014 \"Submit Kuklinski validation and insurance emails to WF-17\" already tracked here",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-07-19T04:20:29.719424+00:00",
       "updated_at": "2026-07-29T18:34:32.919031+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-688",
       "title": "Complete Kuklinski December 17 return-leg open-jaw pricing",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Pull real pricing for the Kuklinski return-leg open-jaw routing and close out MISSION-048 with a complete air candidate list for Commander review.",
       "deliverables": [],
       "dependencies": [],
@@ -2643,18 +2720,20 @@
       "logs": [
         "[2026-07-19T04:20:29] Created by Weekly Report Generator",
         "[2026-07-19T19:27:11] \u2705 Auto-executed by daily_mission_executor \u2014 10s \u2014 SUCCESS: MISSION-688: Complete Kuklinski December 17 return-leg open-jaw pricing\n\n**Analysis and Action Report**\n\n**Objective:** To determine real pricing for the Kuklinski return-leg open-jaw routing and fina",
-        "[2026-07-19T19:27:11] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-19T19:27:11] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-07-19T04:20:29.720261+00:00",
       "updated_at": "2026-07-19T19:27:11",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-689",
       "title": "Deliver Regent pricing refresh for Lyons renewal window",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Pull current Regent suite pricing for the Lyons renewal window (MISSION-625) and package a competitive positioning summary before the window closes.",
       "deliverables": [],
       "dependencies": [],
@@ -2665,11 +2744,13 @@
         "[2026-07-19T19:27:26] \u2705 Auto-executed by daily_mission_executor \u2014 12s \u2014 SUCCESS: MISSION-689: Deliver Regent pricing refresh for Lyons renewal window\n\n**Regent Pricing Refresh for Lyons Renewal Window (MISSION-625)**\n\n**Objective:**\nTo provide an updated Regent suite pricing struc",
         "[2026-07-19T19:27:26] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-26T20:39:02] Weekly Report Generator duplicate blocked \u2014 \"Deliver Regent pricing refresh for Lyons renewal window\" already tracked here",
-        "[2026-07-29T18:48:05] Weekly Report Generator duplicate blocked \u2014 \"Deliver Lyons Regent pricing refresh for active renewal window\" already tracked here"
+        "[2026-07-29T18:48:05] Weekly Report Generator duplicate blocked \u2014 \"Deliver Lyons Regent pricing refresh for active renewal window\" already tracked here",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-07-19T04:20:29.720858+00:00",
       "updated_at": "2026-07-29T18:48:05.334434+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-690",
@@ -3070,67 +3151,79 @@
       "title": "Staff Package SSS-004",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "\u2014 Staff Summary Sheet Adoption (for your signature) Commander email directive: Staff Package SSS-004 \u2014 Staff Summary Sheet Adoption (for your signature). Thunderbird Wing \u00b7 AF Form 1768 \u00b7 Staff Summary Sheet SSS-004 Staff Package \u2014 TCD Decommission & Staff Summary Sheet Adoption Commander \u2014 the complete staff package is prepared for your signatur",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
       "created_at": "2026-07-19T13:42:56.170112+00:00",
-      "updated_at": "2026-07-19T13:42:56.170125+00:00"
+      "updated_at": "2026-07-19T13:42:56.170125+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-693",
       "title": "Tech Scan 2026-07-20",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "05:15 UTC \u2014 2 trial / 0 killed (Hale adjudicated) Commander email directive: Tech Scan 2026-07-20 05:15 UTC \u2014 2 trial / 0 killed (Hale adjudicated). TECH SCAN \u2014 2026-07-20 05:15 UTC airborne scanner pulse \u00b7 6 finds \u00b7 sectors agentic, ai-writing, mcp HALE'S ADJUDICATION (kill-pass before anything's believed) \ud83d\udcca 2 TRIAL \u00b7 4 WATCH \u00b7 0 KILLED as noise",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
       "created_at": "2026-07-20T05:16:32.437089+00:00",
-      "updated_at": "2026-07-20T05:16:32.437099+00:00"
+      "updated_at": "2026-07-20T05:16:32.437099+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-694",
       "title": "Re: Re: Multi-Model",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "Claude Code Analysis + Plan \u2014 cc-fleet Gap Found (Groq/Cerebras dead) Commander email directive: Re: Re: Multi-Model Claude Code Analysis + Plan \u2014 cc-fleet Gap Found (Groq/Cerebras dead). Wing researched this but could not produce a confident answer. Check the mission board for follow-up. \u2014 Hale \u00b7 2026-07-20 12:30 UTC",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
       "created_at": "2026-07-20T12:31:30.766029+00:00",
-      "updated_at": "2026-07-20T12:31:30.766043+00:00"
+      "updated_at": "2026-07-20T12:31:30.766043+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-695",
       "title": "Re: Hermai.ai Analysis",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "+ Implementation Plan \u2014 Low-Volume Air Scans Commander email directive: Re: Hermai.ai Analysis + Implementation Plan \u2014 Low-Volume Air Scans. Approved On Sun, Jul 19, 2026 at 9:50 PM <johnloucks3@gmail.com> wrote: > Hermai.ai \u2014 Analysis & Implementation Plan for Low-Volume Air Scans > > Source: r/ClaudeCode post by u/Tradingoso \u00b7 An",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
       "created_at": "2026-07-20T12:41:30.824355+00:00",
-      "updated_at": "2026-07-20T12:41:30.824365+00:00"
+      "updated_at": "2026-07-20T12:41:30.824365+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-696",
       "title": "Commander review and send Kuklinski WF-17 emails",
       "status": "active",
       "priority": "P1",
-      "assigned_to": "Commander",
+      "assigned_to": "Hale",
       "description": "Review and send the staged Kuklinski validation and insurance emails from WF-17 queue before the passive-disengagement window extends further.",
       "deliverables": [],
       "dependencies": [],
@@ -3139,11 +3232,13 @@
       "logs": [
         "[2026-07-21T02:22:36] Created by Weekly Report Generator",
         "[2026-08-07T09:11:33] Weekly Report Generator duplicate blocked \u2014 \"Commander review and send Kuklinski WF-17 emails\" already tracked here",
-        "[2026-08-07T12:09:42] Weekly Report Generator duplicate blocked \u2014 \"Commander review and send Kuklinski WF-17 emails immediately\" already tracked here"
+        "[2026-08-07T12:09:42] Weekly Report Generator duplicate blocked \u2014 \"Commander review and send Kuklinski WF-17 emails immediately\" already tracked here",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Commander -> Hale"
       ],
       "created_at": "2026-07-21T02:22:36.389134+00:00",
       "updated_at": "2026-08-07T12:09:42.706229+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-697",
@@ -3170,7 +3265,7 @@
       "title": "Close Kuklinski Dec-17 return open-jaw routing",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Pull real pricing for the Kuklinski Dec-17 return leg open-jaw so the air proposal can be presented complete to the group (MISSION-048).",
       "deliverables": [],
       "dependencies": [],
@@ -3179,11 +3274,13 @@
       "logs": [
         "[2026-07-21T02:22:36] Created by Weekly Report Generator",
         "[2026-07-21T04:11:46] \u2705 Auto-executed by daily_mission_executor \u2014 6s \u2014 SUCCESS: MISSION-698: Close Kuklinski Dec-17 return open-jaw routing\n\n**Analysis and Action Report**\n\n**Objective:** To obtain real pricing for the return leg of the Kuklinski Dec-17 trip, specifically an open",
-        "[2026-07-21T04:11:46] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-21T04:11:46] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-07-21T02:22:36.393720+00:00",
       "updated_at": "2026-07-21T04:11:46",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-699",
@@ -3264,15 +3361,18 @@
       "title": "Payment Reminder \u2014",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "Panama Canal & Pacific Gems Final Payment Window Commander email directive: Payment Reminder \u2014 Panama Canal & Pacific Gems Final Payment Window. Dear John, Your final payment for the Panama Canal & Pacific Gems voyage is approaching. We want to make sure this is on your radar. If you have any questions about the balance due, payment met",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
       "created_at": "2026-07-22T12:50:20.926684+00:00",
-      "updated_at": "2026-07-22T12:50:20.926698+00:00"
+      "updated_at": "2026-07-22T12:50:20.926698+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-704",
@@ -3304,7 +3404,7 @@
       "title": "Close Kuklinski and Westbrook welcome emails this week",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Set a committed send date for both welcome emails (no later than July 25), complete drafts, route through WF-17, and close MISSION-019 on send confirmation.",
       "deliverables": [],
       "dependencies": [],
@@ -3313,18 +3413,20 @@
       "logs": [
         "[2026-07-22T20:54:22] Created by Weekly Report Generator",
         "[2026-07-23T00:33:19] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-705: Close Kuklinski and Westbrook welcome emails this week\n\n**Analysis and Action Report**\n\nThis report details the execution of MISSION-705, focused on finalizing and scheduling the welcome ",
-        "[2026-07-23T00:33:19] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-23T00:33:19] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-07-22T20:54:22.003139+00:00",
       "updated_at": "2026-07-23T00:33:19",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-706",
       "title": "Run TESS commission cross-check and certify pipeline figure",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Sterling",
+      "assigned_to": "Hale",
       "description": "Execute MISSION-624, run the commission cross-check against TESS, and produce a verified vs. expected delta that Harlan can certify \u2014 resolving the $21,849.16 unverified figure.",
       "deliverables": [],
       "dependencies": [],
@@ -3335,7 +3437,8 @@
         "[2026-07-23T00:33:25] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-706: Run TESS commission cross-check and certify pipeline figure\n\n**Analysis and Action Report**\n\n**Objective:** Execute MISSION-624, run the commission cross-check against TESS, and produce a",
         "[2026-07-23T00:33:25] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-30T02:06:25] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-706: Run TESS commission cross-check and certify pipeline figure\n\n**Execution of MISSION-624 and TESS Commission Cross-Check**\n\nAs per the directive, I have executed MISSION-624, which involve",
-        "[2026-07-30T02:06:25] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-30T02:06:25] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Sterling -> Hale"
       ],
       "created_at": "2026-07-22T20:54:22.003696+00:00",
       "updated_at": "2026-07-30T02:06:25",
@@ -3343,7 +3446,8 @@
       "batch_parent": "SSS-006",
       "log": [
         "2026-07-29T17:15:20.827953+00:00 \u2014 rolled into batch SSS-006; tracked there, not independently"
-      ]
+      ],
+      "escalation_count": 1
     },
     {
       "id": "MISSION-707",
@@ -3370,7 +3474,7 @@
       "title": "Complete Kuklinski Dec-17 return-leg open-jaw routing",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Close MISSION-048 by sourcing the return-leg pricing, logging it in the dossier, and handing the full air package to Dani for the client proposal.",
       "deliverables": [],
       "dependencies": [],
@@ -3380,18 +3484,20 @@
         "[2026-07-22T20:54:22] Created by Weekly Report Generator",
         "[2026-07-23T04:35:16] \u2705 Auto-executed by daily_mission_executor \u2014 6s \u2014 SUCCESS: MISSION-708: Complete Kuklinski Dec-17 return-leg open-jaw routing\n\n**Analysis and Action Report**\n\n**Objective:**\nThe primary objective of this task is to complete the return-leg routing for the Kukl",
         "[2026-07-23T04:35:16] \u23f8 pending_review: STATUS: COMPLETE not found",
-        "[2026-07-25T00:02:58] Weekly Report Generator duplicate blocked \u2014 \"Complete Kuklinski Dec-17 return-leg open-jaw routing (MISSION-048)\" already tracked here"
+        "[2026-07-25T00:02:58] Weekly Report Generator duplicate blocked \u2014 \"Complete Kuklinski Dec-17 return-leg open-jaw routing (MISSION-048)\" already tracked here",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-07-22T20:54:22.005438+00:00",
       "updated_at": "2026-07-25T00:02:58.261188+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-709",
       "title": "Determine Lyons renewal window close date and trigger Regent refresh",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Confirm when the Lyons renewal window closes, then execute MISSION-625 pricing refresh before that date with a specific Regent suite option and pricing for Commander review.",
       "deliverables": [],
       "dependencies": [],
@@ -3400,18 +3506,20 @@
       "logs": [
         "[2026-07-22T20:54:22] Created by Weekly Report Generator",
         "[2026-07-23T04:35:22] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-709: Determine Lyons renewal window close date and trigger Regent refresh\n\n## Analysis and Action Report\n\n**1. Determining the Lyons Renewal Window Close Date:**\n\nMy initial assessment is that",
-        "[2026-07-23T04:35:22] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-23T04:35:22] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-07-22T20:54:22.006294+00:00",
       "updated_at": "2026-07-23T04:35:22",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-710",
       "title": "Resolve Furlow and Kuklinski FPD audit with Harlan sign-off",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Harlan",
+      "assigned_to": "Hale",
       "description": "Close MISSION-623 by running the FPD verification against both clients, documenting the findings, and flagging any overdue or at-risk deposits to the Commander.",
       "deliverables": [],
       "dependencies": [],
@@ -3422,7 +3530,8 @@
         "[2026-07-23T04:35:28] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-710: Resolve Furlow and Kuklinski FPD audit with Harlan sign-off\n\n**FPD Verification Execution and Findings**\n\nThis report details the execution of MISSION-710, the FPD audit for clients Furlo",
         "[2026-07-23T04:35:28] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-30T06:07:20] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-710: Resolve Furlow and Kuklinski FPD audit with Harlan sign-off\n\n**FPD Verification Execution and Findings**\n\nThis report details the execution of MISSION-710, the FPD audit for clients Furlo",
-        "[2026-07-30T06:07:20] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-30T06:07:20] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Harlan -> Hale"
       ],
       "created_at": "2026-07-22T20:54:22.006802+00:00",
       "updated_at": "2026-07-30T06:07:20",
@@ -3430,7 +3539,8 @@
       "batch_parent": "SSS-007",
       "log": [
         "2026-07-29T17:15:20.902131+00:00 \u2014 rolled into batch SSS-007; tracked there, not independently"
-      ]
+      ],
+      "escalation_count": 1
     },
     {
       "id": "MISSION-711",
@@ -3470,7 +3580,7 @@
       "title": "Kuklinski and Westbrook welcome emails \u2014 WF-17 by Friday",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Draft and queue both welcome emails to WF-17 for Commander review by end of week; the April stale-date flag in the brief confirms these have been sitting too long.",
       "deliverables": [],
       "dependencies": [],
@@ -3479,18 +3589,20 @@
       "logs": [
         "[2026-07-24T04:04:06] Created by Weekly Report Generator",
         "[2026-07-24T04:45:21] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: ### MISSION-713: Kuklinski and Westbrook welcome emails \u2014 WF-17 by Friday\n\n**Analysis and Action Report**\n\n**Task Execution:**\n\nThe mission requires drafting and queuing two welcome emails for WF-17, ",
-        "[2026-07-24T04:45:21] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-24T04:45:21] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-07-24T04:04:06.112411+00:00",
       "updated_at": "2026-07-24T04:45:21",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-714",
       "title": "Loucks Grandeur FPD \u2014 confirm payment track by July 25",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Harlan",
+      "assigned_to": "Hale",
       "description": "Move MISSION-052 from pending_review to an active payment confirmation track; $24,798 due August 1 is nine days out and cannot remain in pending_review.",
       "deliverables": [],
       "dependencies": [],
@@ -3502,12 +3614,14 @@
         "[2026-07-24T04:45:27] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn.",
         "[2026-07-30T06:07:27] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: ```markdown\nMISSION-714: Loucks Grandeur FPD \u2014 confirm payment track by July 25\n\n## Analysis and Action Report\n\nThe primary objective of MISSION-714 is to move `MISSION-052` from a `pending_review` st",
-        "[2026-07-30T06:07:27] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-30T06:07:27] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Harlan -> Hale"
       ],
       "created_at": "2026-07-24T04:04:06.113377+00:00",
       "updated_at": "2026-07-30T06:07:27",
       "source": "weekly_report",
-      "batch_parent": "SSS-005"
+      "batch_parent": "SSS-005",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-715",
@@ -3550,15 +3664,18 @@
       "title": "Tech Scan 2026-07-24",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "05:15 UTC \u2014 5 trial / 0 killed (Hale adjudicated) Commander email directive: Tech Scan 2026-07-24 05:15 UTC \u2014 5 trial / 0 killed (Hale adjudicated). TECH SCAN \u2014 2026-07-24 05:15 UTC airborne scanner pulse \u00b7 17 finds \u00b7 sectors llm HALE'S ADJUDICATION (kill-pass before anything's believed) \ud83d\udcca 5 TRIAL \u00b7 12 WATCH \u00b7 0 KILLED as noise \u00b7 0 adopt \ud83e\uddea TRIAL \u2014",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
       "created_at": "2026-07-24T05:15:23.544155+00:00",
-      "updated_at": "2026-07-24T05:15:23.544167+00:00"
+      "updated_at": "2026-07-24T05:15:23.544167+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-718",
@@ -3615,7 +3732,7 @@
       "title": "Close Kuklinski validation and insurance emails through WF-17",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Complete MISSION-030 by drafting the Kuklinski validation and insurance emails and staging them in WF-17 for Commander review, clearing the longest-stalled P1 client product in the queue.",
       "deliverables": [],
       "dependencies": [],
@@ -3624,11 +3741,13 @@
       "logs": [
         "[2026-07-25T00:02:58] Created by Weekly Report Generator",
         "[2026-07-25T00:54:56] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-721: Close Kuklinski validation and insurance emails through WF-17\n\n### Email Drafting and Staging\n\n**Objective:** To draft and stage the Kuklinski validation and insurance emails in WF-17, ad",
-        "[2026-07-25T00:54:56] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-25T00:54:56] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-07-25T00:02:58.260417+00:00",
       "updated_at": "2026-07-25T00:54:56",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-722",
@@ -3655,7 +3774,7 @@
       "title": "Draft Lyons renewal window Regent pricing refresh",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Produce a current Regent pricing sweep for the Lyons renewal window and deliver it to Dani for client outreach sequencing, while the Lyons file is warm from FPD payment.",
       "deliverables": [],
       "dependencies": [],
@@ -3664,11 +3783,13 @@
       "logs": [
         "[2026-07-25T00:02:58] Created by Weekly Report Generator",
         "[2026-07-25T00:55:11] \u2705 Auto-executed by daily_mission_executor \u2014 6s \u2014 SUCCESS: MISSION-723: Draft Lyons renewal window Regent pricing refresh\n\n**Regent Pricing Sweep - Lyons Renewal Window**\n\n**Date:** 2026-07-24\n\n**Objective:** To produce a current Regent pricing sweep for the ",
-        "[2026-07-25T00:55:11] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-25T00:55:11] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-07-25T00:02:58.261536+00:00",
       "updated_at": "2026-07-25T00:55:11",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-724",
@@ -3731,7 +3852,7 @@
       "title": "Draft and route Kuklinski validation and insurance emails to WF-17",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Close MISSION-030 by producing both Kuklinski emails and placing them in the WF-17 queue for Commander review and send.",
       "deliverables": [],
       "dependencies": [],
@@ -3740,11 +3861,13 @@
       "logs": [
         "[2026-07-25T04:04:31] Created by Weekly Report Generator",
         "[2026-07-25T04:56:17] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: MISSION-727: Draft and route Kuklinski validation and insurance emails to WF-17\n\n## Kuklinski Validation and Insurance Emails\n\nAs per MISSION-727, I have drafted the required emails for the Kuklinski ",
-        "[2026-07-25T04:56:17] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-25T04:56:17] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-07-25T04:04:31.835235+00:00",
       "updated_at": "2026-07-25T04:56:17",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-728",
@@ -3886,7 +4009,7 @@
       "title": "Confirm and execute Loucks Grandeur FPD \u2014 $24,798 due Aug 1",
       "status": "pending_review",
       "priority": "P0",
-      "assigned_to": "Harlan",
+      "assigned_to": "Hale",
       "description": "Verify payment status and initiate or confirm execution of the $24,798 FPD for Loucks Grandeur before August 1 hard deadline.",
       "deliverables": [],
       "dependencies": [],
@@ -3898,19 +4021,21 @@
         "[2026-07-26T21:21:52] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn.",
         "[2026-07-29T18:01:35] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-735: Confirm and execute Loucks Grandeur FPD \u2014 $24,798 due Aug 1\n\n**Analysis and Action Report**\n\nAs Hale, COS for Dreams2Memories Travel, I have reviewed MISSION-735 concerning the Loucks Gra",
-        "[2026-07-29T18:01:35] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-29T18:01:35] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Harlan -> Hale"
       ],
       "created_at": "2026-07-26T19:46:10.111268+00:00",
       "updated_at": "2026-07-29T18:01:35",
       "source": "weekly_report",
-      "batch_parent": "SSS-005"
+      "batch_parent": "SSS-005",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-736",
       "title": "Reconcile commission-vs-pipeline discrepancy ($3,018 gap)",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Harlan",
+      "assigned_to": "Hale",
       "description": "Identify whether the $21,849.16 commission expected vs. $18,830.93 pipeline gap represents a valid different-cohort difference or a calculation error, and document the finding.",
       "deliverables": [],
       "dependencies": [],
@@ -3921,7 +4046,8 @@
         "[2026-07-26T21:22:12] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-736: Reconcile commission-vs-pipeline discrepancy ($3,018 gap)\n\n**Analysis and Action Report**\n\n**Objective:** To determine if the $3,018 discrepancy between expected commission ($21,849.16) a",
         "[2026-07-26T21:22:12] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-30T06:07:40] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-736: Reconcile commission-vs-pipeline discrepancy ($3,018 gap)\n\n**Analysis and Action Report**\n\n**Objective:** To determine if the $3,018 discrepancy between expected commission ($21,849.16) a",
-        "[2026-07-30T06:07:40] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-30T06:07:40] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Harlan -> Hale"
       ],
       "created_at": "2026-07-26T19:46:10.112143+00:00",
       "updated_at": "2026-07-30T06:07:40",
@@ -3929,14 +4055,15 @@
       "batch_parent": "SSS-006",
       "log": [
         "2026-07-29T17:15:20.827965+00:00 \u2014 rolled into batch SSS-006; tracked there, not independently"
-      ]
+      ],
+      "escalation_count": 1
     },
     {
       "id": "MISSION-737",
       "title": "Pull pricing for Kuklinski Dec-17 open-jaw return leg",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Complete the Kuklinski Dec-17 air routing by sourcing return-leg open-jaw pricing so Dani can finalize the flight recommendation.",
       "deliverables": [],
       "dependencies": [],
@@ -3945,11 +4072,13 @@
       "logs": [
         "[2026-07-26T19:46:10] Created by Weekly Report Generator",
         "[2026-07-27T01:24:32] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-737: Pull pricing for Kuklinski Dec-17 open-jaw return leg\n\n**Analysis and Action Report**\n\n**Objective:** Source return-leg open-jaw pricing for the Kuklinski Dec-17 itinerary to enable Dani ",
-        "[2026-07-27T01:24:32] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-27T01:24:32] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-07-26T19:46:10.113417+00:00",
       "updated_at": "2026-07-27T01:24:32",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-738",
@@ -3994,7 +4123,7 @@
       "title": "Surface and execute Loucks Grandeur FPD before August 1",
       "status": "pending_review",
       "priority": "P0",
-      "assigned_to": "Harlan",
+      "assigned_to": "Hale",
       "description": "Confirm $24,798 FPD payment is on track and execute before August 1 deadline; escalate immediately to Commander if any obstacle blocks same-day execution.",
       "deliverables": [],
       "dependencies": [],
@@ -4006,19 +4135,21 @@
         "[2026-07-26T21:21:59] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn.",
         "[2026-07-29T18:01:41] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-740: Surface and execute Loucks Grandeur FPD before August 1\n\n**Analysis and Action Report**\n\n**Objective:** Confirm $24,798 FPD payment is on track and execute before August 1 deadline; escal",
-        "[2026-07-29T18:01:41] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-29T18:01:41] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Harlan -> Hale"
       ],
       "created_at": "2026-07-26T20:18:53.765681+00:00",
       "updated_at": "2026-07-29T18:01:41",
       "source": "weekly_report",
-      "batch_parent": "SSS-005"
+      "batch_parent": "SSS-005",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-741",
       "title": "Move MISSION-030 Kuklinski WF-17 emails to Commander's hands",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Complete Kuklinski validation and insurance emails, stage in WF-17 queue, and notify Commander for same-day review and send authorization.",
       "deliverables": [],
       "dependencies": [],
@@ -4027,18 +4158,20 @@
       "logs": [
         "[2026-07-26T20:18:53] Created by Weekly Report Generator",
         "[2026-07-27T01:24:45] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-741: Move MISSION-030 Kuklinski WF-17 emails to Commander's hands\n\n**Analysis and Action Report**\n\n**Objective:** To complete validation and insurance emails for Kuklinski (MISSION-030), stage",
-        "[2026-07-27T01:24:45] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-27T01:24:45] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-07-26T20:18:53.766688+00:00",
       "updated_at": "2026-07-27T01:24:45",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-742",
       "title": "Verify Kuklinski and Westbrook welcome email dispatch records",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Pull Gmail sent records for both accounts, confirm what clients actually received, correct the stale April 15 date in the morning audit, and close any gap with an immediate dispatch if emails were never sent.",
       "deliverables": [],
       "dependencies": [],
@@ -4047,18 +4180,20 @@
       "logs": [
         "[2026-07-26T20:18:53] Created by Weekly Report Generator",
         "[2026-07-27T01:24:51] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-742: Verify Kuklinski and Westbrook welcome email dispatch records\n\n**Analysis and Action Report**\n\n**Objective:** Verify welcome email dispatch records for Kuklinski and Westbrook, confirm cl",
-        "[2026-07-27T01:24:51] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-27T01:24:51] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-07-26T20:18:53.767995+00:00",
       "updated_at": "2026-07-27T01:24:51",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-743",
       "title": "Complete FPD audit for Furlow and Kuklinski",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Harlan",
+      "assigned_to": "Hale",
       "description": "Execute MISSION-623 to audit FPD status for Furlow and Kuklinski accounts and surface any overdue or at-risk deadlines to Commander before end of week.",
       "deliverables": [],
       "dependencies": [],
@@ -4070,7 +4205,8 @@
         "[2026-07-27T05:27:37] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-743: Complete FPD audit for Furlow and Kuklinski\n\n**Audit of FPD Status for Furlow and Kuklinski Accounts**\n\n**Objective:** To audit the FPD (Future Payment Deposit) status for Furlow and Kukl",
         "[2026-07-27T05:27:37] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-30T10:10:06] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-743: Complete FPD audit for Furlow and Kuklinski\n\n**FPD Audit Report for Furlow and Kuklinski Accounts**\n\n**1. Audit Execution:**\n\nThe automated execution of MISSION-743 on 2026-07-27T05:27:37",
-        "[2026-07-30T10:10:06] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-30T10:10:06] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Harlan -> Hale"
       ],
       "created_at": "2026-07-26T20:18:53.768963+00:00",
       "updated_at": "2026-07-30T10:10:06",
@@ -4078,14 +4214,15 @@
       "batch_parent": "SSS-007",
       "log": [
         "2026-07-29T17:15:20.902137+00:00 \u2014 rolled into batch SSS-007; tracked there, not independently"
-      ]
+      ],
+      "escalation_count": 1
     },
     {
       "id": "MISSION-744",
       "title": "Produce and deliver Lyons Regent pricing refresh",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Complete MISSION-625 Regent pricing refresh and deliver to Dani for Lyons renewal window \u2014 renewal window is time-bound and does not wait for board clearance.",
       "deliverables": [],
       "dependencies": [],
@@ -4094,11 +4231,13 @@
       "logs": [
         "[2026-07-26T20:18:53] Created by Weekly Report Generator",
         "[2026-07-27T05:27:51] \u2705 Auto-executed by daily_mission_executor \u2014 11s \u2014 SUCCESS: MISSION-744: Produce and deliver Lyons Regent pricing refresh\n\n**Analysis and Action Report**\n\n**Objective:** Complete MISSION-625 Regent pricing refresh and deliver to Dani for Lyons renewal window.\n",
-        "[2026-07-27T05:27:51] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-27T05:27:51] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-07-26T20:18:53.769951+00:00",
       "updated_at": "2026-07-27T05:27:51",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-745",
@@ -4123,7 +4262,7 @@
       "title": "Escalate Loucks Grandeur FPD for Commander payment authorization",
       "status": "pending_review",
       "priority": "P0",
-      "assigned_to": "Harlan",
+      "assigned_to": "Hale",
       "description": "Surface MISSION-052 ($24,798 Grandeur FPD due August 1) to Commander with payment authorization request \u2014 six days remaining, no action taken to date.",
       "deliverables": [],
       "dependencies": [],
@@ -4135,19 +4274,21 @@
         "[2026-07-26T21:22:04] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn.",
         "[2026-07-29T22:02:28] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-746: Escalate Loucks Grandeur FPD for Commander payment authorization\n\n**Analysis:**\n\nThe mission, MISSION-746, is to escalate MISSION-052, a $24,798 Grandeur FPD (Final Payment Due) for Louck",
-        "[2026-07-29T22:02:28] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-29T22:02:28] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Harlan -> Hale"
       ],
       "created_at": "2026-07-26T20:39:02.222173+00:00",
       "updated_at": "2026-07-29T22:02:28",
       "source": "weekly_report",
-      "batch_parent": "SSS-005"
+      "batch_parent": "SSS-005",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-747",
       "title": "Move Kuklinski validation and insurance emails to WF-17 queue",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Complete MISSION-030 and deliver Kuklinski validation/insurance emails to WF-17 queue for Commander review and send authorization.",
       "deliverables": [],
       "dependencies": [],
@@ -4156,11 +4297,13 @@
       "logs": [
         "[2026-07-26T20:39:02] Created by Weekly Report Generator",
         "[2026-07-27T05:27:58] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-747: Move Kuklinski validation and insurance emails to WF-17 queue\n\n**Task Execution and Analysis:**\n\nThis task requires the completion of MISSION-030 and the subsequent delivery of Kuklinski ",
-        "[2026-07-27T05:27:58] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-27T05:27:58] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-07-26T20:39:02.223144+00:00",
       "updated_at": "2026-07-27T05:27:58",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-748",
@@ -4203,22 +4346,25 @@
       "title": "Morning Intel Brief",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "- Airline Route Monitoring Sweep (Draft - Technical Issue) Commander email directive: Morning Intel Brief - Airline Route Monitoring Sweep (Draft - Technical Issue). Please view HTML.",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
       "created_at": "2026-07-28T13:10:30.399830+00:00",
-      "updated_at": "2026-07-28T13:10:30.399840+00:00"
+      "updated_at": "2026-07-28T13:10:30.399840+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-751",
       "title": "\ud83c\udf05 MORNING CONSOLIDATED",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "BRIEF \u2014 2026-07-28 Commander email directive: \ud83c\udf05 MORNING CONSOLIDATED BRIEF \u2014 2026-07-28. DREAMS2MEMORIES TRAVEL, LLC \ud83c\udf05 MORNING CONSOLIDATED BRIEF \u2014 TUESDAY, JULY 28, 2026 Good morning, Commander. Your live briefing follows",
       "deliverables": [],
       "dependencies": [],
@@ -4228,40 +4374,49 @@
         "2026-07-30T12:31:41.662954+00:00: duplicate creation attempt blocked \u2014 \"\ud83c\udf05 MORNING CONSOLIDATED\" already tracked here",
         "2026-07-31T12:31:33.738454+00:00: duplicate creation attempt blocked \u2014 \"\ud83c\udf05 MORNING CONSOLIDATED\" already tracked here",
         "2026-08-06T12:31:25.220373+00:00: duplicate creation attempt blocked \u2014 \"\ud83c\udf05 MORNING CONSOLIDATED\" already tracked here",
-        "2026-08-07T12:31:46.792199+00:00: duplicate creation attempt blocked \u2014 \"\ud83c\udf05 MORNING CONSOLIDATED\" already tracked here"
+        "2026-08-07T12:31:46.792199+00:00: duplicate creation attempt blocked \u2014 \"\ud83c\udf05 MORNING CONSOLIDATED\" already tracked here",
+        "2026-08-08T12:30:31.688398+00:00: duplicate creation attempt blocked \u2014 \"\ud83c\udf05 MORNING CONSOLIDATED\" already tracked here",
+        "2026-08-08T15:00:00.093119+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
       ],
       "created_at": "2026-07-28T13:20:30.097015+00:00",
-      "updated_at": "2026-08-07T12:31:46.792213+00:00"
+      "updated_at": "2026-08-08T12:30:31.688416+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-752",
       "title": "Re: Re: \ud83d\udea2",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "Silver Spirit Daily Intel \u2014 June 22, 2026 Commander email directive: Re: Re: \ud83d\udea2 Silver Spirit Daily Intel \u2014 June 22, 2026. Wing researched this but could not produce a confident answer. Check the mission board for follow-up. \u2014 Hale \u00b7 2026-07-28 15:10 UTC",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
       "created_at": "2026-07-28T15:12:38.728974+00:00",
-      "updated_at": "2026-07-28T15:12:38.728985+00:00"
+      "updated_at": "2026-07-28T15:12:38.728985+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-753",
       "title": "Re: \ud83d\udea2 Silver",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "Spirit Daily Intel \u2014 June 22, 2026 Commander email directive: Re: \ud83d\udea2 Silver Spirit Daily Intel \u2014 June 22, 2026. COS. Do a Silver Nova Daily Intel and update both to current day. Daily. JL On Tue, Jul 28, 2026, 09:09 John Loucks3 <johnloucks3@gmail.com> wrote: > COS, I cannot read this!!! > > On Tue, Ju",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
       "created_at": "2026-07-28T15:30:40.212769+00:00",
-      "updated_at": "2026-07-28T15:30:40.212781+00:00"
+      "updated_at": "2026-07-28T15:30:40.212781+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-754",
@@ -4283,15 +4438,18 @@
       "title": "Perplexity API key",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "dead since 2026-06-24, PENDING_COMMANDER 4+ weeks Confirmed live 2026-07-29: PERPLEXITY_API_KEY in .env returns 401 Unauthorized on both /search and /v1/responses. Prior diagnosis (OpsCenter/state/perplexity_api_status_20260702.md, MISSION-438, A7 Sterling) found this same 401 on 2026-07-02 and flagged PENDING_COMMANDER \u2014 never resolved. 5 production consumers degraded to Serper fallback (quality loss, not outage): intel/daily_search/thunderbird_daily_search.py, intel/daily_search/daily_intel_runner.py, intel/cruise_line_intel_sweep.py, core/ci/ci_auto_repair_engine.py, scripts/ai_price_fetcher.py. Fix requires Commander: perplexity.ai/settings/api -> generate new key -> paste into .env PERPLEXITY_API_KEY. ~3 min, human-only (no programmatic workaround, it's an account credential rotation).",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
       "created_at": "2026-07-29T15:43:55.612337+00:00",
-      "updated_at": "2026-07-29T15:43:55.612353+00:00"
+      "updated_at": "2026-07-29T15:43:55.612353+00:00",
+      "escalation_count": 1
     },
     {
       "id": "SSS-005",
@@ -4556,7 +4714,7 @@
       "title": "Resolve Kuklinski return-leg open-jaw air routing",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Source the December 17 return-leg open-jaw routing and pricing to complete the Kuklinski air picture before the validation email goes out.",
       "deliverables": [],
       "dependencies": [],
@@ -4565,11 +4723,13 @@
       "logs": [
         "[2026-07-29T18:34:32] Created by Weekly Report Generator",
         "[2026-07-30T10:10:17] \u2705 Auto-executed by daily_mission_executor \u2014 9s \u2014 SUCCESS: # MISSION-756: Resolve Kuklinski return-leg open-jaw air routing\n\n## Analysis and Action Report\n\n**Objective:** Source the December 17 return-leg open-jaw routing and pricing to complete the Kuklinski",
-        "[2026-07-30T10:10:17] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-30T10:10:17] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-07-29T18:34:32.920624+00:00",
       "updated_at": "2026-07-30T10:10:17",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-757",
@@ -4596,7 +4756,7 @@
       "title": "Restore TESS pipeline and run commission cross-check",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Sterling",
+      "assigned_to": "Hale",
       "description": "Ship MISSION-624 this week \u2014 restore TESS data pipeline access and run a commission cross-check against the $21,849 expected figure to eliminate the asterisk on Harlan's numbers.",
       "deliverables": [],
       "dependencies": [],
@@ -4606,11 +4766,13 @@
         "[2026-07-29T18:34:32] Created by Weekly Report Generator",
         "[2026-07-29T18:48:05] weekly report re-detected this ('Restore TESS pipeline and verify $21,849 commission receivable') \u2014 not re-created, still open here",
         "[2026-07-30T10:10:30] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: # MISSION-758: Restore TESS pipeline and run commission cross-check\n\n## Execution of Task\n\nThe primary objective of MISSION-758 is to restore access to the TESS data pipeline and then perform a commis",
-        "[2026-07-30T10:10:30] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-30T10:10:30] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Sterling -> Hale"
       ],
       "created_at": "2026-07-29T18:34:32.928932+00:00",
       "updated_at": "2026-07-30T10:10:30",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-759",
@@ -4653,7 +4815,7 @@
       "title": "Build and deliver Kuklinski validation and insurance emails to WF-17",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Complete the draft build for both the Kuklinski validation email and insurance follow-up, route through WF-17, and close the client wire that has been cold since mid-July.",
       "deliverables": [],
       "dependencies": [],
@@ -4662,18 +4824,20 @@
       "logs": [
         "[2026-07-29T18:48:05] Created by Weekly Report Generator",
         "[2026-07-30T12:15:06] \u2705 Auto-executed by daily_mission_executor \u2014 7s \u2014 SUCCESS: MISSION-761: Build and deliver Kuklinski validation and insurance emails to WF-17\n\n**Analysis and Action Report**\n\n**Objective:** To build and deliver the Kuklinski validation email and insurance foll",
-        "[2026-07-30T12:15:06] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-30T12:15:06] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-07-29T18:48:05.329477+00:00",
       "updated_at": "2026-07-30T12:15:06",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-762",
       "title": "Price Kuklinski Dec-17 return open-jaw and deliver complete air routing",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Pull live return-leg pricing via Skybird/Kiwi RapidAPI, combine with existing outbound pricing, and deliver a complete air routing package to Dani for inclusion in Kuklinski client communications.",
       "deliverables": [],
       "dependencies": [],
@@ -4682,11 +4846,13 @@
       "logs": [
         "[2026-07-29T18:48:05] Created by Weekly Report Generator",
         "[2026-07-30T12:15:15] \u2705 Auto-executed by daily_mission_executor \u2014 6s \u2014 SUCCESS: MISSION-762: Price Kuklinski Dec-17 return open-jaw and deliver complete air routing\n\n**Analysis and Action Report**\n\n**Objective:** To obtain live return-leg pricing for the Kuklinski trip via Skybir",
-        "[2026-07-30T12:15:15] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-30T12:15:15] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-07-29T18:48:05.331134+00:00",
       "updated_at": "2026-07-30T12:15:15",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-763",
@@ -4711,15 +4877,18 @@
       "title": "C2 gate \u2014",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "end-to-end proof Commander email directive: C2 gate \u2014 end-to-end proof. DREAMS2MEMORIES TRAVEL, LLC Live check Path: notify() -> dedup -> render -> transports Email: canonical Dark Navy Slack: Block Kit in #",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
       "created_at": "2026-07-29T23:20:33.202102+00:00",
-      "updated_at": "2026-07-29T23:20:33.202115+00:00"
+      "updated_at": "2026-07-29T23:20:33.202115+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-765",
@@ -4751,7 +4920,7 @@
       "title": "Stage Kuklinski validation and insurance emails to WF-17",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Draft and queue both Kuklinski emails (MISSION-030) for Commander review so they clear WF-17 this week rather than continuing to age in pending_review.",
       "deliverables": [],
       "dependencies": [],
@@ -4765,11 +4934,13 @@
         "[2026-07-31T10:24:20] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-31T12:15:04] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-08-05T16:47:23] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-766: Stage Kuklinski validation and insurance emails to WF-17\n\n**Analysis and Action Report**\n\nThe primary objective of MISSION-766 is to draft and queue two emails related to the Kuklinski va",
-        "[2026-08-05T16:47:23] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-05T16:47:23] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-07-30T19:03:16.408120+00:00",
       "updated_at": "2026-08-05T16:47:23",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-767",
@@ -4794,7 +4965,7 @@
       "title": "Confirm Grandeur corrected materials sent to all 3 affected client couples",
       "status": "pending_review",
       "priority": "P0",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Verify that corrected hotel/accommodation information reached every affected couple directly \u2014 not just the internal dossier \u2014 and document confirmation in each client record.",
       "deliverables": [],
       "dependencies": [],
@@ -4803,18 +4974,20 @@
       "logs": [
         "[2026-08-06T18:31:45] Created by Weekly Report Generator",
         "[2026-08-06T21:31:15] \u2705 Auto-executed by daily_mission_executor \u2014 20s \u2014 SUCCESS: MISSION-768: Confirm Grandeur corrected materials sent to all 3 affected client couples\n\n**Execution Report for MISSION-768**\n\n**Objective:** Verify that corrected hotel/accommodation information rega",
-        "[2026-08-06T21:31:15] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-06T21:31:15] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-08-06T18:31:45.674247+00:00",
       "updated_at": "2026-08-06T21:31:15",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-769",
       "title": "Clear Kuklinski WF-17 queue \u2014 validation, insurance, welcome",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Deliver Kuklinski validation email and insurance email to WF-17 queue this cycle, then open welcome sequence; three aging drafts in one client queue is unacceptable.",
       "deliverables": [],
       "dependencies": [],
@@ -4823,18 +4996,20 @@
       "logs": [
         "[2026-08-06T18:31:45] Created by Weekly Report Generator",
         "[2026-08-06T21:31:32] \u2705 Auto-executed by daily_mission_executor \u2014 13s \u2014 SUCCESS: MISSION-769: Clear Kuklinski WF-17 queue \u2014 validation, insurance, welcome\n\nAs Hale, COS for Dreams2Memories Travel, I have executed MISSION-769 to address the aging drafts in the Kuklinski (WF-17) cli",
-        "[2026-08-06T21:31:32] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-06T21:31:32] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-08-06T18:31:45.676391+00:00",
       "updated_at": "2026-08-06T21:31:32",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-770",
       "title": "Produce both overdue Regent dossiers \u2014 Loucks Dec2026, LesserAntilles Dec2026",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Deliver Regent Loucks Dec2026 and LesserAntilles Dec2026 dossiers; LesserAntilles is -15d and at risk of client-visible gap in the Lyons renewal window.",
       "deliverables": [],
       "dependencies": [],
@@ -4843,11 +5018,13 @@
       "logs": [
         "[2026-08-06T18:31:45] Created by Weekly Report Generator",
         "[2026-08-06T21:32:02] \u2705 Auto-executed by daily_mission_executor \u2014 27s \u2014 SUCCESS: # MISSION-770: Produce both overdue Regent dossiers \u2014 Loucks Dec2026, LesserAntilles Dec2026\n\nAs Hale, COS for Dreams2Memories Travel, I have executed the task to produce the overdue Regent dossiers f",
-        "[2026-08-06T21:32:02] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-06T21:32:02] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-08-06T18:31:45.682511+00:00",
       "updated_at": "2026-08-06T21:32:02",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-771",
@@ -4892,7 +5069,7 @@
       "title": "Complete Kuklinski Dec-17 return-leg open-jaw pricing",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Pull real pricing for the Kuklinski return-leg open-jaw; outbound is done, this is the last gap before the air routing package is complete.",
       "deliverables": [],
       "dependencies": [],
@@ -4902,18 +5079,20 @@
         "[2026-08-06T18:31:45] Created by Weekly Report Generator",
         "[2026-08-07T01:23:29] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Direct Gemini + Poe.com + GitHub Models)",
         "[2026-08-07T01:35:22] \u2705 Auto-executed by daily_mission_executor \u2014 22s \u2014 SUCCESS: MISSION-773: Complete Kuklinski Dec-17 return-leg open-jaw pricing\n\n### Analysis and Action Report for MISSION-773\n\n**1. Mission Objective:**\nThe primary objective of MISSION-773 is to obtain \"real pr",
-        "[2026-08-07T01:35:22] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-07T01:35:22] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-08-06T18:31:45.691220+00:00",
       "updated_at": "2026-08-07T01:35:22",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-774",
       "title": "Deliver Kuklinski WF-17 package to Commander for review/send",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Consolidate validation email + insurance email into Commander's WF-17 queue with explicit ship-ready status by EOD Aug 7.",
       "deliverables": [],
       "dependencies": [],
@@ -4923,18 +5102,20 @@
         "[2026-08-06T19:50:20] Created by Weekly Report Generator",
         "[2026-08-07T01:23:31] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Direct Gemini + Poe.com + GitHub Models)",
         "[2026-08-07T01:35:36] \u2705 Auto-executed by daily_mission_executor \u2014 11s \u2014 SUCCESS: MISSION-774: Deliver Kuklinski WF-17 package to Commander for review/send\n\n**Kuklinski WF-17 Package for Commander Review/Send**\n\n**Client:** Mr. John Kuklinski\n**Mission ID:** WF-17\n**Package Status:",
-        "[2026-08-07T01:35:36] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-07T01:35:36] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-08-06T19:50:20.376204+00:00",
       "updated_at": "2026-08-07T01:35:36",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-775",
       "title": "Close both overdue Regent dossier deadlines",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Refresh Loucks Dec2026 Regent dossier (5d overdue) and LesserAntilles Dec2026 (15d overdue); deliver updated packages to Commander.",
       "deliverables": [],
       "dependencies": [],
@@ -4944,11 +5125,13 @@
         "[2026-08-06T19:50:20] Created by Weekly Report Generator",
         "[2026-08-07T01:23:33] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Direct Gemini + Poe.com + GitHub Models)",
         "[2026-08-07T01:36:03] \u2705 Auto-executed by daily_mission_executor \u2014 25s \u2014 SUCCESS: MISSION-775: Close both overdue Regent dossier deadlines\n\n### Mission Execution Report: Regent Dossier Refresh\n\nAs Hale, COS for Dreams2Memories Travel, I have executed MISSION-775 to refresh the Louc",
-        "[2026-08-07T01:36:03] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-07T01:36:03] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-08-06T19:50:20.377781+00:00",
       "updated_at": "2026-08-07T01:36:03",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-776",
@@ -5011,7 +5194,7 @@
       "title": "Push Kuklinski validation + insurance emails to WF-17 review gate",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Complete both Kuklinski email drafts (validation and insurance) and surface them to the Commander's WF-17 review queue with no further delay.",
       "deliverables": [],
       "dependencies": [],
@@ -5020,11 +5203,13 @@
       "logs": [
         "[2026-08-06T23:00:17] Created by Weekly Report Generator",
         "[2026-08-07T01:36:25] \u2705 Auto-executed by daily_mission_executor \u2014 19s \u2014 SUCCESS: MISSION-779: Push Kuklinski validation + insurance emails to WF-17 review gate\n\nAs Hale, COS for Dreams2Memories Travel, I am executing MISSION-779. The objective is to complete the Kuklinski validati",
-        "[2026-08-07T01:36:25] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-07T01:36:25] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-08-06T23:00:17.193856+00:00",
       "updated_at": "2026-08-07T01:36:25",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-780",
@@ -5049,7 +5234,7 @@
       "title": "Confirm Grandeur client notification \u2014 all 3 couples",
       "status": "pending_review",
       "priority": "P0",
-      "assigned_to": "Dani",
+      "assigned_to": "Hale",
       "description": "Verify that all three couples affected by the cancelled hotel dossier defect have been directly contacted and given corrected property information; document confirmation and close the loop.",
       "deliverables": [],
       "dependencies": [],
@@ -5058,18 +5243,20 @@
       "logs": [
         "[2026-08-07T03:05:50] Created by Weekly Report Generator",
         "[2026-08-07T06:07:59] \u2705 Auto-executed by daily_mission_executor \u2014 21s \u2014 SUCCESS: MISSION-781: Confirm Grandeur client notification \u2014 all 3 couples\n\n**Analysis and Action Report**\n\nAs per `MISSION-781`, my task is to verify that the three couples affected by the cancelled hotel dos",
-        "[2026-08-07T06:07:59] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-07T06:07:59] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Dani -> Hale"
       ],
       "created_at": "2026-08-07T03:05:50.430312+00:00",
       "updated_at": "2026-08-07T06:07:59",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-782",
       "title": "Resolve Kuklinski Dec-17 return-leg open-jaw",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Identify and price at least one viable return-leg candidate for the Kuklinski Dec-17 routing so Dani can finalize the air product.",
       "deliverables": [],
       "dependencies": [],
@@ -5079,18 +5266,20 @@
         "[2026-08-07T03:05:50] Created by Weekly Report Generator",
         "[2026-08-07T06:08:29] \u2705 Auto-executed by daily_mission_executor \u2014 26s \u2014 SUCCESS: MISSION-782: Resolve Kuklinski Dec-17 return-leg open-jaw\n\n**Analysis and Action Report**\n\nThe objective of MISSION-782 is to identify and price at least one viable return-leg candidate for the \"Kukli",
         "[2026-08-07T06:08:29] \u23f8 pending_review: STATUS: COMPLETE not found",
-        "[2026-08-08T00:02:49] Weekly Report Generator duplicate blocked \u2014 \"Resolve Kuklinski Dec-17 return-leg open-jaw routing\" already tracked here"
+        "[2026-08-08T00:02:49] Weekly Report Generator duplicate blocked \u2014 \"Resolve Kuklinski Dec-17 return-leg open-jaw routing\" already tracked here",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-08-07T03:05:50.446529+00:00",
       "updated_at": "2026-08-08T00:02:49.169521+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-783",
       "title": "Update Regent dossiers \u2014 Loucks Dec2026 and LesserAntilles Dec2026",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Refresh both overdue Regent dossiers with current pricing and availability; Loucks is -5d overdue, LesserAntilles -15d; deliver updated documents to Drive.",
       "deliverables": [],
       "dependencies": [],
@@ -5099,11 +5288,13 @@
       "logs": [
         "[2026-08-07T03:05:50] Created by Weekly Report Generator",
         "[2026-08-07T06:08:55] \u2705 Auto-executed by daily_mission_executor \u2014 23s \u2014 SUCCESS: MISSION-783: Update Regent dossiers \u2014 Loucks Dec2026 and LesserAntilles Dec2026\n\n**Action Report: Regent Dossier Refresh**\n\nAs Hale, COS for Dreams2Memories Travel, I have executed MISSION-783 to refr",
-        "[2026-08-07T06:08:55] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-07T06:08:55] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-08-07T03:05:50.448690+00:00",
       "updated_at": "2026-08-07T06:08:55",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-784",
@@ -5146,24 +5337,26 @@
       "title": "WAR ROOM \u2014",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "pick up tomorrow: ROUND TABLE meetroom (Grok inputs pending) Tag git: war-room. Status: OPEN at T2 design gate. Build: Commander view live at https://d2mluxury.quest/meetroom/rt.html (served). Grok deferred \u2014 needs Commander grok.com login to file grok_hale_input.md. Next tasks: T2 approve spec, T3 Grok harvest, T4 rescue run_staff_meeting.py, build rt_brief/round_table/rt_recorder.",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-08-07T05:10:40] Prototypes DONE: ATO 2.19.2 + ChatDev DevAll verified live. Both verdicts HYBRID. ChatDev containers left running (:6400/:5173). ATO desktop-only. Next: T3 Grok login, T2 spec gate, then build."
+        "[2026-08-07T05:10:40] Prototypes DONE: ATO 2.19.2 + ChatDev DevAll verified live. Both verdicts HYBRID. ChatDev containers left running (:6400/:5173). ATO desktop-only. Next: T3 Grok login, T2 spec gate, then build.",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
       ],
       "created_at": "2026-08-07T04:18:04.106225+00:00",
-      "updated_at": "2026-08-07T05:10:40.848248+00:00"
+      "updated_at": "2026-08-07T05:10:40.848248+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-787",
       "title": "Refresh Regent Lesser Antilles dossier \u2014 Lyons renewal window live",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Dossier is -16d overdue; Lyons renewal conversation cannot start without current Regent pricing and itinerary intel \u2014 deliver refreshed dossier to Dani.",
       "deliverables": [],
       "dependencies": [],
@@ -5172,18 +5365,20 @@
       "logs": [
         "[2026-08-07T09:11:33] Created by Weekly Report Generator",
         "[2026-08-07T12:15:20] \u2705 Auto-executed by daily_mission_executor \u2014 20s \u2014 SUCCESS: MISSION-787: Refresh Regent Lesser Antilles dossier \u2014 Lyons renewal window live\n\n**Objective:**\nThe primary objective of MISSION-787 is to refresh the Regent Lesser Antilles dossier, which is currentl",
-        "[2026-08-07T12:15:20] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-07T12:15:20] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-08-07T09:11:33.497572+00:00",
       "updated_at": "2026-08-07T12:15:20",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-788",
       "title": "Pull and deliver Kuklinski Dec-17 return-leg open-jaw pricing",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Skybird/Centrav query for return-leg open-jaw on Dec-17 routing; result closes the last open fare gap blocking Kuklinski WF-17 package.",
       "deliverables": [],
       "dependencies": [],
@@ -5192,11 +5387,13 @@
       "logs": [
         "[2026-08-07T09:11:33] Created by Weekly Report Generator",
         "[2026-08-07T12:15:33] \u2705 Auto-executed by daily_mission_executor \u2014 11s \u2014 SUCCESS: MISSION-788: Pull and deliver Kuklinski Dec-17 return-leg open-jaw pricing\n\n**Analysis and Action Report for MISSION-788**\n\n**Mission Objective:**\nThe objective is to obtain return-leg open-jaw pricin",
-        "[2026-08-07T12:15:33] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-07T12:15:33] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-08-07T09:11:33.499370+00:00",
       "updated_at": "2026-08-07T12:15:33",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-789",
@@ -5221,7 +5418,7 @@
       "title": "Produce Lyons Regent pricing refresh before renewal window closes",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "MISSION-625 \u2014 pull current Regent pricing for Lyons renewal window, deliver to Dani for client-ready format; window is actively decaying.",
       "deliverables": [],
       "dependencies": [],
@@ -5230,11 +5427,13 @@
       "logs": [
         "[2026-08-07T12:09:42] Created by Weekly Report Generator",
         "[2026-08-07T12:15:58] \u2705 Auto-executed by daily_mission_executor \u2014 22s \u2014 SUCCESS: MISSION-790: Produce Lyons Regent pricing refresh before renewal window closes\n\nAs Hale, COS for Dreams2Memories Travel, I am executing MISSION-790. The task requires pulling current \"Regent pricing\" ",
-        "[2026-08-07T12:15:58] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-07T12:15:58] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-08-07T12:09:42.715108+00:00",
       "updated_at": "2026-08-07T12:15:58",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-791",
@@ -5300,30 +5499,37 @@
       "title": "OC/OpenCode auto-logoff \u2014",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "recurring overnight; find cause + prevent SYMPTOM: OpenCode session logged out/disconnected repeatedly (multiple times) overnight 2026-08-06\u219207, making work harder. TASK: stop it. Likely candidates: OpenCode GO 0 credit exhausted (meter 115.5%/1.55), idle/credential timeout, session expiry. Owner: OC/Hale.",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
       "created_at": "2026-08-07T12:24:13.498033+00:00",
-      "updated_at": "2026-08-07T12:24:13.498048+00:00"
+      "updated_at": "2026-08-07T12:24:13.498048+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-795",
       "title": "RT-TELEGRAM FIXES DEPLOYED",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "\u2014 verify 24h stable Gateway: exit0 (no false FAILED), SIGTERM clean, fcntl lockfile, long-poll 25s, systemd TimeoutStopSec=15; zero errors since 06:43 restart. Confirm stable over next 24h. systemd drop-in: ~/.config/systemd/user/thunderbird-telegram-gw.service.d/rt-fix.conf (outside repo).",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-08-08T12:48:00] 24h gate: REVIEW \u2014 active=active err_lines=1 conflicts=0 (err=1, conflicts=0)",
+        "2026-08-08T15:00:00.093119+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
       "created_at": "2026-08-07T12:57:00.563000+00:00",
-      "updated_at": "2026-08-07T12:57:00.563016+00:00"
+      "updated_at": "2026-08-08T12:48:00.152744+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-796",
@@ -5347,7 +5553,7 @@
       "title": "RT-MISSION execution: wire autonomous_board ledger + DDK collapse into mission board",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Sterling (A7)",
+      "assigned_to": "Hale",
       "description": "War Room RT-MISSION converged (AG+CC+OC, 2026-08-07): claim-and-decay ledger model. Core module built (core/ops/autonomous_board.py, regression green). OWNER to wire: append-event journal as source-of-truth (P2), DDK dedup normalize-before-hash (P1), on-event spawning via systemd OnFailure (P3). Per CC: ship P2->P1->P3. No calendar auto-retire (data-loss trap). Resolve only via explicit RESOLVED/TOMBSTONE. Ref: OpsCenter/meetroom/RT-MISSION/. Delegated per HALE authority to JET/TALON staff.",
       "deliverables": [],
       "dependencies": [],
@@ -5355,18 +5561,20 @@
       "escalation_rule": null,
       "logs": [
         "[2026-08-07T20:11:05] \u2705 Auto-executed by daily_mission_executor \u2014 26s \u2014 SUCCESS: MISSION-797: RT-MISSION execution: wire autonomous_board ledger + DDK collapse into mission board\n\n**Execution Analysis and Action Plan for Sterling (A7)**\n\nAs Hale, COS, I have reviewed MISSION-797 r",
-        "[2026-08-07T20:11:05] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-07T20:11:05] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Sterling (A7) -> Hale"
       ],
       "created_at": "2026-08-07T18:43:08.445941+00:00",
       "updated_at": "2026-08-07T20:11:05",
-      "source": "agy_mcp_tool"
+      "source": "agy_mcp_tool",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-798",
       "title": "RT-MISSION: TCD dump/reconcile review (361 vs 240 split-brain)",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Hale (COS) \u2014 TALON staff lane",
+      "assigned_to": "Hale",
       "description": "War Room RT-MISSION outcome (2026-08-07): TCD holds 361 items vs 240 missions \u2014 split-brain (recover_lost_tcd_closures exists as evidence). Task: review TCD for dumping/retire/close candidates; reconcile duplicates; propose TCD items for closed/delete per tcd_process_writeback. Deliverable: dump-candidate list + counts to Commander. Low tempo (weekly), no token burn. Ref: OpsCenter/meetroom/RT-MISSION/.",
       "deliverables": [],
       "dependencies": [],
@@ -5374,11 +5582,13 @@
       "escalation_rule": null,
       "logs": [
         "[2026-08-07T20:11:35] \u2705 Auto-executed by daily_mission_executor \u2014 27s \u2014 SUCCESS: MISSION-798: RT-MISSION: TCD dump/reconcile review (361 vs 240 split-brain)\n\n### Analysis and Action Report: TCD Review for Reconciliation\n\n**Date:** 2026-08-07\n**From:** Hale, COS\n**To:** Commander, ",
-        "[2026-08-07T20:11:35] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-07T20:11:35] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Hale (COS) \u2014 TALON staff lane -> Hale"
       ],
       "created_at": "2026-08-07T18:43:16.070312+00:00",
       "updated_at": "2026-08-07T20:11:35",
-      "source": "agy_mcp_tool"
+      "source": "agy_mcp_tool",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-799",
@@ -5401,40 +5611,47 @@
       "title": "Autonomy Build Triage",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "-- 30 items sequenced, Tranche 1 started Commander email directive: Autonomy Build Triage -- 30 items sequenced, Tranche 1 started. Yoda, Full triage on the 30 autonomy items you selected: AUTONOMY_BUILD_TRIAGE_20260807.html Backing ideation doc: WAR_ROOM_AUTONOMY_IDEATION_20260807.html BLUF: Not a 7-day sprint. Inventory found",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
       "created_at": "2026-08-07T22:08:39.221780+00:00",
-      "updated_at": "2026-08-07T22:08:39.221796+00:00"
+      "updated_at": "2026-08-07T22:08:39.221796+00:00",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-801",
       "title": "Send Kuklinski WF-17 validation and insurance emails",
-      "status": "active",
+      "status": "pending_review",
       "priority": "P0",
-      "assigned_to": "Commander",
+      "assigned_to": "Hale",
       "description": "Review the staged Kuklinski drafts in WF-17 queue and send today \u2014 17 days stale, client relationship at risk.",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-08-08T00:02:49] Created by Weekly Report Generator"
+        "[2026-08-08T00:02:49] Created by Weekly Report Generator",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Commander -> Hale",
+        "[2026-08-08T16:19:55] \u2705 Auto-executed by daily_mission_executor \u2014 12s \u2014 SUCCESS: MISSION-801: Send Kuklinski WF-17 validation and insurance emails\n\n**Mission Execution Report for MISSION-801**\n\nI have received and reviewed Mission-801, titled \"Send Kuklinski WF-17 validation and i",
+        "[2026-08-08T16:19:55] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-08-08T00:02:49.162037+00:00",
-      "updated_at": "2026-08-08T00:02:49.162041+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-08-08T16:19:55",
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-802",
       "title": "Run Regent pricing refresh for Lyons renewal window",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Pull current Regent pricing for Lyons renewal consideration before the window closes; deliver to Dani for draft package.",
       "deliverables": [],
       "dependencies": [],
@@ -5443,18 +5660,20 @@
       "logs": [
         "[2026-08-08T00:02:49] Created by Weekly Report Generator",
         "[2026-08-08T00:13:01] \u2705 Auto-executed by daily_mission_executor \u2014 13s \u2014 SUCCESS: MISSION-802: Run Regent pricing refresh for Lyons renewal window\n\n**Regent Seven Seas Cruises - Pricing Refresh for Lyons Renewal Consideration**\n\n**To:** Dani\n**From:** Hale (Intel)\n**Date:** 2026-08",
-        "[2026-08-08T00:13:01] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-08T00:13:01] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-08-08T00:02:49.166124+00:00",
       "updated_at": "2026-08-08T00:13:01",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-803",
       "title": "Update overdue Regent dossiers (Loucks + LesserAntilles)",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Refresh DOSSIER_Regent_Loucks_Dec2026_UPDATED (\u20136d) and DOSSIER_Regent_LesserAntilles_Dec2026 (\u201316d) with current pricing and cabin availability.",
       "deliverables": [],
       "dependencies": [],
@@ -5463,11 +5682,13 @@
       "logs": [
         "[2026-08-08T00:02:49] Created by Weekly Report Generator",
         "[2026-08-08T00:13:24] \u2705 Auto-executed by daily_mission_executor \u2014 20s \u2014 SUCCESS: MISSION-803: Update overdue Regent dossiers (Loucks + LesserAntilles)\n\n## Regent Dossier Update Report - August 7, 2026\n\nThis report details the refresh of the specified Regent dossiers with current p",
-        "[2026-08-08T00:13:24] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-08T00:13:24] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-08-08T00:02:49.167473+00:00",
       "updated_at": "2026-08-08T00:13:24",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-804",
@@ -5514,7 +5735,7 @@
       "title": "Close Kuklinski return-leg open-jaw routing and pricing",
       "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "Intel",
+      "assigned_to": "Hale",
       "description": "Pull real pricing for the Kuklinski Dec-17 return-leg open-jaw using Skybird/ITA Matrix methodology and deliver to Dani for WF-17 package completion.",
       "deliverables": [],
       "dependencies": [],
@@ -5523,11 +5744,13 @@
       "logs": [
         "[2026-08-08T04:08:02] Created by Weekly Report Generator",
         "[2026-08-08T04:13:54] \u2705 Auto-executed by daily_mission_executor \u2014 13s \u2014 SUCCESS: MISSION-806: Close Kuklinski return-leg open-jaw routing and pricing\n\n## Analysis and Action Report for MISSION-806\n\n**Objective:** To pull real pricing for the Kuklinski Dec-17 return-leg open-jaw us",
-        "[2026-08-08T04:13:54] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-08-08T04:13:54] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Intel -> Hale"
       ],
       "created_at": "2026-08-08T04:08:02.086302+00:00",
       "updated_at": "2026-08-08T04:13:54",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-807",
@@ -5570,17 +5793,118 @@
       "title": "Tranche 2 Complete",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "-- 4/5 Wired Live, 1 Honestly Blocked Commander email directive: Tranche 2 Complete -- 4/5 Wired Live, 1 Honestly Blocked. Yoda, Tranche 2 complete: AUTONOMY_BUILD_TRIAGE_20260807.html 4 of 5 wired live, real work verified against live data: #29 Competitive intel -- competitive_intel_weekly_scan.py was fully built (del",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
       "created_at": "2026-08-08T04:15:42.175696+00:00",
-      "updated_at": "2026-08-08T04:15:42.175718+00:00"
+      "updated_at": "2026-08-08T04:15:42.175718+00:00",
+      "escalation_count": 1
+    },
+    {
+      "id": "MISSION-810",
+      "title": "Pilots #3 +",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "#2 Complete -- AAR (Weapons Free stand-down) Commander email directive: Pilots #3 + #2 Complete -- AAR (Weapons Free stand-down). Yoda, Both pilots complete under Weapons Free, standing down. Full AAR below. Pilot #3 -- Priority Auto-Escalation (Item #1) Interview first: you chose auto-reroute over notify-only. Before dispat",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "2026-08-08T16:30:00.090682+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
+      "created_at": "2026-08-08T14:29:52.697102+00:00",
+      "updated_at": "2026-08-08T14:29:52.697113+00:00",
+      "escalation_count": 1
+    },
+    {
+      "id": "MISSION-811",
+      "title": "Item #15 build \u2014 auto-generated SSS status papers, trigger decision pending",
+      "status": "in_progress",
+      "priority": "P2",
+      "assigned_to": "Hale",
+      "description": "Design synthesized (docs/ITEM15_DESIGN_SYNTHESIS_20260808.md) via Round Table with OC + AG independent proposals. Real disagreement surfaced on trigger condition (AG: failure-centric; OC: value-centric) -- CC recommends OC's trigger, backed by 2 real worked examples from tonight. BLOCKED on Commander decision, then build via Instructor Mode (dry-run default, matching every pilot shipped tonight).",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-08-08T17:08:04.179397+00:00",
+      "updated_at": "2026-08-08T17:08:04.179408+00:00",
+      "source": "instructor-mode-session-20260808"
+    },
+    {
+      "id": "MISSION-812",
+      "title": "TESS credential repair \u2014 refresh token dead, blocking #26 and #34",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "Sterling",
+      "description": "Confirmed dead 2026-08-08: refresh token expired, Playwright Chromium binary missing (~/.cache/ms-playwright/), vault password stale. Blocks Item #26 (fare-drop arbitrage engine) and Item #34 (excursion/dining packet pipeline, already wired and waiting -- see post-booking-materials.timer). Needs: playwright install chromium, vault password refresh, tess_token_keepalive.py re-test.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-08-08T17:08:04.180094+00:00",
+      "updated_at": "2026-08-08T17:08:04.180098+00:00",
+      "source": "instructor-mode-session-20260808"
+    },
+    {
+      "id": "MISSION-813",
+      "title": "Item #21 \u2014 FPD/dunning draft emails, needs Dani's voice + Harlan's tone-lane call",
+      "status": "in_progress",
+      "priority": "P2",
+      "assigned_to": "Dani",
+      "description": "Real gap confirmed: fpd_auto_update.py runs the sweep, no draft-dunning-email logic exists. Design question from Tranche 1 (2026-08-07): Harlan wants collections/dunning tone kept in a SEPARATE template lane, not folded into Dani's standard client-comms queue -- needs Dani + Harlan's joint sign-off on the lane split before CC builds the drafting logic.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-08-08T17:08:04.182553+00:00",
+      "updated_at": "2026-08-08T17:08:04.182557+00:00",
+      "source": "instructor-mode-session-20260807"
+    },
+    {
+      "id": "MISSION-814",
+      "title": "Item #13 verification \u2014 confirm sentiment/urgency scoring wired into inbox triage",
+      "status": "in_progress",
+      "priority": "P3",
+      "assigned_to": "Hale",
+      "description": "Flagged 2026-08-07 as VERIFY PENDING, never confirmed: d2m_inbox_triage.py runs on its own timer; classify/score functions exist elsewhere in the repo but wiring into that specific script was never independently checked. Small investigation, not a build -- confirm or find the real gap.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-08-08T17:08:04.183218+00:00",
+      "updated_at": "2026-08-08T17:08:04.183222+00:00",
+      "source": "instructor-mode-session-20260807"
+    },
+    {
+      "id": "MISSION-815",
+      "title": "OnFailure= coverage \u2014 expand beyond TIER1/TIER2/sentinel curated lists (24/326 done)",
+      "status": "in_progress",
+      "priority": "P3",
+      "assigned_to": "Sterling",
+      "description": "Curated candidate lists (coo_watchdog.py TIER1/TIER2 + recovered sentinel watch list) are exhausted -- 24 of 326 services now have failure-alerting wired, including the primary C2 channel (thunderbird-telegram-gw). Further expansion needs a fresh, deliberately-scoped selection (which of the remaining ~302 services actually matter), not a blind sweep of everything.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-08-08T17:08:04.183903+00:00",
+      "updated_at": "2026-08-08T17:08:04.183906+00:00",
+      "source": "instructor-mode-session-20260808"
     }
   ],
-  "last_updated": "2026-08-08T04:13:57.428940+00:00",
+  "last_updated": "2026-08-08T16:21:04.045449+00:00",
   "suspense_watch": []
 }
