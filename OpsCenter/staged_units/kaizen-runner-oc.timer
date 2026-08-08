@@ -1,0 +1,10 @@
+[Unit]
+Description=Run KAIZEN OC-seat ticket runner every 5 minutes
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=5min
+Persistent=false
+
+[Install]
+WantedBy=timers.target

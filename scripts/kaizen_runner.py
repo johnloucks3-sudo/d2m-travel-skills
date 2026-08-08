@@ -34,13 +34,17 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from core.relay.task_templates import read_open_tickets
+from core.relay.task_templates import (
+    acquire_runner_lock, claim_ticket, read_open_tickets, reclaim_orphans,
+)
 
 CLAUDE_BIN = Path.home() / ".local" / "bin" / "claude"
 MCP_CONFIG = Path.home() / ".claude" / "mcp.json"
 TICKETS_DIR = Path.home() / "Thunderbird" / "OpsCenter" / "tickets"
 
 MAX_RESULT_CHARS = 2000
+DISPATCH_TIMEOUT_S = 600
+LOCK_NAME = "kaizen-runner-cc"
 SKIP_MSG = (
     "SKIPPED — elevated gates require Commander review, "
     "not unattended execution: {ticket_id}"
@@ -78,6 +82,10 @@ def eligible(ticket: dict) -> bool:
 def update_ticket(ticket: dict, status: str, result: str):
     ticket["status"] = status
     ticket["result"] = result[:MAX_RESULT_CHARS]
+    # Honest done: a ticket built without a mechanically-checkable verify_step
+    # (verify_step_checkable False, or the field missing on an older ticket)
+    # never gets to claim a verified pass — its "done" is a self-report only.
+    ticket["verification"] = "hard" if ticket.get("verify_step_checkable") else "soft"
     path = TICKETS_DIR / f"{ticket['ticket_id']}.json"
     path.write_text(json.dumps(ticket, indent=2))
 
@@ -116,12 +124,13 @@ def live_pass(tickets: list[dict]):
             )
             print(f"{tid}: BLOCKED (uncheckable verify_step) — marked blocked")
             continue
+        t = claim_ticket(t, TICKETS_DIR)  # status -> in_progress, claimed_at set
         prompt = build_prompt(t)
         print(f"{tid}: dispatching to local Claude (sonnet)...")
         try:
-            r = run_local_claude(prompt, alias="sonnet")
+            r = run_local_claude(prompt, alias="sonnet", timeout_s=DISPATCH_TIMEOUT_S)
         except subprocess.TimeoutExpired:
-            update_ticket(t, "blocked", "blocked: dispatch timed out (600s)")
+            update_ticket(t, "blocked", f"blocked: dispatch timed out ({DISPATCH_TIMEOUT_S}s)")
             print(f"{tid}: BLOCKED (timeout) — marked blocked")
             continue
         except Exception as exc:
@@ -140,10 +149,18 @@ def live_pass(tickets: list[dict]):
 
 def main():
     live = "--live" in sys.argv[1:]
-    tickets = read_open_tickets()
     if live:
+        lock = acquire_runner_lock(LOCK_NAME)
+        if lock is None:
+            print(f"[{LOCK_NAME}] another instance is already running — exiting")
+            return
+        reclaimed = reclaim_orphans("CC", DISPATCH_TIMEOUT_S, TICKETS_DIR)
+        if reclaimed:
+            print(f"[LIVE] reclaimed {len(reclaimed)} orphaned in_progress ticket(s): {reclaimed}")
+        tickets = read_open_tickets()
         live_pass(tickets)
     else:
+        tickets = read_open_tickets()
         dry_run_pass(tickets)
 
 

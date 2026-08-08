@@ -307,6 +307,12 @@ def build_cc_task(
         "spec": task,
         "gates": gates or [],
         "verify_step": verify_step,
+        # Computed, not just echoing require_checkable back — a runner uses
+        # this to tag its result verification: "hard" (mechanically checkable,
+        # trust the pass/fail) or "soft" (self-report only, e.g. a human-typed
+        # form ticket) rather than silently upgrading a soft result to a
+        # verified one (KAIZEN Approve & Execute, 2026-08-08).
+        "verify_step_checkable": is_checkable(verify_step),
         "follow_up_due": (now + _timedelta(hours=follow_up_hours)).isoformat(),
         "status": "open",
         "created_at": now.isoformat(),
@@ -337,4 +343,94 @@ def read_open_tickets(tickets_dir: Path = TICKETS_DIR) -> list[dict]:
         if t.get("status") == "open":
             out.append(t)
     return out
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Shared re-entrancy layer for ticket runners (KAIZEN Approve & Execute,
+# 2026-08-08) — one implementation, both kaizen_runner.py (CC) and
+# kaizen_runner_oc.py (OC) import this rather than each rolling their own.
+#
+# Two independent mechanisms, deliberately layered:
+#   1. A process lock (same PID-file + flock pattern already used by
+#      core/scheduling/thunderbird_scheduler.py) — the actual double-dispatch
+#      prevention. A second invocation of the SAME script exits immediately
+#      if a prior one is still running.
+#   2. An in_progress + claimed_at marker written to the ticket file BEFORE
+#      dispatch starts — a visible signal, and the safety net if a run ever
+#      crashes without releasing its lock cleanly (flock releases on process
+#      death; a stuck in_progress ticket needs its own reclaim path).
+#
+# Design bias: fail toward late (a missed tick just runs next time), never
+# toward double (the same ticket executed twice).
+# ─────────────────────────────────────────────────────────────────────────────
+import fcntl as _fcntl
+import os as _os
+
+_LOCK_DIR = Path("/tmp")
+
+
+def acquire_runner_lock(name: str):
+    """Non-blocking process lock, keyed by `name` (e.g. 'kaizen-runner-cc').
+    Returns an open file handle to hold for the script's lifetime (it
+    releases automatically on process exit — do not close it early), or
+    None if another instance of this same runner is already holding it.
+    Caller should exit immediately on None, not retry/wait."""
+    lock_path = _LOCK_DIR / f"{name}.lock"
+    fh = open(lock_path, "w")
+    try:
+        _fcntl.flock(fh, _fcntl.LOCK_EX | _fcntl.LOCK_NB)
+    except OSError:
+        fh.close()
+        return None
+    fh.write(str(_os.getpid()))
+    fh.flush()
+    return fh
+
+
+def claim_ticket(ticket: dict, tickets_dir: Path = TICKETS_DIR) -> dict:
+    """Atomically mark a ticket in_progress before dispatch. Returns the
+    updated ticket dict (caller should use this returned dict, not the
+    original, for subsequent status writes)."""
+    ticket = dict(ticket)
+    ticket["status"] = "in_progress"
+    ticket["claimed_at"] = datetime.now(timezone.utc).isoformat()
+    write_ticket(ticket, tickets_dir)
+    return ticket
+
+
+def reclaim_orphans(seat: str, timeout_s: int, tickets_dir: Path = TICKETS_DIR) -> list[str]:
+    """Reset any ticket for `seat` stuck in_progress longer than 2x timeout_s
+    (a crashed/OOM'd run that never got to write done/blocked) back to
+    blocked, with a result explaining why. Returns the list of ticket_ids
+    reclaimed. Call this at the START of a runner pass, before scanning for
+    new work — an orphan must never be picked up as if it were freshly
+    open, and must never sit in_progress forever either."""
+    if not tickets_dir.exists():
+        return []
+    reclaimed = []
+    threshold = _timedelta(seconds=timeout_s * 2)
+    now = datetime.now(timezone.utc)
+    for p in sorted(tickets_dir.glob("*.json")):
+        try:
+            t = _json.loads(p.read_text())
+        except (_json.JSONDecodeError, OSError):
+            continue
+        if t.get("seat") != seat or t.get("status") != "in_progress":
+            continue
+        claimed_at = t.get("claimed_at")
+        if not claimed_at:
+            continue
+        try:
+            claimed_dt = datetime.fromisoformat(str(claimed_at))
+        except ValueError:
+            continue
+        if claimed_dt.tzinfo is None:
+            claimed_dt = claimed_dt.replace(tzinfo=timezone.utc)
+        if now - claimed_dt < threshold:
+            continue
+        t["status"] = "blocked"
+        t["result"] = "timeout — orphaned claim reclaimed"
+        write_ticket(t, tickets_dir)
+        reclaimed.append(t.get("ticket_id", p.stem))
+    return reclaimed
 

@@ -1,0 +1,8 @@
+[Unit]
+Description=KAIZEN OC-seat ticket runner
+Wants=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/scripts/kaizen_runner_oc.py --live
