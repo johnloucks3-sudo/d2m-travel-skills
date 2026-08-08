@@ -141,6 +141,42 @@ def _reply_link(ticket_id: str) -> str:
     return f"{REPLY_BASE_URL}?ticket={ticket_id}&sig={sig}"
 
 
+REWRITE_PROMPT = """You are Dani Moreau, D2M's luxury travel concierge, writing a warm,
+personal reply email. Below is the RAW output from a research/build ticket — it may contain
+process narration ("Wilco", "researching...", "let me check", tool-call chatter), markdown
+syntax (**, #, code fences), or other technical scaffolding that has no place in a client-
+facing email.
+
+Rewrite it as Dani would actually say it: warm, direct, personal, plain prose. Strip every
+trace of the technical process — the reader should never see how the answer was produced,
+only the answer itself. Do not invent, add, or drop any factual content — same substance,
+different voice. No markdown syntax in the output (plain text email). Do not add a greeting
+or sign-off — those are added separately. Output ONLY the rewritten body text, nothing else.
+
+RAW CONTENT:
+{raw}
+"""
+
+
+def _dani_rewrite(raw_result: str) -> str:
+    """Voice pass (Commander directive 2026-08-08: "make the technical coding
+    invisible, amp up the Dani voice"). Runs on Haiku — right-sized for a
+    tone/formatting rewrite, not a reasoning task. Falls back to the raw
+    result on any failure rather than blocking the email entirely — a
+    technical-sounding answer beats no answer."""
+    try:
+        from scripts.kaizen_runner import run_local_claude
+        r = run_local_claude(
+            REWRITE_PROMPT.format(raw=raw_result[:4000]),
+            alias="haiku", timeout_s=60,
+        )
+        if r.returncode == 0 and (r.stdout or "").strip():
+            return r.stdout.strip()
+    except Exception:
+        pass
+    return raw_result  # fallback — never block the email over a voice pass
+
+
 def _answer_subject(ticket: dict) -> str:
     base = f"[KAI-{ticket.get('ticket_id', '?')}] {ANSWER_TOPIC}"
     if ticket.get("parent_ticket_id"):
@@ -149,14 +185,15 @@ def _answer_subject(ticket: dict) -> str:
 
 
 def _answer_body(ticket: dict) -> str:
-    result = ticket.get("result") or "(no result recorded)"
+    raw_result = ticket.get("result") or "(no result recorded)"
+    voiced = _dani_rewrite(raw_result)
     tid = ticket.get("ticket_id", "?")
     return "\n".join([
         "Hi there — Dani here at Dreams2Memories.",
         "",
         f"Your ticket ({tid}) came back. Here's what we found:",
         "",
-        result,
+        voiced,
         "",
         "---",
         f"Got a follow-up? Reply here: {_reply_link(tid)}",
