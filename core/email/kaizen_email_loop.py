@@ -129,6 +129,18 @@ def _guardrail_hits(body: str) -> list[str]:
     return hits
 
 
+REPLY_BASE_URL = "https://kaizen.d2mluxury.quest/reply"
+
+
+def _reply_link(ticket_id: str) -> str:
+    """HMAC-signed link to the stripped reply-by-form page (RT-KAIZEN-
+    REPLY-FORM, 2026-08-08) — replaces email-reply threading entirely, so
+    this must be in every answer or the loop has no way back."""
+    from scripts.kaizen_intake_server import sign_ticket_id
+    sig = sign_ticket_id(ticket_id)
+    return f"{REPLY_BASE_URL}?ticket={ticket_id}&sig={sig}"
+
+
 def _answer_subject(ticket: dict) -> str:
     base = f"[KAI-{ticket.get('ticket_id', '?')}] {ANSWER_TOPIC}"
     if ticket.get("parent_ticket_id"):
@@ -138,12 +150,19 @@ def _answer_subject(ticket: dict) -> str:
 
 def _answer_body(ticket: dict) -> str:
     result = ticket.get("result") or "(no result recorded)"
+    tid = ticket.get("ticket_id", "?")
     return "\n".join([
-        f"Ticket: {ticket.get('ticket_id', '?')}",
-        f"Status: {ticket.get('status', 'unknown')}",
-        f"Request: {ticket.get('spec', '')[:200]}",
+        "Hi there — Dani here at Dreams2Memories.",
+        "",
+        f"Your ticket ({tid}) came back. Here's what we found:",
         "",
         result,
+        "",
+        "---",
+        f"Got a follow-up? Reply here: {_reply_link(tid)}",
+        "",
+        "Dani Moreau",
+        "Dreams2Memories Travel, LLC",
     ])
 
 
@@ -249,8 +268,16 @@ def pass1_outbound(live: bool) -> int:
             continue
 
         subject = _answer_subject(t)
+        # Guardrail scans the ticket's OWN content only (result + spec) —
+        # not the full rendered body, which now also contains our own
+        # trusted infrastructure (the HMAC-signed reply link). A 32-char
+        # signature legitimately matches the same blunt token pattern this
+        # guardrail exists to catch in a model's actual output; scanning
+        # post-render would self-sabotage the reply link on every ticket
+        # (confirmed live, 2026-08-08).
+        guardrail_source = f"{t.get('result', '')}\n{t.get('spec', '')}"
         body = _answer_body(t)
-        hits = _guardrail_hits(body)
+        hits = _guardrail_hits(guardrail_source)
         if hits:
             say(f"[{tid}] GUARDRAIL {hits} — no draft/send; "
                 f"{'marked answer_emailed=blocked_guardrail' if live else 'WOULD mark answer_emailed=blocked_guardrail'}")
@@ -325,6 +352,19 @@ def _strip_re_fwd(subject: str) -> str:
 
 
 def pass2_inbound(live: bool) -> int:
+    """RETIRED (RT-KAIZEN-REPLY-FORM, 2026-08-08): email-reply threading was
+    structurally broken — the answer draft is hosted in the Commander's own
+    Gmail account (so he reviews/sends from where he actually looks), which
+    means a plain reply lands in HIS inbox, not the one this function polled.
+    Replaced by the HMAC-signed reply-by-form link embedded in every answer
+    (see _reply_link / kaizen_intake_server.py's /reply routes) — no email
+    parsing needed, the parent link IS the correlation. Left in place, inert,
+    rather than deleted, in case a future design wants the old mechanism back.
+    """
+    say("[LIVE] Pass 2 INBOUND retired — replaced by the reply-form link "
+        "embedded in every answer (see RT-KAIZEN-REPLY-FORM)")
+    return 0
+    # --- retired implementation below, unreachable, kept for reference ---
     if not live:
         say("[DRY-RUN] Pass 2 INBOUND skipped — fetch_unread() is a Gmail "
             "network call; dry-run makes zero API calls")

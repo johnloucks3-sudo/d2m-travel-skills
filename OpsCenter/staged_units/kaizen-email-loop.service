@@ -5,4 +5,5 @@ Wants=network.target
 [Service]
 Type=oneshot
 WorkingDirectory=/home/john/Thunderbird
+EnvironmentFile=/home/john/Thunderbird/.env
 ExecStart=/usr/bin/python3 /home/john/Thunderbird/core/email/kaizen_email_loop.py --live

@@ -33,7 +33,10 @@ as the Commander himself; blank fields never match, so an unfilled
 submission always alerts.
 """
 import base64
+import hashlib
+import hmac
 import html
+import json
 import os
 import re
 import sys
@@ -51,6 +54,30 @@ AUTH_PASS = os.environ.get("KAIZEN_INTAKE_PASS", "")  # set via EnvironmentFile,
 
 COMMANDER_EMAIL = os.environ.get("KAIZEN_COMMANDER_EMAIL", "johnloucks3@gmail.com").strip().lower()
 COMMANDER_PHONE = re.sub(r"\D", "", os.environ.get("KAIZEN_COMMANDER_PHONE", "719-291-0742"))[-10:]
+
+# --- Reply-by-form (RT-KAIZEN-REPLY-FORM, 2026-08-08) ---
+# Replaces email-reply threading entirely: kaizen_email_loop.py's draft is
+# hosted in the Commander's own Gmail account (so he can review/send from
+# where he actually looks), which means a plain email reply lands in HIS
+# inbox, not the one the old Pass 2 polled — structurally broken regardless
+# of tone. Fix: every answer embeds a link to THIS form, ticket pre-filled,
+# HMAC-signed so the link itself is the authorization (no shared password
+# emailed to recipients — a worse leak than the alternative).
+REPLY_HMAC_SECRET = os.environ.get("KAIZEN_REPLY_HMAC_SECRET", "")
+TICKETS_DIR = Path(__file__).resolve().parent.parent / "OpsCenter" / "tickets"
+
+
+def sign_ticket_id(ticket_id: str) -> str:
+    if not REPLY_HMAC_SECRET:
+        raise RuntimeError("KAIZEN_REPLY_HMAC_SECRET not set — refusing to sign a reply link.")
+    return hmac.new(REPLY_HMAC_SECRET.encode(), ticket_id.encode(), hashlib.sha256).hexdigest()[:32]
+
+
+def verify_ticket_sig(ticket_id: str, sig: str) -> bool:
+    if not REPLY_HMAC_SECRET or not sig:
+        return False
+    expected = sign_ticket_id(ticket_id)
+    return hmac.compare_digest(expected, sig)
 
 
 def _looks_like_commander(email: str, phone: str) -> bool:
@@ -134,21 +161,68 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("WWW-Authenticate", 'Basic realm="KAIZEN Intake"')
         self.end_headers()
 
+    def _send_html(self, body: str, status: int = 200):
+        raw = body.encode()
+        self.send_response(status)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(raw)))
+        self.end_headers()
+        self.wfile.write(raw)
+
     def do_GET(self):
+        parsed = urllib.parse.urlparse(self.path)
+        if parsed.path == "/reply":
+            return self._get_reply(urllib.parse.parse_qs(parsed.query))
         if not _check_auth(self.headers.get("Authorization")):
             return self._unauthorized()
-        if self.path != "/":
+        if parsed.path != "/":
             self.send_response(404)
             self.end_headers()
             return
-        body = FORM_HTML.encode()
-        self.send_response(200)
-        self.send_header("Content-Type", "text/html; charset=utf-8")
-        self.send_header("Content-Length", str(len(body)))
-        self.end_headers()
-        self.wfile.write(body)
+        self._send_html(FORM_HTML)
+
+    def _get_reply(self, qs: dict):
+        # Deliberately NOT Basic-Auth gated — the HMAC-signed link IS the
+        # authorization (RT-KAIZEN-REPLY-FORM decision: requiring the shared
+        # password on this route would mean emailing that password to
+        # recipients, a worse leak than a per-ticket signed link).
+        ticket_id = qs.get("ticket", [""])[0]
+        sig = qs.get("sig", [""])[0]
+        if not ticket_id or not verify_ticket_sig(ticket_id, sig):
+            return self._send_html("<h2>Invalid or expired reply link.</h2>", status=403)
+        parent_path = TICKETS_DIR / f"{ticket_id}.json"
+        if not parent_path.exists():
+            return self._send_html("<h2>Ticket not found.</h2>", status=404)
+        try:
+            parent = json.loads(parent_path.read_text())
+        except (json.JSONDecodeError, OSError):
+            return self._send_html("<h2>Ticket unreadable.</h2>", status=500)
+        context = html.escape((parent.get("spec") or "")[:300])
+        body = f"""<!doctype html><html><head><meta charset="utf-8">
+<title>KAIZEN Reply — {html.escape(ticket_id)}</title>
+<style>
+ body{{font-family:Georgia,serif;background:#f7f3ea;color:#1a1a1a;max-width:640px;margin:40px auto;padding:0 20px}}
+ h1{{color:#07076b;border-bottom:3px solid #07076b;padding-bottom:8px;font-size:1.3rem}}
+ .ref{{font-family:ui-monospace,monospace;font-size:13px;color:#555;background:#fff;padding:8px 12px;border-radius:4px;border:1px solid #d9d3c2;margin:12px 0}}
+ .context{{font-size:14px;color:#333;background:#fff;padding:12px 16px;border-left:3px solid #07076b;margin:12px 0}}
+ textarea{{width:100%;box-sizing:border-box;padding:8px;margin-top:8px;font-family:Georgia,serif;font-size:14px;height:140px}}
+ button{{margin-top:16px;background:#07076b;color:#f7f3ea;border:none;padding:10px 24px;font-size:15px;cursor:pointer}}
+</style></head><body>
+<h1>Reply to your KAIZEN ticket</h1>
+<div class="ref">Ticket: {html.escape(ticket_id)}</div>
+<div class="context">{context}</div>
+<form method="POST" action="/reply">
+<input type="hidden" name="ticket" value="{html.escape(ticket_id)}">
+<input type="hidden" name="sig" value="{html.escape(sig)}">
+<textarea name="reply_text" required placeholder="Type your follow-up..."></textarea>
+<button type="submit">Send Reply</button>
+</form>
+</body></html>"""
+        self._send_html(body)
 
     def do_POST(self):
+        if self.path == "/reply":
+            return self._post_reply()
         if not _check_auth(self.headers.get("Authorization")):
             return self._unauthorized()
         if self.path != "/submit":
@@ -220,6 +294,60 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
         self.wfile.write(body)
+
+    def _post_reply(self):
+        # No Basic-Auth here either — same reasoning as _get_reply. The sig
+        # on the hidden form fields is re-verified independently of the GET
+        # that rendered the form (never trust a client-supplied ticket_id
+        # without re-checking its signature at the point it's acted on).
+        length = int(self.headers.get("Content-Length", 0))
+        raw = self.rfile.read(length).decode()
+        fields = urllib.parse.parse_qs(raw)
+        ticket_id = fields.get("ticket", [""])[0]
+        sig = fields.get("sig", [""])[0]
+        reply_text = fields.get("reply_text", [""])[0].strip()
+
+        if not ticket_id or not verify_ticket_sig(ticket_id, sig):
+            return self._send_html("<h2>Invalid or expired reply link.</h2>", status=403)
+        if not reply_text:
+            return self._send_html("<h2>Reply text is required.</h2>", status=400)
+
+        parent_path = TICKETS_DIR / f"{ticket_id}.json"
+        if not parent_path.exists():
+            return self._send_html("<h2>Ticket not found.</h2>", status=404)
+        try:
+            parent = json.loads(parent_path.read_text())
+        except (json.JSONDecodeError, OSError):
+            return self._send_html("<h2>Ticket unreadable.</h2>", status=500)
+
+        from core.relay.task_templates import build_cc_task, write_ticket
+
+        try:
+            follow = build_cc_task(
+                f"[FOLLOW-UP to {ticket_id}] {reply_text}\n\n"
+                f"[Context: {(parent.get('spec') or '')[:300]}]",
+                seat=parent.get("seat", "CC"),
+                verify_step=parent.get("verify_step", ""),
+                gates=parent.get("gates") or [],
+                require_checkable=True,  # machine-correlated, not human-typed
+                # from scratch — keeps the hard gate the main form doesn't need.
+            )
+        except ValueError as e:
+            return self._send_html(f"<h2>REJECTED: {html.escape(str(e))}</h2>", status=400)
+
+        follow.update({
+            "origin": "kaizen_form_reply",
+            "parent_ticket_id": ticket_id,
+            "submitted_by": parent.get("submitted_by", "unknown"),
+            "submitted_email": parent.get("submitted_email", ""),
+            "submitted_phone": parent.get("submitted_phone", ""),
+            "verified_reply": True,  # the signed link IS the proof of ownership
+        })
+        write_ticket(follow)
+        self._send_html(
+            f"<h2>Reply received — ticket {html.escape(follow['ticket_id'])} created.</h2>"
+            f"<p>You'll get another answer the same way.</p>"
+        )
 
     def log_message(self, fmt, *args):
         pass  # quiet — avoid noisy stdout under systemd
