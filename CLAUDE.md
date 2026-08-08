@@ -101,6 +101,7 @@ Hale/Jet/Talon — not CC-only:
 
 OC's sandbox blocks ALL access (read+write) outside its working repo without `--auto` — confirmed live 2026-08-08, silently, no error surfaced to the model. Never fix with scoped `--auto` (session-wide, not per-file — a real trust expansion). Supply source content directly in the prompt instead; let the builder transform/write in-repo only; apply externally yourself.
 
+**ASK-CC — REVERSE-DIRECTION TASKING (KAIZEN item #3, 2026-08-08).** Instructor Mode is one direction only (a HALE specs work down). When OC/AG hits a real ambiguity or judgment call it can't safely resolve itself, it writes a KAIZEN ticket the same way CC writes one for them — not a live ping. Full doctrine in the `ask-cc` skill; same three functions as everything else in this schema: `from core.relay.task_templates import build_cc_task, write_ticket`, call with `seat="CC"`, a `verify_step` that passes `is_checkable()`, `gates=[]` for routine judgment. Write the ticket, then say so out loud on the room's C2 channel — until the headless runner (item #4) exists, a written ticket is a staging card, not a read one. Don't ticket routine execution calls inside your own lane; only route up what would change what gets built or who's accountable for it.
 
 
 
@@ -496,9 +497,9 @@ Full archive: `CLAUDE.md.archive.2026-07-11`
 **Questions? See Personas/hale_cos.md for full operating authority definitions.**
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-08-08 11:04 MT -->
+<!-- Last sync: 2026-08-08 12:29 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-08-08 11:04 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-08-08 12:29 MT] ===
 Budget: Claude UNKNOWN | OpenCode GO CREDITS        : [████████████████████] 120.7%  ($12.07/$10.00 used · $0.00 left · 152 sess) | Groq UNKNOWN | Deepseek v4 ZEN TIER       : [░░░░░░░░░░░░░░░░░░░░]   0.0%  ($0.00 Free Tier active)
 Seat budgets: CC:75%⚠STALE | OC:0%⚠STALE | AG:0%⚠STALE
 Active tasks: 0

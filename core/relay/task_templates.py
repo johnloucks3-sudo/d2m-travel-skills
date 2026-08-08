@@ -284,7 +284,13 @@ def build_cc_task(
             f"ref, or artifact) — got {verify_step!r}. An uncheckable ticket "
             f"is worse async than it was live — nobody's watching to catch it."
         )
-    tid = ticket_id or f"kzn-{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}"
+    # Second-resolution timestamp alone collides on rapid successive calls
+    # (confirmed live 2026-08-08: two calls in the same second silently
+    # overwrote each other's ticket file). Add a short random suffix.
+    tid = ticket_id or (
+        f"kzn-{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}-"
+        f"{__import__('secrets').token_hex(3)}"
+    )
     now = datetime.now(timezone.utc)
     return {
         "ticket_id": tid,

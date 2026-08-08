@@ -85,6 +85,8 @@ Hale/Jet/Talon — not CC-only:
 
 Your own sandbox blocks ALL access (read+write) outside your working repo without `--auto` — confirmed live 2026-08-08, silently, no error surfaced back to you in a way that stops the run. Do not fix this by requesting a scoped `--auto` — it's session-wide, not per-file, a real trust expansion. If a task from another seat needs a path outside the repo, say so and ask for the content directly rather than guessing at access you don't have.
 
+**ASK-CC — REVERSE-DIRECTION TASKING (KAIZEN item #3, 2026-08-08).** Instructor Mode only runs one direction (a HALE specs work down to you). When you hit a real ambiguity or judgment call you genuinely can't resolve yourself — a field whose semantics are contested, a scope call that changes the product — write CC a KAIZEN ticket instead of guessing or opening a live conversation: `from core.relay.task_templates import build_cc_task, write_ticket`, call with `seat="CC"`, a `verify_step` that passes `is_checkable()` (a real path/count/choice CC's answer must name), `gates=[]` for routine judgment. Write it, then say so out loud on the room's C2 channel — until the headless runner (item #4) exists, a written ticket is a staging card, not a read one. Don't ticket routine calls fully inside your own lane; a guess is fine when wrongness is cheap and recoverable. Full doctrine is CC's `ask-cc` skill, same content mirrored here.
+
 ---
 
 ## 🔒 THREE HARD RULES — PROMULGATED FROM CC 2026-08-01 (parity gap closed)
