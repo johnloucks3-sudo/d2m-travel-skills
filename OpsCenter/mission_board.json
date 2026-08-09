@@ -374,9 +374,9 @@
     {
       "id": "MISSION-019",
       "title": "(no subject) Commander",
-      "status": "in_progress",
+      "status": "pending_review",
       "priority": "P1",
-      "assigned_to": "unassigned",
+      "assigned_to": "Hale",
       "description": "email directive: (no subject). Commander \u2014 Restating both sides so we can decide if the architecture needs to change. === 1. P-D-T-A-C AS YOU CONCEIVED IT (SO-PDTAC-20260711, \"NO MORE BLACK HOLES\") === Every proposal and task fl",
       "deliverables": [],
       "dependencies": [],
@@ -534,10 +534,15 @@
         "2026-08-08T16:12:38.431773+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
         "2026-08-08T16:42:48.777825+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
         "2026-08-08T17:12:38.092714+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
-        "2026-08-08T17:42:10.792049+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here"
+        "2026-08-08T17:42:10.792049+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T20:00:00.113650+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale",
+        "2026-08-08T20:17:16.204897+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "[2026-08-08T20:23:33] \u2705 Auto-executed by daily_mission_executor \u2014 9s \u2014 SUCCESS: MISSION-019: (no subject) Commander\n\n**Analysis and Action Report**\n\nThe directive for MISSION-019 is an email fragment addressed to \"Commander\" (implying myself, Hale), requesting a restatement of \"b",
+        "[2026-08-08T20:23:33] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-13T03:21:06.722989+00:00",
-      "updated_at": "2026-08-08T17:42:10.792061+00:00"
+      "updated_at": "2026-08-08T20:23:33",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-001A",
@@ -3151,7 +3156,7 @@
     {
       "id": "MISSION-692",
       "title": "Staff Package SSS-004",
-      "status": "in_progress",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "\u2014 Staff Summary Sheet Adoption (for your signature) Commander email directive: Staff Package SSS-004 \u2014 Staff Summary Sheet Adoption (for your signature). Thunderbird Wing \u00b7 AF Form 1768 \u00b7 Staff Summary Sheet SSS-004 Staff Package \u2014 TCD Decommission & Staff Summary Sheet Adoption Commander \u2014 the complete staff package is prepared for your signatur",
@@ -3160,16 +3165,18 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale",
+        "[2026-08-08T20:23:59] \u2705 Auto-executed by daily_mission_executor \u2014 23s \u2014 SUCCESS: MISSION-692: Staff Package SSS-004\n\n### Staff Summary Sheet Adoption (SSS-004) - TCD Decommission Review\n\nAs Hale, COS for Dreams2Memories Travel, I have executed the task to review and facilitate the",
+        "[2026-08-08T20:23:59] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-19T13:42:56.170112+00:00",
-      "updated_at": "2026-07-19T13:42:56.170125+00:00",
+      "updated_at": "2026-08-08T20:23:59",
       "escalation_count": 1
     },
     {
       "id": "MISSION-693",
       "title": "Tech Scan 2026-07-20",
-      "status": "in_progress",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "05:15 UTC \u2014 2 trial / 0 killed (Hale adjudicated) Commander email directive: Tech Scan 2026-07-20 05:15 UTC \u2014 2 trial / 0 killed (Hale adjudicated). TECH SCAN \u2014 2026-07-20 05:15 UTC airborne scanner pulse \u00b7 6 finds \u00b7 sectors agentic, ai-writing, mcp HALE'S ADJUDICATION (kill-pass before anything's believed) \ud83d\udcca 2 TRIAL \u00b7 4 WATCH \u00b7 0 KILLED as noise",
@@ -3178,16 +3185,18 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale",
+        "[2026-08-08T20:24:04] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: MISSION-693: Tech Scan 2026-07-20\n\n**Analysis and Action Report**\n\n**1. Task Execution:**\n\nThe mission directive is to analyze the results of a \"Tech Scan 2026-07-20\" which occurred at 05:15 UTC. The ",
+        "[2026-08-08T20:24:04] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-20T05:16:32.437089+00:00",
-      "updated_at": "2026-07-20T05:16:32.437099+00:00",
+      "updated_at": "2026-08-08T20:24:04",
       "escalation_count": 1
     },
     {
       "id": "MISSION-694",
       "title": "Re: Re: Multi-Model",
-      "status": "in_progress",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Claude Code Analysis + Plan \u2014 cc-fleet Gap Found (Groq/Cerebras dead) Commander email directive: Re: Re: Multi-Model Claude Code Analysis + Plan \u2014 cc-fleet Gap Found (Groq/Cerebras dead). Wing researched this but could not produce a confident answer. Check the mission board for follow-up. \u2014 Hale \u00b7 2026-07-20 12:30 UTC",
@@ -3196,16 +3205,18 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale",
+        "[2026-08-08T20:24:11] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: # MISSION-694: Re: Re: Multi-Model Claude Code Analysis + Plan \u2014 cc-fleet Gap Found (Groq/Cerebras dead)\n\n## Analysis and Findings\n\nThe mission directive, \"Re: Re: Multi-Model Claude Code Analysis + P",
+        "[2026-08-08T20:24:11] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-20T12:31:30.766029+00:00",
-      "updated_at": "2026-07-20T12:31:30.766043+00:00",
+      "updated_at": "2026-08-08T20:24:11",
       "escalation_count": 1
     },
     {
       "id": "MISSION-695",
       "title": "Re: Hermai.ai Analysis",
-      "status": "in_progress",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "+ Implementation Plan \u2014 Low-Volume Air Scans Commander email directive: Re: Hermai.ai Analysis + Implementation Plan \u2014 Low-Volume Air Scans. Approved On Sun, Jul 19, 2026 at 9:50 PM <johnloucks3@gmail.com> wrote: > Hermai.ai \u2014 Analysis & Implementation Plan for Low-Volume Air Scans > > Source: r/ClaudeCode post by u/Tradingoso \u00b7 An",
@@ -3214,16 +3225,18 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale",
+        "[2026-08-09T00:26:41] \u2705 Auto-executed by daily_mission_executor \u2014 30s \u2014 SUCCESS: MISSION-695: Re: Hermai.ai Analysis + Implementation Plan \u2014 Low-Volume Air Scans\n\n**Context:**\nThis report details the implementation plan for leveraging Hermai.ai's analytical capabilities to identif",
+        "[2026-08-09T00:26:41] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-20T12:41:30.824355+00:00",
-      "updated_at": "2026-07-20T12:41:30.824365+00:00",
+      "updated_at": "2026-08-09T00:26:41",
       "escalation_count": 1
     },
     {
       "id": "MISSION-696",
       "title": "Commander review and send Kuklinski WF-17 emails",
-      "status": "active",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Review and send the staged Kuklinski validation and insurance emails from WF-17 queue before the passive-disengagement window extends further.",
@@ -3235,10 +3248,12 @@
         "[2026-07-21T02:22:36] Created by Weekly Report Generator",
         "[2026-08-07T09:11:33] Weekly Report Generator duplicate blocked \u2014 \"Commander review and send Kuklinski WF-17 emails\" already tracked here",
         "[2026-08-07T12:09:42] Weekly Report Generator duplicate blocked \u2014 \"Commander review and send Kuklinski WF-17 emails immediately\" already tracked here",
-        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Commander -> Hale"
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned Commander -> Hale",
+        "[2026-08-09T00:27:10] \u2705 Auto-executed by daily_mission_executor \u2014 26s \u2014 SUCCESS: MISSION-696: Commander review and send Kuklinski WF-17 emails\n\n**Execution Report for MISSION-696: Commander review and send Kuklinski WF-17 emails**\n\nAs per the assignment, I, Hale, have taken over t",
+        "[2026-08-09T00:27:10] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-21T02:22:36.389134+00:00",
-      "updated_at": "2026-08-07T12:09:42.706229+00:00",
+      "updated_at": "2026-08-09T00:27:10",
       "source": "weekly_report",
       "escalation_count": 1
     },
@@ -3361,7 +3376,7 @@
     {
       "id": "MISSION-703",
       "title": "Payment Reminder \u2014",
-      "status": "in_progress",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Panama Canal & Pacific Gems Final Payment Window Commander email directive: Payment Reminder \u2014 Panama Canal & Pacific Gems Final Payment Window. Dear John, Your final payment for the Panama Canal & Pacific Gems voyage is approaching. We want to make sure this is on your radar. If you have any questions about the balance due, payment met",
@@ -3370,10 +3385,12 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale",
+        "[2026-08-09T00:27:32] \u2705 Auto-executed by daily_mission_executor \u2014 19s \u2014 SUCCESS: MISSION-703: Payment Reminder \u2014 Panama Canal & Pacific Gems Final Payment Window\n\n## Mission Analysis and Action Report\n\n**Mission ID:** MISSION-703\n**Title:** Payment Reminder \u2014 Panama Canal & Pacifi",
+        "[2026-08-09T00:27:32] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-22T12:50:20.926684+00:00",
-      "updated_at": "2026-07-22T12:50:20.926698+00:00",
+      "updated_at": "2026-08-09T00:27:32",
       "escalation_count": 1
     },
     {
@@ -3664,7 +3681,7 @@
     {
       "id": "MISSION-717",
       "title": "Tech Scan 2026-07-24",
-      "status": "in_progress",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "05:15 UTC \u2014 5 trial / 0 killed (Hale adjudicated) Commander email directive: Tech Scan 2026-07-24 05:15 UTC \u2014 5 trial / 0 killed (Hale adjudicated). TECH SCAN \u2014 2026-07-24 05:15 UTC airborne scanner pulse \u00b7 17 finds \u00b7 sectors llm HALE'S ADJUDICATION (kill-pass before anything's believed) \ud83d\udcca 5 TRIAL \u00b7 12 WATCH \u00b7 0 KILLED as noise \u00b7 0 adopt \ud83e\uddea TRIAL \u2014",
@@ -3673,10 +3690,12 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+        "2026-08-08T14:24:25.050669+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale",
+        "[2026-08-09T00:27:46] \u2705 Auto-executed by daily_mission_executor \u2014 11s \u2014 SUCCESS: MISSION-717: Tech Scan 2026-07-24\n\n### Analysis and Action Report for MISSION-717: Tech Scan 2026-07-24\n\nAs Hale, COS for Dreams2Memories Travel, I have reviewed MISSION-717, \"Tech Scan 2026-07-24\".\n\n",
+        "[2026-08-09T00:27:46] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-24T05:15:23.544155+00:00",
-      "updated_at": "2026-07-24T05:15:23.544167+00:00",
+      "updated_at": "2026-08-09T00:27:46",
       "escalation_count": 1
     },
     {
@@ -5847,16 +5866,19 @@
       "title": "TESS credential repair \u2014 refresh token dead, blocking #26 and #34",
       "status": "in_progress",
       "priority": "P1",
-      "assigned_to": "Sterling",
+      "assigned_to": "Hale",
       "description": "Confirmed dead 2026-08-08: refresh token expired, Playwright Chromium binary missing (~/.cache/ms-playwright/), vault password stale. Blocks Item #26 (fare-drop arbitrage engine) and Item #34 (excursion/dining packet pipeline, already wired and waiting -- see post-booking-materials.timer). Needs: playwright install chromium, vault password refresh, tess_token_keepalive.py re-test.",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-08-08T19:30:00.350244+00:00: auto-escalated (idle >2h) \u2014 reassigned Sterling -> Hale"
+      ],
       "created_at": "2026-08-08T17:08:04.180094+00:00",
       "updated_at": "2026-08-08T17:08:04.180098+00:00",
-      "source": "instructor-mode-session-20260808"
+      "source": "instructor-mode-session-20260808",
+      "escalation_count": 1
     },
     {
       "id": "MISSION-813",
@@ -5921,8 +5943,209 @@
       "created_at": "2026-08-08T18:09:47.415778+00:00",
       "updated_at": "2026-08-08T18:09:47.415791+00:00",
       "source": "war-room-20260808-alert-investigation"
+    },
+    {
+      "id": "MISSION-817",
+      "title": "RT Position Paper",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "\u2014 KAIZEN Onboarding + Email Reply Loop (CC/AG/OC) Commander email directive: RT Position Paper \u2014 KAIZEN Onboarding + Email Reply Loop (CC/AG/OC). POSITION PAPER \u2014 KAIZEN Onboarding + Two-Way Email Reply Loop RT-KAIZEN-EMAIL-CONSULT \u2014 CC synthesis of CC + AG + OC. Real disagreement surfaced, not hidden. BLUF: Both features are buildable this s",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "2026-08-08T22:30:00.138927+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
+      "created_at": "2026-08-08T20:13:16.382254+00:00",
+      "updated_at": "2026-08-08T20:13:16.382266+00:00",
+      "escalation_count": 1
+    },
+    {
+      "id": "MISSION-818",
+      "title": "Re: [KAI-kzn-20260808214058-2306ce] Your",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "KAIZEN ticket result Commander email directive: Re: [KAI-kzn-20260808214058-2306ce] Your KAIZEN ticket result. Wing researched this but could not produce a confident answer. Check the mission board for follow-up. \u2014 Hale \u00b7 2026-08-08 21:49 UTC",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "2026-08-09T00:00:04.297336+00:00: auto-escalated (idle >2h) \u2014 reassigned unassigned -> Hale"
+      ],
+      "created_at": "2026-08-08T21:51:14.948335+00:00",
+      "updated_at": "2026-08-08T21:51:14.948346+00:00",
+      "escalation_count": 1
+    },
+    {
+      "id": "MISSION-819",
+      "title": "KAIZEN ticket from",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "Brent Westbrook \u2014 not your own email/phone Commander email directive: KAIZEN ticket from Brent Westbrook \u2014 not your own email/phone. DREAMS2MEMORIES TRAVEL, LLC Someone submitted a KAIZEN ticket whose email/phone didn't match your own on file. Name: Brent Westbrook Emai",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-08-08T22:38:49.753300+00:00",
+      "updated_at": "2026-08-08T22:38:49.753311+00:00"
+    },
+    {
+      "id": "MISSION-820",
+      "title": "Re: [KAI-kzn-20260808223014-62711c] Your",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "KAIZEN ticket result Commander email directive: Re: [KAI-kzn-20260808223014-62711c] Your KAIZEN ticket result. Wing researched this but could not produce a confident answer. Check the mission board for follow-up. \u2014 Hale \u00b7 2026-08-08 22:40 UTC",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-08-08T22:42:50.084582+00:00",
+      "updated_at": "2026-08-08T22:42:50.084594+00:00"
+    },
+    {
+      "id": "MISSION-821",
+      "title": "[KAIZEN] CC peer review: RT_INTEROP_SCHEMA_V2.md (/home/john/Thunderbird/OpsCenter/meetroom/RT_INTE\u2026",
+      "status": "done",
+      "priority": "P2",
+      "assigned_to": "unassigned",
+      "description": "KAIZEN ticket kzn-20260808204429-9bce56 | seat=CC | > 0 non-empty md lines in verdict file OpsCenter/meetroom/cc_hale_rt_interop_v2_verdict.md",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "2026-08-09T00:32:35.897246+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] CC peer review: RT_INTEROP_SCHEMA_V2.md (/home/john/Thunderbird/OpsCenter/meetroom/RT_INTE\u2026\" already tracked here",
+        "2026-08-09T00:32:42.369650+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] CC peer review: RT_INTEROP_SCHEMA_V2.md (/home/john/Thunderbird/OpsCenter/meetroom/RT_INTE\u2026\" already tracked here"
+      ],
+      "created_at": "2026-08-09T00:32:02.261803+00:00",
+      "updated_at": "2026-08-09T00:32:42.369665+00:00",
+      "source": "kaizen:kzn-20260808204429-9bce56"
+    },
+    {
+      "id": "MISSION-822",
+      "title": "[KAIZEN] Tell me about best places to live for a retired 60+ year old AF Reserve military retired a\u2026",
+      "status": "done",
+      "priority": "P2",
+      "assigned_to": "unassigned",
+      "description": "KAIZEN ticket kzn-20260808223014-62711c | seat=OC | Give me a detailed description of each candidate location",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "2026-08-09T00:32:35.898256+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] Tell me about best places to live for a retired 60+ year old AF Reserve military retired a\u2026\" already tracked here",
+        "2026-08-09T00:32:42.370379+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] Tell me about best places to live for a retired 60+ year old AF Reserve military retired a\u2026\" already tracked here"
+      ],
+      "created_at": "2026-08-09T00:32:02.262826+00:00",
+      "updated_at": "2026-08-09T00:32:42.370386+00:00",
+      "source": "kaizen:kzn-20260808223014-62711c"
+    },
+    {
+      "id": "MISSION-823",
+      "title": "[KAIZEN] I am a retired AF RESERVE LT Col, do not have my military retirement yet. Also a SW AIrlin\u2026",
+      "status": "done",
+      "priority": "P2",
+      "assigned_to": "unassigned",
+      "description": "KAIZEN ticket kzn-20260808223804-58590a | seat=OC | Send me detailed analysis with links and a recc",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "2026-08-09T00:32:35.899264+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] I am a retired AF RESERVE LT Col, do not have my military retirement yet. Also a SW AIrlin\u2026\" already tracked here",
+        "2026-08-09T00:32:42.371097+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] I am a retired AF RESERVE LT Col, do not have my military retirement yet. Also a SW AIrlin\u2026\" already tracked here"
+      ],
+      "created_at": "2026-08-09T00:32:02.263621+00:00",
+      "updated_at": "2026-08-09T00:32:42.371102+00:00",
+      "source": "kaizen:kzn-20260808223804-58590a"
+    },
+    {
+      "id": "MISSION-824",
+      "title": "[KAIZEN] [FOLLOW-UP to kzn-20260808223804-58590a] Test reply, verifying the fix  [Context: I am a r\u2026",
+      "status": "done",
+      "priority": "P2",
+      "assigned_to": "unassigned",
+      "description": "KAIZEN ticket kzn-20260808225251-897bd7 | seat=OC | Send me detailed analysis with links and a recc",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "2026-08-09T00:32:35.900190+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] [FOLLOW-UP to kzn-20260808223804-58590a] Test reply, verifying the fix  [Context: I am a r\u2026\" already tracked here",
+        "2026-08-09T00:32:42.371814+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] [FOLLOW-UP to kzn-20260808223804-58590a] Test reply, verifying the fix  [Context: I am a r\u2026\" already tracked here"
+      ],
+      "created_at": "2026-08-09T00:32:02.264390+00:00",
+      "updated_at": "2026-08-09T00:32:42.371818+00:00",
+      "source": "kaizen:kzn-20260808225251-897bd7"
+    },
+    {
+      "id": "MISSION-825",
+      "title": "[KAIZEN] [FOLLOW-UP to kzn-20260808223014-62711c] What would I be spending for housing...4 BR 3500 \u2026",
+      "status": "done",
+      "priority": "P2",
+      "assigned_to": "unassigned",
+      "description": "KAIZEN ticket kzn-20260808225338-639e5d | seat=OC | Give me a detailed description of each candidate location",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "2026-08-09T00:32:02.265905+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] [FOLLOW-UP to kzn-20260808223014-62711c] What would I be spending for housing...4 BR 3500 \u2026\" already tracked here",
+        "2026-08-09T00:32:02.266642+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] [FOLLOW-UP to kzn-20260808223014-62711c] What would I be spending for housing...4 BR 3500 \u2026\" already tracked here",
+        "2026-08-09T00:32:35.901221+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] [FOLLOW-UP to kzn-20260808223014-62711c] What would I be spending for housing...4 BR 3500 \u2026\" already tracked here",
+        "2026-08-09T00:32:35.902313+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] [FOLLOW-UP to kzn-20260808223014-62711c] What would I be spending for housing...4 BR 3500 \u2026\" already tracked here",
+        "2026-08-09T00:32:35.903266+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] [FOLLOW-UP to kzn-20260808223014-62711c] What would I be spending for housing...4 BR 3500 \u2026\" already tracked here",
+        "2026-08-09T00:32:42.372520+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] [FOLLOW-UP to kzn-20260808223014-62711c] What would I be spending for housing...4 BR 3500 \u2026\" already tracked here",
+        "2026-08-09T00:32:42.373213+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] [FOLLOW-UP to kzn-20260808223014-62711c] What would I be spending for housing...4 BR 3500 \u2026\" already tracked here",
+        "2026-08-09T00:32:42.373892+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] [FOLLOW-UP to kzn-20260808223014-62711c] What would I be spending for housing...4 BR 3500 \u2026\" already tracked here"
+      ],
+      "created_at": "2026-08-09T00:32:02.265162+00:00",
+      "updated_at": "2026-08-09T00:32:42.373895+00:00",
+      "source": "kaizen:kzn-20260808225338-639e5d"
+    },
+    {
+      "id": "MISSION-826",
+      "title": "[KAIZEN] [FOLLOW-UP to kzn-20260808223014-62711c] What would I be spending for housing...4 BR 3500 \u2026",
+      "status": "done",
+      "priority": "P2",
+      "assigned_to": "unassigned",
+      "description": "KAIZEN ticket kzn-20260808225720-404f26 | seat=OC | Give me a detailed description of each candidate location",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "2026-08-09T00:33:30.551204+00:00: duplicate creation attempt blocked \u2014 \"[KAIZEN] [FOLLOW-UP to kzn-20260808223014-62711c] What would I be spending for housing...4 BR 3500 \u2026\" already tracked here"
+      ],
+      "created_at": "2026-08-09T00:33:30.550336+00:00",
+      "updated_at": "2026-08-09T00:33:30.551212+00:00",
+      "source": "kaizen:kzn-20260808225720-404f26"
+    },
+    {
+      "id": "MISSION-827",
+      "title": "[KAIZEN] [FOLLOW-UP to kzn-20260808223014-62711c] What would I be spending for housing...4 BR 3500 \u2026",
+      "status": "done",
+      "priority": "P2",
+      "assigned_to": "unassigned",
+      "description": "KAIZEN ticket kzn-20260808231606-cd7b7d | seat=OC | Give me a detailed description of each candidate location",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-08-09T00:33:38.516100+00:00",
+      "updated_at": "2026-08-09T00:33:38.516113+00:00",
+      "source": "kaizen:kzn-20260808231606-cd7b7d"
     }
   ],
-  "last_updated": "2026-08-08T16:21:04.045449+00:00",
+  "last_updated": "2026-08-09T00:27:49.222599+00:00",
   "suspense_watch": []
 }
