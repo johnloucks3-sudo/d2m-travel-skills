@@ -34,14 +34,19 @@ as an unknown.
 
 Verification runs on a DIFFERENT engine via integrity_check.verify_and_record —
 CC checking CC's own work is not verification.
+
+FRONT-DESK RULE (Round Table 2026-08-08): every letter — TASKING / CC / FYI / ACK —
+leaves with a threaded DISPOSITION receipt (WHO / RDD / ACTION / DELIVERABLE); no
+inbound message is ever silently dropped, and ACK closes the ticket it answers.
 """
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import traceback
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Callable, Optional
 
@@ -54,12 +59,56 @@ from core.comms.email_mode_classifier import (
 
 ROOT = Path(__file__).resolve().parents[2]
 LOG_PATH = ROOT / "OpsCenter" / "directive_executions.jsonl"
+# thread_id -> mission_id, so a later ACK in the same thread closes the ticket
+# that thread created even when the caller cannot supply previous_mission_id.
+THREAD_INDEX_PATH = ROOT / "OpsCenter" / "email_thread_missions.json"
 
 DONE = "DONE"
 FAILED = "FAILED"
 UNVERIFIED = "UNVERIFIED"
 TASKED = "TASKED"
 LOGGED = "LOGGED"
+ACKED = "ACKED"
+
+# Seat routing for email-created work. OC is the default executor lane ($0);
+# CC takes the letters that turn on judgment rather than execution.
+_DEFAULT_SEAT = "OC"
+_JUDGMENT_SEAT = "CC"
+_URGENT_HOURS = 8
+_STANDARD_HOURS = 24
+
+# The board's own ground truth for an email-origin ticket. Silver's FRONT frame
+# (core/silver/gate.silver_front_frame) refuses a seat delegation with no named
+# ground-truth source, and checks that any path-like source actually exists.
+_GROUND_TRUTH_SOURCES = [
+    "OpsCenter/directive_executions.jsonl",
+    "OpsCenter/mission_board.json",
+]
+
+# A letter whose entire body is one of these words is an acknowledgement, not
+# work: it closes a ticket and gets a receipt, it never opens anything.
+_ACK_ONLY_RE = re.compile(
+    r"^\s*(?:roger|wilco|done|ok|okay|thanks|thank you|acknowledged|duly noted|copy)"
+    r"[\s.!,;:\-–—]*$",
+    re.IGNORECASE,
+)
+
+# Where the Commander's own words stop and quoted/forwarded matter begins.
+_QUOTE_BOUNDARY_RE = re.compile(
+    r"(-{2,}\s*forwarded message\s*-{2,}"
+    r"|-{2,}\s*original message\s*-{2,}"
+    r"|^on .{0,120}\bwrote:\s*$"
+    r"|^from:\s*.+$"
+    r"|^sent from my )",
+    re.IGNORECASE | re.MULTILINE,
+)
+
+# Judgment work (route to CC) vs execution work (route to OC).
+_JUDGMENT_RE = re.compile(
+    r"\b(client|email to|draft|strategy|review|decide|architecture|approve|opinion)\b",
+    re.IGNORECASE,
+)
+_URGENT_RE = re.compile(r"(\burgent\b|\bred\b|\basap\b|🔴)", re.IGNORECASE)
 
 
 def _now() -> str:
@@ -102,11 +151,175 @@ def _capture(directive_text: str, source: str) -> None:
               "detail": f"directive_ledger.capture failed: {type(exc).__name__}: {exc}"})
 
 
-def _create_email_mission(title: str, description: str, priority: str = "P1") -> tuple[str, Optional[str]]:
+# ── front-desk helpers: WHO / RDD / ACTION, and the receipt itself ─────────
+# Pure functions (no I/O) so the disposition of a letter is testable without a
+# board, a mailbox, or a network.
+
+def _own_words(body: str) -> list[str]:
+    """The Commander's own lines, with quoted/forwarded matter cut away."""
+    body = body or ""
+    m = _QUOTE_BOUNDARY_RE.search(body)
+    head = body[: m.start()] if m else body
+    return [ln.strip() for ln in head.splitlines()
+            if ln.strip() and not ln.strip().startswith(">")]
+
+
+def _is_ack_only(body: str) -> bool:
+    """True only for a solo ack phrase — "Roger." and nothing else. A body with
+    a second line is a letter that happens to open politely, not an ack."""
+    lines = _own_words(body)
+    return len(lines) == 1 and bool(_ACK_ONLY_RE.match(lines[0]))
+
+
+def _pick_seat(subject: str = "", body: str = "") -> str:
+    """WHO. Judgment words -> CC; everything else -> OC, the free execution lane."""
+    return _JUDGMENT_SEAT if _JUDGMENT_RE.search(f"{subject or ''}\n{body or ''}") else _DEFAULT_SEAT
+
+
+def _certifier_for(seat: str) -> str:
+    """Anti-theater (§3.5.3): the certifier can never be the assignee."""
+    return "AG" if (seat or "").upper() == "CC" else "CC"
+
+
+def _deadline_hours(subject: str = "", body: str = "") -> int:
+    """RDD. Urgency markers pull the suspense in to 8h; standard is 24h."""
+    return _URGENT_HOURS if _URGENT_RE.search(f"{subject or ''}\n{body or ''}") else _STANDARD_HOURS
+
+
+def _mission_rdd(hours: int) -> str:
+    return (datetime.now(timezone.utc) + timedelta(hours=hours)).isoformat()
+
+
+def _action_line(subject: str = "", body: str = "") -> str:
+    """ACTION. The first real line of the letter, subject as fallback."""
+    lines = _own_words(body)
+    first = lines[0] if lines else (subject or "").strip()
+    return (first[:200] or "(no action stated)")
+
+
+def _checkable_criteria(action: str) -> str:
+    """Silver's FRONT frame rejects acceptance criteria a second seat could not
+    verify without asking the assignee. A one-line email order usually names
+    nothing checkable, so the receipt row it produces is named explicitly."""
+    try:
+        from core.silver.gate import is_checkable
+        if is_checkable(action):
+            return action
+    except Exception:
+        pass
+    return f"{action} — verifiable against the receipt row in {_GROUND_TRUTH_SOURCES[0]}"
+
+
+def _leaf_token(thread_id: str = "", message_id: str = "", subject: str = "") -> str:
+    """Stable short id for THIS letter (the leaf of its thread), so a receipt
+    can be tied back to the exact message that produced it."""
+    raw = f"{thread_id}|{message_id}|{subject}".encode("utf-8", "replace")
+    return hashlib.sha1(raw).hexdigest()[:10]
+
+
+def _render_receipt(mode: str, mission_id: Optional[str], who: str, rdd: str,
+                    action: str, deliverable: str, note: str = "") -> str:
+    """The DISPOSITION block — the reply every letter earns. It states what was
+    done with the letter; it never promises what will be done with the work."""
+    lines = [
+        f"DISPOSITION — {mode}",
+        f"WHO:         {who or '—'}",
+        f"RDD:         {rdd or '—'}",
+        f"ACTION:      {action or '—'}",
+        f"DELIVERABLE: {deliverable or '—'}",
+        f"TICKET:      {mission_id or '—'}",
+    ]
+    if note:
+        lines.append(f"NOTE:        {note}")
+    return "\n".join(lines)
+
+
+# ── thread ↔ ticket linkage ────────────────────────────────────────────────
+
+def _thread_index_load() -> dict:
+    try:
+        return json.loads(THREAD_INDEX_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def _thread_index_put(thread_id: str, mission_id: str) -> None:
+    if not thread_id or not mission_id:
+        return
+    try:
+        idx = _thread_index_load()
+        idx[thread_id] = mission_id
+        THREAD_INDEX_PATH.parent.mkdir(parents=True, exist_ok=True)
+        THREAD_INDEX_PATH.write_text(json.dumps(idx, indent=2), encoding="utf-8")
+    except Exception as exc:
+        _log({"ts": _now(), "status": "THREAD_INDEX_FAIL", "thread_id": thread_id,
+              "mission_id": mission_id, "detail": f"{type(exc).__name__}: {exc}"})
+
+
+def _thread_index_get(thread_id: str) -> Optional[str]:
+    return _thread_index_load().get(thread_id) if thread_id else None
+
+
+_ALREADY_CLOSED = ("closed", "completed", "complete", "done", "cancelled")
+
+
+def _set_mission_closed(mission_id: str, note: str) -> bool:
+    """Lock the board, mark one mission closed, save (save_board releases the
+    lock). Returns False when the mission does not exist OR is already closed —
+    a receipt must never claim to have closed something it did not.
+
+    The already-closed guard is what keeps a SECOND ack on the same thread
+    honest: the thread index still points at the ticket the thread created, so
+    without this check a follow-up "Thanks" would re-close a finished mission
+    and report that as work. It falls through to "no new work" instead."""
+    if not mission_id:
+        return False
+    from tcd._imports import load_mission_board_sync
+
+    mbs = load_mission_board_sync()
+    fd = mbs.acquire_lock()
+    try:
+        board = mbs.load_board()
+        missions = board.get("missions", board.get("active_missions", []))
+        target = next((m for m in missions if m.get("id") == mission_id), None)
+        if target is None or str(target.get("status", "")).lower() in _ALREADY_CLOSED:
+            mbs.release_lock(fd)
+            return False
+        target["status"] = "closed"
+        target["updated_at"] = _now()
+        target.setdefault("logs", []).append(f"{_now()}: {note}")
+        mbs.save_board(board, fd)
+        return True
+    except Exception:
+        mbs.release_lock(fd)
+        raise
+
+
+def _close_ack_ticket(mission_id: str) -> bool:
+    """ACK closes the ticket it answers — the log line, not a new mission."""
+    return _set_mission_closed(mission_id, "closed by Commander ACK (email C2)")
+
+
+def _close_created_fyi(mission_id: str) -> bool:
+    """FYI is a filed row, not work: created for the record, closed on arrival."""
+    return _set_mission_closed(mission_id, "FYI filed — closed at creation (email C2)")
+
+
+def _create_email_mission(title: str, description: str, priority: str = "P1",
+                          assigned_to: str = "hale", acceptance_criteria: str = "",
+                          deadline_hours: int = 24) -> tuple[str, Optional[str]]:
     """Create a real mission through mission_board_sync's own locked add_mission —
     the one place mission-creation + dedup logic lives (see its docstring). Tagged
-    source="email" so TASKING-mode email tasking is distinguishable on the board
-    from every other origin. Not called for FYI/CC — those create no work.
+    source="email" so email-origin work is distinguishable on the board from every
+    other origin.
+
+    2026-08-08: WHO / RDD / ACTION are now forwarded rather than hardcoded to
+    "unassigned" — assigned_to is a real seat for TASKING/CC, which puts the
+    ticket on the cross-Hale delegation path (add_mission -> delegate_mission).
+    That path is gated: it requires acceptance criteria a second seat can check,
+    a named ground-truth source, and a certifier that differs from the assignee.
+    All three are supplied here, or the letter would produce nothing but a
+    DelegationError.
 
     Goes through tcd._imports.load_mission_board_sync() — the SAME intake path
     core/comms/slack_receiver.py's handle_view_submission() and tcd/writeback.py
@@ -120,7 +333,12 @@ def _create_email_mission(title: str, description: str, priority: str = "P1") ->
     try:
         board = mbs.load_board()
         message, mission_id = mbs.add_mission(
-            board, title, description, priority, assigned_to="unassigned", source="email",
+            board, title, description, priority,
+            assigned_to=assigned_to, source="email",
+            acceptance_criteria=acceptance_criteria,
+            certified_by=_certifier_for(assigned_to),
+            deadline_hours=deadline_hours,
+            ground_truth_sources=list(_GROUND_TRUTH_SOURCES),
         )
         mbs.save_board(board, fd)
         return message, mission_id
@@ -137,41 +355,126 @@ def route_email(
     cc_addr: str = "",
     source: str = "commander_email",
     priority: str = "P1",
+    thread_id: str = "",
+    message_id_id: str = "",
+    previous_mission_id: Optional[str] = None,
 ) -> dict:
-    """Gmail as C2: classify an inbound Commander email into TASKING / FYI / CC
-    and route it accordingly (Commander directive, directive ledger: "I want to
-    use Gmail as a C2 tasking and FYI and CC capability").
+    """Gmail as C2 front desk: classify an inbound Commander email and dispose of
+    it — every letter leaves with a receipt (Round Table 2026-08-08).
 
-    TASKING creates a real mission (source="email", via the locked add_mission
-    path). FYI and CC create NO work — captured to the directive ledger (every
-    Commander message, mandate-eligible) and logged here, nothing more.
+        TASKING / CC — a real mission, WHO=seat, RDD=deadline, ACTION=criteria.
+                       CC creates work too: the Commander's stated intent is that
+                       being copied is being tasked, not merely informed.
+        FYI          — a mission created and closed on arrival: a filed row, not work.
+        ACK          — a solo "Roger."/"Done." closes the ticket it answers
+                       (previous_mission_id, else the thread's ticket) and logs;
+                       with no ticket to close it logs "no new work".
 
-    This is the entry point the inbound sweep should call per message; it does
-    not send any reply — the reply path stays silent until verified, per
-    execute_directive's rule above.
+    Returns the disposition dict, including `receipt` — the DISPOSITION block the
+    sweep sends back threaded. This function still sends nothing itself; the
+    reply path for WORK stays silent until verified, per execute_directive above.
+    A receipt reports the disposition of the letter, never the completion of the
+    work.
     """
     _capture(directive_text, source)
     mode, reason = classify_email_mode(
         subject=subject, body=directive_text, to_addr=to_addr, cc_addr=cc_addr
     )
+    leaf = _leaf_token(thread_id, message_id_id, subject)
+    action = _action_line(subject, directive_text)
     base: dict[str, Any] = {
         "ts": _now(), "source": source, "mode": mode, "reason": reason,
         "subject": (subject or "")[:200], "directive": directive_text[:500],
+        "thread_id": thread_id, "message_id": message_id_id, "leaf_token": leaf,
+        "action": action, "who": "", "rdd": "",
     }
 
-    if mode != MODE_TASKING:
-        # FYI / CC: informational. No mission, no reply — just the record.
+    # ── ACK: closes a ticket, never opens one ─────────────────────────────
+    if _is_ack_only(directive_text):
+        target = previous_mission_id or _thread_index_get(thread_id)
+        closed = False
+        if target:
+            try:
+                closed = _close_ack_ticket(target)
+            except Exception as exc:
+                return _log({**base, "status": FAILED, "mission_id": target,
+                             "receipt": _render_receipt(
+                                 "ACK", target, "—", "—", action,
+                                 "ticket NOT closed", f"{type(exc).__name__}: {exc}"),
+                             "detail": f"ack close failed: {type(exc).__name__}: {exc}"})
+        if closed:
+            return _log({**base, "status": ACKED, "mission_id": target,
+                         "receipt": _render_receipt(
+                             "ACK", target, "—", "—", action,
+                             f"Acknowledged, ticket {target} closed"),
+                         "detail": f"acknowledged — ticket {target} closed"})
         return _log({**base, "status": LOGGED, "mission_id": None,
-                     "detail": f"{mode} — no work created ({reason})"})
+                     "receipt": _render_receipt(
+                         "ACK", None, "—", "—", action,
+                         "logged — no new work",
+                         "no open ticket referenced by this thread"),
+                     "detail": "acknowledgement logged — no ticket referenced, no new work"})
 
     title = (subject or directive_text).strip()[:80] or "(no subject)"
+
+    # ── FYI: filed row, closed at creation ────────────────────────────────
+    if mode == MODE_FYI:
+        try:
+            message, mission_id = _create_email_mission(
+                title, directive_text[:2000], priority,
+                assigned_to="hale", acceptance_criteria=_checkable_criteria(action),
+                deadline_hours=_STANDARD_HOURS,
+            )
+            if mission_id:
+                _close_created_fyi(mission_id)
+        except Exception as exc:
+            return _log({**base, "status": FAILED, "mission_id": None,
+                         "receipt": _render_receipt(
+                             "FYI", None, "—", "—", action, "NOT filed",
+                             f"{type(exc).__name__}: {exc}"),
+                         "detail": f"{type(exc).__name__}: {exc}"})
+        return _log({**base, "status": LOGGED, "mission_id": mission_id,
+                     "receipt": _render_receipt(
+                         "FYI", mission_id, "—", "—", action,
+                         "filed and closed — no work created",
+                         "" if mission_id else message[:160]),
+                     "detail": f"FYI filed ({reason}) — {message}"})
+
+    # ── TASKING / CC: real work, real seat, real suspense ─────────────────
+    who = _pick_seat(subject, directive_text)
+    hours = _deadline_hours(subject, directive_text)
+    rdd = _mission_rdd(hours)
+    criteria = _checkable_criteria(action)
+    base.update({"who": who, "rdd": rdd})
+
     try:
-        message, mission_id = _create_email_mission(title, directive_text[:2000], priority)
+        message, mission_id = _create_email_mission(
+            title, directive_text[:2000], priority,
+            assigned_to=who, acceptance_criteria=criteria, deadline_hours=hours,
+        )
     except Exception as exc:
         return _log({**base, "status": FAILED, "mission_id": None,
+                     "receipt": _render_receipt(
+                         mode, None, who, rdd, action, "NO ticket created",
+                         f"{type(exc).__name__}: {exc}"),
                      "detail": f"{type(exc).__name__}: {exc}"})
 
-    return _log({**base, "status": TASKED, "mission_id": mission_id, "detail": message})
+    if not mission_id:
+        # add_mission blocked an open duplicate. Say so — do not report a ticket
+        # that does not exist, and do not silently create a second one.
+        return _log({**base, "status": LOGGED, "mission_id": None,
+                     "receipt": _render_receipt(
+                         mode, None, who, rdd, action,
+                         "already tracked — no new ticket", message[:160]),
+                     "detail": message})
+
+    _thread_index_put(thread_id, mission_id)
+    return _log({**base, "status": TASKED, "mission_id": mission_id,
+                 "receipt": _render_receipt(
+                     mode, mission_id, who, rdd, action,
+                     f"{mission_id} on the board; {who} verifies against "
+                     f"{_GROUND_TRUTH_SOURCES[0]} by RDD"),
+                 "detail": message})
 
 
 # Commands that cannot falsify anything. AG review 2026-07-29, finding 1: the caller

@@ -481,6 +481,17 @@ try:
             #
             # Wrapped: a classifier fault must never stop the sweep from processing
             # the rest of the inbox.
+            #
+            # ROUND TABLE 2026-08-08 — FRONT DESK: every letter leaves with a
+            # threaded DISPOSITION receipt (WHO / RDD / ACTION / DELIVERABLE),
+            # including acks. Silence was the failure being fixed a second time:
+            # the 2026-07-29 recalibration correctly banned promise language, and
+            # the model then answered nothing at all for anything it could not
+            # finish on the spot. A receipt is neither — it reports what happened
+            # to the LETTER (classified, ticketed, filed, closed), never what will
+            # happen to the WORK. route_email() composes it; the dispatch below
+            # relays it verbatim rather than letting the model re-imagine it.
+            _receipt = ""
             try:
                 from core.comms.directive_executor import route_email
                 _routed = route_email(
@@ -489,9 +500,18 @@ try:
                     to_addr=to_addr,
                     cc_addr=cc_addr,
                     source="commander_email",
+                    thread_id=thread_id or "",
+                    message_id_id=msg_id_header or "",
+                    # previous_mission_id is left None on purpose: route_email
+                    # resolves the thread's own ticket from its thread index,
+                    # which is the only place that linkage is recorded.
                 )
+                _receipt = _routed.get("receipt") or ""
                 log_line(f"   C2 mode={_routed.get('mode')} "
-                         f"mission={_routed.get('mission_id') or '—'}")
+                         f"status={_routed.get('status')} "
+                         f"mission={_routed.get('mission_id') or '—'} "
+                         f"who={_routed.get('who') or '—'} "
+                         f"receipt={'yes' if _receipt else 'no'}")
             except Exception as _exc:
                 log_line(f"   C2 routing failed (non-fatal): "
                          f"{type(_exc).__name__}: {_exc}")
@@ -520,20 +540,41 @@ try:
                 f"Under 150 words. No formal header. No sign-off. No D2M branding."
             )
 
+            # Receipt present → the receipt IS the reply, sent VERBATIM.
+            #
+            # It goes out through dispatch_and_email's --literal-body path, which
+            # skips the model entirely. A "relay this exactly" prompt was the
+            # obvious first cut and it is not good enough: a receipt a model can
+            # restate is a receipt a model can get wrong, and the whole point of
+            # the block is that it says precisely what the machine did. The one
+            # WING line is appended here, not asked for.
+            #
+            # No receipt (route_email raised) → unchanged behaviour: the model
+            # answers under the 2026-07-29 reply policy above.
+            _literal_reply = ""
+            if _receipt:
+                _digest = (wing_ctx.splitlines() or ["Wing state unavailable."])[0]
+                _literal_reply = f"{_receipt}\nWING:        {_digest}"
+
+            _dispatch_cmd = [
+                sys.executable,
+                str(ROOT / "OpsCenter/dispatch_and_email.py"),
+                "--task", f"directive-{ts}",
+                "--output", str(out_file),
+                "--subject", subject or "(no subject)",
+                "--model", "haiku",
+                "--timeout", "120",
+                "--thread-id", thread_id or "",
+                "--in-reply-to", msg_id_header or "",
+            ]
+            if _literal_reply:
+                _dispatch_cmd += ["--literal-body", _literal_reply]
+            else:
+                _dispatch_cmd += ["--prompt", task_prompt]
+
             log_path = ROOT / f"logs/directive_{ts}.log"
             _result = subprocess.run(
-                [
-                    sys.executable,
-                    str(ROOT / "OpsCenter/dispatch_and_email.py"),
-                    "--task", f"directive-{ts}",
-                    "--output", str(out_file),
-                    "--prompt", task_prompt,
-                    "--subject", subject or "(no subject)",
-                    "--model", "haiku",
-                    "--timeout", "120",
-                    "--thread-id", thread_id or "",
-                    "--in-reply-to", msg_id_header or "",
-                ],
+                _dispatch_cmd,
                 stdout=open(log_path, "w"),
                 stderr=subprocess.STDOUT,
                 cwd=str(ROOT),

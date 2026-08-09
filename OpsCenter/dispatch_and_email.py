@@ -26,10 +26,19 @@ Usage:
       --output <output_path> \\
       --prompt <prompt_text> \\
       --subject <reply_subject> \\
+      [--literal-body <exact_text>] \\
       [--thread-id <gmail_thread_id>] \\
       [--in-reply-to <message_id_header>] \\
       [--model haiku|sonnet|opus] \\
       [--timeout 1800]
+
+--literal-body (2026-08-08, Round Table front-desk build): send the supplied
+text VERBATIM and never invoke the model. The email C2 front desk replies to
+every Commander letter with a DISPOSITION receipt whose whole value is that it
+states exactly what the machine did with the letter. A receipt routed through
+a prompt — even "echo this verbatim" — is a receipt the model can re-imagine,
+which is the failure this pipeline exists to fix. Either flag alone is enough;
+--prompt is still required when --literal-body is absent.
 """
 
 import argparse
@@ -241,20 +250,41 @@ def _get_reply(prompt: str, output: str, task: str, model: str) -> str:
     return body
 
 
+def _literal_body(text: str, output: str, task: str) -> str:
+    """Pass-through: the caller already knows the exact words to send, so no
+    model runs. Written to --output like a generated reply so the artifact
+    trail is identical either way."""
+    body = text.strip()
+    out_path = Path(output)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(body, encoding="utf-8")
+    print(f"[LITERAL] {task} — {len(body)} chars, model not invoked")
+    return body
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--task", required=True)
     p.add_argument("--output", required=True)
-    p.add_argument("--prompt", required=True)
+    p.add_argument("--prompt", default="")
     p.add_argument("--subject", required=True)
     p.add_argument("--model", default="haiku")
     p.add_argument("--timeout", type=int, default=DEFAULT_TIMEOUT)
     p.add_argument("--thread-id", default="", dest="thread_id")
     p.add_argument("--in-reply-to", default="", dest="in_reply_to")
+    p.add_argument("--literal-body", default="", dest="literal_body",
+                   help="Send this text verbatim; skips the model entirely.")
     args = p.parse_args()
 
+    if not args.literal_body and not args.prompt:
+        print("[ERR] one of --prompt or --literal-body is required")
+        sys.exit(2)
+
     try:
-        body = _get_reply(args.prompt, args.output, args.task, args.model)
+        if args.literal_body:
+            body = _literal_body(args.literal_body, args.output, args.task)
+        else:
+            body = _get_reply(args.prompt, args.output, args.task, args.model)
     except Exception as e:
         print(f"[ERR] API call failed: {e}")
         sys.exit(1)

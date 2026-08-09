@@ -89,7 +89,7 @@ def save_board(board, fd):
 
 def get_active(board):
     all_missions = board.get("missions", board.get("active_missions", []))
-    return [m for m in all_missions if m.get("status") not in ("completed", "complete", "done", "cancelled")]
+    return [m for m in all_missions if m.get("status") not in ("completed", "complete", "done", "cancelled", "closed")]
 
 
 def find_mission(board, mission_id):

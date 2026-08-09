@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ============================================================
+# RETIRED 2026-08-08 — replaced by run_commander_directive_sweep +
+# directive_executor Round Table flow. Do not extend.
+# ============================================================
 """
 email_c2.py — RELAY v2 Email C2 Engine
 Thunderbird Wing · Dreams2Memories Travel, LLC · 2026-07-02
@@ -757,6 +761,9 @@ def run_once():
 
 
 if __name__ == "__main__":
+    if os.environ.get("THUNDERBIRD_RETIRED_EMAIL") == "1":
+        log.info("RETIRED — THUNDERBIRD_RETIRED_EMAIL=1, skipping poll.")
+        sys.exit(0)
     import argparse
     ap = argparse.ArgumentParser(description="RELAY v2 Email C2 Engine")
     ap.add_argument("--once", action="store_true", default=True,

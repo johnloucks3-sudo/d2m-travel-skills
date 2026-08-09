@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 # ============================================================
+# RETIRED 2026-08-08 — replaced by run_commander_directive_sweep +
+# directive_executor Round Table flow. Do not extend.
+# ============================================================
+# ============================================================
 # ⚠️  PROTECTED FILE — THUNDERBIRD WING STANDING ORDER
 # ============================================================
 # DO NOT MODIFY this file without explicit authorization from
@@ -473,5 +477,8 @@ def mark_read(msg_id: str) -> bool:
 
 
 if __name__ == "__main__":
+    if os.environ.get("THUNDERBIRD_RETIRED_EMAIL") == "1":
+        logging.info("[EMAIL INGEST] RETIRED — THUNDERBIRD_RETIRED_EMAIL=1, skipping poll.")
+        sys.exit(0)
     Path("/home/john/Thunderbird/OpsCenter/logs").mkdir(parents=True, exist_ok=True)
     check_for_tasks()
