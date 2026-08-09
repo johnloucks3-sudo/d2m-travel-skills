@@ -47,7 +47,7 @@ def _delegation_seats():
     lazy import so a bare CLI run (no repo root on sys.path) still creates
     persona-name / unassigned missions normally — those never touch this set."""
     try:
-        from core.relay.task_delegation import SEATS
+        from core.relay.delegation import SEATS
         return SEATS
     except Exception:
         return ("CC", "OC", "AG")
@@ -413,7 +413,7 @@ def add_mission(board, title, description="No description", priority="P0", assig
             new_mission["deadline"] = (
                 datetime.now(timezone.utc) + timedelta(hours=deadline_hours)
             ).isoformat()
-        from core.relay.delegation_wiring import delegate_mission
+        from core.relay.delegation import delegate_mission
         delegate_mission(new_mission, from_seat=from_seat, task_type=task_type)
         board.setdefault("missions", []).append(new_mission)
         return (
@@ -474,7 +474,7 @@ def cmd_delegate(board, arg_string):
     ground_truth = [s.strip() for s in fields[6].split(",") if s.strip()] if len(fields) > 6 and fields[6] else []
 
     try:
-        from core.relay.delegation_wiring import DelegationError
+        from core.relay.delegation import DelegationError
     except ImportError:
         DelegationError = Exception
     try:
@@ -849,7 +849,7 @@ def cmd_complete(board, mission_id, human_override=False):
     # untouched by this branch.
     if mission.get("assigned_to") in _delegation_seats() and mission.get("acceptance_criteria"):
         try:
-            from core.relay.delegation_wiring import certify_mission_and_record
+            from core.relay.delegation import certify_mission_and_record
             r = certify_mission_and_record(
                 mission_id,
                 mission.get("assigned_to", ""),

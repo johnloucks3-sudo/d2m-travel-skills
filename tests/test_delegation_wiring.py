@@ -24,7 +24,7 @@ import core.hale_bus.hale_bus_write as bus_write  # noqa: E402
 import core.hale_bus.c2_fabric_read as fabric_read  # noqa: E402
 import core.relay.delegation_wiring as wiring  # noqa: E402
 import core.silver.gate as silver_gate  # noqa: E402
-from core.relay.task_delegation import route_task, CC, OC, AG  # noqa: E402
+from core.relay.delegation import route_task, CC, OC, AG  # noqa: E402
 
 # Every delegation now runs Silver's mandatory front frame, which requires a
 # named ground-truth source (2026-07-16 directive). Tests use a real repo file.

@@ -157,10 +157,21 @@ def build_delegation_ticket(
 
 
 def relay_notify_handoff(ticket: DelegationTicket, from_seat: str = CC) -> Optional[int]:
-    """OPTIONAL convenience: emit the hand-off notification via the existing,
+    """DEPRECATED (W6) — superseded by core.relay.delegation.notify_handoff(),
+    the single canonical helper. Kept as a thin alias so any caller re
+    untouched base module keeps working without a change.
+
+    OPTIONAL convenience: emit the hand-off notification via the existing,
     already-coded relay primitive. Read-only use of wing_relay. Returns the
     Telegram message_id, or None if the relay is unavailable (e.g. no token).
     OC<->AG must hub through CC per relay topology — pass from_seat=CC for those."""
+    try:
+        from core.relay.delegation import notify_handoff
+        return notify_handoff(from_seat, ticket.assigned_to, ticket.title,
+                              ticket.id, ticket.acceptance_criteria,
+                              ticket.delegation_rationale)
+    except Exception:
+        pass
     try:
         from core.relay.wing_relay import relay_handoff
     except Exception:

@@ -45,7 +45,7 @@ from typing import Optional
 import re
 
 from core.silver.gate import silver_front_frame, run_gate
-from core.relay.task_delegation import SEATS
+from core.relay.delegation import SEATS
 
 # Commander directive 2026-07-18: **CROSS-HALE COORDINATION IS MANDATORY.** For a
 # seat-executed sheet this is a hard close gate, not a goal: the sheet cannot
@@ -137,7 +137,7 @@ def _mirror_bus(sss: dict, stage: str, detail: str, *, confirmed: bool = False) 
     if not _opr_seat(sss):
         return
     try:
-        from core.relay.delegation_wiring import mirror_stage_to_bus, LIFECYCLE_STAGES
+        from core.relay.delegation import mirror_stage_to_bus, LIFECYCLE_STAGES
         # Map SSS stages onto the delegation bus vocabulary where they differ.
         bus_stage = {
             "drafted": "proposed", "in_coordination": "proposed",
