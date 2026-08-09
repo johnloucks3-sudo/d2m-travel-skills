@@ -68,6 +68,15 @@ def envelope_line(card, body) -> tuple[bool, str]:
         v = card["vote"]
         bits.append(f"<b>sealed-ballot:</b> \"{esc(str(v.get('q')))[:60]}\""
                     f"{'' if v.get('sealed', True) else ' (open)'}")
+    if card.get("quorum"):
+        q = card["quorum"]
+        req = [str(x).upper() for x in q.get("required", [])]
+        bits.append(f"quorum: <span style=\"color:#58a6ff\">req {esc(', '.join(req))} "
+                    f"&middot; t&lt;={q.get('timeout_s', 45)}s &middot; {esc(str(q.get('on_timeout', 'proceed')))}</span>")
+    if card.get("fanout"):
+        f_ = card["fanout"]
+        bits.append(f"fanout: <span style=\"color:#a371f7\">{esc(str(f_.get('model_set')))}"
+                    f" matrix={f_.get('matrix', False)}</span>")
     if card.get("pairing"):
         p = card["pairing"]
         bits.append(f"pairing: {esc(str(p.get('generator')))}→{esc(str(p.get('validator')))}")

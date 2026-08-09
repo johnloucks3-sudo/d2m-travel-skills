@@ -69,7 +69,17 @@ def route_task(
         "ci_probe", "scheduled_sweep", "data_pull",
     }
     # 2. Deterministic ops/mechanical, no judgment → OC (DeepSeek v4, JET default)
+    #         with an H2 budget override: OC-first, but if OC headroom is gone,
+    #         fall to AG (Gemini meter) before touching the Claude MAX bucket.
     if task_type in mechanical:
+        try:
+            from core.relay.engine_limits import check_headroom
+            oc = check_headroom("OC")
+            pct = oc.get("headroom_pct", 0) if isinstance(oc, dict) else 0
+            if pct < 15:
+                return RouteDecision(AG, "OC headroom low — AG fallback (no unexpected Claude spend)")
+        except Exception:
+            pass  # meter unavailable → stay OC-first (safe default, $0)
         return RouteDecision(OC, "deterministic ops/mechanical — OC (DeepSeek v4) JET default")
 
     # Claude-optional work → AG. AG runs on the Google meter (Gemini 3.5 Flash /
