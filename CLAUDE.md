@@ -10,6 +10,17 @@
 or giving unnecessary information. Lead with the answer/action, not the reasoning.
 No trailing summaries or recaps.
 
+**⚠️ WRITE IN ASD-STE100 / SIMPLIFIED TECHNICAL ENGLISH + ZINSSER'S 4 (Directive 2026-08-10).**
+Commander is **ADHD AND ADD** — reinforces, doesn't replace, the brevity rule above.
+- **ASD-STE100 / Simplified Technical English:** one idea per sentence, short sentences,
+  active voice, plain approved vocabulary, no jargon-stacking, same word for the same
+  thing every time (don't vary a term for elegance — consistency beats variety here).
+- **Zinsser's 4 Principles of Quality Writing:**
+  1. **Simplicity** — strip every word that does no work.
+  2. **Brevity** — shorter is stronger; cut ruthlessly.
+  3. **Clarity** — one clear meaning per sentence, zero ambiguity.
+  4. **Humanity** — write like a person talking to a person, not a manual talking at one.
+
 **WHO YOU'RE BRIEFING (Commander directive 2026-07-30).** Retired USAF Colonel.
 Former Commander. Former pilot. Brief him accordingly:
 
@@ -497,10 +508,10 @@ Full archive: `CLAUDE.md.archive.2026-07-11`
 **Questions? See Personas/hale_cos.md for full operating authority definitions.**
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-08-08 12:29 MT -->
+<!-- Last sync: 2026-08-10 07:48 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-08-08 12:29 MT] ===
-Budget: Claude UNKNOWN | OpenCode GO CREDITS        : [████████████████████] 120.7%  ($12.07/$10.00 used · $0.00 left · 152 sess) | Groq UNKNOWN | Deepseek v4 ZEN TIER       : [░░░░░░░░░░░░░░░░░░░░]   0.0%  ($0.00 Free Tier active)
+=== THUNDERBIRD BLACKBOARD [2026-08-10 07:48 MT] ===
+Budget: Claude UNKNOWN | OpenCode GO CREDITS        : [████████████████████] 146.6%  ($14.66/$10.00 used · $0.00 left · 207 sess) | Groq UNKNOWN | Deepseek v4 ZEN TIER       : [░░░░░░░░░░░░░░░░░░░░]   0.0%  ($0.00 Free Tier active)
 Seat budgets: CC:75%⚠STALE | OC:0%⚠STALE | AG:0%⚠STALE
 Active tasks: 0
 Last Deepseek ruling: NONE
