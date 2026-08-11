@@ -137,6 +137,26 @@ def scan(units: list[str], window_days: int) -> dict:
     return {"scanned_at": now, "window_days": window_days, "units": results}
 
 
+def _escalate_flagged(scan_result: dict) -> list[str]:
+    """Escalate every FLAGGED unit to the existing generic_remediate
+    notification path. Purely additive — the detector's state-file write
+    and exit-code signal are unchanged; this just makes the flag DO
+    something instead of being a silent ledger entry."""
+    from scripts.generic_remediate import _escalate as _gr_escalate
+
+    escalated: list[str] = []
+    for unit, info in scan_result["units"].items():
+        if info["FLAGGED"]:
+            reason = (
+                f"restart-flap: {info['starts_24h']} starts/24h "
+                f"(max {info['threshold_24h']}), {info['starts_7d']} "
+                f"starts/7d (max {info['threshold_7d']})"
+            )
+            _gr_escalate(unit, reason)
+            escalated.append(unit)
+    return escalated
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--unit", help="scan a single unit instead of auto-discovering")
@@ -146,6 +166,10 @@ def main():
 
     units = [args.unit] if args.unit else _discover_units()
     report = scan(units, args.window_days)
+
+    escalated = _escalate_flagged(report)
+    if escalated:
+        print(f"Escalated {len(escalated)} flagged unit(s): {escalated}")
 
     STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
     STATE_FILE.write_text(json.dumps(report, indent=2))
