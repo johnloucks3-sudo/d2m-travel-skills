@@ -256,6 +256,17 @@ def contact_ag(
                                 oc_written = True
                             except Exception:
                                 oc_written = False
+                        if oc_rc != 0:
+                            # Non-exception OC failure: log real stderr/returncode so a
+                            # silent rc != 0 (empty deliverable) is diagnosable later.
+                            try:
+                                import datetime
+                                with open(log_path, "a", encoding="utf-8") as f:
+                                    f.write(f"\n## [{datetime.datetime.now(datetime.timezone.utc).isoformat()}] "
+                                            f"OC-FIRST DISPATCH FAILED (rc={oc_rc})\n")
+                                    f.write(f"**From:** {from_seat} · **stderr:** {oc_err}\n")
+                            except Exception:
+                                pass
                         return {"ok": oc_rc == 0, "returncode": oc_rc, "model": model,
                                 "stdout": oc_out, "stderr": oc_err,
                                 "deliverable_path": deliverable_path,

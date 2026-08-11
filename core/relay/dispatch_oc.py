@@ -31,6 +31,7 @@ def dispatch_to_oc(
     task_type: str = "",
     priority: str = "P1",
     sla_hours: float = 1.0,
+    deliverable_path: Optional[str] = None,
 ) -> dict:
     """Queue a task on the OC lane and record it as outstanding. No change
     to scripts/oc_worker.py's poll loop — this only writes to the same
@@ -55,6 +56,7 @@ def dispatch_to_oc(
     tid = bb.add(
         title=task[:120], description=description, lane="oc",
         priority=priority, task_id=ticket_id,
+        deliverable_path=deliverable_path,
     )
     due = (datetime.now(timezone.utc) + timedelta(hours=sla_hours)).isoformat()
     record_outcome(

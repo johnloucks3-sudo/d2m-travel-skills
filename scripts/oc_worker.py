@@ -229,8 +229,33 @@ def run_loop(once: bool = False, dry_run: bool = False) -> None:
                     bb.complete(task["id"], result=result)
                     log.info(f"Completed: {task['id']} | {result[:80]}")
                 else:
-                    bb.fail(task["id"], reason=result)
-                    log.warning(f"Failed: {task['id']} | {result[:80]}")
+                    # Timeout case (only): a deliverable written right at the kill
+                    # boundary can be legitimately complete even though the process
+                    # was killed on timeout. Verify the file exists AND was written
+                    # after the task was claimed before marking it failed.
+                    timeout_boundary = result == f"timeout after {TASK_TIMEOUT}s"
+                    dl_path = task.get("deliverable_path")
+                    deliverable_proves_out = False
+                    if timeout_boundary and dl_path:
+                        try:
+                            dl = Path(dl_path)
+                            claimed_at = task.get("claimed_at")
+                            if dl.is_file() and claimed_at:
+                                claimed_ts = datetime.fromisoformat(claimed_at)
+                                dl_mtime = datetime.fromtimestamp(dl.stat().st_mtime, tz=timezone.utc)
+                                deliverable_proves_out = dl_mtime >= claimed_ts
+                        except Exception:
+                            deliverable_proves_out = False
+                    if deliverable_proves_out:
+                        bb.complete(
+                            task["id"],
+                            result=(f"completed near timeout boundary (killed at {TASK_TIMEOUT}s) "
+                                    f"-- deliverable verified present and fresh at {dl_path}"),
+                        )
+                        log.info(f"Completed near timeout boundary: {task['id']} | deliverable fresh")
+                    else:
+                        bb.fail(task["id"], reason=result)
+                        log.warning(f"Failed: {task['id']} | {result[:80]}")
 
                 write_status({"state": "running", "last_task": task["id"], "last_result": result[:80]})
 

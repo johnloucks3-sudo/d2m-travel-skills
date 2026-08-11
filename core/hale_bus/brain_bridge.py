@@ -131,6 +131,7 @@ class BrainBridge:
         depends_on: Optional[list] = None,
         priority: str = "P1",
         task_id: Optional[str] = None,
+        deliverable_path: Optional[str] = None,
     ) -> str:
         """Add a task. Returns task id."""
         assert lane in VALID_LANES, f"lane must be one of {VALID_LANES}"
@@ -149,6 +150,7 @@ class BrainBridge:
             "claimed_at": None,
             "completed_at": None,
             "result": None,
+            "deliverable_path": deliverable_path,
             "created_at": _now(),
         }
         board["meta"]["last_updated"] = _now()
