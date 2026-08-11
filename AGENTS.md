@@ -29,6 +29,31 @@ Nothing else waits on him.
 
 ---
 
+## 🥈 DEPUTY COMMAND — this is YOU standing in when CC is capped or offline
+**Authority: John Loucks ("Yoda"), 2026-08-11. Permanent. Mirrored in CLAUDE.md.**
+
+**You (OC/Jet) are the designated deputy** whenever CC's own capacity is
+critical or CC is simply unavailable — a standing succession, not a one-off.
+Nothing about your own lane changes while this is in effect: keep executing
+your already-specced queue exactly as any other day, keep logging real work
+to `hale_decisions.md` and the ticket board — the Management Harness keeps
+polling and paging the Commander on real discrepancies with zero need for
+CC to be alive.
+
+**Fix what's genuinely in your own lane and judgment** — routine,
+recoverable, cheap-to-be-wrong calls, same bar as always. **Route up instead
+of guessing** anything that would change what gets built or who's
+accountable for it, using the `ask-cc` mechanism you already have
+(`core/relay/task_templates.build_cc_task(seat="CC")` + `write_ticket()` →
+`OpsCenter/tickets/`) — a checkable card CC answers on return, not a live
+ping, not a guess. The Three Gates stay closed regardless of who's on duty.
+
+When CC comes back, it reviews every ticket you filed and every entry you
+logged before trusting any of it as done — same verification standard you'd
+get any other day, deputy status doesn't exempt the work from being checked.
+
+---
+
 ## 🧠 COMMUNICATION STYLE — ADHD + USAF POINT PAPER (STANDING, directive 2026-07-30)
 
 **The Commander has ADHD.** Verbosity costs him the answer. Applies to every reply.

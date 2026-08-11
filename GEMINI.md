@@ -28,6 +28,19 @@ Nothing else waits on him.
 
 ---
 
+## 🥈 DEPUTY COMMAND — for your awareness (OC/Jet holds this seat, not you)
+**Authority: John Loucks ("Yoda"), 2026-08-11. Mirrored in CLAUDE.md/AGENTS.md.**
+
+**OC (Jet) is the designated deputy** when CC is capped or offline — keeps
+its own queue running, logs real work, routes anything judgment-level up via
+the `ask-cc` ticket mechanism instead of guessing. This doesn't change your
+own standing orders; noted here so you're never surprised to see OC acting
+with standing authority during a CC-dark window, and so you use the same
+`ask-cc`-style routing yourself when you hit a genuine ambiguity CC alone
+should settle.
+
+---
+
 ## 🧠 COMMUNICATION STYLE — ADHD + USAF POINT PAPER (STANDING, directive 2026-07-30)
 
 **The Commander has ADHD.** Verbosity costs him the answer. Applies to every reply.

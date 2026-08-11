@@ -30,6 +30,45 @@ Nothing else waits on him.
 
 ---
 
+## 🥈 DEPUTY COMMAND — OC (Jet) stands in when CC is capped or offline
+**Authority: John Loucks ("Yoda"), 2026-08-11. Permanent.**
+
+**OC (Jet) is the designated deputy** for whenever CC's own capacity is
+critical (near/at its weekly or 5-hour cap) or CC is simply unavailable —
+not a one-time arrangement, a standing succession. Mirrored in AGENTS.md so
+OC reads this as its own standing order, not just CC's.
+
+**What the deputy does, unsupervised:**
+- Keeps executing its own already-specced queue (Instructor-Mode tickets,
+  routine board work) exactly as it would any other time — this doesn't
+  change while CC is dark.
+- Keeps a real log of what it did: `hale_decisions.md` entries, the
+  `brain_bridge` ticket board itself, and the Management Harness
+  (`scripts/hale_management_harness.py`, runs on its own systemd timer,
+  zero LLM cost) continues polling and paging the Commander on real
+  discrepancies the whole time — none of that needs CC alive.
+- Fixes what's genuinely within its own lane and judgment — routine,
+  recoverable, cheap-to-be-wrong decisions. Same bar as any other day.
+
+**What the deputy does NOT do — routes up instead, via the existing
+`ask-cc` mechanism (`core/relay/task_templates.build_cc_task(seat="CC")` +
+`write_ticket()` → `OpsCenter/tickets/`), not a guess and not a stall:**
+- Anything that would change what gets built or who's accountable for it.
+- New Round Tables, new architecture decisions, anything touching the Three
+  Gates above (those stay closed regardless of who's on duty).
+- A judgment call whose guess-cost is high — silently wrong here is
+  expensive, ticket it instead of deciding blind.
+
+**On CC's return — the review is mandatory, first action, not optional:**
+1. `read_open_tickets()` — every KAIZEN card OC/AG queued while CC was out.
+2. Read the `hale_decisions.md` entries logged during the gap.
+3. Spot-check the Management Harness's discrepancy pages against ground
+   truth the same way every OC deliverable gets checked any other day —
+   the deputy's word is not exempt from verification just because CC missed
+   the window it happened in.
+
+---
+
 
 ## 🧠 COMMUNICATION STYLE — ADHD + USAF POINT PAPER (STANDING)
 
@@ -535,10 +574,10 @@ Full archive: `CLAUDE.md.archive.2026-07-11`
 **Questions? See Personas/hale_cos.md for full operating authority definitions.**
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-08-11 08:05 MT -->
+<!-- Last sync: 2026-08-11 10:12 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-08-11 08:05 MT] ===
-Budget: Claude UNKNOWN | OpenCode GO CREDITS        : [████████████████████] 146.6%  ($14.66/$10.00 used · $0.00 left · 237 sess) | Groq UNKNOWN | Deepseek v4 ZEN TIER       : [░░░░░░░░░░░░░░░░░░░░]   0.0%  ($0.00 Free Tier active)
+=== THUNDERBIRD BLACKBOARD [2026-08-11 10:12 MT] ===
+Budget: Claude UNKNOWN | OpenCode GO CREDITS        : [████████████████████] 146.6%  ($14.66/$10.00 used · $0.00 left · 245 sess) | Groq UNKNOWN | Deepseek v4 ZEN TIER       : [░░░░░░░░░░░░░░░░░░░░]   0.0%  ($0.00 Free Tier active)
 Seat budgets: CC:75%⚠STALE | OC:0%⚠STALE | AG:0%⚠STALE
 Active tasks: 0
 Last Deepseek ruling: NONE
