@@ -100,6 +100,18 @@ SELF_ALERTING_UNITS = frozenset({
     "hale-credential-check.service",
     "d2m-factbook-refresh.service",  # OAuth token missing (structural), restart can't fix
     "drkonqi-coredump-pickup.service",  # KDE crash pickup; exits 1 because drkonqi-coredump-launcher@.service is intentionally masked (commit 0252479e0). Restart can't fix — structural.
+    # Found 2026-08-10: a per-unit <unit>.service.d/no-remediate.conf with
+    # `OnFailure=` (empty) does NOT actually clear the fleet-wide
+    # service.d/onfailure-remediate.conf hook -- `systemctl --user cat`
+    # confirms the generic drop-in is merged AFTER the per-unit one and wins,
+    # so OnFailure= stays pointed at thunderbird-generic-remediate@%N.service
+    # regardless. d2m-factbook-refresh.service above is unaffected only
+    # because it's ALSO listed here (belt-and-suspenders); its sibling
+    # no-remediate.conf has silently never worked. This exclusion set is the
+    # only mechanism proven live (see LANE1_OWNED_UNITS docstring, verified
+    # 2026-07-09 against thunderbird-telegram-gw.service) -- do not rely on a
+    # per-unit OnFailure= drop-in to opt a unit out.
+    "elon-proposal-weekly-review.service",  # runaway retry pattern 2026-08-10 (burst 17:26-17:58 then ~20min cadence through 20:34, no confirmed direct trigger) — opt out of auto-remediation regardless of root cause; weekly OnCalendar review is not mission-critical
 })
 
 logging.basicConfig(
@@ -231,6 +243,46 @@ def remediate(unit: str) -> int:
     # onfailure-remediate.conf drop-in itself.
     if unit.startswith("thunderbird-generic-remediate"):
         logger.info("%s: self-referential remediation guard — skipping", unit)
+        return 0
+
+    # FIXED 2026-08-08: transient D-Bus activation units (dbus-:1.1-<name>@<n>)
+    # are created/destroyed by dbus-broker on demand — NOT by this user manager.
+    # "reset-failed + start" here re-activates the D-Bus service, which (when the
+    # activator environment can't satisfy it, e.g. no live graphical session)
+    # fails again and re-triggers the OnFailure drop-in: an unbounded cascade
+    # (observed live: dbus-:1.1-org.kde.kded6@40..@53 in <2min, each with a
+    # fresh instance number). The correct disposition for a failed transient
+    # activation unit is to let the D-Bus activator retry it on demand, never to
+    # restart it here.
+    if unit.startswith("dbus-"):
+        note = "transient D-Bus activation unit — not remediating (activator retries on demand)"
+        logger.info("%s: %s", unit, note)
+        _log_remediation_plan(unit, "unverified", note)
+        return 0
+
+    # FIXED 2026-08-08: graphical-session-only KDE units (plasma-kwin_x11,
+    # plasma-plasmashell) require a DISPLAY/XAUTHORITY plasma seat that does not
+    # exist in this headless user session. (H0) -> Qt xcb fatal -> ABRT -> the
+    # unit's own Restart=on-failure exhausts StartLimitBurst -> start-limit-hit,
+    # and THIS engine's "reset-failed + start" (fired by the fleet-wide
+    # OnFailure drop-in) compounds the loop, observed live immediately before
+    # this change. Restarting these units is futile; the desktop session driver
+    # (startplasma) starts them itself when a real graphical session exists.
+    # FIXED 2026-08-11: xdg-desktop-portal-gtk is the same class — a GTK portal
+    # that hard-requires DISPLAY + a valid XAUTHORITY cookie. This user manager
+    # holds a STALE XAUTHORITY=/tmp/xauth_aEAynw (file wiped at boot) and no live
+    # graphical seat (session State=closing). Its dbus-activated start fails with
+    # "cannot open display: :0" and this engine's reset-failed+start looped it
+    # every ~5 min. Leave it for the real session to start.
+    GRAPHICAL_SESSION_ONLY_UNITS = frozenset({
+        "plasma-kwin_x11.service",
+        "plasma-plasmashell.service",
+        "xdg-desktop-portal-gtk.service",
+    })
+    if unit in GRAPHICAL_SESSION_ONLY_UNITS:
+        note = "graphical-session-only KDE unit — no live desktop session; restart is futile, leaving unit for real session start"
+        logger.info("%s: %s", unit, note)
+        _log_remediation_plan(unit, "unverified", note)
         return 0
 
     if _is_lane1_owned(unit):

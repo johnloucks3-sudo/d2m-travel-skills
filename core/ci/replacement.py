@@ -63,3 +63,29 @@ def needs_replacement(history: list[dict], sla_ms: int, policy: dict,
         return (True, f"sustained slowness — {over} of last 5 runs over {sla_ms}ms SLA")
 
     return (False, "within thresholds")
+
+
+def judge_replacement(component: dict, reason: str) -> dict:
+    """Judgment-agent scorer (RT-CEAO-2). Decides whether a replacement trigger
+    that already fired should auto-replace or escalate. Deterministic for v1;
+    the LLM-as-judge middle band is v1.1.
+    IMPACT = 0.35*criticality + 0.25*blast_radius + 0.20*rebuild_cost + 0.20*(1 - degraded_mode_exists)
+    """
+    criticality = 1.0 if component.get("client_affecting") else 0.3
+    blast_radius = min(1.0, len(component.get("wraps", [])) / 5.0)
+    rebuild_cost = 0.7 if component.get("spend_gate") else 0.3
+    degraded_mode_exists = 1.0 if component.get("fallback") else 0.0
+    impact = round(
+        0.35 * criticality + 0.25 * blast_radius + 0.20 * rebuild_cost
+        + 0.20 * (1 - degraded_mode_exists), 3)
+
+    if impact > 0.70 or component.get("spend_gate"):
+        action = "ESCALATE_REPLACE"
+    elif impact < 0.30:
+        action = "AUTO_REPLACE"
+    else:
+        action = "ESCALATE_REPLACE"
+
+    return {"impact": impact, "action": action, "reason": reason,
+            "criticality": criticality, "blast_radius": blast_radius,
+            "rebuild_cost": rebuild_cost, "degraded_mode_exists": degraded_mode_exists}

@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from core.ci.registry import load_registry, razor_sharp_status, DEFAULT_REGISTRY
-from core.ci.replacement import needs_replacement
+from core.ci.replacement import needs_replacement, judge_replacement
 
 logger = logging.getLogger(__name__)
 
@@ -71,7 +71,7 @@ def _try_repair(skill_id: str, probe_cmd: str, client_affecting: bool = False) -
         # Both live repair paths (this + the heartbeat) go through rapid_repair so
         # the tier policy has ONE source of truth. Lazy import to keep ci_health
         # importable even if the warehouse has a transient import problem.
-        from core.ci.repairs.rapid_repair import _load_policy
+        from core.ci.repairs.rapid_repair import _load_policy, SUPPRESSED_AUTO_SKILLS
         from core.ci.repairs.schema import run_capability, Decision, REGISTRY
         # Ensure capabilities are registered (clusters register on import).
         import core.ci.repairs.rapid_repair  # noqa: F401  (imports all clusters)
@@ -79,6 +79,15 @@ def _try_repair(skill_id: str, probe_cmd: str, client_affecting: bool = False) -
     except Exception as e:
         logger.warning("Safe-repair modules unavailable: %s", e)
         return False, f"repair import failed: {e}"
+
+    if skill_id in SUPPRESSED_AUTO_SKILLS:
+        # RT-CENTRAV-SPAWN 2026-08-09: this path (sweep() -> _try_repair()) was
+        # calling run_capability() directly, bypassing rapid_repair.run_all_red()'s
+        # SUPPRESSED_AUTO_SKILLS gate entirely. It ran centrav_session_relogin.py
+        # from ci-sweep.timer (daily 06:00) even after the 2026-08-07 kill order.
+        logger.info("[CI-REPAIR] %s SUPPRESSED — Commander 2026-08-07 killed airfare "
+                    "keep-alives except Skybird. No auto-repair.", skill_id)
+        return False, "suppressed"
 
     if skill_id not in REGISTRY:
         logger.warning("[CI-REPAIR] %s RED but NO RepairSpec — no autonomous action", skill_id)
@@ -221,6 +230,7 @@ def sweep(registry_path: Path = DEFAULT_REGISTRY, update_verified: bool = True) 
                         "keeper": s["keeper"], "ci_tool": s["ci_tool"],
                         "fallback": s["fallback"], "replace_reason": replace_reason,
                         "active_workaround": s.get("active_workaround")})
+        results[-1]["judgment"] = judge_replacement(s, replace_reason or "")
     if update_verified:
         with open(registry_path, "w") as f:
             fcntl.flock(f, fcntl.LOCK_EX)
