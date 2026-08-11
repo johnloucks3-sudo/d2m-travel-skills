@@ -106,6 +106,21 @@ async def _search_centrav(origin: str, dest: str, date_str: str) -> dict:
 
             cruise_cb = page.locator("#cruise")
             if await cruise_cb.count():
+                # FIXED 2026-08-11 (diag scripts/_diag_cruise_checkbox.py): the
+                # #cruise container SPAN.fare-type...d-none is display:none when
+                # the profile is not signed in, so the checkbox has a zero-size
+                # rect and force=True cannot click it. Reveal the container, then
+                # check.
+                await page.evaluate("""() => {
+                    const el = document.getElementById('cruise');
+                    if (!el) return;
+                    let p = el.parentElement;
+                    while (p && p.tagName !== 'BODY') {
+                        if (p.classList.contains('d-none')) p.classList.remove('d-none');
+                        p = p.parentElement;
+                    }
+                }""")
+                await page.wait_for_timeout(300)
                 await cruise_cb.check(force=True)
 
             await page.wait_for_timeout(500)

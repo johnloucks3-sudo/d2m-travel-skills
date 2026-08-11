@@ -9,6 +9,9 @@ import subprocess
 import time
 from datetime import datetime
 
+from dotenv import load_dotenv
+from openai import OpenAI
+
 FOLLOW_LIST = os.path.expanduser("~/Thunderbird/x_osint_follow_list.txt")
 OUTPUT_DIR = os.path.expanduser("~/Thunderbird/output")
 PROFILE = "x_twitter"
@@ -51,8 +54,56 @@ def fmt_briefing(account_data):
     return "\n".join(lines)
 
 
+def grok_osint_sweep(query: str, max_results: int = 10) -> dict:
+    """Run a session-cookie-free OSINT / world-intel query through Grok (xAI Responses API).
+
+    Uses Grok's native web_search and x_search tools for AI initiatives, world events,
+    cruise/travel industry news, and competitor moves. No X auth_token required — no
+    session-cookie maintenance, unlike the existing handle-scrape tool. Citations are
+    extracted from the response message annotations (url_citation items) when the API
+    surfaces them.
+
+    Args:
+        query: Free-text intel query (e.g. "latest luxury cruise industry news").
+        max_results: Maximum number of citations to return (default 10).
+
+    Returns:
+        dict with keys: query, output_text, citations (list of {"url", "title"}),
+        timestamp (ISO 8601).
+    """
+    load_dotenv(os.path.expanduser("~/Thunderbird/.env"))
+    from openai.types.responses import ToolSearchToolParam, WebSearchToolParam
+
+    client = OpenAI(api_key=os.environ["XAI_API_KEY"], base_url="https://api.x.ai/v1")
+    resp = client.responses.create(
+        model="grok-4.5",
+        input=[{"role": "user", "content": query}],
+        tools=[
+            WebSearchToolParam(type="web_search"),
+            ToolSearchToolParam(type="x_search"),
+        ],
+    )
+    citations = []
+    for item in resp.output:
+        if getattr(item, "type", None) == "message":
+            for block in getattr(item, "content", []):
+                for ann in getattr(block, "annotations", []) or []:
+                    if getattr(ann, "type", None) == "url_citation":
+                        citations.append({
+                            "url": getattr(ann, "url", ""),
+                            "title": getattr(ann, "title", ""),
+                        })
+    return {
+        "query": query,
+        "output_text": resp.output_text,
+        "citations": citations[:max_results],
+        "timestamp": datetime.now().isoformat(),
+    }
+
+
 def register_x_osint_tools(mcp):
     """Register X/OSINT tools with the MCP server."""
+    _grok_sweep = grok_osint_sweep
 
     @mcp.tool()
     async def scrape_x_osint_feed(

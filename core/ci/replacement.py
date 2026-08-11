@@ -65,6 +65,21 @@ def needs_replacement(history: list[dict], sla_ms: int, policy: dict,
     return (False, "within thresholds")
 
 
+def record_failure_to_graph(event: dict) -> None:
+    """Append one failure event as a JSON line to intel/failure_graph_events.jsonl.
+    Feeds graphify's knowledge-graph pipeline. Never raises — the judgment
+    decision must not break because logging failed."""
+    try:
+        import json
+        from pathlib import Path
+        path = Path(__file__).resolve().parents[2] / "intel" / "failure_graph_events.jsonl"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "a", encoding="utf-8") as fh:
+            fh.write(json.dumps(event) + "\n")
+    except Exception:
+        pass
+
+
 def judge_replacement(component: dict, reason: str) -> dict:
     """Judgment-agent scorer (RT-CEAO-2). Decides whether a replacement trigger
     that already fired should auto-replace or escalate. Deterministic for v1;
@@ -85,6 +100,10 @@ def judge_replacement(component: dict, reason: str) -> dict:
         action = "AUTO_REPLACE"
     else:
         action = "ESCALATE_REPLACE"
+
+    record_failure_to_graph({"component": component.get("id", "unknown"),
+                             "reason": reason, "action": action, "impact": impact,
+                             "timestamp": datetime.now(timezone.utc).isoformat()})
 
     return {"impact": impact, "action": action, "reason": reason,
             "criticality": criticality, "blast_radius": blast_radius,
