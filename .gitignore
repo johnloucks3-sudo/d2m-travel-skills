@@ -205,3 +205,5 @@ deploy/camofox/.env
 
 # Trained ML model artifacts — regenerated monthly by demand-predictor-retrain.timer
 core/ml/models/
+Antigravity-x64/antigravity
+Antigravity-x64/resources/bin/language_server
