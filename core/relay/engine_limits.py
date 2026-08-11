@@ -20,11 +20,12 @@ DEFAULT_CAPS = {
 
 DEFAULT_LEDGER_PATH = Path("/home/john/Thunderbird/OpsCenter/engine_usage_ledger.jsonl")
 
-# ── OPENROUTER SPEND GUARD (Commander Directive 2026-08-01) ─────────────────
-# OPENROUTER MUST HAVE A HARD CAP OF $10.00 PER MONTH.
-# All paid OpenRouter model traffic is blocked if monthly spend hits $10.00.
+# ── OPENROUTER SPEND GUARD (Commander Directive 2026-08-01, raised 2026-08-11) ──
+# OPENROUTER HARD CAP: $15.00, confirmed as a real provider-side key limit
+# (OpenRouter's own /api/v1/key reports limit=15.00) -- not just a declared
+# constant. All paid OpenRouter model traffic is blocked if spend hits $15.00.
 # OpenRouter Free Tier models (e.g. x-ai/grok-2:free, deepseek-r1:free) remain $0.00.
-OPENROUTER_MONTHLY_HARD_CAP = 10.00  # USD hard spend ceiling per month
+OPENROUTER_MONTHLY_HARD_CAP = 15.00  # USD hard spend ceiling (provider-enforced)
 
 
 def check_headroom(engine: str = 'AG', **kwargs) -> dict:

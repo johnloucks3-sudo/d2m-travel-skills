@@ -16,8 +16,12 @@ from core.ops.thunderbird_metrics_writer import write_metric
 
 log = logging.getLogger("unified_router")
 
-BLOCKED_ADAPTER_PREFIXES: set[str] = {"openrouter"}
-BLOCKED_COST_POOLS: set[str] = {"openrouter_credits"}
+# Unblocked 2026-08-11: provider-side hard cap confirmed live (OpenRouter's
+# own /api/v1/key endpoint reports limit=15.00, not just "credit happens to be
+# in the account") — the exact precondition the 2026-08-01 re-authorization
+# required before clearing this block. See feedback_never_openrouter memory.
+BLOCKED_ADAPTER_PREFIXES: set[str] = set()
+BLOCKED_COST_POOLS: set[str] = set()
 
 
 def _is_openrouter(adapter: Adapter) -> bool:
@@ -82,7 +86,11 @@ def configure_default_pools():
     cost_gates.configure_pool("max_weekly_haiku", soft_limit=-1, hard_limit=-1)
     cost_gates.configure_pool("max_monthly", soft_limit=-1, hard_limit=-1)
     cost_gates.configure_pool("opencode_native", soft_limit=-1, hard_limit=-1)
-    log.info("All cost pools set to unlimited (Claude MAX + DeepSeek ZEN)")
+    # Real provider-side cap, confirmed live via OpenRouter's own /api/v1/key
+    # (limit=15.00) 2026-08-11 -- soft limit at 75% mirrors the Gemini pool pattern.
+    cost_gates.configure_pool("openrouter_credits", soft_limit=11.25, hard_limit=15.00)
+    log.info("All cost pools set to unlimited (Claude MAX + DeepSeek ZEN); "
+             "openrouter_credits capped at $15.00 (provider-side confirmed)")
 
 
 def dispatch(task: TaskRequest) -> AdapterResult:
