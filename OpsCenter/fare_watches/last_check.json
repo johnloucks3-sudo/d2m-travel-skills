@@ -1,7 +1,7 @@
 {
   "status": "complete",
-  "started_at": "2026-08-07T18:13:52.759050",
-  "completed_at": "2026-08-07T18:15:12.535069",
+  "started_at": "2026-08-11T04:14:01.340499",
+  "completed_at": "2026-08-11T04:14:17.209343",
   "watches_total": 19,
   "watches_checked": 6,
   "watches_with_errors": 1,
@@ -25,22 +25,16 @@
       "source": "anansi",
       "query": "cheapest economy flights RIC \u2192 PTY on 2026-12-17 for 4 passengers round trip price per person USD",
       "snippet": "",
-      "note": "FALLBACK \u2014 Centrav dead; Kiwi real LCC/connecting price available alongside web-estimate (not B2B net fare)",
-      "checked_at": "2026-08-07T18:15:12.632165",
-      "kiwi_price_usd": 5523,
-      "kiwi_carrier": null,
-      "kiwi_checked_at": "2026-08-08T14:07:21.670540+00:00"
+      "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
+      "checked_at": "2026-08-11T04:14:17.285685"
     },
     "morton-dodge-flights-rsw-pty": {
       "status": "fallback",
       "source": "anansi",
       "query": "cheapest economy flights RSW \u2192 PTY on 2026-12-17 for 2 passengers round trip price per person USD",
       "snippet": "",
-      "note": "FALLBACK \u2014 Centrav dead; Kiwi real LCC/connecting price available alongside web-estimate (not B2B net fare)",
-      "checked_at": "2026-08-07T18:15:12.632165",
-      "kiwi_price_usd": 2783,
-      "kiwi_carrier": null,
-      "kiwi_checked_at": "2026-08-08T14:07:23.739704+00:00"
+      "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
+      "checked_at": "2026-08-11T04:14:17.285685"
     },
     "loucks-den-vce-apr2027": {
       "status": "fallback",
@@ -48,7 +42,7 @@
       "query": "cheapest economy flights DEN \u2192 VCE on 2027-04-30 for 2 passengers round trip price per person USD",
       "snippet": "",
       "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
-      "checked_at": "2026-08-07T18:15:12.632165"
+      "checked_at": "2026-08-11T04:14:17.285685"
     },
     "loucks-ath-den-may2027": {
       "status": "fallback",
@@ -56,7 +50,7 @@
       "query": "cheapest economy flights ATH \u2192 DEN on 2027-05-30 for 2 passengers round trip price per person USD",
       "snippet": "",
       "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
-      "checked_at": "2026-08-07T18:15:12.632165"
+      "checked_at": "2026-08-11T04:14:17.285685"
     },
     "loucks-den-grb-sep2026": {
       "status": "fallback",
@@ -64,7 +58,7 @@
       "query": "cheapest economy flights DEN \u2192 GRB (RT Sep 6 out / Sep 14 return) on 2026-09-06 for 2 passengers round trip price per person USD",
       "snippet": "",
       "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
-      "checked_at": "2026-08-07T18:15:12.632165"
+      "checked_at": "2026-08-11T04:14:17.285685"
     },
     "loucks-cos-grb-sep2026": {
       "status": "fallback",
@@ -72,9 +66,9 @@
       "query": "cheapest economy flights COS \u2192 GRB (RT Sep 6 out / Sep 14 return) on 2026-09-06 for 2 passengers round trip price per person USD",
       "snippet": "",
       "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
-      "checked_at": "2026-08-07T18:15:12.632165"
+      "checked_at": "2026-08-11T04:14:17.285685"
     }
   },
   "fallback_anansi": true,
-  "fallback_at": "2026-08-07T18:15:12.632165"
+  "fallback_at": "2026-08-11T04:14:17.285685"
 }

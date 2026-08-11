@@ -67,11 +67,17 @@ def run_local_claude(prompt: str, alias: str, timeout_s: int = 600) -> subproces
     return subprocess.run(cmd, capture_output=True, text=True, timeout=timeout_s,
                           env=env, stdin=subprocess.DEVNULL)
 
-def run_ag(prompt: str, deliverable: str = "") -> subprocess.CompletedProcess:
+def run_ag(prompt: str, deliverable: str = "", commander_directed: bool = False) -> subprocess.CompletedProcess:
     args = [sys.executable, str(REPO / "core" / "relay" / "contact_ag.py"),
             prompt, "--from", "OC", "--tag", "RT-DISPATCH", "--model", AG_MODEL]
     if deliverable:
         args += ["--deliverable", deliverable]
+    if commander_directed:
+        # Commander directive 2026-08-10: pass explicitly for genuinely
+        # Commander-authorized dispatches only — not every RT call. Forces
+        # AG to actually be reached instead of OC-first-rerouting, unless
+        # her own headroom is <5%.
+        args += ["--commander-directed"]
     return subprocess.run(args, capture_output=True, text=True, timeout=900)
 
 def run_oc(prompt: str, timeout_s: int = 180) -> subprocess.CompletedProcess:
@@ -103,8 +109,9 @@ def main():
     lane = sys.argv[1].upper()
     prompt = sys.argv[2]
     deliv = sys.argv[sys.argv.index("--deliverable") + 1] if "--deliverable" in sys.argv else ""
+    cmdr = "--commander-directed" in sys.argv
     if lane == "AG":
-        r = run_ag(prompt, deliv)
+        r = run_ag(prompt, deliv, commander_directed=cmdr)
         label, model = "AG", AG_MODEL
     elif lane == "OC":
         r = run_oc(prompt)

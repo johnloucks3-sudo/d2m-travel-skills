@@ -425,19 +425,38 @@ def pass1_outbound(live: bool) -> int:
                 say(f"[{tid}] send FAILED ({res.get('status')}: "
                     f"{res.get('error', '')}) — answer_emailed left unset, retry next poll")
         else:
-            from core.email.thunderbird_gmail import gmail_create_draft_sync
-            res = gmail_create_draft_sync(
-                to=email, subject=subject, body=body, cc=COMMANDER_EMAIL,
+            from core.email.thunderbird_gmail import gmail_send_as_persona
+            proposed_subject = f"[PROPOSED RESPONSE] {subject}"
+            submitter_name = t.get("submitted_by") or "User"
+            proposed_body = "\n".join([
+                f"Commander / John — {submitter_name} ({email}) submitted a message/ticket ({tid}):",
+                "",
+                f"=== SUBMITTED MESSAGE ===",
+                f"{t.get('spec', '')}",
+                f"=========================",
+                "",
+                "Here is our proposed reply for your review:",
+                "",
+                f"--- PROPOSED REPLY TO {email} ---",
+                body,
+                "----------------------------------",
+                "",
+                "Please forward/reply or approve this message to send it to the client.",
+                "Once approved and sent, all future follow-ups on this thread will be handled directly, CCing your inbox as we do."
+            ])
+            res = gmail_send_as_persona(
+                to=COMMANDER_EMAIL, subject=proposed_subject, body=proposed_body,
+                persona_id="CONCIERGE",
             )
             if res.get("status") == "success":
                 t["answer_emailed"] = True
                 t["answer_emailed_at"] = now.isoformat()
-                t["answer_method"] = "draft"
-                t["answer_draft_id"] = res.get("draft_id", "")
+                t["answer_method"] = "proposed_emailed_to_jl3"
+                t["answer_message_id"] = res.get("message_id", "")
                 write_ticket(t)
-                say(f"[{tid}] DRAFT created for {email} — draft {res.get('draft_id')}")
+                say(f"[{tid}] PROPOSED RESPONSE EMAILED to {COMMANDER_EMAIL} — msg {res.get('message_id')}")
             else:
-                say(f"[{tid}] draft FAILED ({res.get('status')}: "
+                say(f"[{tid}] proposed response send FAILED ({res.get('status')}: "
                     f"{res.get('error', '')}) — answer_emailed left unset, retry next poll")
         acted += 1
     return acted
@@ -456,19 +475,9 @@ def _strip_re_fwd(subject: str) -> str:
 
 
 def pass2_inbound(live: bool) -> int:
-    """RETIRED (RT-KAIZEN-REPLY-FORM, 2026-08-08): email-reply threading was
-    structurally broken — the answer draft is hosted in the Commander's own
-    Gmail account (so he reviews/sends from where he actually looks), which
-    means a plain reply lands in HIS inbox, not the one this function polled.
-    Replaced by the HMAC-signed reply-by-form link embedded in every answer
-    (see _reply_link / kaizen_intake_server.py's /reply routes) — no email
-    parsing needed, the parent link IS the correlation. Left in place, inert,
-    rather than deleted, in case a future design wants the old mechanism back.
+    """Pass 2 INBOUND — Ingest follow-up email replies matching [KAI-(kzn-...)]
+    tags from the Concierge/Commander inbox.
     """
-    say("[LIVE] Pass 2 INBOUND retired — replaced by the reply-form link "
-        "embedded in every answer (see RT-KAIZEN-REPLY-FORM)")
-    return 0
-    # --- retired implementation below, unreachable, kept for reference ---
     if not live:
         say("[DRY-RUN] Pass 2 INBOUND skipped — fetch_unread() is a Gmail "
             "network call; dry-run makes zero API calls")

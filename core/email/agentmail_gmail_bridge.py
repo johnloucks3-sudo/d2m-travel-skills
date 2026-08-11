@@ -434,11 +434,21 @@ def sync_commander_replies(dry_run: bool = False) -> dict:
                 h["name"].lower(): h["value"]
                 for h in msg.get("payload", {}).get("headers", [])
             }
+            subject = headers.get("subject", "")
+            # Loop guard (2026-08-10, mail-flood incident): do NOT re-sync the
+            # Wing's own internal echoes back into AgentMail. These are generated
+            # by the C2 engines (email_c2 acks, directive receipts, dispatch
+            # replies) and re-syncing them both duplicates the thread context AND
+            # CCs the Commander via STANDING_MONITOR_CC on every echo — the exact
+            # mechanism that flooded his inbox with 250+ useless responses.
+            if subject.startswith(("[REPLY]", "[WING]", "[CI PROBE]")) or "RELAY-" in subject:
+                synced_set.add(msg_id)
+                continue
             body_preview = _extract_body_preview(msg.get("payload", {}))
             sync_text = (
                 f"[COMMANDER-REPLY via d2mconcierge]\n"
                 f"To: {headers.get('to', '')}\n"
-                f"Subject: {headers.get('subject', '')}\n"
+                f"Subject: {subject}\n"
                 f"Date: {headers.get('date', '')}\n\n"
                 f"{body_preview}\n\n"
                 f"[bridge::gmail_thread_id={tid}]"
@@ -450,8 +460,11 @@ def sync_commander_replies(dry_run: bool = False) -> dict:
                     client.send_message(
                         inbox_id=HALE_INBOX,
                         to=[HALE_INBOX],
-                        subject=f"[REPLY] {headers.get('subject', '(no subject)')}",
+                        subject=f"[REPLY] {subject}",
                         text=sync_text,
+                        # Internal context sync — do not CC the Commander on the
+                        # Wing's own thread-copy traffic (2026-08-10 flood fix).
+                        suppress_standing_cc=True,
                     )
                     synced_set.add(msg_id)
                     synced += 1

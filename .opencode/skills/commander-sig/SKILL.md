@@ -2,21 +2,25 @@
 
 Enforces the canonical Commander signature block for all client-facing D2M emails. Trigger on: "sig block", "commander signature", "check sig", "signature format", "sig block fix", "authorized by", "DREAMS2MEMORIES TRAVEL, LLC signature", or any request to fix, verify, or build the email footer.
 
-**Background:** #02022a · gradient: 180deg,#030338,#02021e · padding: 18px 34px 26px
-**Text:** Georgia, 14px, #c8dcff, line-height 1.75
+**⚠️ UPDATED 2026-08-10 — colors only, wording unchanged.** Dark-navy retired for Academy Blue/Gold/White. Full sourcing: `~/.claude/skills/theme-factory/themes/usafa.md` (Claude Code path — read the file directly, you don't have the Skill tool).
 
-## Exact Format (top-to-bottom, every element mandatory)
+**Background:** #002554 (Class Royal), flat fill — no gradient. Left edge: 4px solid #FFCE00 (Class Gold) rule. Padding: 18px 34px 24px 30px (30px left, inside the gold rule)
+**Text:** Georgia, 13px, #dde4f0, line-height 1.75
 
-1. **DREAMS2MEMORIES TRAVEL, LLC** — div wrapper: Georgia, 12px, bold, uppercase, color #a8c4f0, letter-spacing 2px, margin-bottom 6px
-2. **Authorized by: John A Loucks III** — `<br>` terminated
-3. **Owner** — `<br>` terminated
-4. **719-291-0742** — `<a href="tel:7192910742">` link, color #c8dcff, no underline
-5. **johnloucks3@gmail.com** — `<a href="mailto:johnloucks3@gmail.com">` link, color #7fb0ff, bold
+**⚠️ NOTE — pre-existing mismatch found 2026-08-10, not introduced by this color update:** the actual production template (`storage/templates/d2m_canonical_darknavy.html`) has NEVER used "Authorized by: John A Loucks III" as a separate line, or "Owner" as its own line. It reads `John A Loucks III<br>Owner, Dreams2Memories, LLC<br>` — combined, no "Authorized by:" prefix. That's been true since before today's color redesign; this skill doc's wording rules (items 2-3 below) describe a format that doesn't match what's actually in the template. Flagging, not silently fixing — Commander should confirm which is correct before this skill doc's wording rules get trusted.
+
+## Exact Format (top-to-bottom, colors current; wording per the mismatch note above)
+
+1. **DREAMS2MEMORIES TRAVEL, LLC** — div wrapper: Georgia, 11px, bold, uppercase, color #a8bde0, letter-spacing 2px, margin-bottom 6px
+2. **Authorized by: John A Loucks III** — `<br>` terminated *(see mismatch note — actual template just says "John A Loucks III")*
+3. **Owner** — `<br>` terminated *(see mismatch note — actual template says "Owner, Dreams2Memories, LLC" combined)*
+4. **719-291-0742** — `<a href="tel:7192910742">` link, color #dde4f0, no underline
+5. **johnloucks3@gmail.com** — `<a href="mailto:johnloucks3@gmail.com">` link, color #8fb4ff, bold
 6. **D2M logo** — `<img src="https://lh3.googleusercontent.com/d/1HYa61cNwcialWk64DimGwIfCAbUjESsu" width="96" height="71">`, margin-top 10px, display block
 
 ## Placement
 
-After Dani's sig, separated by a 1px divider (90deg gradient from transparent through rgba(160,185,255,0.5) to transparent).
+After Dani's sig, separated by a 1px solid #B2B4B2 (Academy Grey) divider — flat line, no gradient.
 
 ## Rules
 

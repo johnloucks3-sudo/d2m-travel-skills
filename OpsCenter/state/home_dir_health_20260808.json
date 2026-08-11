@@ -1,6 +1,6 @@
 {
   "probe": "home-dir-health",
-  "timestamp": "2026-08-08T17:05:05.436244+00:00",
+  "timestamp": "2026-08-08T23:55:42.804154+00:00",
   "date": "20260808",
   "overall_status": "CRITICAL",
   "exit_code": 2,
@@ -8,11 +8,11 @@
     {
       "check": "cache_bloat",
       "path": "/home/john/.cache",
-      "size_mb": 6017.0,
-      "size_gb": 5.88,
+      "size_mb": 6111.0,
+      "size_gb": 5.97,
       "threshold_gb": 2.0,
       "status": "CRITICAL",
-      "note": "~/.cache is 5.9GB \u2014 exceeds 2.0GB threshold"
+      "note": "~/.cache is 6.0GB \u2014 exceeds 2.0GB threshold"
     },
     {
       "check": "downloads_size",
@@ -25,11 +25,11 @@
     {
       "check": "local_size",
       "path": "/home/john/.local",
-      "size_mb": 95694.0,
-      "size_gb": 93.45,
+      "size_mb": 103474.0,
+      "size_gb": 101.05,
       "threshold_gb": 35.0,
       "status": "WARNING",
-      "note": "~/.local is 93.5GB \u2014 exceeds 35.0GB threshold"
+      "note": "~/.local is 101.0GB \u2014 exceeds 35.0GB threshold"
     },
     {
       "check": "npm_cache_size",
@@ -62,7 +62,7 @@
     },
     {
       "check": "loose_files",
-      "count": 57,
+      "count": 58,
       "loose_items": [
         {
           "name": "506101-26_Agency (1).pdf",
@@ -105,6 +105,12 @@
           "type": "file",
           "size_mb": 0.006,
           "path": "/home/john/CLAUDE_TOKEN_COUNTER_README.md"
+        },
+        {
+          "name": "CO_Housing_4BR_Candidates.md",
+          "type": "file",
+          "size_mb": 0.004,
+          "path": "/home/john/CO_Housing_4BR_Candidates.md"
         },
         {
           "name": "Click",
@@ -408,12 +414,12 @@
         }
       ],
       "status": "WARNING",
-      "note": "57 non-standard items at home root"
+      "note": "58 non-standard items at home root"
     },
     {
       "check": "major_dir_growth",
       "major_dir_sizes": {
-        "/home/john/Thunderbird": 24855.0,
+        "/home/john/Thunderbird": 25279.0,
         "/home/john/D2M": 6572.0,
         "/home/john/Downloads": 1035.0,
         "/home/john/OpenMontage": 411.0,

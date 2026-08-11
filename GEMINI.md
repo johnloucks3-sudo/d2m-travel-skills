@@ -40,6 +40,20 @@ Commander is **ADHD AND ADD** — reinforces, doesn't replace, the brevity rule 
 - **Corrections:** only when the error changes his code, conclusions, or decisions. Plain and brief, then continue. Silent slips — fix and move on.
 - **Tool use:** if no tool can do what was asked, say so instead of guessing. Never emit internal/system XML tags.
 
+**⚡ TOKEN ECONOMY & TOOL CALL OPTIMIZATION (DIRECTIVE 2026-08-10):**
+1. **Targeted Reading**: Search/locate content with line numbers first, then read only the needed slices or ranges. Never read full >300-line files into context.
+2. **Batched Edits**: Group non-contiguous edits to a single file into one batch operation where possible; run independent tool calls in a single turn.
+3. **Truncated Commands**: Use `python3 scripts/ag_exec.py --cmd "<cmd>"` or pipe bash results (`head`, `tail`, `grep`). Avoid raw log dumps.
+4. **Post-Edit Verification**: After each edit, run a quick syntax/compile check in 1 turn before reporting.
+5. **Minified Handoffs**: Pass columnar JSON or minified strings to subagents/peers (`build_oc_task` / `build_flash_task`).
+6. **Focused Memory Retrieval**: Limit vector searches (`search_memory_semantic`) to `top_k=3` with >0.82 relevance score threshold.
+7. **Impending Token Spend Sentinel**: Execute `python3 scripts/token_sentinel.py` before large multi-file edits (>3 files or >4,000 est tokens). If triggered, delegate task execution automatically to **OpenCode DeepSeek v4 (FREE)** via `build_oc_task`.
+8. **Async Batching**: Use `run_async_batch` for parallel subagent execution to collapse multi-step reporting into 1 turn.
+9. **Ladder Routing**: Start on `Gemini 3.6 Flash` ($0.5–1.0 credit/turn); auto-escalate to `Gemini 3.1 Pro` (`/ask-gemini-pro`) after 2 consecutive failures. *(Model names/tiers pending AG's own confirmation next session.)*
+10. **Interactive Alignments**: Align before tasks modifying >3 files to eliminate trial-and-error tool churn. *(`/plan`/`/grill-me` unconfirmed as real AG commands — RT-TOKEN-ECONOMY-FIX flag: AG, confirm your real interactive-alignment command or drop this line.)*
+
+**⚡ TOOL-AGNOSTIC NOTICE (Directive 2026-08-10, RT-TOKEN-ECONOMY-FIX):** Items 1, 2, and 4 above state principles (targeted reads before full reads, batched edits, don't assume a specific IDE tool name) rather than naming tools AG may not have. **AG: confirm next session and replace this wording with your real Antigravity tool names if they differ.**
+
 **⚠️ FINDINGS & ISSUE REPORTING — THE EXCEPTION TO BREVITY**
 ADHD means he needs **complete awareness**. When reviewing, auditing, debugging, or
 investigating: **report EVERY issue found** — including uncertain ones and
@@ -57,6 +71,18 @@ shorten the list.
 Whenever launching a background task or subagent, you MUST:
 1. **Required Delivery Date/Time (RDD)**: Calculate and state an explicit RDD timestamp (e.g. `RDD: 2026-07-31 14:22 MT (+120s)`).
 2. **Schedule Timer**: Set a `schedule` timer with `TimerCondition=<task-id>` or `DurationSeconds` to monitor completion.
+
+## 📧 D2M EMAIL & INTERNAL-DOC STATIONERY (STANDING DIRECTIVE 2026-08-10)
+
+**Any D2M client email or internal Wing HTML document you build MUST use the canonical templates below — never build email/doc HTML from scratch.**
+
+Colors: WHITE `#FFFFFF` background throughout. Header/footer ACADEMY BLUE `#003594`. Bold gold divider `#FFCE00` (Commander's real USAFA class color — verified from usafa.edu/brand/brand-colors, not a guess). Commander sig block: Class Royal `#002554` with a gold left-edge rule. Body text dark `#1a1a2e` (not light-on-navy). The prior dark-navy `#07076b` scheme is retired (2026-08-10) — too heavy, read as "AI-generated," and its 24KB embedded headshot image was a real Gmail-clipping/spam-filter risk.
+
+**Client emails:** `python3 scripts/d2m_email_builder.py --body <path> --to <addr> --subject "<s>" [--name First]` — wraps in `storage/templates/d2m_canonical_darknavy.html` (filename unchanged for path stability, content is the new light Academy palette), stages a draft in johnloucks3 (never auto-send).
+
+**Internal Wing HTML docs** (dashboards, status boards — not routine plain-text staff memos, those stay USAF Staff Summary Sheet format): `python3 scripts/d2m_internal_doc_builder.py --body <path> --title "<t>" --subtitle "<s>"` — wraps in `storage/templates/d2m_internal_academy.html`, direct-send, no draft staging. Has helper functions `bluf_box(text)` and `status_table(title, rows)` for the standard BLUF-callout and color-coded status-board patterns.
+
+Full palette + sourcing: `~/.claude/skills/theme-factory/themes/usafa.md` (Claude Code path — you don't have the Skill tool, read the file directly).
 
 ## ⚡ SYSTEMD & AUDIT CLOSURE DOCTRINE (STANDING DIRECTIVE 2026-08-01)
 

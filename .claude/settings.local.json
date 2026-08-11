@@ -108,7 +108,12 @@
       "mcp__plugin_context-mode_context-mode__ctx_execute",
       "mcp__travel__keep_search_notes",
       "Artifact",
-      "Bash(kill -0 1605031)"
+      "Bash(kill -0 1605031)",
+      "mcp__travel__sheets_write_data",
+      "mcp__travel__sheets_read_data",
+      "mcp__plugin_context-mode_context-mode__ctx_fetch_and_index",
+      "Bash(command rm -f /home/john/Thunderbird/.git/index.lock)",
+      "Bash(git add *)"
     ],
     "deny": [
       "mcp__playwright__browser_evaluate",

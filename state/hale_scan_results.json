@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-08-08T01:00:00.108743",
+  "timestamp": "2026-08-11T01:00:00.465167",
   "scans": {
     "deadline_radar": [
       {
         "type": "deadline",
         "client": "DOSSIER_Regent_Loucks_Dec2026_UPDATED",
         "deadline": "2026-08-01",
-        "days_out": -7,
+        "days_out": -10,
         "status": "OVERDUE",
         "priority": "HIGH"
       },
@@ -14,7 +14,7 @@
         "type": "deadline",
         "client": "DOSSIER_Regent_LesserAntilles_Dec2026",
         "deadline": "2026-07-22",
-        "days_out": -17,
+        "days_out": -20,
         "status": "OVERDUE",
         "priority": "HIGH"
       }
@@ -24,351 +24,400 @@
         "type": "stale_task",
         "mission_id": "MISSION-018",
         "title": "Redirect Telegram-output automations to TCD and mark emergency-only",
-        "age_hours": 546.1,
+        "age_hours": 618.1,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-044",
+        "title": "Resolve McLeod lifecycle contact and transfer dispute \u2014 8 days overdue",
+        "age_hours": 104.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-617",
         "title": "browser-skill AG integration",
-        "age_hours": 541.3,
+        "age_hours": 613.3,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
-        "mission_id": "MISSION-636",
-        "title": "Full CI infrastructure",
-        "age_hours": 228.2,
+        "mission_id": "MISSION-618",
+        "title": "Fix Furlow/Ely-Darrow/Nichols Grandeur",
+        "age_hours": 90.8,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
-        "mission_id": "MISSION-637",
-        "title": "Mission Board capability",
-        "age_hours": 546.0,
+        "mission_id": "MISSION-629",
+        "title": "Fix anansi fallback",
+        "age_hours": 107.2,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-646",
         "title": "Five orphaned systemd units point at deleted scripts (all disabled)",
-        "age_hours": 545.5,
+        "age_hours": 617.5,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-648",
         "title": "MISSION-802-FORMAT-REVIEW continuity re-run loop (752 spawns, now quiescent)",
-        "age_hours": 545.5,
+        "age_hours": 617.5,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-649",
+        "title": "GRB Rental Car",
+        "age_hours": 104.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-650",
         "title": "TESS Trip-notes subsystem broken (PostTripNote 500, GetTripNotes 405)",
-        "age_hours": 539.1,
+        "age_hours": 611.1,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-651",
         "title": "Loucks Panama Canal booking (3122006) missing from TESS entirely",
-        "age_hours": 228.2,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-653",
-        "title": "\ud83d\udee1\ufe0f CHIEF SILVER",
-        "age_hours": 537.2,
+        "age_hours": 300.2,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-659",
         "title": "MCP daemon staleness",
-        "age_hours": 511.9,
+        "age_hours": 583.9,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-664",
         "title": "Post-mortem on MISSION-648 format-review 752-spawn runaway",
-        "age_hours": 510.9,
+        "age_hours": 582.9,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-665",
         "title": "Retire five orphaned systemd units pointing at deleted scripts",
-        "age_hours": 510.9,
+        "age_hours": 582.9,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-672",
         "title": "hale-credential-check exits 1",
-        "age_hours": 508.0,
+        "age_hours": 580.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-673",
         "title": "d2m-lifecycle: brain2 model",
-        "age_hours": 508.0,
+        "age_hours": 580.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-674",
         "title": "claude-sync: Cloudflare R2",
-        "age_hours": 508.0,
+        "age_hours": 580.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-675",
         "title": "d2m-drive-sync: Google Drive",
-        "age_hours": 508.0,
+        "age_hours": 580.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-676",
         "title": "Crash reporter produces",
-        "age_hours": 507.5,
+        "age_hours": 579.5,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-682",
         "title": "Formally close MISSION-802-FORMAT-REVIEW continuity loop",
-        "age_hours": 490.7,
+        "age_hours": 562.7,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-690",
         "title": "Drive Commander's first live TCD decision cycle",
-        "age_hours": 482.7,
+        "age_hours": 554.7,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-691",
         "title": "Retire 5 orphaned systemd units pointing at deleted scripts",
-        "age_hours": 482.7,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-692",
-        "title": "Staff Package SSS-004",
-        "age_hours": 473.3,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-693",
-        "title": "Tech Scan 2026-07-20",
-        "age_hours": 457.7,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-694",
-        "title": "Re: Re: Multi-Model",
-        "age_hours": 450.5,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-695",
-        "title": "Re: Hermai.ai Analysis",
-        "age_hours": 450.3,
+        "age_hours": 554.7,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-699",
         "title": "Remediate cc-fleet dead provider keys",
-        "age_hours": 436.6,
+        "age_hours": 508.6,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-700",
+        "title": "Assign all unassigned P1 missions on the board",
+        "age_hours": 74.9,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-701",
         "title": "Close McLeod lifecycle contact and transfer dispute",
-        "age_hours": 228.2,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-703",
-        "title": "Payment Reminder \u2014",
-        "age_hours": 402.2,
+        "age_hours": 300.2,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-711",
         "title": "Fund DeepSeek v4 backend \u2014 Commander approval gate",
-        "age_hours": 394.1,
+        "age_hours": 466.1,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-715",
         "title": "Brief system audit \u2014 flag stale in-progress dates as P1 anomalies",
-        "age_hours": 362.9,
+        "age_hours": 434.9,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-716",
         "title": "MISSION-802-FORMAT-REVIEW post-mortem \u2014 root cause the 752-spawn loop",
-        "age_hours": 362.9,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-717",
-        "title": "Tech Scan 2026-07-24",
-        "age_hours": 361.7,
+        "age_hours": 434.9,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-724",
         "title": "Root-cause and fix room reservation cookie keepalive cycling",
-        "age_hours": 343.0,
+        "age_hours": 415.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-725",
         "title": "Write standing order for timer lifecycle governance",
-        "age_hours": 343.0,
+        "age_hours": 415.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-731",
         "title": "Close McLeod lifecycle dispute with resolution or escalation",
-        "age_hours": 338.9,
+        "age_hours": 410.9,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-732",
         "title": "Authorize and fund DeepSeek v4 relay API key",
-        "age_hours": 338.9,
+        "age_hours": 410.9,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-733",
         "title": "Confirm MISSION-802 loop cannot self-resume and close the mission record",
-        "age_hours": 338.9,
+        "age_hours": 410.9,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-739",
         "title": "Assign owners to unassigned P1 in-progress missions",
-        "age_hours": 299.2,
+        "age_hours": 371.2,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-745",
         "title": "Mandate cost envelope and budget threshold for all new timers pre-merge",
-        "age_hours": 298.7,
+        "age_hours": 370.7,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-748",
         "title": "Implement weekly mission board closure cadence with P3 hard-kill criteria",
-        "age_hours": 298.3,
+        "age_hours": 370.3,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-749",
         "title": "Schedule Hermai.ai hosted fetch integration sprint",
-        "age_hours": 298.3,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-750",
-        "title": "Morning Intel Brief",
-        "age_hours": 257.8,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-752",
-        "title": "Re: Re: \ud83d\udea2",
-        "age_hours": 255.8,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-753",
-        "title": "Re: \ud83d\udea2 Silver",
-        "age_hours": 255.5,
+        "age_hours": 370.3,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-754",
         "title": "Repo git bloat",
-        "age_hours": 232.2,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-755",
-        "title": "Perplexity API key",
-        "age_hours": 231.3,
+        "age_hours": 304.2,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-759",
         "title": "Assign owners to all five unowned P1 missions",
-        "age_hours": 228.4,
+        "age_hours": 300.4,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-760",
         "title": "Confirm Westbrook welcome emails are in WF-17 with committed send date",
-        "age_hours": 228.4,
+        "age_hours": 300.4,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-763",
         "title": "Execute mission board culling pass \u2014 target under 80 active missions",
-        "age_hours": 228.2,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-764",
-        "title": "C2 gate \u2014",
-        "age_hours": 223.7,
+        "age_hours": 300.2,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-767",
         "title": "Draft Commander-side Spencer intake response and stage to WF-17",
-        "age_hours": 203.9,
+        "age_hours": 275.9,
         "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-772",
+        "title": "File MISSION-648 post-mortem \u2014 752-spawn runaway root cause",
+        "age_hours": 108.5,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-777",
+        "title": "Triage and close stale mission backlog (>400h, P2/P3)",
+        "age_hours": 107.2,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-778",
+        "title": "Deploy ground-truth probe suite for all Wing status signals",
+        "age_hours": 107.2,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-780",
+        "title": "Conduct mission board triage \u2014 close or defer all missions stale 30+ days",
+        "age_hours": 104.0,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-784",
+        "title": "Assign owners to all unowned P1/P2 missions and close stale missions >21 days",
+        "age_hours": 99.9,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-785",
+        "title": "Wire STOP-GATE canary to alert before any reorg operation",
+        "age_hours": 99.9,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-789",
+        "title": "Refresh Regent Loucks Dec 2026 dossier",
+        "age_hours": 93.8,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-793",
+        "title": "Close War Room T2 gate \u2014 ATO + ChatDev to production decision",
+        "age_hours": 90.8,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-799",
+        "title": "RT-MISSION: claim-only operationalization \u2014 clear 172-open backlog safely",
+        "age_hours": 84.3,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-807",
+        "title": "Triage mission board \u2014 close all superseded stale missions >300h",
+        "age_hours": 74.9,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-808",
+        "title": "Refresh both overdue Regent dossiers",
+        "age_hours": 74.9,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-811",
+        "title": "Item #15 build \u2014 auto-generated SSS status papers, trigger decision pending",
+        "age_hours": 61.9,
+        "priority": "MEDIUM"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-813",
+        "title": "Item #21 \u2014 FPD/dunning draft emails, needs Dani's voice + Harlan's tone-lane call",
+        "age_hours": 61.9,
+        "priority": "MEDIUM"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-814",
+        "title": "Item #13 verification \u2014 confirm sentiment/urgency scoring wired into inbox triage",
+        "age_hours": 61.9,
+        "priority": "MEDIUM"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-815",
+        "title": "OnFailure= coverage \u2014 expand beyond TIER1/TIER2/sentinel curated lists (24/326 done)",
+        "age_hours": 61.9,
+        "priority": "MEDIUM"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-816",
+        "title": "thunderbird-mcp-gc.service restart-cascade \u2014 11:08 crash, self-healed, root cause understood but not fixed",
+        "age_hours": 60.8,
+        "priority": "MEDIUM"
       }
     ],
     "staff_gaps": [],
@@ -376,7 +425,7 @@
     "conflict_detection": [
       {
         "type": "priority_conflict",
-        "issue": "76 active missions may indicate priority overload",
+        "issue": "66 active missions may indicate priority overload",
         "priority": "MEDIUM"
       }
     ],
@@ -385,9 +434,9 @@
     "commission_reconciliation_cycle": [
       {
         "type": "commission_reconciliation_cycle",
-        "issue": "No commission reconciliation filed for August 2026 (2d past the 5-day grace window)",
+        "issue": "No commission reconciliation filed for August 2026 (5d past the 5-day grace window)",
         "period": "2026-08",
-        "days_overdue": 2,
+        "days_overdue": 5,
         "priority": "MEDIUM"
       }
     ],
@@ -395,9 +444,9 @@
     "competitor_intel_freshness": [
       {
         "type": "competitor_intel_freshness",
-        "issue": "Most recent competitor intel (sector_I_competitor_20260702.md) is 37d old",
+        "issue": "Most recent competitor intel (sector_I_competitor_20260702.md) is 40d old",
         "file": "/home/john/Thunderbird/intel/incubator/sector_I_competitor_20260702.md",
-        "days_stale": 37,
+        "days_stale": 40,
         "priority": "HIGH"
       }
     ]

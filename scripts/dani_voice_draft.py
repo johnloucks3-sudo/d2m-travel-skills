@@ -546,14 +546,38 @@ def main() -> None:
     )
 
     if not args.timer:
-        voiced = [r for r in results if r["status"] == "voice_drafted"]
+        voiced = [r for r in results if r["status"] == "voice_drafted" or r["status"] == "brand_pass_queued"]
         errors = [r for r in results if "error" in r["status"]]
         dry = [r for r in results if r["status"] == "dry_run"]
         if args.dry_run:
             print(f"\n{len(dry)} draft(s) would be voiced.")
         else:
-            print(f"\n{len(voiced)} voiced, {len(errors)} errors.")
+            print(f"\n{len(voiced)} voiced/queued for brand pass, {len(errors)} errors.")
+
+    # Check for Luna->Naia handoff timeouts (>4 hours) and auto-escalate to Hale
+    try:
+        from core.mcp.persona_chain import check_luna_naia_timeouts
+        timeouts = check_luna_naia_timeouts(timeout_hours=4.0)
+        if timeouts:
+            logger.info(f"Auto-escalated {len(timeouts)} timed-out brand-pass items to Hale on staff signal bus.")
+    except Exception as exc:
+        logger.warning(f"Timeout check failed: {exc}")
+
+    # Post OPINE signal to staff_signal_bus on processing completion
+    if results:
+        try:
+            from core.ai_infra.staff_signal_bus import post as post_signal
+            post_signal(
+                from_persona="dani",
+                type="OPINE",
+                subject=f"Dani Voice Draft Processed: {len(results)} items ({len([r for r in results if 'error' in r['status']])} errors)",
+                detail=f"Lifecycle drafts voiced and routed to brand pass. Results: {json.dumps(results)}",
+                priority="med" if any("error" in r["status"] for r in results) else "low",
+            )
+        except Exception as exc:
+            logger.warning(f"Staff signal bus post failed: {exc}")
 
 
 if __name__ == "__main__":
     main()
+

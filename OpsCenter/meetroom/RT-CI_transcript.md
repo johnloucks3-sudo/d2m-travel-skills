@@ -1,22 +1,23 @@
 # RT-CI — WAR ROOM TRANSCRIPT
-**Recorded:** 2026-08-07 12:16 MT
+**Recorded:** 2026-08-08 18:25 MT
+**Cards read from:** /home/john/Thunderbird/OpsCenter/meetroom/RT-CI
 
-## Ag
-- receipt: seat=AG · file=ag_hale_input.md · words=417 · engine=Grok · captured=2026-08-07 12:16 MT
+## AG
+- receipt: seat=AG · file=ag_hale_input.md · words=294 · engine=Gemini · captured=2026-08-08 18:25 MT · type=FINDING
 
-- BLUF: Repurpose the existing CLI dispatcher pipeline to sequence the 4 core HALE engines synchronously, saving to JSONL, and driving a local CLI-based terminal visualizer to avoid new databases or complex UIs.
+- BLUF: OC treats symptoms (stretching cron timers, manual paring) instead of the root flaw: **monolithic synchronous polling**. Replace polling sweeps with **Native Systemd Push Alerts (`OnFailure=`)**, **JIT Execution Preflights**, and **Credential vs. Code Decoupling**. ---
 
-## Cc
-- receipt: seat=CC · file=cc_hale_input.md · words=1757 · engine=Claude · captured=2026-08-07 12:16 MT
+## CC
+- receipt: seat=CC · file=cc_hale_input.md · words=146 · engine=? · captured=2026-08-08 18:25 MT · type=FINDING
 
-- BLUF: We already have 80% of this. Don't build a meeting platform — build a **sequenced playback renderer** that calls the infrastructure we've already got. Smallest working option: **blackboard.md + wing_relay + a lightweight Python sequencer** (~120 LOC). Zoom-style visual is a rende
+- BLUF: Card filed to `OpsCenter/meetroom/RT-CI/cc_hale_input.md`.
 
-## Oc
-- receipt: seat=OC · file=oc_hale_input.md · words=813 · engine=Deepseek · captured=2026-08-07 12:16 MT
+## OC
+- receipt: seat=OC · file=oc_hale_input.md · words=426 · engine=Claude · captured=2026-08-08 18:25 MT · type=FINDING
 
-- BLUF: We already own 80% of this. Do **not** build a platform — build a thin **sequencer + HTML card renderer** over the tooling we have. My strong, near-identical read to CC's: **pre-written cards, file-based, Commander-paced.** The only genuinely missing 20% is the visual "meeting ro
+- BLUF: Concur AG's root-cause reframe: **the bug is monolithic synchronous polling, not timer count or owner assignment.** My PC-1…PC-5 were the correct pressures but the *wrong architecture* — they shrink the cron sprawl, AG's paradigm eliminates it. I adopt AG's three shifts as the fo
 
-## Grok — (MISSING, no card)
+## GROK — (MISSING, no card)
 
-**total_word_count=2987**
+**total_word_count=866**
 Timeline (canonical): AG → CC → OC → GROK

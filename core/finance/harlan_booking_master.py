@@ -236,6 +236,20 @@ class HarlanBookingMaster:
         if warning:
             signoff += f" | ⚠️ {warning}"
 
+        # Post financial status signal to staff_signal_bus
+        try:
+            from core.ai_infra.staff_signal_bus import post as post_signal
+            sig_type = "OPINE" if not warning else "ASK"
+            post_signal(
+                from_persona="harlan",
+                type=sig_type,
+                subject=f"Financial Verification: {client} (conf {conf}) — {pay_status}",
+                detail=signoff,
+                priority="med" if not warning else "high",
+            )
+        except Exception:
+            pass
+
         return {
             "conf": conf,
             "found": True,
@@ -254,6 +268,7 @@ class HarlanBookingMaster:
         }
 
     def _row_quality(self, r: dict) -> tuple[int, list[str]]:
+
         """Score a row's data quality. Higher = better canonical candidate.
         Returns (score, issues)."""
         score = 0

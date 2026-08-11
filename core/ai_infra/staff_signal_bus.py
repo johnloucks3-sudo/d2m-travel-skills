@@ -145,7 +145,23 @@ def post(from_persona: str, type: str, subject: str, detail: str = "",
             " VALUES (?,?,?,?,?,?,?, 'open', ?)",
             (_now(), from_persona.lower(), type, route_to, subject, detail, priority, _now()),
         )
-        return cur.lastrowid
+        sid = int(cur.lastrowid or 0)
+    if priority == "high":
+        _telegram_page(sid, from_persona, type, route_to, subject)
+    return sid
+
+
+def _telegram_page(sid: int, from_persona: str, type: str, route_to: str, subject: str) -> None:
+    """Page the Commander on high-priority signals. Best-effort — never crashes a post."""
+    try:
+        from core.communication.thunderbird_brief_telegram import send_telegram
+        send_telegram(
+            f"🔴 STAFF SIGNAL #{sid} [{type}] → {route_to}\n"
+            f"From: {from_persona}\n{subject}"
+        )
+    except Exception as _e:
+        import logging
+        logging.getLogger("staff_signal_bus").warning("Telegram page failed: %s", _e)
 
 
 def pull(route_to: str, status: str = "open") -> list[dict]:
@@ -239,7 +255,10 @@ def main(argv=None) -> int:
 
     if args.cmd == "post":
         sid = post(args.frm, args.type, args.subject, args.detail, args.priority, args.route)
-        print(f"posted #{sid} → {(args.route or TYPE_ROUTE.get(args.type.upper(),'?'))}")
+        with _conn() as c:
+            row = c.execute("SELECT route_to FROM signals WHERE id=?", (sid,)).fetchone()
+            route = row["route_to"] if row else "?"
+        print(f"posted #{sid} → {route}")
     elif args.cmd == "pull":
         rows = pull(args.route, args.status)
         if args.json:

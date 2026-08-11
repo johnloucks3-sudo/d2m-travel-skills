@@ -84,7 +84,7 @@ OpsCenter/meetroom/
 
 ## 9. RETRO-adopted doctrine (RT-RETRO 2026-08-07, seats CC+AG, point papers encouraged)
 - **Cards = defense-style point papers.** BLUF first, ≤300 words, reject at write-time (not review).
-- **Canonical playback order AG → CC → OC** (broad → precision → ops); two-seat convergence closes item, third = one-liner.
+- **Default playback order AG → CC → OC** (broad → precision → ops); **Commander may change this order by directive at session start — it binds without needing a skill edit.**; two-seat convergence closes item, third = one-liner.
 - **BLUF pre-brief sheet** (`{session}_bluf.md`, ≤150 words, mechanical extract, 0-token) generated before Commander opens the deck.
 - **Skip rule:** card required only if new finding OR disagreement; else "concur, no addendum."
 - **Recorder:** owned by launcher script → `{session}_transcript.md` (not a seat).

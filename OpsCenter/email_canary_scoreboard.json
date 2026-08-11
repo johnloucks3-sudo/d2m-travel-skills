@@ -5,7 +5,7 @@
     "n8n_python",
     "lindy_ai"
   ],
-  "emails_processed": 365,
+  "emails_processed": 367,
   "entries": [
     {
       "category": "spam",
@@ -3557,6 +3557,24 @@
       "from": "missy.furlow@gmail.com",
       "subject": "Re: Upcoming payments due for Stockholm",
       "ts": "2026-08-08T13:04:17.983444+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19fe3a57f30f0c41",
+      "from": "yodainva@gmail.com",
+      "subject": "Re: [KAI-kzn-20260808225338-639e5d] Your KAIZEN ticket result",
+      "ts": "2026-08-08T23:19:52.383868+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19fec276e0a11901",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Fwd: Cancellation - Booking PE184711812 for 27 Aug 2026",
+      "ts": "2026-08-10T14:53:55.693984+00:00",
       "system": "n8n_python"
     }
   ]

@@ -175,9 +175,37 @@ This OpenCode instance operates as **HALE-OC** by default, every session: Ms. Vi
 - **Answer first.** Context only if load-bearing. No wind-up, no restatement of the question, no "Great question!"
 - **Fragments over paragraphs** when they carry the same info faster.
 - **Minimum code.** Walk the ladder: needs to exist? → stdlib? → language native? → one line? → minimum block. Stop at first rung that works.
-- **Read less.** Grep/glob to the exact lines before reading a whole file. Never re-read a file already in context.
+- **Read less.** `grep` to the exact lines before `read`. Slice `read` with `offset`/`limit` ranges. Never re-read a file already in context.
+- **Batch Edits**: Use `edit` for non-contiguous changes; run independent tools in parallel turns.
+- **Truncate Command Outputs**: Pipe bash results (`head`, `tail`, `grep`) to prevent log dumps into context.
 - **Agent handoffs:** minified JSON, columnar arrays (`{"c":["k1","k2"],"r":[[v1,v2],...]}`), stable keys not position ordinals.
+- **Interactive Alignments**: Align before large edits. *(`/plan`/`/grill-me` unconfirmed as real OC commands — RT-TOKEN-ECONOMY-FIX flag: OC, confirm your real interactive-alignment command or drop this line.)*
 - **Never narrate what you're about to do.** Just do it.
+
+**⚡ AG TOKEN ECONOMY & TRUNCATION SUITE — WIRED LIVE (Directive 2026-08-10, Commander order):**
+AG's 5-script suite + 10-point directive (GEMINI.md:43-53) is **implemented and mandatory in OC**. Every script is Python — call directly. MISSION-846/847 verified: 15/15 claims PASS.
+
+| # | Initiative | Tool | Trigger |
+|---|---|---|---|
+| 1 | **Output truncation** | `python3 scripts/ag_exec.py --cmd "<cmd>" --lines N` | Long shell output >30 lines. Keeps head+tail slices. **84.3% payload cut** (benchmarked). |
+| 2 | **Token sentinel** | `python3 scripts/token_sentinel.py --est-tokens N --files f1,f2 --task T --criteria C` | Before >3-file or >4K-token edits. **DELEGATE_TO_OC** (free lane) on trigger. $0 burn. |
+| 3 | **Context optimizer** | `from scripts.ag_context_optimizer import filter_memory_results` | Vector/memory search results. top_k=3, score>0.82, minified JSON. **88.1% reduction**. |
+| 4 | **Compact diff** | `python3 scripts/ag_diff.py [--staged] [file]` | Before inspecting uncommitted changes. 50-line slices. ~85% ingestion savings. |
+| 5 | **Post-edit validation** | `python3 scripts/post_edit_check.py <file>` | After every edit before reporting. 1-turn compile check. 50% turn savings. |
+| 6 | **Cost dashboard** | `python3 scripts/ag_token_cost_dashboard.py` | Session open / before long builds. Live CC/OC/AG telemetry. |
+| 7 | **Context Sniper** | MCP `context-sniper` tools (context_status / context_compress / context_pin) | Session >2h or context bloat. Persona-scoped briefs (~1K tokens). |
+
+**10-POINT DIRECTIVE — OC MAPPED (GEMINI.md:43-53 → OC toolset):**
+1. Targeted reading → `grep` line numbers first, `read` with offset/limit. Never full >300-line files.
+2. Multi-chunk edits → `edit` for non-contiguous changes; parallel independent tool calls in one turn.
+3. Truncated commands → `ag_exec.py` wrapper or pipe bash results (`head`/`tail`/`grep`).
+4. Post-edit verification → `post_edit_check.py <file>` in 1 turn before reporting.
+5. Minified handoffs → columnar JSON / minified strings to subagents (`build_oc_task` / `build_flash_task`).
+6. Focused memory retrieval → `top_k=3`, score>0.82 on vector searches (context-sniper / memory_search).
+7. Token spend sentinel → `token_sentinel.py` before large multi-file edits; on trigger delegate to **DeepSeek v4 (FREE)** via `build_oc_task`.
+8. Async batching → parallel subagent execution (Task tool / `run_async_batch`), collapse to 1 turn.
+9. Ladder routing → OC is already the free lane (DeepSeek v4); escalate only when reasoning requires it.
+10. Interactive alignments → align before >3-file modifications. *(`/plan`/`/grill-me` unconfirmed as real OC commands — RT-TOKEN-ECONOMY-FIX flag: OC, confirm or drop.)*
 
 ---
 
@@ -386,7 +414,7 @@ python3 /home/john/Thunderbird/scripts/gmail_template_stripper.py input.html out
 # Create draft (auto-labels THUNDERBIRD-Commander-Review):
 python3 -c "from core.email.thunderbird_gmail import gmail_create_draft_sync; gmail_create_draft_sync(to, subject, body, persona_id='CONCIERGE')"
 ```
-Colors: DARK NAVY #07076b throughout (bg, header, footer). Body palette #e8f1ff/#a8c4f0/#c8dcff. USAFA cream #f7f3ea RETIRED 2026-06-25. Use scripts/d2m_email_builder.py — NOT raw MIMEMultipart. FROM: johnloucks3@gmail.com FOR NOW (concierge bounced iCloud — SPF/DKIM gap). Stage draft in johnloucks3, label THUNDERBIRD-Commander-Review.
+Colors (updated 2026-08-10, supersedes dark navy): WHITE #FFFFFF background throughout. Header/footer ACADEMY BLUE #003594. Bold gold divider #FFCE00 (Commander's USAFA class color — real, verified from usafa.edu/brand/brand-colors, not a guess). Commander sig block: Class Royal #002554 with a gold left-edge rule. Body text dark #1a1a2e (not light-on-navy anymore). Old dark-navy #07076b scheme RETIRED. Use scripts/d2m_email_builder.py — NOT raw MIMEMultipart; template file is `storage/templates/d2m_canonical_darknavy.html` (filename unchanged, content is new). For internal Wing HTML docs (not client email): `scripts/d2m_internal_doc_builder.py` + `storage/templates/d2m_internal_academy.html` — direct-send, no draft staging. Full palette: `~/.claude/skills/theme-factory/themes/usafa.md` (Claude Code path — read directly). FROM: johnloucks3@gmail.com FOR NOW (concierge bounced iCloud — SPF/DKIM gap). Stage draft in johnloucks3, label THUNDERBIRD-Commander-Review.
 
 ### Commander Signature Block
 Skill: `.opencode/skills/commander-sig/SKILL.md` — canonical Commander sig format. Three lines: `DREAMS2MEMORIES TRAVEL, LLC` (standalone) · `Authorized by: John A Loucks III` · `Owner`. Phone/email/logo follow. Invoke this skill before any draft with Commander's signature. Captured from Commander edit 2026-07-01; do not deviate.

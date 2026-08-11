@@ -207,7 +207,17 @@ def contact_ag(
         if want_lane in ("oc", "auto"):
             _oc = check_headroom("OC")
             oc_headroom_pct = _oc.get("headroom_pct", 0) if isinstance(_oc, dict) else 0
-            if oc_headroom_pct >= 25 and not (routed.get("hard") is True):
+            # Commander directive 2026-08-10: a Commander-directed task must
+            # reach AG and not be rerouted/refused for OC-first cost reasons —
+            # unless AG's own headroom is genuinely critical (<5%). `hard` and
+            # `commander_directed` are equivalent triggers for this override.
+            # NOTE: ag_headroom here is engine_limits.check_headroom's local
+            # transcript-activity proxy, not a verified external API quota —
+            # flagging so a 5%-reading isn't mistaken for a real hard cap.
+            ag_headroom_val = route_decision.get("ag_headroom")
+            ag_critical = isinstance(ag_headroom_val, (int, float)) and ag_headroom_val < 5
+            force_ag = (routed.get("hard") is True) or bool(routed.get("commander_directed"))
+            if oc_headroom_pct >= 25 and not (force_ag and not ag_critical):
                 route_decision["oc_first"] = True
                 route_decision["oc_first_applied"] = True
                 route_decision["lane"] = "oc"
@@ -222,10 +232,45 @@ def contact_ag(
                                 f"**Route:** OC — {route_decision['reason']}\n")
                 except Exception:
                     pass
-                return {"ok": True, "returncode": 0, "model": model,
-                        "stdout": "", "stderr": f"REROUTED-OC: {route_decision['reason']}",
-                        "deliverable_path": deliverable_path, "deliverable_written": False,
-                        "routed": route_decision}
+                try:
+                    from core.relay.oc_hygiene import before_dispatch
+                    gate = before_dispatch()
+                except Exception as exc:
+                    gate = {"ok": False, "reason": f"oc_hygiene.before_dispatch unavailable: {exc}"}
+                if gate is not None and gate.get("ok"):
+                    oc_cmd = [os.path.expanduser("~/.opencode/bin/opencode"),
+                              "run", "--model", "opencode/deepseek-v4-flash-free", task]
+                    try:
+                        oc_proc = subprocess.run(oc_cmd, capture_output=True, text=True,
+                                                 timeout=timeout, cwd=REPO,
+                                                 start_new_session=True)
+                        oc_rc, oc_out, oc_err = oc_proc.returncode, oc_proc.stdout, oc_proc.stderr
+                        oc_written = False
+                        if deliverable_path:
+                            try:
+                                ddir = os.path.dirname(deliverable_path)
+                                if ddir:
+                                    os.makedirs(ddir, exist_ok=True)
+                                with open(deliverable_path, "w", encoding="utf-8") as f:
+                                    f.write(oc_out or "")
+                                oc_written = True
+                            except Exception:
+                                oc_written = False
+                        return {"ok": oc_rc == 0, "returncode": oc_rc, "model": model,
+                                "stdout": oc_out, "stderr": oc_err,
+                                "deliverable_path": deliverable_path,
+                                "deliverable_written": oc_written,
+                                "routed": route_decision}
+                    except Exception as exc:
+                        route_decision["oc_first_applied"] = False
+                        route_decision["lane"] = "ag"
+                        route_decision["reason"] += f"; OC dispatch failed: {exc}"
+                else:
+                    route_decision["oc_first_applied"] = False
+                    route_decision["lane"] = "ag"
+                    route_decision["reason"] += ("; OC gate blocked: "
+                                                 + str(gate.get("reason", "unknown")) if gate else
+                                                 "; OC gate blocked: unknown")
         if not _hr.get("ok", True):
             route_decision["lane"] = "refused"
             route_decision["reason"] = "AG rate cap reached"
@@ -302,7 +347,12 @@ if __name__ == "__main__":
     ap.add_argument("--timeout", type=int, default=300)
     ap.add_argument("--route", default=None,
                     help='H2 budget routing dict as JSON, e.g. \'{"lane":"oc","max_budget_cents":0,"hard":true}\' '
-                         '(OC-first default; set hard=true to force AG dispatch despite OC headroom)')
+                         '(OC-first default; set hard=true OR commander_directed=true to force AG dispatch '
+                         'unless AG headroom is <5%%)')
+    ap.add_argument("--commander-directed", action="store_true",
+                    help="Shortcut for --route '{\"commander_directed\":true}' — Commander directive "
+                         "2026-08-10: a Commander-directed task must reach AG, not reroute/refuse for "
+                         "OC-first cost reasons, unless AG's own headroom is <5%%")
     ap.add_argument("--print-prompt-only", action="store_true",
                     help="Print the peer prompt without dispatching (inspect the tone)")
     a = ap.parse_args()
@@ -317,6 +367,9 @@ if __name__ == "__main__":
         except json.JSONDecodeError:
             print(f"bad --route JSON: {a.route!r}", file=sys.stderr)
             sys.exit(2)
+    if a.commander_directed:
+        route = dict(route or {})
+        route["commander_directed"] = True
     r = contact_ag(a.task, deliverable_path=a.deliverable, from_seat=a.from_seat,
                    verdict_tag=a.tag, model=a.model, timeout=a.timeout, route=route)
     print(json.dumps({k: v for k, v in r.items() if k != "stdout"}, indent=2))

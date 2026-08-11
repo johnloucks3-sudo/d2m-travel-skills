@@ -79,3 +79,9 @@ authority: Weapons-free hot-window execution (Commander directive 2026-07-15 ~22
 **Not done (respecting the Client Send / WF-17 gate):** Did not send either staged draft — that decision and action remain the Commander's per the Three Gates. Flagging clearly: the FCC draft is ready and its own "mid-July" promise is now due; recommend sending once Harlan's TESS check closes, ahead of the Jul 22 FPD.
 
 **Commander notification:** Surfaced in hot-window session summary.
+
+## 2026-08-10 CI-FIX claude-lifetime-enforcer.service (HALE-OC)
+- ROOT CAUSE: ExecStart=%h/.local/bin/python3 did not exist (203/EXEC) - reaper never ran since install.
+- FIX: rewrote ExecStart to %h/Thunderbird/.venv/bin/python3. daemon-reload, reset-failed, manual start = status 0/SUCCESS. Reaped 1 proc (pid 40389, 6.2h).
+- VERIFY: timer next fire 21:33 MT; 0 failed claude units; journal clean.
+- NOTE: xdg-desktop-portal.service failed (unrelated desktop noise) - not touched.

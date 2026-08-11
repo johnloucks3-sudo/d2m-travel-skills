@@ -66,6 +66,25 @@
           "PROPOSAL-2026-07-26-cadence-naia.md"
         ]
       }
+    },
+    {
+      "run_date": "2026-08-09",
+      "integration_rate": 0.568,
+      "throttle_threshold": 0.5,
+      "gate_decision": "OPEN \u2014 cadence slots issued",
+      "detail": {
+        "proposals_written": [
+          "PROPOSAL-2026-08-09-cadence-elon.md",
+          "PROPOSAL-2026-08-09-cadence-whetstone.md",
+          "PROPOSAL-2026-08-09-cadence-sterling.md",
+          "PROPOSAL-2026-08-09-cadence-dembe.md",
+          "PROPOSAL-2026-08-09-cadence-dani.md",
+          "PROPOSAL-2026-08-09-cadence-harlan.md",
+          "PROPOSAL-2026-08-09-cadence-reyes.md",
+          "PROPOSAL-2026-08-09-cadence-luna.md",
+          "PROPOSAL-2026-08-09-cadence-naia.md"
+        ]
+      }
     }
   ]
 }

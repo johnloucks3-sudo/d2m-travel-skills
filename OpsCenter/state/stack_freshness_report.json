@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-08T12:16:15.642255+00:00",
+  "generated": "2026-08-11T12:16:22.083621+00:00",
   "mode": "daily",
   "advisory": true,
   "so": "SO_READINESS_LADDER_FRESHNESS_20260621.md",
@@ -10,20 +10,20 @@
     "retired_complete": 224
   },
   "inventory": {
-    "scripts": 1376,
-    "units": 579,
-    "total": 1955
+    "scripts": 1398,
+    "units": 599,
+    "total": 1997
   },
   "tier_counts": {
-    "ACTIVE DUTY": 1634,
-    "a) NATIONAL GUARD": 153,
-    "b) RESERVE": 155,
+    "ACTIVE DUTY": 1664,
+    "a) NATIONAL GUARD": 168,
+    "b) RESERVE": 152,
     "c) RETIRED-ACTIVE-RESERVE": 13,
     "d) RETIRED COMPLETELY": 0
   },
   "footprint": {
-    "est_tokens": 31128,
-    "total_chars": 124515,
+    "est_tokens": 24684,
+    "total_chars": 98739,
     "target_tokens": 15000,
     "status": "RED",
     "files": [
@@ -33,50 +33,50 @@
         "est_tokens": 12228
       },
       {
-        "file": "/home/john/Thunderbird/hale_state.json",
-        "chars": 28273,
-        "est_tokens": 7068
-      },
-      {
         "file": "/home/john/Thunderbird/hale_brief.md",
-        "chars": 25542,
-        "est_tokens": 6385
+        "chars": 26849,
+        "est_tokens": 6712
       },
       {
         "file": "/home/john/.claude/projects/-home-john-Thunderbird/memory/MEMORY.md",
-        "chars": 18572,
-        "est_tokens": 4643
+        "chars": 19282,
+        "est_tokens": 4820
+      },
+      {
+        "file": "/home/john/Thunderbird/hale_state.json",
+        "chars": 1892,
+        "est_tokens": 473
       },
       {
         "file": "/home/john/Thunderbird/OpsCenter/session_context_latest.md",
-        "chars": 3213,
-        "est_tokens": 803
+        "chars": 1801,
+        "est_tokens": 450
       }
     ]
   },
-  "demotion_candidate_count": 321,
+  "demotion_candidate_count": 333,
   "actionable_this_cadence": [],
   "top_candidates": [
     {
       "path": "scripts/create_html_drafts.py",
       "kind": "script",
       "tier": "c) RETIRED-ACTIVE-RESERVE",
-      "reason": "orphan (0 inbound refs) + cold 141d",
-      "age_days": 140.6
+      "reason": "orphan (0 inbound refs) + cold 144d",
+      "age_days": 143.6
     },
     {
       "path": "scripts/draft_ten_weeks_later.py",
       "kind": "script",
       "tier": "c) RETIRED-ACTIVE-RESERVE",
-      "reason": "orphan (0 inbound refs) + cold 140d",
-      "age_days": 139.6
+      "reason": "orphan (0 inbound refs) + cold 143d",
+      "age_days": 142.6
     },
     {
-      "path": "~/.config/systemd/user/claude-process-watch.service",
-      "kind": "unit",
+      "path": "OpsCenter/notify_commander.sh",
+      "kind": "script",
       "tier": "c) RETIRED-ACTIVE-RESERVE",
-      "reason": "ExecStart target missing: /home/john/Thunderbird/scripts/claude_process_watch.py \u2014 orphan unit",
-      "age_days": null
+      "reason": "orphan (0 inbound refs) + cold 135d",
+      "age_days": 134.5
     },
     {
       "path": "~/.config/systemd/user/cost-openrouter.service",
@@ -149,89 +149,89 @@
       "age_days": null
     },
     {
-      "path": "OpsCenter/notify_commander.sh",
+      "path": "OpsCenter/create_tokyo_draft.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 134d",
+      "age_days": 133.5
+    },
+    {
+      "path": "OpsCenter/atomic_dossier_commit.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 132d",
+      "age_days": 132.0
+    },
+    {
+      "path": "OpsCenter/a7_email_scorer.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 132d",
+      "age_days": 131.6
+    },
+    {
+      "path": "OpsCenter/api_test.py",
       "kind": "script",
       "tier": "b) RESERVE",
       "reason": "orphan (0 inbound refs) + cold 132d",
       "age_days": 131.5
     },
     {
-      "path": "OpsCenter/create_tokyo_draft.py",
-      "kind": "script",
-      "tier": "b) RESERVE",
-      "reason": "orphan (0 inbound refs) + cold 131d",
-      "age_days": 130.5
-    },
-    {
-      "path": "OpsCenter/atomic_dossier_commit.py",
-      "kind": "script",
-      "tier": "b) RESERVE",
-      "reason": "orphan (0 inbound refs) + cold 129d",
-      "age_days": 129.0
-    },
-    {
-      "path": "OpsCenter/a7_email_scorer.py",
-      "kind": "script",
-      "tier": "b) RESERVE",
-      "reason": "orphan (0 inbound refs) + cold 129d",
-      "age_days": 128.6
-    },
-    {
-      "path": "OpsCenter/api_test.py",
-      "kind": "script",
-      "tier": "b) RESERVE",
-      "reason": "orphan (0 inbound refs) + cold 129d",
-      "age_days": 128.5
-    },
-    {
       "path": "OpsCenter/keep_to_drive_sync.py",
       "kind": "script",
       "tier": "b) RESERVE",
-      "reason": "orphan (0 inbound refs) + cold 129d",
-      "age_days": 128.5
+      "reason": "orphan (0 inbound refs) + cold 132d",
+      "age_days": 131.5
     },
     {
       "path": "OpsCenter/tool_validator.py",
       "kind": "script",
       "tier": "b) RESERVE",
-      "reason": "orphan (0 inbound refs) + cold 129d",
-      "age_days": 128.5
+      "reason": "orphan (0 inbound refs) + cold 132d",
+      "age_days": 131.5
     },
     {
       "path": "OpsCenter/drive_to_evernote_sync.py",
       "kind": "script",
       "tier": "b) RESERVE",
-      "reason": "orphan (0 inbound refs) + cold 124d",
-      "age_days": 123.6
+      "reason": "orphan (0 inbound refs) + cold 127d",
+      "age_days": 126.6
     },
     {
       "path": "OpsCenter/scrub_calendar.py",
       "kind": "script",
       "tier": "b) RESERVE",
-      "reason": "orphan (0 inbound refs) + cold 124d",
-      "age_days": 123.6
+      "reason": "orphan (0 inbound refs) + cold 127d",
+      "age_days": 126.6
     },
     {
       "path": "core/crewai/example_loucks_crew.py",
       "kind": "script",
       "tier": "b) RESERVE",
-      "reason": "orphan (0 inbound refs) + cold 124d",
-      "age_days": 123.6
+      "reason": "orphan (0 inbound refs) + cold 127d",
+      "age_days": 126.6
     },
     {
       "path": "OpsCenter/log_scanner.py",
       "kind": "script",
       "tier": "b) RESERVE",
-      "reason": "orphan (0 inbound refs) + cold 120d",
-      "age_days": 120.4
+      "reason": "orphan (0 inbound refs) + cold 123d",
+      "age_days": 123.4
     },
     {
       "path": "core/scheduling/health_monitor.py",
       "kind": "script",
       "tier": "b) RESERVE",
-      "reason": "orphan (0 inbound refs) + cold 120d",
-      "age_days": 120.4
+      "reason": "orphan (0 inbound refs) + cold 123d",
+      "age_days": 123.4
+    },
+    {
+      "path": "scripts/create_d2m_draft_cc_commander.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 123d",
+      "age_days": 123.4
     }
   ],
-  "elapsed_sec": 75.56
+  "elapsed_sec": 81.63
 }

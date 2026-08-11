@@ -57,6 +57,7 @@ def _build_constraints_block(spend_ceiling: str) -> str:
         f"FORBIDDEN MODELS / SERVICES: Broken via OpenCode ({broken_models}); any Poe model not in whitelist ({whitelist_models}).\n"
         "OVER-BUDGET INSTRUCTION: if this appears to require spend beyond your ceiling, STOP and report.\n"
         "MANDATORY DELIVERABLES & PROGRESS FORMAT: Non-trivial work MUST produce durable markdown artifacts (<plan_name>.md and walkthrough.md). Status updates, plans, and reports MUST feature ASCII/Unicode visual progress bars ([████████░░░░░░░░░░░░] 40%) (SO 2026-07-31).\n"
+        "TOKEN DISCIPLINE: search for line numbers/matches before reading whole files, slice large files to the relevant line range with whatever your read tool supports, truncate shell output (head/tail/grep) rather than dumping raw logs, pass minified JSON handoffs, and run independent tool calls in parallel when possible. Use your own toolset's actual tool names — do not assume Grep/Read/Edit are literally what you have (Directive 2026-08-10, corrected 2026-08-10 to be tool-name-agnostic after the original text named IDE-specific tools that don't exist on every engine).\n"
         "============================================="
     )
 

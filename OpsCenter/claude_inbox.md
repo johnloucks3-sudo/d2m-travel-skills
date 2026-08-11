@@ -344,3 +344,135 @@
 - **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
 - **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
 - **Action needed:** Template file or anchor may need updating
+
+---
+**[LIFECYCLE SCHEDULER — 2026-08-09 01:15]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: Kyle Kuklinski — TP ARC2-C Excursions Confirmed — 7 days overdue. Staff: Hale
+**Action Required:** Immediate attention.
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-08-09 01:15]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: John & Susan Loucks — TP TP-4.5 Payment Confirmation (FPD+7) — 1 days overdue. Staff: A9 Harlan
+**Action Required:** Immediate attention.
+
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-09
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-09
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-09
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-09
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-09
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-09
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+---
+**[LIFECYCLE SCHEDULER — 2026-08-10 02:02]**
+## WEEKLY INTEL REPORT DUE
+**Client:** John & Susan Loucks
+**TP:** TP-2.3 — Culinary Arts Kitchen Classes
+**Staff:** A2 Dembe
+**Action:** Compile this week's research findings into a weekly report. SEND to johnloucks3@gmail.com (not draft — per intel full-send SO 27 MAR 2026).
+**Format:** Subject: '[Week of DATE] John & Susan Loucks — Culinary Arts Kitchen Classes Intel Report'
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-08-10 02:02]**
+## WEEKLY INTEL REPORT DUE
+**Client:** John & Susan Loucks
+**TP:** TP-2.4 — Dining Reservations
+**Staff:** A2 Dembe
+**Action:** Compile this week's research findings into a weekly report. SEND to johnloucks3@gmail.com (not draft — per intel full-send SO 27 MAR 2026).
+**Format:** Subject: '[Week of DATE] John & Susan Loucks — Dining Reservations Intel Report'
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-08-10 02:02]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: John & Susan Loucks — TP TP-4.5 Payment Confirmation (FPD+7) — 2 days overdue. Staff: A9 Harlan
+**Action Required:** Immediate attention.
+
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-10
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-10
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-10
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-10
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-10
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-10
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+---
+**[LIFECYCLE SCHEDULER — 2026-08-11 02:42]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: John & Susan Loucks — TP TP-4.5 Payment Confirmation (FPD+7) — 3 days overdue. Staff: A9 Harlan
+**Action Required:** Immediate attention.
+
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-11
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-08-11
+- **Client:** loucks_regent
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating

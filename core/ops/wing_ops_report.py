@@ -73,7 +73,7 @@ def build_wing_ops_digest(since_hours: float = 24) -> dict:
 
 
 def build_wing_ops_section(digest: dict) -> str:
-    """HTML section matching the existing dark-navy (#07076b) table style
+    """HTML section matching the Academy Blue (#003594) table style
     used by morning_consolidated_brief_engine.build_tcd_suspense_section /
     build_fare_watch_section."""
     stats = digest.get("stats") or {}
@@ -195,13 +195,13 @@ def build_wing_ops_section(digest: dict) -> str:
     return f"""
 <p style="font-size:13px;margin:4px 0 10px;">{fail_line}</p>
 <table style="width:100%;border-collapse:collapse;margin:6px 0;font-size:13px;">
-    <tr style="background:#07076b;color:#fff;">
+    <tr style="background:#003594;color:#fff;">
         <th colspan="3" style="padding:8px 10px;text-align:left;">Per-seat budget (⚠STALE = data older than 24h, no public usage API)</th>
     </tr>
     <tr>{budget_cells}</tr>
 </table>
 <table style="width:100%;border-collapse:collapse;margin:10px 0;font-size:13px;">
-    <tr style="background:#07076b;color:#fff;">
+    <tr style="background:#003594;color:#fff;">
         <th style="padding:8px 10px;text-align:left;">Seat</th>
         <th style="padding:8px 10px;text-align:left;">Pass</th>
         <th style="padding:8px 10px;text-align:left;">Fail</th>

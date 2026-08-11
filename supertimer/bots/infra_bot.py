@@ -30,10 +30,16 @@ class InfraBot(BotBase):
         # Task("portal-keepalive",
         #      sys_py("scripts/portal_keepalive.py"),
         #      interval_sec=2700, timeout_sec=120),
-        Task("bsk-session-keepalive",
-             venv("scripts/bsk_session_keepalive.py", "--portal", "centrav", "--once"),
-             interval_sec=1200, timeout_sec=90,
-             allowed_rcs=(0, 1)),  # rc=1=dead session (login wall) — logged, needs human; never spam
+        # bsk-session-keepalive REMOVED 2026-08-09 (RT-CENTRAV-SPAWN CC) — this task
+        # rides bsk (browser-skill, drives the Commander's real Chrome via CDP) into
+        # Centrav every 20 min. It is the actual source of "Chrome Spawn of Centrav.com
+        # 13+ times" — missed by the 2026-08-07 cleanup that removed the two adjacent
+        # portal-keepalive/centrav-warm tasks. Commander 2026-08-07: KILL all airfare
+        # session keep-alives except Skybird. Centrav is on-demand re-auth only.
+        # Task("bsk-session-keepalive",
+        #      venv("scripts/bsk_session_keepalive.py", "--portal", "centrav", "--once"),
+        #      interval_sec=1200, timeout_sec=90,
+        #      allowed_rcs=(0, 1)),
         Task("tool-key-refresh",
              bash(f"{ROOT}/hooks/refresh_tool_api_keys.sh"),
              interval_sec=840, timeout_sec=30),

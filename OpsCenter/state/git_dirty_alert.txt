@@ -1,21 +1,21 @@
-2026-08-07T22:03:21.073256: 218 uncommitted files
-M  .ask_usage_log
-A  .opencode/skills/evernote-survey/SKILL.md
-M  .opencode/skills/google-flights/SKILL.md
+2026-08-10T21:47:00.671234: 286 uncommitted files
+ M .ask_usage_log
+ M .claude/settings.local.json
+ M .opencode/skills/commander-sig/SKILL.md
+ M AGENTS.md
  M Blackboard
-MM CLAUDE.md
-M  OpsCenter/.ci_rapid_repair_notify_dedup.json
-A  OpsCenter/.elon_phase1_status.txt
-M  OpsCenter/.lifecycle_last_scan_date
-MM OpsCenter/.metronome_seq
-MM OpsCenter/.session_blast_fingerprint.json
-M  OpsCenter/.silversea_api_alert_dedup.json
-M  OpsCenter/00_COMMAND_LOG.md
-MM OpsCenter/CLAUDE_DESKTOP_INIT.md
-MM OpsCenter/OPENCODE_INIT.md
-MM OpsCenter/a7_metrics_dashboard.json
-A  OpsCenter/baseline_starting_points.json
-M  OpsCenter/claude_inbox.md
-M  OpsCenter/claude_usage_status.json
-A  OpsCenter/collaboration/ag_autonomy_ideas_20260807.md
-A  OpsCenter/collaboration/autonomy_phased_implementation_plan_20260807.md
+ M CLAUDE.md
+ M GEMINI.md
+ M OpsCenter/.ci_rapid_repair_notify_dedup.json
+ M OpsCenter/.lifecycle_last_scan_date
+ M OpsCenter/.metronome_seq
+ M OpsCenter/.session_blast_fingerprint.json
+ M OpsCenter/.silversea_api_alert_dedup.json
+ M OpsCenter/00_COMMAND_LOG.md
+ M OpsCenter/CLAUDE_DESKTOP_INIT.md
+ M OpsCenter/OPENCODE_INIT.md
+ M OpsCenter/a7_metrics_dashboard.json
+ M OpsCenter/claude_inbox.md
+ M OpsCenter/collaboration/blackboard.md
+ M OpsCenter/collaboration/blackboard_summary.txt
+ M OpsCenter/collaboration/claude_outbox.md

@@ -1,138 +1,6 @@
 {
   "routine_runs": [
     {
-      "ts": "2026-07-18T02:51:57.418189+00:00",
-      "count": 4,
-      "succeeded": 0,
-      "missions": [
-        "MISSION-668",
-        "MISSION-654",
-        "MISSION-655",
-        "MISSION-656"
-      ]
-    },
-    {
-      "ts": "2026-07-18T06:53:26.590872+00:00",
-      "count": 4,
-      "succeeded": 0,
-      "missions": [
-        "MISSION-668",
-        "MISSION-654",
-        "MISSION-655",
-        "MISSION-656"
-      ]
-    },
-    {
-      "ts": "2026-07-18T10:55:52.898964+00:00",
-      "count": 4,
-      "succeeded": 0,
-      "missions": [
-        "MISSION-668",
-        "MISSION-654",
-        "MISSION-655",
-        "MISSION-656"
-      ]
-    },
-    {
-      "ts": "2026-07-18T12:15:43.835668+00:00",
-      "count": 4,
-      "succeeded": 4,
-      "missions": [
-        "MISSION-668",
-        "MISSION-654",
-        "MISSION-655",
-        "MISSION-656"
-      ]
-    },
-    {
-      "ts": "2026-07-18T14:59:52.797412+00:00",
-      "count": 4,
-      "succeeded": 0,
-      "missions": [
-        "MISSION-657",
-        "MISSION-660",
-        "MISSION-661",
-        "MISSION-662"
-      ]
-    },
-    {
-      "ts": "2026-07-18T19:10:03.157472+00:00",
-      "count": 4,
-      "succeeded": 0,
-      "missions": [
-        "MISSION-657",
-        "MISSION-660",
-        "MISSION-661",
-        "MISSION-662"
-      ]
-    },
-    {
-      "ts": "2026-07-18T20:11:11.750688+00:00",
-      "count": 4,
-      "succeeded": 0,
-      "missions": [
-        "MISSION-657",
-        "MISSION-660",
-        "MISSION-661",
-        "MISSION-662"
-      ]
-    },
-    {
-      "ts": "2026-07-18T20:57:22.690449+00:00",
-      "count": 4,
-      "succeeded": 0,
-      "missions": [
-        "MISSION-657",
-        "MISSION-660",
-        "MISSION-661",
-        "MISSION-662"
-      ]
-    },
-    {
-      "ts": "2026-07-18T23:12:52.463666+00:00",
-      "count": 4,
-      "succeeded": 0,
-      "missions": [
-        "MISSION-657",
-        "MISSION-660",
-        "MISSION-661",
-        "MISSION-662"
-      ]
-    },
-    {
-      "ts": "2026-07-19T03:15:16.638746+00:00",
-      "count": 4,
-      "succeeded": 0,
-      "missions": [
-        "MISSION-657",
-        "MISSION-660",
-        "MISSION-661",
-        "MISSION-662"
-      ]
-    },
-    {
-      "ts": "2026-07-19T04:14:47.897793+00:00",
-      "count": 4,
-      "succeeded": 1,
-      "missions": [
-        "MISSION-657",
-        "MISSION-660",
-        "MISSION-661",
-        "MISSION-662"
-      ]
-    },
-    {
-      "ts": "2026-07-19T07:19:10.247650+00:00",
-      "count": 4,
-      "succeeded": 4,
-      "missions": [
-        "MISSION-686",
-        "MISSION-657",
-        "MISSION-660",
-        "MISSION-661"
-      ]
-    },
-    {
       "ts": "2026-07-19T11:21:31.271430+00:00",
       "count": 4,
       "succeeded": 4,
@@ -606,6 +474,125 @@
         "MISSION-636",
         "MISSION-637",
         "MISSION-653"
+      ]
+    },
+    {
+      "ts": "2026-08-08T20:24:14.236941+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-019",
+        "MISSION-692",
+        "MISSION-693",
+        "MISSION-694"
+      ]
+    },
+    {
+      "ts": "2026-08-09T00:27:49.225629+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-695",
+        "MISSION-696",
+        "MISSION-703",
+        "MISSION-717"
+      ]
+    },
+    {
+      "ts": "2026-08-09T04:30:24.173117+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-750",
+        "MISSION-751",
+        "MISSION-752",
+        "MISSION-753"
+      ]
+    },
+    {
+      "ts": "2026-08-09T08:31:36.219991+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-755",
+        "MISSION-764",
+        "MISSION-786",
+        "MISSION-794"
+      ]
+    },
+    {
+      "ts": "2026-08-09T12:16:22.825697+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-795",
+        "MISSION-800",
+        "MISSION-809",
+        "MISSION-810"
+      ]
+    },
+    {
+      "ts": "2026-08-09T12:33:17.985114+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-812",
+        "MISSION-817",
+        "MISSION-818",
+        "MISSION-819"
+      ]
+    },
+    {
+      "ts": "2026-08-09T16:34:17.458409+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-820"
+      ]
+    },
+    {
+      "ts": "2026-08-10T00:50:42.718920+00:00",
+      "count": 3,
+      "succeeded": 3,
+      "missions": [
+        "MISSION-828",
+        "MISSION-829",
+        "MISSION-830"
+      ]
+    },
+    {
+      "ts": "2026-08-10T04:50:59.962553+00:00",
+      "count": 2,
+      "succeeded": 2,
+      "missions": [
+        "MISSION-833",
+        "MISSION-834"
+      ]
+    },
+    {
+      "ts": "2026-08-10T16:55:43.498445+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-837"
+      ]
+    },
+    {
+      "ts": "2026-08-10T20:58:37.003698+00:00",
+      "count": 3,
+      "succeeded": 3,
+      "missions": [
+        "MISSION-840",
+        "MISSION-841",
+        "MISSION-842"
+      ]
+    },
+    {
+      "ts": "2026-08-11T00:59:59.677242+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-845"
       ]
     }
   ],

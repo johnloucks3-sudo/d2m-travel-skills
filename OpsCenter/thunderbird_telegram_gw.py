@@ -65,9 +65,10 @@ import time
 import html
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Callable
+from typing import Callable, Optional, Union, Any
 
 import requests
+import requests.adapters
 
 # ── Add Thunderbird root to path ──────────────────────────────────────────────
 sys.path.insert(0, "/home/john/Thunderbird")
@@ -476,30 +477,94 @@ def _clear_context(ctx_file: Path) -> None:
 # ── Telegram API helpers ──────────────────────────────────────────────────────
 TG_BASE = "https://api.telegram.org/bot{token}/{method}"
 
+_TG_SESSION: Optional[requests.Session] = None
+_TG_SESSION_LOCK = threading.Lock()
+
+
+def _get_tg_session() -> requests.Session:
+    """Return a shared requests.Session with TCP keepalive and connection pooling."""
+    global _TG_SESSION
+    if _TG_SESSION is None:
+        with _TG_SESSION_LOCK:
+            if _TG_SESSION is None:
+                s = requests.Session()
+                s.headers.update({"Connection": "keep-alive"})
+                adapter = requests.adapters.HTTPAdapter(
+                    pool_connections=10,
+                    pool_maxsize=20,
+                    max_retries=requests.adapters.Retry(
+                        total=2,
+                        backoff_factor=0.5,
+                        status_forcelist=[500, 502, 503, 504],
+                        raise_on_status=False,
+                    ),
+                )
+                s.mount("https://", adapter)
+                s.mount("http://", adapter)
+                _TG_SESSION = s
+    return _TG_SESSION
+
+
+def _reset_tg_session() -> None:
+    """Reset the shared session following an SSL or connection abort."""
+    global _TG_SESSION
+    with _TG_SESSION_LOCK:
+        if _TG_SESSION is not None:
+            try:
+                _TG_SESSION.close()
+            except Exception:
+                pass
+            _TG_SESSION = None
+
 
 def tg(token: str, method: str, **kwargs) -> dict:
-    """Make a Telegram Bot API call. Returns parsed JSON."""
+    """Make a Telegram Bot API call using persistent session with keepalive and backoff."""
     url = TG_BASE.format(token=token, method=method)
+    req_timeout = kwargs.pop("_request_timeout", 35)
+    session = _get_tg_session()
     try:
-        r = requests.post(url, json=kwargs, timeout=30)
-        data = r.json()
+        r = session.post(url, json=kwargs, timeout=req_timeout)
+        try:
+            data = r.json()
+        except Exception:
+            log.warning("TG API %s returned non-JSON HTTP %s: %s", method, r.status_code, r.text[:200])
+            return {"ok": False, "error_code": r.status_code, "description": f"HTTP {r.status_code} non-JSON response"}
+
         if not data.get("ok"):
-            log.warning("TG API %s error: %s", method, data.get("description", "?"))
+            err_desc = data.get("description", "?")
+            err_code = data.get("error_code")
+            log.warning("TG API %s error (%s): %s", method, err_code, err_desc)
+            if err_code == 429 or "Too Many Requests" in str(err_desc):
+                params = data.get("parameters", {})
+                retry_after = params.get("retry_after", 5) if isinstance(params, dict) else 5
+                log.warning("TG API 429 rate-limit — backing off %ds", retry_after)
+                time.sleep(retry_after)
         return data
+    except (requests.exceptions.SSLError, requests.exceptions.ConnectionError) as e:
+        log.warning("TG API %s connection/SSL error: %s (resetting session)", method, e)
+        _reset_tg_session()
+        return {"ok": False, "description": str(e), "_transient_error": True}
+    except requests.exceptions.Timeout as e:
+        log.warning("TG API %s network timeout: %s", method, e)
+        return {"ok": False, "description": str(e), "_transient_error": True}
     except requests.exceptions.RequestException as e:
-        log.warning("TG API %s network error/timeout: %s", method, e)
-        return {"ok": False, "description": str(e)}
+        log.warning("TG API %s network error: %s", method, e)
+        return {"ok": False, "description": str(e), "_transient_error": True}
     except Exception as e:
         log.error("TG API %s exception: %s", method, e)
-        return {"ok": False, "description": str(e)}
+        return {"ok": False, "description": str(e), "_transient_error": True}
 
 
-def tg_get_updates(token: str, offset: int) -> list[dict]:
-    """Long-poll getUpdates (timeout=25). Holds connection; Telegram pushes on new messages."""
-    data = tg(token, "getUpdates", offset=offset, timeout=25, limit=20)
+def tg_get_updates(token: str, offset: int, timeout: int = 25) -> Optional[list[dict]]:
+    """Long-poll getUpdates (timeout=25). Holds connection; Telegram pushes on new messages.
+
+    Returns list of update dicts on success (empty list if no new updates),
+    or None if a network error or API failure occurred.
+    """
+    data = tg(token, "getUpdates", offset=offset, timeout=timeout, _request_timeout=timeout + 10, limit=20)
     if data.get("ok"):
         return data.get("result", [])
-    return []
+    return None
 
 
 def tg_typing(token: str, chat_id: int) -> None:
@@ -575,8 +640,9 @@ def tg_send_photo(
             data["caption"] = caption
             data["parse_mode"] = parse_mode
         try:
+            session = _get_tg_session()
             with open(photo, "rb") as fh:
-                r = requests.post(url, data=data, files={"photo": fh}, timeout=60)
+                r = session.post(url, data=data, files={"photo": fh}, timeout=60)
             resp = r.json()
             if not resp.get("ok"):
                 log.warning("sendPhoto (upload) error: %s", resp.get("description", "?"))
@@ -666,12 +732,13 @@ def _send_one_media_group(
 
     url = TG_BASE.format(token=token, method="sendMediaGroup")
     try:
+        session = _get_tg_session()
         if files:
             # Multipart: media JSON travels as a form field alongside the files.
             data = {"chat_id": chat_id, "media": json.dumps(input_media)}
-            r = requests.post(url, data=data, files=files, timeout=120)
+            r = session.post(url, data=data, files=files, timeout=120)
         else:
-            r = requests.post(
+            r = session.post(
                 url,
                 json={"chat_id": chat_id, "media": input_media},
                 timeout=60,
@@ -763,8 +830,9 @@ def tg_send_document(
         if caption:
             data["caption"] = caption
         try:
+            session = _get_tg_session()
             with open(str(file_path_or_url), "rb") as fh:
-                r = requests.post(url, data=data, files={"document": fh}, timeout=120)
+                r = session.post(url, data=data, files={"document": fh}, timeout=120)
             resp = r.json()
             if not resp.get("ok"):
                 log.warning("sendDocument (upload) error: %s", resp.get("description", "?"))
@@ -2346,12 +2414,17 @@ def bot_poll_loop(
     while True:
         try:
             updates = tg_get_updates(token, offset=offset)
-            _backoff = 5  # reset on successful poll
         except Exception as e:
-            log.error("[%s] getUpdates exception: %s", bot_name, e)
+            log.error("[%s] getUpdates uncaught exception: %s", bot_name, e)
+            updates = None
+
+        if updates is None:
+            log.warning("[%s] Poll failed (transient network/API error) — backing off %ds", bot_name, _backoff)
             time.sleep(_backoff)
             _backoff = min(_backoff * 2, 60)
             continue
+
+        _backoff = 5  # reset on successful poll
 
         for update in updates:
             # M-153 — per-update guard. A single malformed update or a failed
@@ -2582,9 +2655,6 @@ def relay_poll_loop() -> None:
         # ── Source 2 removed — Commander input comes only via D2MC2C ────────
         # The old getUpdates polling loop for @CC:/@OC: directives has been
         # removed. Commander sends directives via D2MC2C (@d2m_hale_bot).
-
-        # Check queue every 15 seconds
-        time.sleep(15)
 
         # Check queue every 15 seconds
         time.sleep(15)

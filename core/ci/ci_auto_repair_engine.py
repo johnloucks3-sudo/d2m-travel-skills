@@ -47,22 +47,17 @@ logger = logging.getLogger(__name__)
 
 
 def repair_portal_access() -> bool:
-    """Portal-access: Re-authenticate Centrav then Regent OA. True if EITHER succeeds."""
+    """Portal-access: Re-authenticate Regent OA. Centrav leg SUPPRESSED
+    (RT-CENTRAV-SPAWN 2026-08-09): Commander 2026-08-07 killed all airfare
+    session keep-alives except Skybird — this path called
+    centrav_session_relogin.py unconditionally on every portal-access RED,
+    ungated by SUPPRESSED_AUTO_SKILLS (which only covers the
+    fare-watch-centrav skill_id, not portal-access), one of the drivers of
+    the Chrome/relogin spawn loop. Centrav is on-demand only now."""
     centrav_ok = False
     rssc_ok = False
 
-    try:
-        logger.info("REPAIR portal-access: running centrav_session_relogin.py")
-        result = subprocess.run(
-            [VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "centrav_session_relogin.py")],
-            timeout=REPAIR_TIMEOUT_SECONDS,
-            capture_output=True,
-            text=True,
-        )
-        centrav_ok = result.returncode == 0
-        logger.info(f"REPAIR portal-access: centrav rc={result.returncode}")
-    except Exception as e:
-        logger.warning(f"REPAIR portal-access: centrav exception — {e}")
+    logger.info("REPAIR portal-access: centrav leg SUPPRESSED (Commander 2026-08-07) — skipping")
 
     try:
         logger.info("REPAIR portal-access: running rssc_session_keepalive.py")
@@ -342,21 +337,16 @@ def repair_dani_identity_layer() -> bool:
 
 
 def repair_fare_watch_centrav() -> bool:
-    """Fare-watch-centrav: Re-authenticate Centrav session."""
-    try:
-        logger.info("REPAIR fare-watch-centrav: running centrav_session_relogin.py")
-        result = subprocess.run(
-            [VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "centrav_session_relogin.py")],
-            timeout=REPAIR_TIMEOUT_SECONDS,
-            capture_output=True,
-            text=True,
-        )
-        success = result.returncode == 0
-        logger.info(f"REPAIR fare-watch-centrav: rc={result.returncode} — {'SUCCESS' if success else 'FAILED'}")
-        return success
-    except Exception as e:
-        logger.error(f"REPAIR fare-watch-centrav: EXCEPTION — {e}")
-        return False
+    """Fare-watch-centrav: SUPPRESSED (RT-CENTRAV-SPAWN 2026-08-09). Commander
+    2026-08-07 killed all airfare session keep-alives except Skybird —
+    fare-watch-centrav must NEVER auto-relogin. This function used to shell to
+    centrav_session_relogin.py on every call; any caller reaching this
+    function directly (REPAIR_FUNCTIONS / cluster_d._fare_watch_centrav)
+    bypassed the SUPPRESSED_AUTO_SKILLS gate in rapid_repair.py/ci_health.py.
+    No-op now — Centrav relogin is on-demand only."""
+    logger.info("REPAIR fare-watch-centrav: SUPPRESSED — Commander 2026-08-07 killed airfare "
+                "keep-alives except Skybird. No auto-repair.")
+    return False
 
 
 def repair_fare_watch_ita() -> bool:

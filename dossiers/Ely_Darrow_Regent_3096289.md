@@ -16,7 +16,9 @@ fpd_amount: 16640
 fpd_amount_verified_date: 2026-06-09
 fpd_amount_source: invoice
 payment_status: paid_in_full
-status: active
+status: cancelled
+cancellation_reason: Medical — Amy requires spinal surgery
+cancellation_date: 2026-08-10
 relationship: client
 completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5", "1.1"]
 ---
@@ -79,8 +81,8 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5", "1.1"]
 |---------|------|-------|--------|------|
 | Own/deferred reservation | **At Six Stockholm** — Night 1 (Al & Amy's own reservation, deferred payment) | Aug 27-28 | Confirmed | TBD |
 | — | **At Six Stockholm** — Regent included hotel night | Aug 28-29 | Included | — |
-| #1095091 / AE693884 | Royal Transfer to Haymarket — **CANCEL UPON COMMANDER APPROVAL** | Aug 27 | ⚠️ CANCEL PENDING | ~$176 |
-| Bedsonline 131-2656351 | Haymarket By Scandic group booking — **CANCEL UPON COMMANDER APPROVAL** | Aug 27-28 | ⚠️ CANCEL PENDING | — |
+| #1095091 / AE693884 | Royal Transfer to Haymarket — **CANCELLED** | Aug 27 | ✅ CANCELLED (Commander confirmed to Al, email 2026-08-10) | ~$176 |
+| Bedsonline 131-2656351 | Haymarket By Scandic group booking — **CANCELLED** | Aug 27-28 | ✅ CANCELLED (Commander confirmed to Al, email 2026-08-10) | — |
 | ✅ PE184711812 | ARN → At Six Stockholm transfer | Aug 27 | ✅ **CONFIRMED** — Hold w/o Payment, full payment due Aug 16 2026 [source: Project Expedition confirmation email, d2mconcierge, 2026-07-12; Al Ely replied "Looks good" 2026-07-14] | TBD — Harlan to verify |
 | — | Regent transport hotel → ship | Aug 29 | Included | — |
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
@@ -114,8 +116,16 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5", "1.1"]
 > "In regards to insurance I have looked at the Premier $15k annual from Allianz… however I must be mistaken as the quote was for approximately $450 for the both of us… does not sound right."
 - **ACTION:** Review Allianz Premier $15K annual — $450 quote for two seems too low. Verify pricing and provide correct quote. Al needs insurance decision before Apr 1.
 
+**Aug 10 — Commander to Al Ely** ("Possible alternative to outright cruise cancellation?", johnloucks3 → al.ely58, CC d2mconcierge)
+> Confirmed Royal Transfer + Haymarket hotel cancelled. Proposed path: pursue Future Cruise Credit or reschedule with Regent (not straight cancellation) via Regent's Regional Business Manager — the Wing's travel agency contact channel. Asked Al for (1) go/no-go on the plan vs. straight cancellation, (2) a letter from Amy's surgeon on letterhead — diagnosis, need for surgery, proposed date, confirmation she can't travel by Aug 29. Deadline framed as Aug 29 (sail date), no rush this week. No guarantees stated.
+- **INTEL — new contact channel:** Regent has a **Regional Business Manager** relationship with this travel agency for escalations. Not previously in dossier. Worth capturing as a standing reference for future Regent cancellation/exception cases.
+- **NOTE:** sent plain-text directly from johnloucks3 (not the D2M dark-navy branded draft) — Commander's choice for this category of correspondence (personal/medical crisis), diverging from standard client-email stationery. Flag: confirm with Commander whether this is a one-off or the preferred format for sensitive personal-stakes emails going forward.
+
 **Aug 07 — Al Ely** (Re: Re: Upcoming payments due for Stockholm)
 > 2026-08-07 17:54 | Al Ely (al.ely58@gmail.com) requested payment hold on Project Expedition transfer (PE184711812, due Aug 16, ~cost TBD) and At Six Stockholm own reservation (due soon). Reason: "Amy and I have decisions to make regarding the entire cruise." Al will contact early next week with final decision. **STATUS: PAYMENT HOLD IN EFFECT—no charges to card ending 4667 w/o explicit re-confirmation.** Suggested follow-up: Monday Aug 11 warm check-in to understand concerns (logistics/timing/health/financial) and clarify booking intent. Voyage departs Aug 29 (22 days); cancellation window narrowing.
+
+**Aug 10 — Al Ely** (Re: Re: Possible alternative to outright cruise cancellation?)
+> 2026-08-10 12:31 — Al Ely replies to Commander's FCC proposal asking how trip insurance ($16,640 purchased 2026-06-23) factors into cancellation strategy. Tone: grateful, collaborative, seeking expert guidance on insurance-credit coordination. Commander requires (1) surgeon letter + (2) Al's confirmation; Al now requests (3) insurance analysis before deciding. MISSION-INSURANCE-CLARIFICATION: pull policy, model scenarios, advise strategy. Deadline Aug 29 allows adequate time for analysis.
 
 ---
 
@@ -214,8 +224,8 @@ All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursion
 - [ ] **Schengen entry verification** — Confirm Al & Amy qualify for 90-day visa-free Schengen entry (USA passport). No visa required Sweden/Norway/Denmark. (Owner: Navarro)
 - [ ] **Kristiansand excursion clarification** — Sep 5: "None selected" — confirm if free time preference or oversight. Briefing needed if booking. (Owner: Reyes)
 - [x] **ARN → At Six transfer** — **DONE**, PE184711812 confirmed 2026-07-12. Al Ely replied "Looks good" 2026-07-14. Hold w/o Payment, full payment due Aug 16 2026. (Replaces cancelled Haymarket transfer.)
-- [ ] **Cancel Royal Transfer (#1095091/AE693884)** — ARN→Haymarket. Pending Commander approval.
-- [ ] **Cancel Haymarket group booking (Bedsonline 131-2656351)** — Aug 27-28. Pending Commander approval.
+- [x] **Cancel Royal Transfer (#1095091/AE693884)** — ARN→Haymarket. **CANCELLED**, confirmed to Al by email 2026-08-10.
+- [x] **Cancel Haymarket group booking (Bedsonline 131-2656351)** — Aug 27-28. **CANCELLED**, confirmed to Al by email 2026-08-10.
 - [ ] **Guest profile forms** — not yet received from Al & Amy. Request via Kyle's green-light channel.
 - [ ] **HEL→ARN seat numbers** — seats assigned (Mar 26) but numbers TBD. Confirm with AA/Finnair (PNR UXVXZP).
 - [x] **Specialty dining** — CONFIRMED 2026-05-31: Pacific Rim Aug 30@18:30 · Chartreuse Sep 2@19:30 · Prime 7 Sep 4@18:30
@@ -256,6 +266,7 @@ All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursion
 
 1. At Six both nights, eliminate insurance
 2. deferred payment plan confirmed
+3. **⚠️ 2026-08-10 (Commander, direct, primary source): Al & Amy have NO insurance policy through D2M. Allianz was declined — never purchased. The "Insurance ✅ PURCHASED 2026-06-23" status and "CLIENT DECISION... chose Allianz" sections above (lines ~29, ~132, ~225-249) are WRONG and contradict this correction. NO coverage exists on this booking from any source confirmed so far. Cancellation now in progress (see mission board P1) with full exposure to Regent's cancellation penalty schedule — Harlan to verify actual penalty % against Regent's published schedule for a departure this close (Aug 29) and confirm true out-of-pocket exposure before client conversation.
 
 <!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->
 
@@ -263,7 +274,15 @@ All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursion
 ### OPEN ACTION ITEMS
 - [ ] PAYMENT HOLD: Do not charge card ending 4667 for Project Expedition transfer (PE184711812, due Aug 16) or At Six Stockholm hotel reservation without explicit re-confirmation (auto-intel Aug 07)
 
-- [ ] FOLLOW-UP CALL: Monday Aug 11, before 10 AM—confirm status and address any concerns (auto-intel Aug 07)
+- [ ] Prepare written comparison memo for Al with recommended strategy and net outcome per path (auto-intel Aug 10)
+
+- [ ] Build financial model: insurance payout amount + potential Regent FCC value + straight refund scenarios (auto-intel Aug 10)
+
+- [ ] Contact insurance carrier to confirm medical cancellation rider covers Amy's spinal surgery and identify claim deadline (auto-intel Aug 10)
+
+- [ ] Locate insurance policy document (2026-06-23 purchase); identify carrier, policy number, coverage type, and medical cancellation limits (auto-intel Aug 10)
+
+- [x] FOLLOW-UP: done early via email 2026-08-10 (see EMAIL LOG) instead of the planned Aug 11 call — Commander proposed the FCC/reschedule plan and requested doctor's letter + go/no-go from Al.
 
 - [ ] DOSSIER UPDATE: Log hold request and follow-up timeline; flag for daily standup through decision date (auto-intel Aug 07)
 

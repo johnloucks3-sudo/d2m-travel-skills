@@ -1,31 +1,9 @@
 {
- "generated": "2026-08-08T17:08:14.642461+00:00",
- "open_count": 84,
- "suppressed_by_closure": 31,
+ "generated": "2026-08-11T13:14:19.449784+00:00",
+ "open_count": 117,
+ "suppressed_by_closure": 22,
  "total_closures_on_record": 225,
  "items": [
-  {
-   "id": "MISSION-COMMANDER-196-CALL",
-   "kind": "alert",
-   "title": "Call United Group Desk (800-426-1122 opt 3) with Spencer DEN-FCO 12-pax brief from Dembe. Request written quote. Document quote + booking decision. Return to De",
-   "priority": "P0",
-   "status": "deferred",
-   "client": "Spencer (Grand Tour)",
-   "amount": "",
-   "fpd": "",
-   "suspense_date": "2026-06-24"
-  },
-  {
-   "id": "MISSION-317-SPENCER-CALL-REMINDER",
-   "kind": "alert",
-   "title": "MISSION-317 — Call United Group Desk TODAY (800-426-1122, opt 3) for Spencer's DEN-FCO 12-pax quote. Scheduled 2026-07-04 via decision matrix (Sat holiday weeke",
-   "priority": "P0",
-   "status": "deferred",
-   "client": "",
-   "amount": "",
-   "fpd": "",
-   "suspense_date": "2026-07-06"
-  },
   {
    "id": "MISSION-768",
    "kind": "mission",
@@ -57,6 +35,16 @@
    "created_at": "2026-08-08T00:02:49.162037+00:00"
   },
   {
+   "id": "MISSION-845",
+   "kind": "mission",
+   "title": "--title HALE-CC: Implement",
+   "priority": "P0",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-10T20:41:31.068032+00:00"
+  },
+  {
    "id": "MISSION-0615",
    "kind": "mission",
    "title": "Quick & TL;DR recommendations for incubator reports",
@@ -65,6 +53,16 @@
    "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-16T00:00:00+00:00"
+  },
+  {
+   "id": "MISSION-019",
+   "kind": "mission",
+   "title": "(no subject) Commander",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-13T03:21:06.722989+00:00"
   },
   {
    "id": "MISSION-048",
@@ -267,6 +265,56 @@
    "created_at": "2026-07-19T04:20:29.720858+00:00"
   },
   {
+   "id": "MISSION-692",
+   "kind": "mission",
+   "title": "Staff Package SSS-004",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-19T13:42:56.170112+00:00"
+  },
+  {
+   "id": "MISSION-693",
+   "kind": "mission",
+   "title": "Tech Scan 2026-07-20",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-20T05:16:32.437089+00:00"
+  },
+  {
+   "id": "MISSION-694",
+   "kind": "mission",
+   "title": "Re: Re: Multi-Model",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-20T12:31:30.766029+00:00"
+  },
+  {
+   "id": "MISSION-695",
+   "kind": "mission",
+   "title": "Re: Hermai.ai Analysis",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-20T12:41:30.824355+00:00"
+  },
+  {
+   "id": "MISSION-696",
+   "kind": "mission",
+   "title": "Commander review and send Kuklinski WF-17 emails",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-21T02:22:36.389134+00:00"
+  },
+  {
    "id": "MISSION-698",
    "kind": "mission",
    "title": "Close Kuklinski Dec-17 return open-jaw routing",
@@ -285,6 +333,16 @@
    "assigned_to": "Hale",
    "suspense_date": "",
    "created_at": "2026-07-21T08:00:08.654604+00:00"
+  },
+  {
+   "id": "MISSION-703",
+   "kind": "mission",
+   "title": "Payment Reminder —",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-22T12:50:20.926684+00:00"
   },
   {
    "id": "MISSION-705",
@@ -375,6 +433,16 @@
    "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-24T04:04:06.113377+00:00"
+  },
+  {
+   "id": "MISSION-717",
+   "kind": "mission",
+   "title": "Tech Scan 2026-07-24",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-24T05:15:23.544155+00:00"
   },
   {
    "id": "MISSION-718",
@@ -527,6 +595,56 @@
    "created_at": "2026-07-26T20:18:53.768963+00:00"
   },
   {
+   "id": "MISSION-750",
+   "kind": "mission",
+   "title": "Morning Intel Brief",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-28T13:10:30.399830+00:00"
+  },
+  {
+   "id": "MISSION-751",
+   "kind": "mission",
+   "title": "🌅 MORNING CONSOLIDATED",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-28T13:20:30.097015+00:00"
+  },
+  {
+   "id": "MISSION-752",
+   "kind": "mission",
+   "title": "Re: Re: 🚢",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-28T15:12:38.728974+00:00"
+  },
+  {
+   "id": "MISSION-753",
+   "kind": "mission",
+   "title": "Re: 🚢 Silver",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-28T15:30:40.212769+00:00"
+  },
+  {
+   "id": "MISSION-755",
+   "kind": "mission",
+   "title": "Perplexity API key",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-29T15:43:55.612337+00:00"
+  },
+  {
    "id": "MISSION-756",
    "kind": "mission",
    "title": "Resolve Kuklinski return-leg open-jaw air routing",
@@ -575,6 +693,16 @@
    "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-07-29T18:48:05.331134+00:00"
+  },
+  {
+   "id": "MISSION-764",
+   "kind": "mission",
+   "title": "C2 gate —",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-29T23:20:33.202102+00:00"
   },
   {
    "id": "MISSION-765",
@@ -697,6 +825,16 @@
    "created_at": "2026-08-07T03:05:50.448690+00:00"
   },
   {
+   "id": "MISSION-786",
+   "kind": "mission",
+   "title": "WAR ROOM —",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-07T04:18:04.106225+00:00"
+  },
+  {
    "id": "MISSION-787",
    "kind": "mission",
    "title": "Refresh Regent Lesser Antilles dossier — Lyons renewal window live",
@@ -737,6 +875,26 @@
    "created_at": "2026-08-07T12:09:42.717833+00:00"
   },
   {
+   "id": "MISSION-794",
+   "kind": "mission",
+   "title": "OC/OpenCode auto-logoff —",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-07T12:24:13.498033+00:00"
+  },
+  {
+   "id": "MISSION-795",
+   "kind": "mission",
+   "title": "RT-TELEGRAM FIXES DEPLOYED",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-07T12:57:00.563000+00:00"
+  },
+  {
    "id": "MISSION-797",
    "kind": "mission",
    "title": "RT-MISSION execution: wire autonomous_board ledger + DDK collapse into mission board",
@@ -755,6 +913,16 @@
    "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-07T18:43:16.070312+00:00"
+  },
+  {
+   "id": "MISSION-800",
+   "kind": "mission",
+   "title": "Autonomy Build Triage",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-07T22:08:39.221780+00:00"
   },
   {
    "id": "MISSION-802",
@@ -805,6 +973,166 @@
    "assigned_to": "Hale",
    "suspense_date": null,
    "created_at": "2026-08-08T04:08:02.086302+00:00"
+  },
+  {
+   "id": "MISSION-809",
+   "kind": "mission",
+   "title": "Tranche 2 Complete",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-08T04:15:42.175696+00:00"
+  },
+  {
+   "id": "MISSION-810",
+   "kind": "mission",
+   "title": "Pilots #3 +",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-08T14:29:52.697102+00:00"
+  },
+  {
+   "id": "MISSION-812",
+   "kind": "mission",
+   "title": "TESS credential repair — refresh token dead, blocking #26 and #34",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-08T17:08:04.180094+00:00"
+  },
+  {
+   "id": "MISSION-817",
+   "kind": "mission",
+   "title": "RT Position Paper",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-08T20:13:16.382254+00:00"
+  },
+  {
+   "id": "MISSION-818",
+   "kind": "mission",
+   "title": "Re: [KAI-kzn-20260808214058-2306ce] Your",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-08T21:51:14.948335+00:00"
+  },
+  {
+   "id": "MISSION-819",
+   "kind": "mission",
+   "title": "KAIZEN ticket from",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-08T22:38:49.753300+00:00"
+  },
+  {
+   "id": "MISSION-820",
+   "kind": "mission",
+   "title": "Re: [KAI-kzn-20260808223014-62711c] Your",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-08T22:42:50.084582+00:00"
+  },
+  {
+   "id": "MISSION-828",
+   "kind": "mission",
+   "title": "Deliver Kuklinski WF-17 packet to Commander for approval",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-09T21:04:41.614791+00:00"
+  },
+  {
+   "id": "MISSION-829",
+   "kind": "mission",
+   "title": "Resolve McLeod lifecycle dispute with documented outcome",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-09T21:04:41.617006+00:00"
+  },
+  {
+   "id": "MISSION-830",
+   "kind": "mission",
+   "title": "Complete Furlow/Grandeur fix and FPD audit",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-09T21:04:41.622623+00:00"
+  },
+  {
+   "id": "MISSION-833",
+   "kind": "mission",
+   "title": "Clear Kuklinski WF-17 queue — validation and insurance emails",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-10T02:27:19.814406+00:00"
+  },
+  {
+   "id": "MISSION-834",
+   "kind": "mission",
+   "title": "Close Kuklinski Dec-17 return-leg open-jaw routing",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-10T02:27:19.816264+00:00"
+  },
+  {
+   "id": "MISSION-837",
+   "kind": "mission",
+   "title": "Deliver Kuklinski WF-17 package — validation, insurance, welcome",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-10T16:44:44.928192+00:00"
+  },
+  {
+   "id": "MISSION-840",
+   "kind": "mission",
+   "title": "Deliver Kuklinski validation and insurance emails to Commander",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-10T20:13:30.935263+00:00"
+  },
+  {
+   "id": "MISSION-841",
+   "kind": "mission",
+   "title": "Close Kuklinski open-jaw return leg and finalize air quote",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-10T20:13:30.937530+00:00"
+  },
+  {
+   "id": "MISSION-842",
+   "kind": "mission",
+   "title": "Update two overdue dossiers — Loucks Dec2026 and LesserAntilles Dec2026",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-08-10T20:13:30.941582+00:00"
   },
   {
    "id": "SSS-005",

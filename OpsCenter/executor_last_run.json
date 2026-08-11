@@ -1,35 +1,14 @@
 {
-  "run_at": "2026-08-08T10:19:43.000519",
-  "tasks_attempted": 4,
-  "tasks_succeeded": 4,
+  "run_at": "2026-08-10T18:59:24.191520",
+  "tasks_attempted": 1,
+  "tasks_succeeded": 1,
   "results": [
     {
-      "id": "MISSION-801",
-      "title": "Send Kuklinski WF-17 validation and insurance emails",
+      "id": "MISSION-845",
+      "title": "--title HALE-CC: Implement",
       "success": true,
-      "elapsed": 12.348964214324951,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-801_20260808.md"
-    },
-    {
-      "id": "MISSION-636",
-      "title": "Full CI infrastructure",
-      "success": true,
-      "elapsed": 23.532496213912964,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-636_20260808.md"
-    },
-    {
-      "id": "MISSION-637",
-      "title": "Mission Board capability",
-      "success": true,
-      "elapsed": 25.95064640045166,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-637_20260808.md"
-    },
-    {
-      "id": "MISSION-653",
-      "title": "\ud83d\udee1\ufe0f CHIEF SILVER",
-      "success": true,
-      "elapsed": 8.5886390209198,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-653_20260808.md"
+      "elapsed": 32.85589075088501,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-845_20260810.md"
     }
   ]
 }

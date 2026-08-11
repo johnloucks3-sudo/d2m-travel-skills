@@ -38,21 +38,11 @@ Thanks,
 Hale
 
 <!-- COMMANDER-READY:START -->
-## COMMANDER-READY (2026-08-08 15:30 UTC)
+## COMMANDER-READY (2026-08-11 13:30 UTC)
 ### Last 24h decisions (0)
 - (none)
 
-### Open P0/P1 nags (10)
-- [P0] MCLEOD-2984034-FPD-TRIGGER
-- [P0] MISSION-COMMANDER-196-CALL
-- [P1] MCLEOD-SILVER-MUSE-WELCOME-HOME
-- [P1] MCLEOD-2984034-TP11-SEND
-- [P0] LOUCKS-3122006-FPD-ALERT
-- [P1] MISSION-802-ITINERARY-BUILD
-- [P1] MISSION-802-FORMAT-REVIEW
-- [P1] SCANDI-PORTAL-REVIEW
-- [P0] SCANDI-PORTAL-SEND
-- [P0] MISSION-317-SPENCER-CALL-REMINDER
+### Open P0/P1 nags (0)
 - (none)
 
 ### Blockers (0)
@@ -61,32 +51,33 @@ Hale
 ### Startup hook
 STOP-GATE: NO approved plan is currently active. STOP after this initial run; do not auto-continue. Await Commander feedback, a question, or an approved plan before further work.
 
-## STATE BRIDGE BRIEFING — 2026-08-08 09:30
+## STATE BRIDGE BRIEFING — 2026-08-11 07:30
 
-### Since last session (2026-08-08 15:00:00 → still open)
+### Since last session (2026-08-11 13:00:00 → still open)
 
 **Recent commits (no in-DB delta — showing git log):**
-- `e28bd1218` feat(instructor-mode): Pilot #2 — narrow verification caching on run_gate()  _62 minutes ago_
-- `210d37a13` feat(instructor-mode): Pilot #3 — mission auto-escalation, built via Instructor Mode, live  _64 minutes ago_
-- `0024dd607` feat(instructor-mode): universal any-HALE/any-lane procedure — interview, plan+todo, Weapons Free, mandatory reporting  _80 minutes ago_
-- `186c23b07` feat(instructor-mode): OC health-gate helper — built by Haiku as a live fallback-tier test  _2 hours ago_
-- `aa6cb07b5` feat(instructor-mode): rebuild sentinel, add OC lane to RT dispatch, fix RT recorder session bug  _2 hours ago_
+- `f00bea254` feat(ci): add replacement-judgment scorer; fix ELON review OnFailure retry loop  _65 minutes ago_
+- `d67b47907` fix(observability): add claude-process-watch guard-dog script to repo  _14 hours ago_
+- `e6de7baa5` docs: add ASD-STE100/Zinsser writing-style directive to cross-Hale doctrine  _24 hours ago_
+- `5a1803fdf` ELON: Fix recurring MCP GC service remediation (4x in 7d pattern)  _2 days ago_
+- `c4aae1676` email C2 front desk: WHO/RDD/ACTION/DELIVER receipt on every letter (Round Table OC+AG+CC)  _2 days ago_
 
 _No changes since last session — continuing clean._
 
 ### Current state snapshot
 **Most recently touched watched files:**
-- `hale_state.json` (29s ago)
+- `hale_state.json` (23s ago)
 - `OpsCenter/collaboration/blackboard.md` (29m ago)
-- `hale_brief.md` (36m ago)
-- `AGENTS.md` (1.4h ago)
-- `dossiers/Furlow_Regent_3071222.md` (2.7h ago)
-- `dossiers/Ely_Darrow_Regent_3096289.md` (16.0h ago)
-- `dossiers/Nichols_Regent_3078056.md` (19.0h ago)
-- `dossiers/Westbrook_SilverNova_Personal.md` (3.0d ago)
+- `hale_brief.md` (1.5h ago)
+- `AGENTS.md` (16.1h ago)
+- `dossiers/Ely_Darrow_Regent_3096289.md` (19.7h ago)
+- `dossiers/Ely_CANCELLATION_POINT_PAPER_20260810.md` (23.2h ago)
+- `dossiers/Loucks_PreSeasonGame_Denver_Aug2026.md` (1.6d ago)
+- `dossiers/DOSSIER_DoorCounty_SisterBay_Sep2026.md` (1.6d ago)
 
-**Mission board:** 219 open (18 P0, 134 P1)
-  - 🔴 MISSION-001: R
+**Mission board:** 256 open (19 P0, 148 P1)
+  - 🔴 MISSION-001: Resolve Regent cookie expiration — restore session access
+  
 <!-- COMMANDER-READY:END -->
 
 ## Block 5 — Nichols Draft + McLeod TESS Verify (2026-07-16)

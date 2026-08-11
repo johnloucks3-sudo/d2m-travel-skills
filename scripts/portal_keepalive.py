@@ -1178,10 +1178,15 @@ async def run(portals_to_check: list, status_only: bool) -> None:
 def main():
     parser = argparse.ArgumentParser(description="D2M Portal Session Keepalive")
     parser.add_argument("--portal", choices=list(PORTALS.keys()), help="Refresh one portal only")
+    parser.add_argument("--exclude", action="append", choices=list(PORTALS.keys()),
+                         help="Skip this portal (repeatable). RT-CENTRAV-SPAWN 2026-08-09: "
+                              "used by portal_keepalive_repair.py to exclude centrav.")
     parser.add_argument("--status", action="store_true", help="Print expiry status only, no refresh")
     args = parser.parse_args()
 
     portals = [args.portal] if args.portal else list(PORTALS.keys())
+    if args.exclude:
+        portals = [p for p in portals if p not in args.exclude]
     asyncio.run(run(portals, args.status))
 
 

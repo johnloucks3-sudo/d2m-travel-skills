@@ -187,6 +187,7 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 | 2026-07-04 | Re: What started as a family remembrance | Kyle, Nick, Roger |
 | 2026-07-04 | Re: What started as a family remembrance | Kyle, Nick, Roger |
 | 2026-07-04 | What started as a family remembrance | Kyle, Nick, Roger |
+| 2026-08-08 | Re: Estimated arrival time on December 27, 2026 | Erica, Kyle |
 
 ---
 

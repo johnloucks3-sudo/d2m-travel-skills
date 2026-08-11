@@ -14086,5 +14086,29 @@
     "label": "Perx discount signal(s): 75% off, 75% OFF, 30% discount",
     "excerpt": "There are **no 2026 news developments** confirming a specific \"Perx interline rate discount >30%\" announcement for airlines, as PERX.com (the primary provider of these discounts) has not released a new press statement or policy change regarding a >30% threshold in 2026. The search results indicate that PERX **already consistently offers discounts of up to 75% off retail rates** on interline vacati",
     "trigger_count": 3
+  },
+  {
+    "ts": "2026-08-11T12:54:32.754082+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 75% off",
+    "excerpt": "PERX appears to be actively promoting **interline travel discounts for airline employees in 2026**, but I do **not** see evidence in the results of a specific, company-wide \u201c>30% airline interline rate discount\u201d headline news item from a major outlet.[1][7][19]\n\nWhat the latest 2026-related developments in the results do show is:\n\n- **PERX is still marketing interline pricing broadly** for airline",
+    "trigger_count": 1
+  },
+  {
+    "ts": "2026-08-11T13:10:04.174738+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 75% off",
+    "excerpt": "PERX\u2019s public pages still advertise **interline rates** and claim savings of **up to 75% off retail** on cruises, resorts, and tours, but the results you provided do **not** show any verified 2026 news confirming a specific **\u201c>30% airline\u201d** discount change or a major policy update.[4][13]\n\nWhat the current results do show:\n- PERX says airline employees can access discounts on many vacation types",
+    "trigger_count": 1
+  },
+  {
+    "ts": "2026-08-11T13:25:41.024591+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 75% off, 75% OFF, 30% off",
+    "excerpt": "PERX is still actively promoting **interline** travel deals in 2026, including cruise offers with **new rates**, **upgrades**, and onboard credit promotions, and its site says it updates daily with new rates and price reductions.[4][5][19] However, I did not find a clear 2026 news item showing a permanent, systemwide airline interline discount specifically **greater than 30%**; the strongest curre",
+    "trigger_count": 3
   }
 ]

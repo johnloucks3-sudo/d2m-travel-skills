@@ -58,11 +58,16 @@ PORTALS = {
         "url": "https://www.centrav.com/",
         "cookie_file": CREDS_DIR / "centrav_cookies.json",
         "login_indicators": ["login", "trust", "sign-in"],
-        "heal_cmd": [sys.executable, str(THUNDERBIRD / "scripts" / "centrav_session_relogin.py")],
+        # SUPPRESSED (RT-CENTRAV-SPAWN 2026-08-09): heal_cmd intentionally omitted.
+        # Commander 2026-08-07 killed all airfare session keep-alives except Skybird —
+        # this probe ran every 10 min (d2m-portal-live-probe.timer) and called
+        # centrav_session_relogin.py unconditionally on every DEAD reading with no
+        # suppression check, which was one of the drivers of the Chrome/relogin spawn
+        # loop. Probe still runs and reports DEAD/ALIVE; it no longer auto-heals.
         "heal_timeout": 120,
         "manual_cmd": "python3 scripts/centrav_session_relogin.py",
         "client_affecting": True,
-        "note": "B2B flight pricing. Dead = no wholesale quotes.",
+        "note": "B2B flight pricing. Dead = no wholesale quotes. Auto-heal suppressed 2026-08-07 — Centrav on-demand only.",
     },
     # regent_d2m / regent_oa REMOVED from automated probe scope 2026-07-16 (Commander
     # directive): Regent cookies are on-demand only (browser-based capability covers

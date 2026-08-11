@@ -1,84 +1,93 @@
-# Daily Hale Transformation Audit — 2026-08-08
+## SCAN SUMMARY
+*Timestamp: 2026-08-11T01:00:00.465167*
+
+### 📅 Deadline Radar
+- **OVERDUE** | DOSSIER_Regent_Loucks_Dec2026_UPDATED (deadline) | -10d out [**HIGH**]
+- **OVERDUE** | DOSSIER_Regent_LesserAntilles_Dec2026 (deadline) | -20d out [**HIGH**]
+
+### ⏱️ Stale Tasks (>48h)
+- MISSION-018: Redirect Telegram-output automations to TCD and mark emergency-only (618.1h old) [**HIGH**]
+- MISSION-044: Resolve McLeod lifecycle contact and transfer dispute — 8 days overdue (104.0h old) [**HIGH**]
+- MISSION-617: browser-skill AG integration (613.3h old) [**HIGH**]
+- MISSION-618: Fix Furlow/Ely-Darrow/Nichols Grandeur (90.8h old) [**HIGH**]
+- MISSION-629: Fix anansi fallback (107.2h old) [**HIGH**]
+- MISSION-646: Five orphaned systemd units point at deleted scripts (all disabled) (617.5h old) [**HIGH**]
+- MISSION-648: MISSION-802-FORMAT-REVIEW continuity re-run loop (752 spawns, now quiescent) (617.5h old) [**HIGH**]
+- MISSION-649: GRB Rental Car (104.0h old) [**HIGH**]
+- MISSION-650: TESS Trip-notes subsystem broken (PostTripNote 500, GetTripNotes 405) (611.1h old) [**HIGH**]
+- MISSION-651: Loucks Panama Canal booking (3122006) missing from TESS entirely (300.2h old) [**HIGH**]
+- MISSION-659: MCP daemon staleness (583.9h old) [**HIGH**]
+- MISSION-664: Post-mortem on MISSION-648 format-review 752-spawn runaway (582.9h old) [**HIGH**]
+- MISSION-665: Retire five orphaned systemd units pointing at deleted scripts (582.9h old) [**HIGH**]
+- MISSION-672: hale-credential-check exits 1 (580.0h old) [**HIGH**]
+- MISSION-673: d2m-lifecycle: brain2 model (580.0h old) [**HIGH**]
+- MISSION-674: claude-sync: Cloudflare R2 (580.0h old) [**HIGH**]
+- MISSION-675: d2m-drive-sync: Google Drive (580.0h old) [**HIGH**]
+- MISSION-676: Crash reporter produces (579.5h old) [**HIGH**]
+- MISSION-682: Formally close MISSION-802-FORMAT-REVIEW continuity loop (562.7h old) [**HIGH**]
+- MISSION-690: Drive Commander's first live TCD decision cycle (554.7h old) [**HIGH**]
+- MISSION-691: Retire 5 orphaned systemd units pointing at deleted scripts (554.7h old) [**HIGH**]
+- MISSION-699: Remediate cc-fleet dead provider keys (508.6h old) [**HIGH**]
+- MISSION-700: Assign all unassigned P1 missions on the board (74.9h old) [**HIGH**]
+- MISSION-701: Close McLeod lifecycle contact and transfer dispute (300.2h old) [**HIGH**]
+- MISSION-711: Fund DeepSeek v4 backend — Commander approval gate (466.1h old) [**HIGH**]
+- MISSION-715: Brief system audit — flag stale in-progress dates as P1 anomalies (434.9h old) [**HIGH**]
+- MISSION-716: MISSION-802-FORMAT-REVIEW post-mortem — root cause the 752-spawn loop (434.9h old) [**HIGH**]
+- MISSION-724: Root-cause and fix room reservation cookie keepalive cycling (415.0h old) [**HIGH**]
+- MISSION-725: Write standing order for timer lifecycle governance (415.0h old) [**HIGH**]
+- MISSION-731: Close McLeod lifecycle dispute with resolution or escalation (410.9h old) [**HIGH**]
+- MISSION-732: Authorize and fund DeepSeek v4 relay API key (410.9h old) [**HIGH**]
+- MISSION-733: Confirm MISSION-802 loop cannot self-resume and close the mission record (410.9h old) [**HIGH**]
+- MISSION-739: Assign owners to unassigned P1 in-progress missions (371.2h old) [**HIGH**]
+- MISSION-745: Mandate cost envelope and budget threshold for all new timers pre-merge (370.7h old) [**HIGH**]
+- MISSION-748: Implement weekly mission board closure cadence with P3 hard-kill criteria (370.3h old) [**HIGH**]
+- MISSION-749: Schedule Hermai.ai hosted fetch integration sprint (370.3h old) [**HIGH**]
+- MISSION-754: Repo git bloat (304.2h old) [**HIGH**]
+- MISSION-759: Assign owners to all five unowned P1 missions (300.4h old) [**HIGH**]
+- MISSION-760: Confirm Westbrook welcome emails are in WF-17 with committed send date (300.4h old) [**HIGH**]
+- MISSION-763: Execute mission board culling pass — target under 80 active missions (300.2h old) [**HIGH**]
+- MISSION-767: Draft Commander-side Spencer intake response and stage to WF-17 (275.9h old) [**HIGH**]
+- MISSION-772: File MISSION-648 post-mortem — 752-spawn runaway root cause (108.5h old) [**HIGH**]
+- MISSION-777: Triage and close stale mission backlog (>400h, P2/P3) (107.2h old) [**HIGH**]
+- MISSION-778: Deploy ground-truth probe suite for all Wing status signals (107.2h old) [**HIGH**]
+- MISSION-780: Conduct mission board triage — close or defer all missions stale 30+ days (104.0h old) [**HIGH**]
+- MISSION-784: Assign owners to all unowned P1/P2 missions and close stale missions >21 days (99.9h old) [**HIGH**]
+- MISSION-785: Wire STOP-GATE canary to alert before any reorg operation (99.9h old) [**HIGH**]
+- MISSION-789: Refresh Regent Loucks Dec 2026 dossier (93.8h old) [**HIGH**]
+- MISSION-793: Close War Room T2 gate — ATO + ChatDev to production decision (90.8h old) [**HIGH**]
+- MISSION-799: RT-MISSION: claim-only operationalization — clear 172-open backlog safely (84.3h old) [**HIGH**]
+- MISSION-807: Triage mission board — close all superseded stale missions >300h (74.9h old) [**HIGH**]
+- MISSION-808: Refresh both overdue Regent dossiers (74.9h old) [**HIGH**]
+- MISSION-811: Item #15 build — auto-generated SSS status papers, trigger decision pending (61.9h old) [**MEDIUM**]
+- MISSION-813: Item #21 — FPD/dunning draft emails, needs Dani's voice + Harlan's tone-lane call (61.9h old) [**MEDIUM**]
+- MISSION-814: Item #13 verification — confirm sentiment/urgency scoring wired into inbox triage (61.9h old) [**MEDIUM**]
+- MISSION-815: OnFailure= coverage — expand beyond TIER1/TIER2/sentinel curated lists (24/326 done) (61.9h old) [**MEDIUM**]
+- MISSION-816: thunderbird-mcp-gc.service restart-cascade — 11:08 crash, self-healed, root cause understood but not fixed (60.8h old) [**MEDIUM**]
+
+### ⚠️ Priority Conflicts
+- 66 active missions may indicate priority overload [**MEDIUM**]
+
+### 💰 Commission Reconciliation Cycle
+- No commission reconciliation filed for August 2026 (5d past the 5-day grace window) [**MEDIUM**]
+
+### 🕵️ Competitor Intel Freshness
+- Most recent competitor intel (sector_I_competitor_20260702.md) is 40d old [**HIGH**]
+
+**Summary:** 62 total findings | **55 HIGH** | 5 MEDIUM
+
+
+# Daily Hale Transformation Audit — 2026-08-11
 Phase 1: ✅ 9.5/10
 Phase 2: ✅ COMPLETE (approved + deployed)
 Phase 3: ✅ ACTIVE (personality refinement, trust compounding, preference modeling)
 Standards: 100% self-enforced, Layer 8 live
 Operations: Lyons PAID (FPD archived). Welcome emails (Kuklinski + Westbrook) in progress, due Apr 15.
-Decisions: 223 logged
-Open Tasks: 5
+Decisions: 339 logged
+Open Tasks: 0
 System Health: UNKNOWN
 ## END AUDIT
 
-## SCAN SUMMARY
-*Timestamp: 2026-08-08T01:00:00.108743*
-
-### 📅 Deadline Radar
-- **OVERDUE** | DOSSIER_Regent_Loucks_Dec2026_UPDATED (deadline) | -7d out [**HIGH**]
-- **OVERDUE** | DOSSIER_Regent_LesserAntilles_Dec2026 (deadline) | -17d out [**HIGH**]
-
-### ⏱️ Stale Tasks (>48h)
-- MISSION-018: Redirect Telegram-output automations to TCD and mark emergency-only (546.1h old) [**HIGH**]
-- MISSION-617: browser-skill AG integration (541.3h old) [**HIGH**]
-- MISSION-636: Full CI infrastructure (228.2h old) [**HIGH**]
-- MISSION-637: Mission Board capability (546.0h old) [**HIGH**]
-- MISSION-646: Five orphaned systemd units point at deleted scripts (all disabled) (545.5h old) [**HIGH**]
-- MISSION-648: MISSION-802-FORMAT-REVIEW continuity re-run loop (752 spawns, now quiescent) (545.5h old) [**HIGH**]
-- MISSION-650: TESS Trip-notes subsystem broken (PostTripNote 500, GetTripNotes 405) (539.1h old) [**HIGH**]
-- MISSION-651: Loucks Panama Canal booking (3122006) missing from TESS entirely (228.2h old) [**HIGH**]
-- MISSION-653: 🛡️ CHIEF SILVER (537.2h old) [**HIGH**]
-- MISSION-659: MCP daemon staleness (511.9h old) [**HIGH**]
-- MISSION-664: Post-mortem on MISSION-648 format-review 752-spawn runaway (510.9h old) [**HIGH**]
-- MISSION-665: Retire five orphaned systemd units pointing at deleted scripts (510.9h old) [**HIGH**]
-- MISSION-672: hale-credential-check exits 1 (508.0h old) [**HIGH**]
-- MISSION-673: d2m-lifecycle: brain2 model (508.0h old) [**HIGH**]
-- MISSION-674: claude-sync: Cloudflare R2 (508.0h old) [**HIGH**]
-- MISSION-675: d2m-drive-sync: Google Drive (508.0h old) [**HIGH**]
-- MISSION-676: Crash reporter produces (507.5h old) [**HIGH**]
-- MISSION-682: Formally close MISSION-802-FORMAT-REVIEW continuity loop (490.7h old) [**HIGH**]
-- MISSION-690: Drive Commander's first live TCD decision cycle (482.7h old) [**HIGH**]
-- MISSION-691: Retire 5 orphaned systemd units pointing at deleted scripts (482.7h old) [**HIGH**]
-- MISSION-692: Staff Package SSS-004 (473.3h old) [**HIGH**]
-- MISSION-693: Tech Scan 2026-07-20 (457.7h old) [**HIGH**]
-- MISSION-694: Re: Re: Multi-Model (450.5h old) [**HIGH**]
-- MISSION-695: Re: Hermai.ai Analysis (450.3h old) [**HIGH**]
-- MISSION-699: Remediate cc-fleet dead provider keys (436.6h old) [**HIGH**]
-- MISSION-701: Close McLeod lifecycle contact and transfer dispute (228.2h old) [**HIGH**]
-- MISSION-703: Payment Reminder — (402.2h old) [**HIGH**]
-- MISSION-711: Fund DeepSeek v4 backend — Commander approval gate (394.1h old) [**HIGH**]
-- MISSION-715: Brief system audit — flag stale in-progress dates as P1 anomalies (362.9h old) [**HIGH**]
-- MISSION-716: MISSION-802-FORMAT-REVIEW post-mortem — root cause the 752-spawn loop (362.9h old) [**HIGH**]
-- MISSION-717: Tech Scan 2026-07-24 (361.7h old) [**HIGH**]
-- MISSION-724: Root-cause and fix room reservation cookie keepalive cycling (343.0h old) [**HIGH**]
-- MISSION-725: Write standing order for timer lifecycle governance (343.0h old) [**HIGH**]
-- MISSION-731: Close McLeod lifecycle dispute with resolution or escalation (338.9h old) [**HIGH**]
-- MISSION-732: Authorize and fund DeepSeek v4 relay API key (338.9h old) [**HIGH**]
-- MISSION-733: Confirm MISSION-802 loop cannot self-resume and close the mission record (338.9h old) [**HIGH**]
-- MISSION-739: Assign owners to unassigned P1 in-progress missions (299.2h old) [**HIGH**]
-- MISSION-745: Mandate cost envelope and budget threshold for all new timers pre-merge (298.7h old) [**HIGH**]
-- MISSION-748: Implement weekly mission board closure cadence with P3 hard-kill criteria (298.3h old) [**HIGH**]
-- MISSION-749: Schedule Hermai.ai hosted fetch integration sprint (298.3h old) [**HIGH**]
-- MISSION-750: Morning Intel Brief (257.8h old) [**HIGH**]
-- MISSION-752: Re: Re: 🚢 (255.8h old) [**HIGH**]
-- MISSION-753: Re: 🚢 Silver (255.5h old) [**HIGH**]
-- MISSION-754: Repo git bloat (232.2h old) [**HIGH**]
-- MISSION-755: Perplexity API key (231.3h old) [**HIGH**]
-- MISSION-759: Assign owners to all five unowned P1 missions (228.4h old) [**HIGH**]
-- MISSION-760: Confirm Westbrook welcome emails are in WF-17 with committed send date (228.4h old) [**HIGH**]
-- MISSION-763: Execute mission board culling pass — target under 80 active missions (228.2h old) [**HIGH**]
-- MISSION-764: C2 gate — (223.7h old) [**HIGH**]
-- MISSION-767: Draft Commander-side Spencer intake response and stage to WF-17 (203.9h old) [**HIGH**]
-
-### ⚠️ Priority Conflicts
-- 76 active missions may indicate priority overload [**MEDIUM**]
-
-### 💰 Commission Reconciliation Cycle
-- No commission reconciliation filed for August 2026 (2d past the 5-day grace window) [**MEDIUM**]
-
-### 🕵️ Competitor Intel Freshness
-- Most recent competitor intel (sector_I_competitor_20260702.md) is 37d old [**HIGH**]
-
-**Summary:** 55 total findings | **53 HIGH** | 0 MEDIUM
-
+## END AUDIT
 
 ## END AUDIT
 

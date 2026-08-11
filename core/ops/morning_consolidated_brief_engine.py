@@ -13,7 +13,7 @@ Consolidates:
 5. Day's Wing Priorities
 
 Delivery: DIRECT SEND to johnloucks3@gmail.com INBOX (Never a draft).
-Template: Dark Navy (#07076b) HTML Standard with inline CSS.
+Template: Academy Blue (#003594) / Gold (#FFCE00) / White (#FFFFFF) Internal HTML.
 """
 
 import email
@@ -153,10 +153,10 @@ def build_tcd_suspense_section(action_items: list[dict]) -> str:
 
     return f"""
 <table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;">
-    <tr style="background:#07076b;color:#fff;">
-        <th style="padding:9px 10px;border:1px solid #07076b;text-align:left;width:100px;">Priority</th>
-        <th style="padding:9px 10px;border:1px solid #07076b;text-align:left;">Action Item / Suspense</th>
-        <th style="padding:9px 10px;border:1px solid #07076b;text-align:left;width:130px;">Queue</th>
+    <tr style="background:#003594;color:#fff;">
+        <th style="padding:9px 10px;border:1px solid #003594;text-align:left;width:100px;">Priority</th>
+        <th style="padding:9px 10px;border:1px solid #003594;text-align:left;">Action Item / Suspense</th>
+        <th style="padding:9px 10px;border:1px solid #003594;text-align:left;width:130px;">Queue</th>
     </tr>
     {rows_html}
 </table>
@@ -185,7 +185,7 @@ def build_fare_watch_section(watches: list[dict]) -> str:
         rows_html += f"""
         <tr style="background:{bg};">
             <td style="padding:9px 10px;border:1px solid #e2e8f0;font-size:12px;">{label}{alert_badge}</td>
-            <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:bold;color:#07076b;">{fare_str}/pp</td>
+            <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:bold;color:#003594;">{fare_str}/pp</td>
             <td style="padding:9px 10px;border:1px solid #e2e8f0;color:#64748b;">{baseline_str}</td>
             <td style="padding:9px 10px;border:1px solid #e2e8f0;">{chg_str}</td>
             <td style="padding:9px 10px;border:1px solid #e2e8f0;font-size:11px;color:#94a3b8;">{checked}</td>
@@ -193,12 +193,12 @@ def build_fare_watch_section(watches: list[dict]) -> str:
 
     return f"""
 <table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;">
-    <tr style="background:#07076b;color:#fff;">
-        <th style="padding:8px 10px;border:1px solid #07076b;text-align:left;">Watch Label / Route</th>
-        <th style="padding:8px 10px;border:1px solid #07076b;text-align:left;">Current/pp</th>
-        <th style="padding:8px 10px;border:1px solid #07076b;text-align:left;">Baseline/pp</th>
-        <th style="padding:8px 10px;border:1px solid #07076b;text-align:left;">Δ%</th>
-        <th style="padding:8px 10px;border:1px solid #07076b;text-align:left;">Checked</th>
+    <tr style="background:#003594;color:#fff;">
+        <th style="padding:8px 10px;border:1px solid #003594;text-align:left;">Watch Label / Route</th>
+        <th style="padding:8px 10px;border:1px solid #003594;text-align:left;">Current/pp</th>
+        <th style="padding:8px 10px;border:1px solid #003594;text-align:left;">Baseline/pp</th>
+        <th style="padding:8px 10px;border:1px solid #003594;text-align:left;">Δ%</th>
+        <th style="padding:8px 10px;border:1px solid #003594;text-align:left;">Checked</th>
     </tr>
     {rows_html}
 </table>
@@ -222,6 +222,45 @@ def build_wing_ops_section(digest: dict) -> str:
         return _build(digest)
     except Exception as e:
         return f'<p style="color:#dc2626;">Wing Ops section failed to render: {e}</p>'
+
+
+def pull_signal_bus_digest() -> dict:
+    """Open staff-signal-bus signals by owner — staff collab substrate (SO-2026-06-21)."""
+    try:
+        from core.ai_infra.staff_signal_bus import digest
+        return digest(open_only=True)
+    except Exception as e:
+        logger.warning(f"Staff signal bus digest pull failed: {e}")
+        return {}
+
+
+def build_signal_bus_section(digest: dict) -> str:
+    """Render open staff signals grouped by owner. Empty bus → friendly no-op."""
+    by_route = digest.get("by_route", {})
+    total = digest.get("open_total", 0)
+    if not by_route or not total:
+        return '<p style="color:#16a34a;font-style:italic;">✅ Staff signal bus — all queues clear.</p>'
+
+    sections = []
+    for route in sorted(by_route.keys()):
+        sigs = by_route[route]
+        items = ""
+        for s in sigs:
+            flag = "🔴" if s.get("priority") == "high" else "•"
+            subj = str(s.get("subject", ""))[:80]
+            detail = str(s.get("detail", ""))[:120]
+            src = s.get("from_persona", "?")
+            sid = s.get("id", "?")
+            typ = s.get("type", "?")
+            items += (f'<li style="margin-bottom:6px;line-height:1.5;color:#1a1a2e;">'
+                      f'{flag} <b>[{typ}]</b> {subj} '
+                      f'<span style="color:#64748b;">_(from {src}, #{sid})_</span><br>'
+                      f'<span style="font-size:12px;color:#475569;">{detail}</span></li>')
+        sections.append(
+            f'<li style="margin-bottom:10px;"><b style="color:#003594;">→ {route.upper()}</b> ({len(sigs)})\n'
+            f'<ul style="margin-top:4px;padding-left:20px;">{items}</ul></li>')
+    return f'<ul style="padding-left:16px;">{"".join(sections)}</ul>'
+
 
 
 def build_mission_board_section(missions: list[dict]) -> str:
@@ -260,13 +299,13 @@ def pull_live_osint_watchdog() -> str:
             ][:3]
             if travel_hits:
                 bullets = "\n".join(f"<li>{h.strip('|').strip()}</li>" for h in travel_hits)
-                return f'<ul style="line-height:1.6;color:#1e293b;">{bullets}</ul><p style="font-size:12px;color:#64748b;">Source: Innovation Digest · {digest.stat().st_mtime and "Live"}</p>'
+                return f'<ul style="line-height:1.6;color:#1a1a2e;">{bullets}</ul><p style="font-size:12px;color:#64748b;">Source: Innovation Digest · {digest.stat().st_mtime and "Live"}</p>'
     except Exception:
         pass
 
     # Fallback: static curated watchdog
     return """
-<ul style="line-height:1.6;color:#1e293b;">
+<ul style="line-height:1.6;color:#1a1a2e;">
     <li><b>European Rail:</b> Swiss Federal Railways (SBB) Zermatt Matterhorn Line — 100% schedule reliability.</li>
     <li><b>Mediterranean Ports:</b> Civitavecchia (Rome) nominal; private pier transfer clearance confirmed.</li>
     <li><b>US Departure Hubs:</b> DEN operations normal; no ATC ground stops active.</li>
@@ -294,18 +333,18 @@ def build_fpd_section(alerts: list[dict]) -> str:
             <td style="padding:9px 10px;border:1px solid #e2e8f0;">{badge}</td>
             <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:600;color:#0f172a;">{client}</td>
             <td style="padding:9px 10px;border:1px solid #e2e8f0;color:#475569;font-size:12px;">{msg}</td>
-            <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:bold;color:#07076b;">{amount_str}</td>
+            <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:bold;color:#003594;">{amount_str}</td>
             <td style="padding:9px 10px;border:1px solid #e2e8f0;color:#475569;font-size:12px;">{fpd}</td>
         </tr>"""
 
     return f"""
 <table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;">
-    <tr style="background:#07076b;color:#fff;">
-        <th style="padding:9px 10px;border:1px solid #07076b;text-align:left;width:100px;">Priority</th>
-        <th style="padding:9px 10px;border:1px solid #07076b;text-align:left;">Client</th>
-        <th style="padding:9px 10px;border:1px solid #07076b;text-align:left;">Alert</th>
-        <th style="padding:9px 10px;border:1px solid #07076b;text-align:left;width:120px;">Amount</th>
-        <th style="padding:9px 10px;border:1px solid #07076b;text-align:left;width:110px;">FPD</th>
+    <tr style="background:#003594;color:#fff;">
+        <th style="padding:9px 10px;border:1px solid #003594;text-align:left;width:100px;">Priority</th>
+        <th style="padding:9px 10px;border:1px solid #003594;text-align:left;">Client</th>
+        <th style="padding:9px 10px;border:1px solid #003594;text-align:left;">Alert</th>
+        <th style="padding:9px 10px;border:1px solid #003594;text-align:left;width:120px;">Amount</th>
+        <th style="padding:9px 10px;border:1px solid #003594;text-align:left;width:110px;">FPD</th>
     </tr>
     {rows_html}
 </table>
@@ -343,15 +382,15 @@ def build_queued_reports_section() -> str:
             
             html_parts.append(f"""
 <div style="background:{bg};border:1px solid #cbd5e1;padding:15px;border-radius:4px;margin-bottom:12px;">
-    <h4 style="color:#07076b;margin-top:0;margin-bottom:10px;font-size:14px;">{title}</h4>
-    <div style="font-size:13px;color:#1e293b;line-height:1.6;">{body}</div>
+    <h4 style="color:#003594;margin-top:0;margin-bottom:10px;font-size:14px;">{title}</h4>
+    <div style="font-size:13px;color:#1a1a2e;line-height:1.6;">{body}</div>
     <p style="font-size:11px;color:#64748b;margin-top:12px;margin-bottom:0;border-top:1px solid #e2e8f0;padding-top:6px;">
         <b>Source:</b> {source} &nbsp;|&nbsp; <b>Queued:</b> {ts}
     </p>
 </div>
 """)
         return f"""
-<h3 style="color:#07076b;margin-top:25px;">📥 QUEUED REPORTS & NOTIFICATIONS</h3>
+<h3 style="color:#003594;margin-top:25px;">📥 QUEUED REPORTS & NOTIFICATIONS</h3>
 <p style="font-size:12px;color:#64748b;margin-bottom:12px;">The following items were held for this delivery window:</p>
 {"".join(html_parts)}
 """
@@ -374,6 +413,7 @@ def generate_morning_brief_html() -> str:
     fare_watches = pull_live_fare_watch(max_watches=6)
     missions_p0p1 = pull_mission_board_p0_p1()
     wing_ops_digest = pull_wing_ops_digest()
+    signal_bus_digest = pull_signal_bus_digest()
 
     # Pull FPD alerts from Hale state
     try:
@@ -393,6 +433,7 @@ def generate_morning_brief_html() -> str:
     mission_html = build_mission_board_section(missions_p0p1)
     osint_html = pull_live_osint_watchdog()
     wing_ops_html = build_wing_ops_section(wing_ops_digest)
+    signal_bus_html = build_signal_bus_section(signal_bus_digest)
     fpd_html = build_fpd_section(fpd_alerts)
     commander_desk_html = build_commander_desk_section()
     queued_reports_html = build_queued_reports_section()
@@ -403,45 +444,49 @@ def generate_morning_brief_html() -> str:
     alert_count = sum(1 for w in fare_watches if w.get("alert_triggered"))
 
     summary_bar = f"""
-<div style="background:#e8f1ff;border:1px solid #a8c4f0;border-radius:6px;padding:12px 16px;margin-bottom:20px;display:flex;gap:20px;flex-wrap:wrap;">
-    <span style="font-size:13px;color:#07076b;"><b>📌 TCD Action:</b> {len(action_items)} items &nbsp;|&nbsp; <b style="color:#dc2626;">{p0_count} P0</b> &nbsp;|&nbsp; <b style="color:#ea580c;">{p1_count} P1</b></span>
-    <span style="font-size:13px;color:#07076b;"><b>✈️ Fare Watches:</b> {len(fare_watches)} active &nbsp;|&nbsp; <b style="color:{'#dc2626' if alert_count else '#16a34a'};">{alert_count} alerts</b></span>
-    <span style="font-size:13px;color:#07076b;"><b>🎯 Missions (P0/P1):</b> {len(missions_p0p1)} pending</span>
+<div style="background:#eef3fb;border:1px solid #a8bde0;border-radius:6px;padding:12px 16px;margin-bottom:20px;display:flex;gap:20px;flex-wrap:wrap;">
+    <span style="font-size:13px;color:#003594;"><b>📌 TCD Action:</b> {len(action_items)} items &nbsp;|&nbsp; <b style="color:#dc2626;">{p0_count} P0</b> &nbsp;|&nbsp; <b style="color:#ea580c;">{p1_count} P1</b></span>
+    <span style="font-size:13px;color:#003594;"><b>✈️ Fare Watches:</b> {len(fare_watches)} active &nbsp;|&nbsp; <b style="color:{'#dc2626' if alert_count else '#16a34a'};">{alert_count} alerts</b></span>
+    <span style="font-size:13px;color:#003594;"><b>🎯 Missions (P0/P1):</b> {len(missions_p0p1)} pending</span>
+    <span style="font-size:13px;color:#003594;"><b>📡 Staff Signals:</b> {signal_bus_digest.get('open_total', 0)} open</span>
     <span style="font-size:13px;color:#64748b;">Generated: {now_time}</span>
 </div>
 """
 
     body = f"""
-<h2 style="color:#07076b;border-bottom:2px solid #a8c4f0;padding-bottom:6px;">🌅 MORNING CONSOLIDATED BRIEF — {now_str.upper()}</h2>
+<h2 style="color:#003594;border-bottom:2px solid #a8bde0;padding-bottom:6px;">🌅 MORNING CONSOLIDATED BRIEF — {now_str.upper()}</h2>
 
 <p>Good morning, Commander. Your live briefing follows — TCD pulled {today_date}, fare watch current, mission board live.</p>
 
 {summary_bar}
 
-<h3 style="color:#07076b;margin-top:25px;">💰 FINAL PAYMENT DATE (FPD) ALERTS — Priority Sorted</h3>
+<h3 style="color:#003594;margin-top:25px;">💰 FINAL PAYMENT DATE (FPD) ALERTS — Priority Sorted</h3>
 {fpd_html}
 
-<h3 style="color:#07076b;margin-top:25px;">📌 ACTIVE TCD SUSPENSES & ACTION ITEMS (Live)</h3>
+<h3 style="color:#003594;margin-top:25px;">📌 ACTIVE TCD SUSPENSES & ACTION ITEMS (Live)</h3>
 {tcd_html}
 
-<h3 style="color:#07076b;margin-top:25px;">📋 COMMANDER DESK — Pending Items</h3>
+<h3 style="color:#003594;margin-top:25px;">📋 COMMANDER DESK — Pending Items</h3>
 {commander_desk_html}
 
-<h3 style="color:#07076b;margin-top:25px;">🎯 MISSION BOARD — P0 / P1 REQUIRING ATTENTION</h3>
+<h3 style="color:#003594;margin-top:25px;">🎯 MISSION BOARD — P0 / P1 REQUIRING ATTENTION</h3>
 {mission_html}
 
-<h3 style="color:#07076b;margin-top:25px;">✈️ LIVE FARE WATCH DASHBOARD</h3>
+<h3 style="color:#003594;margin-top:25px;">✈️ LIVE FARE WATCH DASHBOARD</h3>
 {fare_html}
 
-<h3 style="color:#07076b;margin-top:25px;">🛰️ WORLD & AIRLINE DISRUPTION WATCHDOG</h3>
+<h3 style="color:#003594;margin-top:25px;">🛰️ WORLD & AIRLINE DISRUPTION WATCHDOG</h3>
 {osint_html}
 
-<h3 style="color:#07076b;margin-top:25px;">🦅 WING OPS — DELEGATION, VERIFICATION & COMPLIANCE</h3>
+<h3 style="color:#003594;margin-top:25px;">🦅 WING OPS — DELEGATION, VERIFICATION & COMPLIANCE</h3>
 {wing_ops_html}
+
+<h3 style="color:#003594;margin-top:25px;">📡 STAFF SIGNAL BUS — OPEN COLLAB SIGNALS</h3>
+{signal_bus_html}
 
 {queued_reports_html}
 
-<div style="margin-top:30px;font-family:Arial,sans-serif;color:#07076b;border-top:1px solid #e2e8f0;padding-top:12px;">
+<div style="margin-top:30px;font-family:Arial,sans-serif;color:#003594;border-top:1px solid #e2e8f0;padding-top:12px;">
     <p style="font-weight:bold;margin:0;">DREAMS2MEMORIES TRAVEL, LLC</p>
     <p style="margin:0;font-size:13px;color:#475569;">Prepared by: Victoria Hale, Chief of Staff &nbsp;|&nbsp; Auto-generated {now_time}</p>
 </div>

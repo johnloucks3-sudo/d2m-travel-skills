@@ -597,6 +597,19 @@ def send_to_commander():
         print(f"\u2713 DRAFT created for {name} (ID: {draft.get('id')})")
         print(f"  Client To: {client['to']}")
 
+    try:
+        from core.ai_infra.staff_signal_bus import post as post_signal
+        post_signal(
+            from_persona="dani",
+            type="OPINE",
+            subject=f"Validation Email Drafts Staged for Commander Review ({len(PREVIEW_BATCH)} clients)",
+            detail=f"Rendered and staged preview validation drafts for: {', '.join(PREVIEW_BATCH)}.",
+            priority="med",
+        )
+    except Exception:
+        pass
+
+
 
 def send_to_clients():
     """Send each email to actual clients, CC concierge + Commander."""

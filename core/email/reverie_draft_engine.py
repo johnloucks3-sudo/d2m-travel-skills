@@ -184,7 +184,23 @@ def run(client_query: str, destination_data: dict = None, write_dossier=False, o
     if output_path:
         output_path.write_text(json.dumps(result, indent=2))
 
+    # Post signal to staff_signal_bus for creative chain tracking
+    try:
+        from core.ai_infra.staff_signal_bus import post as post_signal
+        pillar = profile.get("primary_pillar", "UNKNOWN")
+        ttype = profile.get("traveler_type", "UNKNOWN")
+        post_signal(
+            from_persona="reyes",
+            type="OPINE",
+            subject=f"Creative Chain Staged: {client_query} — {pillar} / {ttype}",
+            detail=f"Ticket generated for creative chain (Reyes -> Luna -> Naia -> Dani -> COS). Seed opening: {opening[:120]}...",
+            priority="med",
+        )
+    except Exception:
+        pass
+
     return result
+
 
 
 def main():

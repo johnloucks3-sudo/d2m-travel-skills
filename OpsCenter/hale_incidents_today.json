@@ -1,2220 +1,150 @@
 {
-  "date": "2026-08-08",
+  "date": "2026-08-11",
   "summary": {
-    "auto_healed": 3,
+    "auto_healed": 0,
     "self_repaired": 0,
-    "unresolved": 0,
+    "unresolved": 18,
     "elon_proposals_new": 0
   },
   "incidents": [
     {
-      "time": "03:42",
-      "service": "thunderbird-inbox-sweep.timer",
+      "time": "00:14",
+      "service": "claude-process-watch.service",
+      "event_type": "long_lived_claude_process",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:14",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 2 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:14",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 3 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:19",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 4 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:19",
+      "service": "ai-auth-probe.timer",
       "event_type": "timer_repair_failed",
       "action": "queued_for_brief",
       "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer: activated_service_failed. Repair attempted (restart thunderbird-inbox-sweep.service -> FAILED) but did not resolve \u2014 paging per restart-and-reverify-before-paging policy.",
+      "note": "ai-auth-probe.timer: activated_service_failed. Repair attempted (restart ai-auth-probe.service -> FAILED) but did not resolve \u2014 paging per restart-and-reverify-before-paging policy.",
       "elon_invoked": false
     },
     {
-      "time": "03:42",
-      "service": "thunderbird-c2-sweep.timer",
+      "time": "00:24",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 5 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:34",
+      "service": "claude-process-watch.service",
+      "event_type": "long_lived_claude_process",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:34",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 6 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:44",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 7 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:49",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 8 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:49",
+      "service": "ai-auth-probe.timer",
       "event_type": "timer_repair_failed",
       "action": "queued_for_brief",
       "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer: activated_service_failed. Repair attempted (restart thunderbird-c2-sweep.service -> FAILED) but did not resolve \u2014 paging per restart-and-reverify-before-paging policy.",
+      "note": "ai-auth-probe.timer: activated_service_failed. Repair attempted (restart ai-auth-probe.service -> FAILED) but did not resolve \u2014 paging per restart-and-reverify-before-paging policy.",
       "elon_invoked": false
     },
     {
-      "time": "03:42",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
+      "time": "00:54",
+      "service": "claude-process-watch.service",
+      "event_type": "long_lived_claude_process",
       "action": "queued_for_brief",
       "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 18 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
+      "note": "",
       "elon_invoked": false
     },
     {
-      "time": "03:42",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
+      "time": "01:14",
+      "service": "claude-process-watch.service",
+      "event_type": "long_lived_claude_process",
       "action": "queued_for_brief",
       "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 18 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
+      "note": "",
       "elon_invoked": false
     },
     {
-      "time": "03:42",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 18 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 18 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 18 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 18 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 18 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "crash_loop",
-      "action": "hale_owns_repair_no_commander_page",
+      "time": "01:19",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
       "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...= dependencies.\n2026-08-07T22:13:19-06:00 yoga systemd[1519]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-07T22:13:19-06:00 yoga systemd[1519]: Starting Thunderbird MCP HTTP Server...\n2026-08-07T22:13:21-06:00 yoga systemd[1519]: Started Thunderbird MCP HTTP Server.\n2026-08-07T22:13:30-06:00 yoga systemd[1519]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-07T22:13:30-06:00 yoga systemd[1519]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-07T22:13:30-06:00 yoga systemd[1519]: thunderbird-mcp.service: Consumed 6.750s CPU time over 20.793s wall clock time, 192.5M memory peak, 18M memory swap peak.\n2026-08-07T22:13:30-06:00 yoga systemd[1519]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "note": "claude_oauth: repair exhausted after 9 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
       "elon_invoked": false
     },
     {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "crash_loop",
-      "action": "hale_owns_repair_no_commander_page",
+      "time": "01:19",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
       "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-07T22:17:07-06:00 yoga systemd[1519]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 1.\n2026-08-07T22:17:07-06:00 yoga systemd[1519]: Starting Thunderbird MCP HTTP Server...\n2026-08-07T22:17:08-06:00 yoga systemd[1519]: Started Thunderbird MCP HTTP Server.\n2026-08-07T22:17:28-06:00 yoga systemd[1519]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-07T22:17:28-06:00 yoga systemd[1519]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-07T22:17:28-06:00 yoga systemd[1519]: thunderbird-mcp.service: Consumed 5.417s CPU time over 31.060s wall clock time, 205.2M memory peak.\n2026-08-07T22:17:28-06:00 yoga systemd[1519]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
+      "note": "claude_oauth: repair exhausted after 10 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
       "elon_invoked": false
     },
     {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "crash_loop",
-      "action": "hale_owns_repair_no_commander_page",
-      "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-07T22:23:22-06:00 yoga systemd[1519]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-07T22:23:22-06:00 yoga systemd[1519]: Starting Thunderbird MCP HTTP Server...\n2026-08-07T22:23:23-06:00 yoga systemd[1519]: Started Thunderbird MCP HTTP Server.\n2026-08-07T22:23:32-06:00 yoga systemd[1519]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-07T22:23:32-06:00 yoga systemd[1519]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-07T22:23:32-06:00 yoga systemd[1519]: thunderbird-mcp.service: Consumed 6.159s CPU time over 20.804s wall clock time, 205.5M memory peak.\n2026-08-07T22:23:32-06:00 yoga systemd[1519]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "crash_loop",
-      "action": "hale_owns_repair_no_commander_page",
-      "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-07T22:27:19-06:00 yoga systemd[1519]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-07T22:27:19-06:00 yoga systemd[1519]: Starting Thunderbird MCP HTTP Server...\n2026-08-07T22:27:20-06:00 yoga systemd[1519]: Started Thunderbird MCP HTTP Server.\n2026-08-07T22:27:30-06:00 yoga systemd[1519]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-07T22:27:30-06:00 yoga systemd[1519]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-07T22:27:30-06:00 yoga systemd[1519]: thunderbird-mcp.service: Consumed 5.785s CPU time over 20.735s wall clock time, 208.5M memory peak.\n2026-08-07T22:27:30-06:00 yoga systemd[1519]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "auto_healed",
-      "action": "auto_healed_verified",
-      "status": "GREEN",
-      "note": "auto-heal verified (systemctl is-active: active)",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "crash_loop",
-      "action": "hale_owns_repair_no_commander_page",
-      "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-07T22:33:23-06:00 yoga systemd[1519]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-07T22:33:23-06:00 yoga systemd[1519]: Starting Thunderbird MCP HTTP Server...\n2026-08-07T22:33:24-06:00 yoga systemd[1519]: Started Thunderbird MCP HTTP Server.\n2026-08-07T22:33:34-06:00 yoga systemd[1519]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-07T22:33:34-06:00 yoga systemd[1519]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-07T22:33:34-06:00 yoga systemd[1519]: thunderbird-mcp.service: Consumed 6.548s CPU time over 20.985s wall clock time, 238.9M memory peak.\n2026-08-07T22:33:34-06:00 yoga systemd[1519]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "crash_loop",
-      "action": "hale_owns_repair_no_commander_page",
-      "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-07T22:37:19-06:00 yoga systemd[1519]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-07T22:37:19-06:00 yoga systemd[1519]: Starting Thunderbird MCP HTTP Server...\n2026-08-07T22:37:20-06:00 yoga systemd[1519]: Started Thunderbird MCP HTTP Server.\n2026-08-07T22:37:30-06:00 yoga systemd[1519]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-07T22:37:30-06:00 yoga systemd[1519]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-07T22:37:30-06:00 yoga systemd[1519]: thunderbird-mcp.service: Consumed 5.978s CPU time over 20.780s wall clock time, 209.7M memory peak.\n2026-08-07T22:37:30-06:00 yoga systemd[1519]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "timer_repair_failed",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer: activated_service_failed. Repair attempted (restart thunderbird-c2-sweep.service -> FAILED) but did not resolve \u2014 paging per restart-and-reverify-before-paging policy.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "timer_repair_failed",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer: activated_service_failed. Repair attempted (restart thunderbird-inbox-sweep.service -> FAILED) but did not resolve \u2014 paging per restart-and-reverify-before-paging policy.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 19 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 19 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 19 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 19 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 19 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 19 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 19 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "crash_loop",
-      "action": "hale_owns_repair_no_commander_page",
-      "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-07T22:41:17-06:00 yoga systemd[1519]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 4.\n2026-08-07T22:41:17-06:00 yoga systemd[1519]: Starting Thunderbird MCP HTTP Server...\n2026-08-07T22:41:19-06:00 yoga systemd[1519]: Started Thunderbird MCP HTTP Server.\n2026-08-07T22:41:28-06:00 yoga systemd[1519]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-07T22:41:28-06:00 yoga systemd[1519]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-07T22:41:28-06:00 yoga systemd[1519]: thunderbird-mcp.service: Consumed 5.679s CPU time over 20.779s wall clock time, 220.4M memory peak.\n2026-08-07T22:41:28-06:00 yoga systemd[1519]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "crash_loop",
-      "action": "hale_owns_repair_no_commander_page",
-      "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-07T22:47:22-06:00 yoga systemd[1519]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-07T22:47:22-06:00 yoga systemd[1519]: Starting Thunderbird MCP HTTP Server...\n2026-08-07T22:47:23-06:00 yoga systemd[1519]: Started Thunderbird MCP HTTP Server.\n2026-08-07T22:47:33-06:00 yoga systemd[1519]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-07T22:47:33-06:00 yoga systemd[1519]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-07T22:47:33-06:00 yoga systemd[1519]: thunderbird-mcp.service: Consumed 5.844s CPU time over 20.834s wall clock time, 216.4M memory peak.\n2026-08-07T22:47:33-06:00 yoga systemd[1519]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "crash_loop",
-      "action": "hale_owns_repair_no_commander_page",
-      "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-07T22:51:24-06:00 yoga systemd[1519]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 4.\n2026-08-07T22:51:24-06:00 yoga systemd[1519]: Starting Thunderbird MCP HTTP Server...\n2026-08-07T22:51:25-06:00 yoga systemd[1519]: Started Thunderbird MCP HTTP Server.\n2026-08-07T22:51:35-06:00 yoga systemd[1519]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-07T22:51:35-06:00 yoga systemd[1519]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-07T22:51:35-06:00 yoga systemd[1519]: thunderbird-mcp.service: Consumed 5.944s CPU time over 20.871s wall clock time, 214.4M memory peak.\n2026-08-07T22:51:35-06:00 yoga systemd[1519]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "crash_loop",
-      "action": "hale_owns_repair_no_commander_page",
-      "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-07T22:57:20-06:00 yoga systemd[1519]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-07T22:57:20-06:00 yoga systemd[1519]: Starting Thunderbird MCP HTTP Server...\n2026-08-07T22:57:22-06:00 yoga systemd[1519]: Started Thunderbird MCP HTTP Server.\n2026-08-07T22:57:31-06:00 yoga systemd[1519]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-07T22:57:31-06:00 yoga systemd[1519]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-07T22:57:31-06:00 yoga systemd[1519]: thunderbird-mcp.service: Consumed 5.724s CPU time over 20.883s wall clock time, 211.6M memory peak.\n2026-08-07T22:57:31-06:00 yoga systemd[1519]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "crash_loop",
-      "action": "hale_owns_repair_no_commander_page",
-      "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-07T23:01:23-06:00 yoga systemd[1519]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-07T23:01:23-06:00 yoga systemd[1519]: Starting Thunderbird MCP HTTP Server...\n2026-08-07T23:01:24-06:00 yoga systemd[1519]: Started Thunderbird MCP HTTP Server.\n2026-08-07T23:01:33-06:00 yoga systemd[1519]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-07T23:01:33-06:00 yoga systemd[1519]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-07T23:01:33-06:00 yoga systemd[1519]: thunderbird-mcp.service: Consumed 5.918s CPU time over 20.816s wall clock time, 212.6M memory peak.\n2026-08-07T23:01:33-06:00 yoga systemd[1519]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "crash_loop",
-      "action": "hale_owns_repair_no_commander_page",
-      "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-07T23:07:21-06:00 yoga systemd[1519]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-07T23:07:21-06:00 yoga systemd[1519]: Starting Thunderbird MCP HTTP Server...\n2026-08-07T23:07:22-06:00 yoga systemd[1519]: Started Thunderbird MCP HTTP Server.\n2026-08-07T23:07:32-06:00 yoga systemd[1519]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-07T23:07:32-06:00 yoga systemd[1519]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-07T23:07:32-06:00 yoga systemd[1519]: thunderbird-mcp.service: Consumed 6.284s CPU time over 20.957s wall clock time, 207.9M memory peak.\n2026-08-07T23:07:32-06:00 yoga systemd[1519]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "timer_repair_failed",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer: activated_service_failed. Repair attempted (restart thunderbird-c2-sweep.service -> FAILED) but did not resolve \u2014 paging per restart-and-reverify-before-paging policy.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "timer_repair_failed",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer: activated_service_failed. Repair attempted (restart thunderbird-inbox-sweep.service -> FAILED) but did not resolve \u2014 paging per restart-and-reverify-before-paging policy.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 20 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 20 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 20 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 20 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 20 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 20 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 20 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "crash_loop",
-      "action": "hale_owns_repair_no_commander_page",
-      "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-07T23:11:20-06:00 yoga systemd[1519]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 3.\n2026-08-07T23:11:20-06:00 yoga systemd[1519]: Starting Thunderbird MCP HTTP Server...\n2026-08-07T23:11:21-06:00 yoga systemd[1519]: Started Thunderbird MCP HTTP Server.\n2026-08-07T23:11:31-06:00 yoga systemd[1519]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-07T23:11:31-06:00 yoga systemd[1519]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-07T23:11:31-06:00 yoga systemd[1519]: thunderbird-mcp.service: Consumed 6.064s CPU time over 20.912s wall clock time, 207.4M memory peak.\n2026-08-07T23:11:31-06:00 yoga systemd[1519]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "crash_loop",
-      "action": "hale_owns_repair_no_commander_page",
-      "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-07T23:17:22-06:00 yoga systemd[1519]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-07T23:17:22-06:00 yoga systemd[1519]: Starting Thunderbird MCP HTTP Server...\n2026-08-07T23:17:23-06:00 yoga systemd[1519]: Started Thunderbird MCP HTTP Server.\n2026-08-07T23:17:33-06:00 yoga systemd[1519]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-07T23:17:33-06:00 yoga systemd[1519]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-07T23:17:33-06:00 yoga systemd[1519]: thunderbird-mcp.service: Consumed 6.284s CPU time over 21.166s wall clock time, 303.3M memory peak.\n2026-08-07T23:17:33-06:00 yoga systemd[1519]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-mcp",
-      "event_type": "crash_loop",
-      "action": "hale_owns_repair_no_commander_page",
-      "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Triggering OnFailure= dependencies.\n2026-08-07T23:21:21-06:00 yoga systemd[1519]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 5.\n2026-08-07T23:21:21-06:00 yoga systemd[1519]: Starting Thunderbird MCP HTTP Server...\n2026-08-07T23:21:23-06:00 yoga systemd[1519]: Started Thunderbird MCP HTTP Server.\n2026-08-07T23:21:32-06:00 yoga systemd[1519]: thunderbird-mcp.service: Main process exited, code=killed, status=9/KILL\n2026-08-07T23:21:32-06:00 yoga systemd[1519]: thunderbird-mcp.service: Failed with result 'signal'.\n2026-08-07T23:21:32-06:00 yoga systemd[1519]: thunderbird-mcp.service: Consumed 5.985s CPU time over 20.931s wall clock time, 206.8M memory peak.\n2026-08-07T23:21:32-06:00 yoga systemd[1519]: thunderbird-mcp.service: Triggering OnFailure= dependencies.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 4 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 4 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 21 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 21 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 21 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 21 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 21 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 21 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 21 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 5 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 5 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 22 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 22 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 22 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 22 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 22 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 22 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 22 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 6 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 6 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 23 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 23 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 23 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 23 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 23 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 23 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 23 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 7 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 7 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 24 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 24 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 24 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 24 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 24 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 24 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 24 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 8 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 8 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 25 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 25 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 25 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 25 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 25 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 25 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 25 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 9 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 9 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 26 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 26 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 26 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 26 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 26 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 26 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 26 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 10 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 10 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 27 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 27 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 27 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 27 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 27 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 27 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 27 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 11 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 11 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 28 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 28 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 28 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 28 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 28 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 28 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 28 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 12 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 12 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 29 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 29 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 29 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 29 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 29 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 29 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "03:42",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 29 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:12",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 13 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:12",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 13 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:12",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 30 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:12",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 30 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:12",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 30 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:12",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 30 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:12",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 30 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:12",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 30 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:12",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 30 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:42",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 14 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:42",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 14 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:42",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 31 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:42",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 31 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:42",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 31 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:42",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 31 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:42",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 31 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:42",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 31 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "04:42",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 31 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:12",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 15 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:12",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 15 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:12",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 32 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:12",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 32 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:12",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 32 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:12",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 32 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:12",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 32 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:12",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 32 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:12",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 32 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:42",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 16 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:42",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 16 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:42",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 33 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:42",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 33 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:42",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 33 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:42",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 33 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:42",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 33 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:42",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 33 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:42",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 33 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:08",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 17 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:08",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 17 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:08",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 34 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:08",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 34 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:08",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 34 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:08",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 34 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:08",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 34 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:08",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 34 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:13",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 34 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:38",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 35 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:38",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 18 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:38",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 18 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:38",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 35 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:38",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 35 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:38",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 35 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:38",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 35 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:38",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 35 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "06:38",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 35 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:08",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 19 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:08",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 19 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:08",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 36 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:08",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 36 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:08",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 36 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:08",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 36 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:08",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 36 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:08",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 36 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:08",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 36 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:38",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 37 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:38",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 20 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:38",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 20 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:38",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 37 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:38",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 37 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:38",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 37 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:38",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 37 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:38",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 37 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:38",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 37 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:08",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 21 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:08",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 21 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:08",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 38 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:08",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 38 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:08",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 38 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:08",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 38 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:08",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 38 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:08",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 38 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:08",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 38 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:38",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 39 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:38",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 22 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:38",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 22 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:38",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 39 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:38",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 39 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:38",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 39 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:38",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 39 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:38",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 39 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "08:38",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 39 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:08",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 23 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:08",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 23 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:08",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 40 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:08",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 40 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:08",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 40 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:08",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 40 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:08",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 40 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:08",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 40 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:08",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 40 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:38",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 24 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:38",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 24 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:38",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 41 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:38",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 41 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:38",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 41 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:38",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 41 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:38",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 41 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:38",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 41 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "09:38",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 41 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "10:08",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 25 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "10:08",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 25 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "10:08",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 42 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "10:08",
-      "service": "d2m-sss-chain-notify.timer",
-      "event_type": "timer_repair_failed",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-sss-chain-notify.timer: activated_service_failed. Repair attempted (restart d2m-sss-chain-notify.service -> FAILED) but did not resolve \u2014 paging per restart-and-reverify-before-paging policy.",
-      "elon_invoked": false
-    },
-    {
-      "time": "10:08",
-      "service": "thunderbird-mcp-gc.timer",
-      "event_type": "timer_repair_failed",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-mcp-gc.timer: activated_service_failed. Repair attempted (restart thunderbird-mcp-gc.service -> FAILED) but did not resolve \u2014 paging per restart-and-reverify-before-paging policy.",
-      "elon_invoked": false
-    },
-    {
-      "time": "10:08",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 42 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "10:08",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 42 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "10:08",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 42 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "10:08",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 42 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "10:08",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 42 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "10:08",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 42 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "10:14",
-      "service": "thunderbird-mcp",
-      "event_type": "auto_healed",
-      "action": "auto_healed_verified",
-      "status": "GREEN",
-      "note": "auto-heal verified (systemctl is-active: active)",
-      "elon_invoked": false
-    },
-    {
-      "time": "10:14",
-      "service": "thunderbird-generic-remediate@thunderbird-mcp-gc",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: failed",
-      "elon_invoked": false
-    },
-    {
-      "time": "10:26",
-      "service": "thunderbird-generic-remediate@thunderbird-mcp-gc",
+      "time": "01:24",
+      "service": "thunderbird-generic-remediate@ai-auth-probe",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -2222,8 +152,134 @@
       "elon_invoked": false
     },
     {
-      "time": "10:26",
-      "service": "thunderbird-generic-remediate@thunderbird-mcp-gc",
+      "time": "01:34",
+      "service": "claude-process-watch.service",
+      "event_type": "long_lived_claude_process",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:34",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 11 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:44",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 12 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:44",
+      "service": "ai-auth-probe.timer",
+      "event_type": "repeat_timer_failure",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "ai-auth-probe.timer needed repair on 4 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:54",
+      "service": "claude-process-watch.service",
+      "event_type": "long_lived_claude_process",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:54",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 13 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:14",
+      "service": "claude-process-watch.service",
+      "event_type": "long_lived_claude_process",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:14",
+      "service": "ai-auth-probe.timer",
+      "event_type": "repeat_timer_failure",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "ai-auth-probe.timer needed repair on 5 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:34",
+      "service": "claude-process-watch.service",
+      "event_type": "long_lived_claude_process",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:44",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 14 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:44",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 15 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:44",
+      "service": "ai-auth-probe.timer",
+      "event_type": "repeat_timer_failure",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "ai-auth-probe.timer needed repair on 6 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:54",
+      "service": "claude-process-watch.service",
+      "event_type": "long_lived_claude_process",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:54",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 16 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:54",
+      "service": "thunderbird-generic-remediate@ai-auth-probe",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -2231,102 +287,165 @@
       "elon_invoked": false
     },
     {
-      "time": "10:26",
-      "service": "thunderbird-mcp",
+      "time": "03:04",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 17 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:14",
+      "service": "claude-process-watch.service",
+      "event_type": "long_lived_claude_process",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:14",
+      "service": "ai-auth-probe.timer",
+      "event_type": "repeat_timer_failure",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "ai-auth-probe.timer needed repair on 7 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:34",
+      "service": "claude-process-watch.service",
+      "event_type": "long_lived_claude_process",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:44",
+      "service": "ai-auth-probe.timer",
+      "event_type": "repeat_timer_failure",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "ai-auth-probe.timer needed repair on 8 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:54",
+      "service": "claude-process-watch.service",
+      "event_type": "long_lived_claude_process",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:54",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 18 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:54",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 19 consecutive AUTH_FAILED cycle(s). auth_failed: failed to authenticate. api error: 401 oauth access token has expired. re-authenticate to continue.\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:06",
+      "service": "ai-auth-probe",
       "event_type": "auto_healed",
-      "action": "auto_healed_verified",
-      "status": "GREEN",
-      "note": "auto-heal verified (systemctl is-active: active)",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
       "elon_invoked": false
     },
     {
-      "time": "10:38",
-      "service": "thunderbird-inbox-sweep.timer",
-      "event_type": "repeat_timer_failure",
+      "time": "04:06",
+      "service": "thunderbird-generic-remediate@ai-auth-probe",
+      "event_type": "auto_healed",
       "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-inbox-sweep.timer needed repair on 26 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
       "elon_invoked": false
     },
     {
-      "time": "10:38",
-      "service": "thunderbird-c2-sweep.timer",
-      "event_type": "repeat_timer_failure",
+      "time": "04:06",
+      "service": "thunderbird-generic-remediate@app-\\x2fusr\\x2fbin\\x2fkalendarac@7a1f4de7b10847f59eb1ab774b2a144c",
+      "event_type": "auto_healed",
       "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-c2-sweep.timer needed repair on 26 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
       "elon_invoked": false
     },
     {
-      "time": "10:38",
-      "service": "claude-process-watch.timer",
-      "event_type": "repeat_timer_failure",
+      "time": "04:06",
+      "service": "thunderbird-generic-remediate@app-\\x2fusr\\x2flibexec\\x2fDiscoverNotifier@2efaea3e4cf84b7aa2fd089f6664729b",
+      "event_type": "auto_healed",
       "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "claude-process-watch.timer needed repair on 43 consecutive scans (activated_service_failed) \u2014 auto-repair suspended, needs a human look.",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
       "elon_invoked": false
     },
     {
-      "time": "10:38",
-      "service": "thunderbird-mcp-gc.timer",
-      "event_type": "timer_repair_failed",
+      "time": "04:06",
+      "service": "thunderbird-generic-remediate@app-md.obsidian.Obsidian@07a28da633de42659b1bf2732c893818",
+      "event_type": "auto_healed",
       "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-mcp-gc.timer: activated_service_failed. Repair attempted (restart thunderbird-mcp-gc.service -> FAILED) but did not resolve \u2014 paging per restart-and-reverify-before-paging policy.",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
       "elon_invoked": false
     },
     {
-      "time": "10:38",
-      "service": "d2m-email-c2.timer",
-      "event_type": "repeat_timer_failure",
+      "time": "04:06",
+      "service": "thunderbird-generic-remediate@plasma-plasmashell",
+      "event_type": "auto_healed",
       "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-email-c2.timer needed repair on 43 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
       "elon_invoked": false
     },
     {
-      "time": "10:38",
-      "service": "d2m-lifecycle.timer",
-      "event_type": "repeat_timer_failure",
+      "time": "04:06",
+      "service": "thunderbird-generic-remediate@xdg-desktop-portal-gtk",
+      "event_type": "auto_healed",
       "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-lifecycle.timer needed repair on 43 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
       "elon_invoked": false
     },
     {
-      "time": "10:38",
-      "service": "d2m-qdrant-reindex.timer",
-      "event_type": "repeat_timer_failure",
+      "time": "04:06",
+      "service": "thunderbird-generic-remediate@plasma-kded6",
+      "event_type": "auto_healed",
       "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-qdrant-reindex.timer needed repair on 43 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
       "elon_invoked": false
     },
     {
-      "time": "10:38",
-      "service": "d2m-session-blast.timer",
-      "event_type": "repeat_timer_failure",
+      "time": "04:06",
+      "service": "thunderbird-generic-remediate@plasma-kwin_x11",
+      "event_type": "auto_healed",
       "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-session-blast.timer needed repair on 43 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
       "elon_invoked": false
     },
     {
-      "time": "10:38",
-      "service": "d2m-travel-surveys.timer",
-      "event_type": "repeat_timer_failure",
+      "time": "05:04",
+      "service": "thunderbird-generic-remediate@xdg-desktop-portal-gtk",
+      "event_type": "auto_healed",
       "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "d2m-travel-surveys.timer needed repair on 43 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
-      "elon_invoked": false
-    },
-    {
-      "time": "10:38",
-      "service": "thunderbird-spsa-sheets-sync.timer",
-      "event_type": "repeat_timer_failure",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "thunderbird-spsa-sheets-sync.timer needed repair on 43 consecutive scans (timer_not_active) \u2014 auto-repair suspended, needs a human look.",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
       "elon_invoked": false
     }
   ],

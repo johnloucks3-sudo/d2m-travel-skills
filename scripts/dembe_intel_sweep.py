@@ -350,6 +350,22 @@ def main() -> None:
         if not args.timer:
             print(f"  {'✅' if ok else '❌'} Intel sweep posted to Telegram")
 
+    # Post INTEL signal to staff_signal_bus (Agent-to-Agent substrate)
+    try:
+        from core.ai_infra.staff_signal_bus import post as post_signal
+        pri = "high" if any(a.get("days", 99) < 0 for a in fpd_alerts) else ("med" if fpd_alerts else "low")
+        sig_id = post_signal(
+            from_persona="dembe",
+            type="INTEL",
+            subject=f"Daily Intel Sweep {today.isoformat()} — {len(radar)} departures, {len(fpd_alerts)} FPD alerts",
+            detail=f"Departures in 90d: {len(radar)}, FPD alerts: {len(fpd_alerts)}, Hot TPs: {len(hot_tps)}, WF-17 queue: {queue_count}",
+            priority=pri,
+        )
+        logger.info(f"Staff signal bus: posted #{sig_id} [INTEL] from dembe")
+    except Exception as exc:
+        logger.warning(f"Staff signal bus post failed: {exc}")
+
 
 if __name__ == "__main__":
     main()
+

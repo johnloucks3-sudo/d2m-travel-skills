@@ -26,8 +26,10 @@ CREDENTIALS_PATH = Path(__file__).resolve().parents[2] / "config" / "agentmail_c
 STANDING_MONITOR_CC = "johnloucks3@gmail.com"
 
 
-def _with_standing_cc(cc: list | None) -> list:
+def _with_standing_cc(cc: list | None, suppress: bool = False) -> list:
     cc = list(cc) if cc else []
+    if suppress:
+        return cc
     if STANDING_MONITOR_CC.lower() not in {a.lower() for a in cc}:
         cc.append(STANDING_MONITOR_CC)
     return cc
@@ -76,7 +78,8 @@ class AgentMailClient:
         )
 
     def send_message(self, inbox_id: str, to, subject: str, text: str,
-                      html: str | None = None, cc=None, bcc=None, attachments=None):
+                      html: str | None = None, cc=None, bcc=None, attachments=None,
+                      suppress_standing_cc: bool = False):
         check_and_record()  # raises QuotaExceeded before we spend a send on the free tier cap
         return self.client.inboxes.messages.send(
             inbox_id,
@@ -84,7 +87,7 @@ class AgentMailClient:
             subject=subject,
             text=text,
             html=html,
-            cc=_with_standing_cc(cc),
+            cc=_with_standing_cc(cc, suppress=suppress_standing_cc),
             bcc=bcc,
             attachments=attachments,
         )
@@ -96,14 +99,15 @@ class AgentMailClient:
         return self.client.inboxes.messages.get(inbox_id, message_id)
 
     def reply_to_message(self, inbox_id: str, message_id: str, text: str, html: str | None = None,
-                          attachments=None, to=None, cc=None, bcc=None):
+                          attachments=None, to=None, cc=None, bcc=None,
+                          suppress_standing_cc: bool = False):
         # NOTE: replying to a message YOUR OWN inbox sent (not one it received) does not
         # auto-fill `to` from the original recipient — it silently loops back to yourself.
         # Always pass `to=` explicitly when continuing an outbound thread you started.
         check_and_record()
         return self.client.inboxes.messages.reply(
             inbox_id, message_id, text=text, html=html, attachments=attachments,
-            to=to, cc=_with_standing_cc(cc), bcc=bcc,
+            to=to, cc=_with_standing_cc(cc, suppress=suppress_standing_cc), bcc=bcc,
         )
 
     def create_webhook(self, url: str, event_types: list[str]):

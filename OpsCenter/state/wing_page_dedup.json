@@ -294,5 +294,45 @@
   "dbe1e255e536bb5c": {
     "problem": "STAFF SUMMARY SHEET \u2014 INFO (Market Intel)\nSUBJECT: Daily Market/Competitor Intel Synthesis\nOPR: Dembe (A2) | STAFFED BY: Dembe (A2) | ACTION: INFO\n\nPURPOSE\nDaily market and competitor intelligence syn",
     "sent_at": 1786201213.4025335
+  },
+  "92f9c5b87605a589": {
+    "problem": "CHIEF SILVER HOLD \u2014 RT-EFFICACY-O1: core/relay/task_delegation.py",
+    "sent_at": 1786235162.338061
+  },
+  "d81db710b594504c": {
+    "problem": "CHIEF SILVER HOLD \u2014 RT-EFFICACY-W6: core/relay/delegation.py",
+    "sent_at": 1786236902.938201
+  },
+  "7f6ed492b59ce920": {
+    "problem": "STAFF SUMMARY SHEET \u2014 INFO (Market Intel)\nSUBJECT: Daily Market/Competitor Intel Synthesis\nOPR: Dembe (A2) | STAFFED BY: Dembe (A2) | ACTION: INFO\n\nPURPOSE\nDaily market and competitor intelligence syn",
+    "sent_at": 1786287613.886915
+  },
+  "804a001636c992cd": {
+    "problem": "\ud83d\udce7 d2m inbound (booking_confirmation): \"Fwd: Budget Rent A Car: Reservation Reminder: Reservation #01057062US6 at GRB\"",
+    "sent_at": 1786311552.0672302
+  },
+  "1314ce3d80716ada": {
+    "problem": "\ud83d\udce7 d2m inbound (booking_confirmation): \"Fwd: Reservation Confirmation #99040655 for Residence Inn by Marriott Denver South/Park Meadows Mall\"",
+    "sent_at": 1786311851.3433478
+  },
+  "f2b7a457c8250519": {
+    "problem": "\ud83d\udce7 d2m inbound (financial): \"Fwd: Upcoming payments due for Stockholm\"",
+    "sent_at": 1786371668.4210281
+  },
+  "37393c4c0e6da0a9": {
+    "problem": "\ud83d\udce7 d2m inbound (booking_confirmation): \"Cancellation - Booking PE184711812 for 27 Aug 2026\"",
+    "sent_at": 1786373468.2923834
+  },
+  "90960b7929aa157a": {
+    "problem": "\ud83d\udce7 d2m inbound (booking_confirmation): \"Fwd: Booking #1178281 Cancellation for Albert Ely has been requested\"",
+    "sent_at": 1786373468.483092
+  },
+  "56c58a95fbcd27e7": {
+    "problem": "\ud83d\udce7 d2m inbound (booking_confirmation): \"Fwd: Cancellation - Booking PE184711812 for 27 Aug 2026\"",
+    "sent_at": 1786373768.2216454
+  },
+  "4b8481c6206c8d6f": {
+    "problem": "STAFF SUMMARY SHEET \u2014 INFO (Market Intel)\nSUBJECT: Daily Market/Competitor Intel Synthesis\nOPR: Dembe (A2) | STAFFED BY: Dembe (A2) | ACTION: INFO\n\nPURPOSE\nDaily market and competitor intelligence syn",
+    "sent_at": 1786374016.1404972
   }
 }

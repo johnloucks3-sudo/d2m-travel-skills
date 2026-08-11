@@ -1,8 +1,8 @@
 {
-  "timestamp": 1786208806.201168,
-  "five_hour_pct": 0.0,
-  "five_hour_resets_at": "2026-08-08T22:00:00.165936+00:00",
-  "seven_day_pct": 26.0,
-  "seven_day_resets_at": "2026-08-14T03:00:00.165954+00:00",
-  "source": "oauth"
+  "timestamp": 1786455000.7486527,
+  "five_hour_pct": 27.0,
+  "five_hour_resets_at": "2026-08-11T16:00:00.688Z",
+  "seven_day_pct": 88.0,
+  "seven_day_resets_at": "2026-08-14T02:59:59.688Z",
+  "source": "hud_cache"
 }

@@ -207,17 +207,17 @@ Added 2026-07-30 from Commander's forwarded confirmation. **This closes the "ove
 ⚠️ **FLAG:** Sep 6 is NFL opening Sunday. Confirmed clear — Packers' first home game is Sep 24, not Sep 6 — no rate surge expected.
 
 ### Rental Car — GRB, Sep 6–14 (8 days)
-**🔴 STILL NOT BOOKED — verified against Gmail 2026-07-16, no confirmation email found. Fresh mission-board ticket MISSION-649 opened 2026-07-16 (P1) — no automated rental-car booking tool exists in the repo, and providing payment/loyalty info is a Commander decision, not something to execute silently.**
+**✅ BOOKED — Budget Rent A Car confirmation #01057062US6 (reservation reminder received 2026-08-09). Rate details pending retrieval from confirmation.**
 
 | Detail | Value |
 |--------|-------|
+| Provider | Budget Rent A Car |
+| Confirmation | **#01057062US6** |
 | Pick-up | GRB airport, Sep 6 ~2:30 PM |
 | Drop-off | GRB airport, Sep 14, before 3:30 PM (after-hours drop available) |
-| Vehicle | Midsize SUV (Ford Escape class) — paved roads only in Door County |
-| Agencies at GRB | **Enterprise (recommended)** · National · Hertz · Avis · Budget |
-| Enterprise direct | 2077 Airport Dr Ste 4, Green Bay WI · (833) 739-2659 · `https://www.enterprise.com/en/car-rental-locations/us/wi/green-bay-international-airport-44v3.html` |
-| Est. all-in | $700–$1,050 (8 days + airport fees) |
-| Status | 🔴 NOT BOOKED — MISSION-649 open, book this week, small airport + peak season |
+| Vehicle | TBD — confirmation details pending |
+| Est. all-in | $700–$1,050 (8 days + airport fees) — estimate, pending confirmation |
+| Status | ✅ BOOKED — MISSION-649 resolved |
 
 ### Drive — GRB to Sister Bay
 - Distance: ~65 miles north via WI-57
